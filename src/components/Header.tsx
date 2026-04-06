@@ -57,8 +57,8 @@ export default function Header() {
               <Link
                 href={l.href}
                 className={clsx(
-                  "font-sans font-semibold text-xs uppercase tracking-[0.2em] relative group transition-opacity",
-                  scrolled ? "gold-shine-subtle hover:opacity-75" : "text-white hover:text-primary"
+                  "font-sans font-semibold text-xs uppercase tracking-[0.2em] relative group transition-opacity hover:opacity-75",
+                  scrolled ? "gold-shine-subtle" : "gold-shine"
                 )}
               >
                 {l.label}
