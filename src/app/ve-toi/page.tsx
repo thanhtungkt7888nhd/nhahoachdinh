@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import { FadeUp, SlideIn, StaggerParent, StaggerChild } from "@/components/animations";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -69,6 +69,154 @@ const services = [
     icon: "🏛️",
   },
 ];
+
+const statsData = [
+  {
+    num: "50+",
+    label: "Dự Án Farmstay & Sinh Thái",
+    details: [
+      { title: "Hana Land Ecostay", sub: "Đà Lạt — Mô hình farmstay sinh thái tích hợp nông nghiệp & lưu trú cao cấp" },
+      { title: "Sản Việt Farm", sub: "Khánh Hòa — Hoạch định tổng thể từ đất trống đến điểm đến du lịch nông nghiệp" },
+      { title: "Muonglo Farmstay", sub: "Yên Bái — Kết hợp văn hóa Thái bản địa với mô hình sinh thái cộng đồng" },
+      { title: "Khe Sanh Coffee Tour", sub: "Quảng Trị — Tour du lịch cà phê đầu tiên gắn kết trải nghiệm nông nghiệp vùng cao" },
+      { title: "HTX Nông Nghiệp Khe Sanh", sub: "Cố vấn chiến lược — chuyển giao mô hình HTX tiên phong khu vực miền Trung" },
+      { title: "...và 45+ dự án khác", sub: "Trải dài từ Hà Giang, Yên Bái, Đắk Nông, Gia Lai đến Quảng Nam, Bình Thuận" },
+    ],
+  },
+  {
+    num: "3.000+",
+    label: "Hecta Đất Chi Phối",
+    details: [
+      { title: "Đắk Nông & Tây Nguyên", sub: "Vùng đất bazan màu mỡ — hoạch định phát triển nông nghiệp sinh thái quy mô lớn" },
+      { title: "Quảng Nam & Duyên Hải", sub: "Kết nối di sản văn hóa Chăm với du lịch nông nghiệp ven biển" },
+      { title: "Tây Bắc & Vùng Núi", sub: "Bảo tồn bản sắc dân tộc thiểu số gắn liền với phát triển farmstay cộng đồng" },
+      { title: "Phương Pháp Đọc Vị Đất", sub: "12 tiêu chí vàng đánh giá quỹ đất: địa hình, thổ nhưỡng, hạ tầng, sinh thái & pháp lý" },
+    ],
+  },
+  {
+    num: "40+",
+    label: "Tọa Đàm Cấp Tỉnh / Bộ",
+    details: [
+      { title: "Hội Thảo Quốc Gia Farmstay Update", sub: "Hà Nội, TP.HCM, Đà Nẵng — Hội tụ chuyên gia hàng đầu, hàng trăm nhà đầu tư" },
+      { title: "Tọa Đàm Cấp Tỉnh", sub: "Đắk Lắk, Gia Lai, Quảng Ngãi, Huế, Quảng Nam — Đào tạo cán bộ công chức địa phương" },
+      { title: "Xuyên Việt Farmstay", sub: "4 mùa (2021, 2023, 2024, 2025) — Hành trình kết nối 100+ farm/farmstay toàn quốc" },
+      { title: "Diễn Giả Khách Mời", sub: "BNI, VCCI, Bộ NN&PTNT, Hiệp hội Du lịch — Truyền bá tư duy farmstay bền vững" },
+    ],
+  },
+  {
+    num: "150+",
+    label: "Bài Viết Chuyên Đề",
+    details: [
+      { title: "Chiến Lược & Tư Duy", sub: "Phân tích sâu về mô hình farmstay, tư duy đầu tư đất nông nghiệp bền vững" },
+      { title: "Marketing & Thương Hiệu", sub: "Xây dựng thương hiệu farmstay, kể chuyện văn hóa và digital marketing thực chiến" },
+      { title: "Đất Đai & Pháp Lý", sub: "Hướng dẫn chọn đất, đọc vị địa hình và các vấn đề pháp lý trong phát triển farmstay" },
+      { title: "Cộng Đồng & Con Người", sub: "Bài học thực địa từ hàng trăm dự án — gắn kết cộng đồng địa phương trong mô hình phát triển" },
+    ],
+  },
+];
+
+function StatsSection() {
+  const [openIdx, setOpenIdx] = useState<number | null>(null);
+
+  const toggle = (i: number) => setOpenIdx(openIdx === i ? null : i);
+
+  return (
+    <section
+      className="py-20"
+      style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
+    >
+      <div className="container-main">
+        <FadeUp>
+          <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-sm text-center mb-12">
+            Những Con Số Thực Chứng
+          </p>
+        </FadeUp>
+
+        {/* Stat buttons */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-2">
+          {statsData.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => toggle(i)}
+              className="group text-center px-4 py-6 border transition-all duration-300 rounded-sm focus:outline-none"
+              style={{
+                borderColor: openIdx === i ? "#C8A84B" : "rgba(200,168,75,0.2)",
+                background: openIdx === i ? "rgba(200,168,75,0.08)" : "transparent",
+              }}
+            >
+              <p
+                className="gold-shine font-serif font-bold mb-2 transition-all duration-300"
+                style={{ fontSize: "clamp(1.8rem, 4vw, 3rem)" }}
+              >
+                {s.num}
+              </p>
+              <p className="font-sans text-white/50 text-xs uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors">
+                {s.label}
+              </p>
+              <motion.div
+                className="mx-auto mt-3 text-primary/60"
+                animate={{ rotate: openIdx === i ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                  <path d="M8 10.5L2.5 5h11L8 10.5z" />
+                </svg>
+              </motion.div>
+            </button>
+          ))}
+        </div>
+
+        {/* Accordion content */}
+        <AnimatePresence mode="wait">
+          {openIdx !== null && (
+            <motion.div
+              key={openIdx}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+              className="overflow-hidden"
+            >
+              <div
+                className="mt-4 p-8 md:p-10 border rounded-sm"
+                style={{ borderColor: "rgba(200,168,75,0.25)", background: "rgba(200,168,75,0.05)" }}
+              >
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="gold-shine font-serif font-bold" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+                    {statsData[openIdx].num}
+                  </span>
+                  <div>
+                    <div className="w-8 h-px bg-primary mb-2" />
+                    <p className="font-sans text-white/70 text-sm uppercase tracking-widest">
+                      {statsData[openIdx].label}
+                    </p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {statsData[openIdx].details.map((d, j) => (
+                    <motion.div
+                      key={j}
+                      initial={{ opacity: 0, x: -16 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.35, delay: j * 0.07, ease: [0.22, 1, 0.36, 1] }}
+                      className="flex gap-3"
+                    >
+                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                      <div>
+                        <p className="font-serif text-white/90 text-sm font-medium mb-0.5">{d.title}</p>
+                        <p className="font-sans text-white/45 text-xs leading-relaxed">{d.sub}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
 
 function SectionDivider() {
   return <div className="w-12 h-0.5 bg-primary mt-5 mb-6" />;
@@ -245,35 +393,7 @@ export default function VeToi() {
       </section>
 
       {/* ── STATS ────────────────────────────────────────────────── */}
-      <section
-        className="py-20"
-        style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
-      >
-        <div className="container-main">
-          <FadeUp>
-            <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-sm text-center mb-12">
-              Những Con Số Thực Chứng
-            </p>
-          </FadeUp>
-          <StaggerParent className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { num: "50+", label: "Dự án Farmstay & Sinh thái" },
-              { num: "3.000+", label: "Hecta Đất Chi Phối" },
-              { num: "40+", label: "Tọa Đàm Cấp Tỉnh / Bộ" },
-              { num: "150+", label: "Bài Viết Chuyên Đề" },
-            ].map((s, i) => (
-              <StaggerChild key={i}>
-                <div>
-                  <p className="gold-shine font-serif font-bold mb-2" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
-                    {s.num}
-                  </p>
-                  <p className="font-sans text-white/50 text-xs uppercase tracking-widest">{s.label}</p>
-                </div>
-              </StaggerChild>
-            ))}
-          </StaggerParent>
-        </div>
-      </section>
+      <StatsSection />
 
       {/* ── SỰ THỨC TỈNH ─────────────────────────────────────────── */}
       <section className="bg-beige py-24 md:py-32">
