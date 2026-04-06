@@ -19,10 +19,10 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Về Tôi", href: "/ve-toi" },
-  { label: "Việc Tôi Làm", href: "#viec-toi-lam" },
-  { label: "Chia Sẻ Kiến Thức", href: "/chia-se-kien-thuc" },
-  { label: "Blog", href: "/blog" },
-  { label: "Liên Hệ", href: "/lien-he" },
+  { label: "Tôi Làm", href: "#viec-toi-lam" },
+  { label: "Chia Sẻ", href: "/chia-se-kien-thuc" },
+  { label: "Sách Farmstay", href: "/sach-farmstay" },
+  { label: "Thông Tin", href: "/lien-he" },
 ];
 
 export const missions = [
