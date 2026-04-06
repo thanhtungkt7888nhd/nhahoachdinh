@@ -21,7 +21,7 @@ const teachers: { stt: string; name: string; desc: string; img?: string }[] = [
   { stt: "10", name: "Con Trai — Phạm Nguyên Khuê", desc: "Dạy tình yêu vô điều kiện — nâng tâm bao dung với nhân sự, cộng đồng và nhân loại.", img: "/images/portrait-con-trai-nguyen-khue.jpg" },
   { stt: "11", name: "Bố — Phạm Văn Thu", desc: "Khí chất đàn ông — giới hạn lớn nhất không nằm ở hoàn cảnh mà ở chính bản thân mình.", img: "/images/portrait-bo-pham-van-thu.jpg" },
   { stt: "12", name: "Mẹ — Dương Thị Hoa", desc: "Tư duy kinh doanh và kế hoạch từ những việc nhỏ nhất — bài học quy hoạch quản trị rủi ro đầu đời." },
-  { stt: "13", name: "Học Trò & Nhân Sự", desc: "Những câu hỏi hóc búa, sự tận tụy, lòng trung thành — chất liệu vô giá để mài giũa hệ thống tư duy." },
+  { stt: "13", name: "Học Trò & Nhân Sự", desc: "Những câu hỏi hóc búa, sự tận tụy, lòng trung thành — chất liệu vô giá để mài giũa hệ thống tư duy.", img: "/images/teacher-hoc-tro-nhan-su.jpg" },
 ];
 
 const principles = [
