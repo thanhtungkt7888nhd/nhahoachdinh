@@ -691,40 +691,38 @@ export default function VeToi() {
       </section>
 
       {/* ── CÁC GÓI ĐỒNG HÀNH ───────────────────────────────────── */}
-      <section className="bg-beige py-24 md:py-32">
+      <section className="py-24 md:py-32" style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}>
         <div className="container-main">
           <div className="text-center mb-14">
             <FadeUp>
-              <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.2em] text-sm mb-2">
+              <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-sm mb-2">
                 Hợp Tác
               </p>
-              <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
+              <h2 className="font-serif text-white" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
                 Các Gói Đồng Hành
               </h2>
               <div className="w-12 h-0.5 bg-primary mx-auto mt-5 mb-4" />
-              <p className="font-sans text-muted text-sm max-w-xl mx-auto">
+              <p className="font-sans text-white/50 text-sm max-w-xl mx-auto">
                 Dành cho những người làm việc nghiêm túc, có khát vọng làm nông nghiệp sạch và muốn để lại di sản xanh.
               </p>
             </FadeUp>
           </div>
 
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {services.map((s, i) => (
               <StaggerChild key={i}>
                 <motion.div
-                  className="group p-8 bg-white border border-earth/10 relative overflow-hidden cursor-pointer"
-                  whileHover={{ y: -5 }}
+                  className="group p-8 relative overflow-hidden rounded-sm cursor-pointer transition-all duration-300"
+                  style={{ border: "1px solid rgba(200,168,75,0.2)", background: "rgba(200,168,75,0.04)" }}
+                  whileHover={{ y: -3, borderColor: "#C8A84B" } as any}
                   transition={{ duration: 0.25 }}
                 >
-                  <span className="text-3xl mb-4 block">{s.icon}</span>
-                  <h3 className="font-serif text-charcoal text-xl mb-3">{s.title}</h3>
-                  <p className="font-sans text-muted text-sm leading-relaxed">{s.desc}</p>
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 bg-primary"
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.35 }}
-                  />
+                  <p className="gold-shine font-serif font-bold mb-4" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)" }}>
+                    0{i + 1}
+                  </p>
+                  <div className="w-8 h-px mb-4" style={{ background: "#C8A84B" }} />
+                  <h3 className="font-serif text-white text-xl mb-3">{s.title}</h3>
+                  <p className="font-sans text-white/55 text-sm leading-relaxed">{s.desc}</p>
                 </motion.div>
               </StaggerChild>
             ))}
