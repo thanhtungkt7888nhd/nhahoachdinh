@@ -255,7 +255,7 @@ export default function VeToi() {
               <div className="relative mx-auto" style={{ maxWidth: 420 }}>
                 <div className="aspect-[3/4] relative overflow-hidden rounded-sm img-shadow">
                   <Image
-                    src="/images/portrait-chandung.jpg"
+                    src="/images/portrait-nhahoachdinh.jpg"
                     alt="Phạm Thanh Tùng — Nhà Hoạch Định"
                     fill
                     className="object-cover object-top"
@@ -369,7 +369,7 @@ export default function VeToi() {
               <SlideIn direction="right" delay={0.2}>
                 <div className="relative aspect-[4/3] overflow-hidden rounded-sm img-shadow">
                   <Image
-                    src="/images/portrait-nhahoachdinh.jpg"
+                    src="/images/portrait-chandung.jpg"
                     alt="Phạm Thanh Tùng diễn thuyết"
                     fill
                     className="object-cover"
