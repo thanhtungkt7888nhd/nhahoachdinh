@@ -12,7 +12,7 @@ export const siteConfig = {
   address: "79 Ngô Mây, Cẩm Lệ, Đà Nẵng",
   social: {
     facebook: "https://www.facebook.com/NhaHoachDinhPhamThanhTung",
-    youtube: "https://youtube.com/@phamthanhtung",
+    youtube: "https://www.youtube.com/@NhaHoachDinhPhamThanhTung",
     pinterest: "https://pinterest.com/phamthanhtung",
   },
 };
