@@ -519,22 +519,24 @@ export default function VeToi() {
               Hành Trình
             </p>
             <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
-              Sự Thức Tỉnh Đẫm Máu 2019–2020
+              Sự Thức Tỉnh từ năm 2019–2020
             </h2>
             <SectionDivider />
           </FadeUp>
           <FadeUp delay={0.15}>
             <p className="font-sans text-muted leading-relaxed mb-6">
               Thời điểm hoàng kim của trào lưu <em>bỏ phố về rừng</em> — một sự bùng nổ mang tính bản năng nhưng thiếu vắng
-              hoàn toàn nền tảng lý luận và tư duy quản trị. Hàng loạt cá nhân nhân danh từ khóa <strong>Farmstay</strong> để
-              ngụy trang cho hoạt động đầu cơ, phân lô bán nền trái phép, băm nát địa hình, tiêu diệt cảnh quan sinh thái.
+              hoàn toàn nền tảng lý luận và tư duy quản trị, đa số làm vì thấy đó là trào lưu. Hàng loạt cá nhân nhân danh{" "}
+              <strong>Farmstay</strong> để ngụy trang cho hoạt động đầu cơ, phân lô bán nền trái phép, băm nát địa hình,
+              tiêu diệt cảnh quan sinh thái tự nhiên, san gạt địa hình.
             </p>
           </FadeUp>
           <FadeUp delay={0.25}>
             <p className="font-sans text-muted leading-relaxed mb-6">
-              Đứng trước sự tàn phá khủng khiếp đó, tôi nhận ra: <em>Một bản vẽ kiến trúc dù lung linh đến mấy cũng trở thành
-              vô nghĩa nếu đặt trên vùng đất sai chiến lược.</em> Tôi quyết định bước ra khỏi ranh giới an toàn của một kiến trúc sư
-              để dùng tư duy vĩ mô tác động, bẻ lái và thiết lập lại luật chơi chân chính cho toàn ngành Farmstay Việt Nam.
+              Đứng trước sự tàn phá khủng khiếp đó, mình nhận ra: <em>Một bản vẽ kiến trúc dù lung linh đến mấy cũng trở thành
+              vô nghĩa nếu đặt trên vùng đất sai chiến lược, không nhắm đúng vào đối tượng khách hàng mục tiêu.</em> Mình
+              quyết định bước ra khỏi ranh giới an toàn của một kiến trúc sư, để dùng tư duy vĩ mô tác động, tạo ra tác động
+              và thiết lập lại những chuẩn mực mà Farmstay toàn cầu đang làm đúng, hướng đi chân chính cho toàn ngành Farmstay Việt Nam.
             </p>
           </FadeUp>
           <FadeUp delay={0.35}>
@@ -542,7 +544,7 @@ export default function VeToi() {
               className="mx-auto mt-4 px-8 py-6 border-l-2 border-primary text-left font-serif text-charcoal/80 italic"
               style={{ fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}
             >
-              "Tôi dùng tư duy vĩ mô để tác động, bẻ lái và thiết lập lại luật chơi chân chính
+              "Mình dùng tư duy vĩ mô để tác động, bẻ lái và thiết lập lại luật chơi chân chính
               cho toàn ngành Farmstay và Du lịch nông nghiệp Việt Nam."
             </div>
           </FadeUp>
