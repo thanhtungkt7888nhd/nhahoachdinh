@@ -45,7 +45,7 @@ const teachers: { stt: string; name: string; desc: string; detail: string; img?:
     detail: "Người phụ nữ quyền lực nhất, cô giáo chủ nhiệm và đồng thời cũng là người Vợ tào khang của mình — Nguyễn Thị Thanh Huyền. Phía sau những quyết định táo bạo của mình luôn có bóng dáng của sự vun vén. Mình đã phát triển mạnh mẽ về mặt tri thức, rèn giũa được những thói quen tốt chính là nhờ sự khắt khe, sự yêu thương kỷ luật và sự đồng hành bền bỉ của cô ấy qua bao thăng trầm. Không có cô ấy, sẽ không có Phạm Thanh Tùng của ngày hôm nay.",
     img: "/images/portrait-vo-thanh-huyen.jpg",
     cardImgPos: "center 30%",
-    modalImgPos: "center 55%",
+    modalImgPos: "center 18%",
   },
   {
     stt: "07", name: "Học Trò & Nhân Sự",
@@ -633,6 +633,7 @@ export default function VeToi() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 40 }}
                   transition={{ duration: 0.4, ease: easeOut }}
+                  onClick={() => setSelectedTeacher(null)}
                 >
                   <div
                     className="relative w-full md:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl md:rounded-xl"
@@ -759,6 +760,7 @@ export default function VeToi() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 40 }}
                   transition={{ duration: 0.4, ease: easeOut }}
+                  onClick={() => setSelectedPrinciple(null)}
                 >
                   <div
                     className="relative w-full md:max-w-xl max-h-[90vh] overflow-y-auto rounded-t-2xl md:rounded-xl"
