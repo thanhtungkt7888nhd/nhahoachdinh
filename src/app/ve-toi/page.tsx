@@ -334,8 +334,25 @@ export default function VeToi() {
       {/* ── DANH XƯNG NHÀ HOẠCH ĐỊNH ───────────────────────────── */}
       <section className="bg-white py-24 md:py-32">
         <div className="container-main max-w-5xl">
-          <div className="flex flex-col lg:flex-row gap-16 items-start">
-            <div className="lg:w-1/2">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+
+            {/* Ảnh — tỉ lệ dọc 3/4 để đủ khuôn mặt */}
+            <SlideIn direction="left" delay={0.15}>
+              <div className="w-full lg:w-2/5 flex-shrink-0">
+                <div className="relative overflow-hidden rounded-sm img-shadow" style={{ aspectRatio: "3/4", maxWidth: 380, margin: "0 auto" }}>
+                  <Image
+                    src="/images/portrait-chandung.jpg"
+                    alt="Phạm Thanh Tùng — Nhà Hoạch Định"
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 1024px) 90vw, 380px"
+                  />
+                </div>
+              </div>
+            </SlideIn>
+
+            {/* Nội dung */}
+            <div className="w-full lg:w-3/5">
               <FadeUp>
                 <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.2em] text-sm mb-2">
                   Danh Xưng
@@ -358,30 +375,15 @@ export default function VeToi() {
                 </p>
               </FadeUp>
               <FadeUp delay={0.35}>
-                <p className="font-sans text-muted leading-relaxed">
+                <p className="font-sans text-muted leading-relaxed mb-8">
                   Công tác hoạch định nhắm cụ thể vào việc bóc tách, giải phẫu và tận dụng triệt để thế mạnh nội tại
                   độc bản của địa phương về thiên nhiên, văn hóa, con người để phát triển.
                 </p>
               </FadeUp>
-            </div>
-
-            <div className="lg:w-1/2">
-              <SlideIn direction="right" delay={0.2}>
-                <div className="relative aspect-[4/3] overflow-hidden rounded-sm img-shadow">
-                  <Image
-                    src="/images/portrait-chandung.jpg"
-                    alt="Phạm Thanh Tùng diễn thuyết"
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                </div>
-              </SlideIn>
-              {/* Quote block */}
-              <FadeUp delay={0.4}>
+              <FadeUp delay={0.45}>
                 <blockquote
-                  className="mt-8 pl-5 border-l-2 border-primary font-serif text-charcoal/80 italic"
-                  style={{ fontSize: "clamp(1rem, 1.5vw, 1.2rem)" }}
+                  className="pl-5 border-l-2 border-primary font-serif text-charcoal/75 italic"
+                  style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.15rem)" }}
                 >
                   "Một bản vẽ kiến trúc dù lung linh đến mấy cũng trở nên vô nghĩa nếu đặt trên
                   một vùng đất sai chiến lược và thiếu vắng sinh kế cho người dân bản địa."
