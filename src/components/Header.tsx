@@ -40,7 +40,7 @@ export default function Header() {
           >
             {siteConfig.name}
           </motion.span>
-          <span className="gold-shine-subtle font-sans text-[11.5px] uppercase tracking-[0.3em] mt-0.5">
+          <span className={scrolled ? "gold-shine-subtle font-sans text-[11.5px] uppercase tracking-[0.3em] mt-0.5" : "gold-shine font-sans text-[11.5px] uppercase tracking-[0.3em] mt-0.5"}>
             {siteConfig.tagline}
           </span>
         </Link>
@@ -57,8 +57,8 @@ export default function Header() {
               <Link
                 href={l.href}
                 className={clsx(
-                  "font-sans font-semibold text-xs uppercase tracking-[0.2em] transition-colors hover:text-primary relative group",
-                  scrolled ? "text-charcoal" : "text-white"
+                  "font-sans font-semibold text-xs uppercase tracking-[0.2em] relative group transition-opacity",
+                  scrolled ? "gold-shine-subtle hover:opacity-75" : "text-white hover:text-primary"
                 )}
               >
                 {l.label}
