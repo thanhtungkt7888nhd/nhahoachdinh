@@ -14,14 +14,14 @@ const teachers: { stt: string; name: string; desc: string; img?: string; imgPos?
   { stt: "03", name: "Anh Tạ Minh Trãi", desc: "Tư duy sáng tạo bứt phá — phá vỡ giới hạn để dám nghĩ đến những đại dự án mang tầm quốc gia.", img: "/images/teacher-ta-minh-trai.jpg", imgPos: "object-top" },
   { stt: "04", name: "Thầy Phạm Thành Long", desc: "Kỷ luật thép và thói quen của người chiến thắng — liên tục vượt qua giới hạn của ngày hôm qua.", img: "/images/teacher-pham-thanh-long.jpg" },
   { stt: "05", name: "Anh Trần Đình Tú", desc: "Quản trị công ty bài bản — mọi quyết định đầu tư, nhân sự hôm nay đều trổ quả trong tương lai.", img: "/images/teacher-tran-dinh-tu.jpg", imgPos: "object-top" },
-  { stt: "06", name: "Cộng Đồng Làng Farmstay VN", desc: "Đồng sáng lập — hàng nghìn chủ Farm là người thầy thực tiễn sâu sắc nhất.", img: "/images/teacher-cong-dong-farmstay.jpg" },
-  { stt: "07", name: "Tổ Chức BNI", desc: "Hiểu thấu hệ thống vận hành toàn cầu — nền tảng Giáo dục là cốt lõi thành công.", img: "/images/teacher-bni.jpg" },
-  { stt: "08", name: "Anh Nguyễn An Nam", desc: "Đả thông tư tưởng tâm linh — giúp tâm trí tĩnh tại, đôi chân vững trên mặt đất.", img: "/images/teacher-nguyen-an-nam.jpg" },
-  { stt: "09", name: "Người Vợ — Nguyễn Thị Thanh Huyền", desc: "Người đồng hành bền bỉ, kỷ luật yêu thương phía sau những quyết định táo bạo nhất.", img: "/images/portrait-vo-thanh-huyen.jpg" },
-  { stt: "10", name: "Con Trai — Phạm Nguyên Khuê", desc: "Dạy tình yêu vô điều kiện — nâng tâm bao dung với nhân sự, cộng đồng và nhân loại.", img: "/images/portrait-con-trai-nguyen-khue.jpg" },
-  { stt: "11", name: "Bố — Phạm Văn Thu", desc: "Khí chất đàn ông — giới hạn lớn nhất không nằm ở hoàn cảnh mà ở chính bản thân mình.", img: "/images/portrait-bo-pham-van-thu.jpg" },
-  { stt: "12", name: "Mẹ — Dương Thị Hoa", desc: "Tư duy kinh doanh và kế hoạch từ những việc nhỏ nhất — bài học quy hoạch quản trị rủi ro đầu đời.", img: "/images/portrait-me-duong-thi-hoa.jpg" },
-  { stt: "13", name: "Học Trò & Nhân Sự", desc: "Những câu hỏi hóc búa, sự tận tụy, lòng trung thành — chất liệu vô giá để mài giũa hệ thống tư duy.", img: "/images/teacher-hoc-tro-nhan-su.jpg" },
+  { stt: "06", name: "Người Vợ — Nguyễn Thị Thanh Huyền", desc: "Người đồng hành bền bỉ, kỷ luật yêu thương phía sau những quyết định táo bạo nhất.", img: "/images/portrait-vo-thanh-huyen.jpg" },
+  { stt: "07", name: "Con Trai — Phạm Nguyên Khuê", desc: "Dạy tình yêu vô điều kiện — nâng tâm bao dung với nhân sự, cộng đồng và nhân loại.", img: "/images/portrait-con-trai-nguyen-khue.jpg" },
+  { stt: "08", name: "Bố — Phạm Văn Thu", desc: "Khí chất đàn ông — giới hạn lớn nhất không nằm ở hoàn cảnh mà ở chính bản thân mình.", img: "/images/portrait-bo-pham-van-thu.jpg" },
+  { stt: "09", name: "Mẹ — Dương Thị Hoa", desc: "Tư duy kinh doanh và kế hoạch từ những việc nhỏ nhất — bài học quy hoạch quản trị rủi ro đầu đời.", img: "/images/portrait-me-duong-thi-hoa.jpg" },
+  { stt: "10", name: "Học Trò & Nhân Sự", desc: "Những câu hỏi hóc búa, sự tận tụy, lòng trung thành — chất liệu vô giá để mài giũa hệ thống tư duy.", img: "/images/teacher-hoc-tro-nhan-su.jpg" },
+  { stt: "11", name: "Anh Nguyễn An Nam", desc: "Đả thông tư tưởng tâm linh — giúp tâm trí tĩnh tại, đôi chân vững trên mặt đất.", img: "/images/teacher-nguyen-an-nam.jpg" },
+  { stt: "12", name: "Cộng Đồng Làng Farmstay VN", desc: "Đồng sáng lập — hàng nghìn chủ Farm là người thầy thực tiễn sâu sắc nhất.", img: "/images/teacher-cong-dong-farmstay.jpg" },
+  { stt: "13", name: "Tổ Chức BNI", desc: "Hiểu thấu hệ thống vận hành toàn cầu — nền tảng Giáo dục là cốt lõi thành công.", img: "/images/teacher-bni.jpg" },
 ];
 
 const principles = [
