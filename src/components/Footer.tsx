@@ -9,8 +9,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14">
           {/* Brand */}
           <div>
-            <h3 className="gold-shine font-serif text-2xl font-medium mb-2">{siteConfig.name}</h3>
-            <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-sm mb-5">{siteConfig.tagline}</p>
+            <Link href="/" className="inline-block group mb-5">
+              <h3 className="gold-shine font-serif text-2xl font-medium mb-2 group-hover:opacity-80 transition-opacity">{siteConfig.name}</h3>
+              <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-sm group-hover:opacity-80 transition-opacity">{siteConfig.tagline}</p>
+            </Link>
             <p className="font-sans text-sm text-white/60 leading-relaxed max-w-xs">
               {siteConfig.vision}
             </p>
