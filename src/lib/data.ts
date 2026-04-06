@@ -13,7 +13,7 @@ export const siteConfig = {
   social: {
     facebook: "https://www.facebook.com/NhaHoachDinhPhamThanhTung",
     youtube: "https://www.youtube.com/@NhaHoachDinhPhamThanhTung",
-    pinterest: "https://pinterest.com/phamthanhtung",
+    pinterest: "https://pin.it/4ZOSKcq8T",
   },
 };
 
