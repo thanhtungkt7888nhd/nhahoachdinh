@@ -403,7 +403,7 @@ export default function VeToi() {
                 <Link href="/lien-he" className="btn-lienhe">
                   <span className="gold-shine">Liên Hệ Tư Vấn</span>
                 </Link>
-                <Link href="#triet-ly" className="btn-white">Triết Lý Của Tôi</Link>
+                <Link href="#triet-ly" className="btn-white">Triết Lý Của Mình</Link>
               </motion.div>
             </div>
           </div>
@@ -477,7 +477,7 @@ export default function VeToi() {
               </FadeUp>
               <FadeUp delay={0.25}>
                 <p className="font-sans leading-relaxed mb-5" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
-                  Tôi là người có khả năng{" "}
+                  Mình là người có khả năng{" "}
                   <span style={{ color: "#1C2A1C", fontWeight: 600 }}>thay đổi và tác động trực tiếp</span>{" "}
                   đến sự phát triển các vùng đất từ cấp làng, xã, huyện đến cấp tỉnh — đồng thời
                   định hướng{" "}

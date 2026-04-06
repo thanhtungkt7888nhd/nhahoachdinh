@@ -30,7 +30,7 @@ export const missions = [
     icon: "🗺️",
     label: "Hoạch Định Vùng Đất",
     title: "Biến Mỗi Vùng Đất Thành Tương Lai",
-    body: "Hơn 12 năm quy hoạch và phát triển tổng thể vùng đất nông nghiệp — từ Đắk Nông, Quảng Nam đến khắp các tỉnh thành Việt Nam. Tôi giúp nhà đầu tư nhìn thấy tiềm năng ẩn trong từng mảnh đất trước khi bất kỳ ai khác nhận ra.",
+    body: "Hơn 12 năm quy hoạch và phát triển tổng thể vùng đất nông nghiệp — từ Đắk Nông, Quảng Nam đến khắp các tỉnh thành Việt Nam. Mình giúp nhà đầu tư nhìn thấy tiềm năng ẩn trong từng mảnh đất trước khi bất kỳ ai khác nhận ra.",
     img: "/images/mission-1.jpg",
     imgAlt: "Hoạch định phát triển vùng đất",
     imgRight: false,
