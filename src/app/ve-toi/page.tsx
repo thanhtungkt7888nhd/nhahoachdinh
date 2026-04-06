@@ -13,7 +13,7 @@ const teachers: { stt: string; name: string; desc: string; img?: string }[] = [
   { stt: "02", name: "Thầy Giản Tư Trung", desc: "Tư duy quản trị mục tiêu cuộc đời — kinh doanh là hành trình tu thân, không chỉ là kiếm tiền.", img: "/images/teacher-gian-tu-trung.jpg" },
   { stt: "03", name: "Anh Tạ Minh Trãi", desc: "Tư duy sáng tạo bứt phá — phá vỡ giới hạn để dám nghĩ đến những đại dự án mang tầm quốc gia.", img: "/images/teacher-ta-minh-trai.jpg" },
   { stt: "04", name: "Thầy Phạm Thành Long", desc: "Kỷ luật thép và thói quen của người chiến thắng — liên tục vượt qua giới hạn của ngày hôm qua.", img: "/images/teacher-pham-thanh-long.jpg" },
-  { stt: "05", name: "Anh Trần Đình Tú", desc: "Quản trị công ty bài bản — mọi quyết định đầu tư, nhân sự hôm nay đều trổ quả trong tương lai." },
+  { stt: "05", name: "Anh Trần Đình Tú", desc: "Quản trị công ty bài bản — mọi quyết định đầu tư, nhân sự hôm nay đều trổ quả trong tương lai.", img: "/images/teacher-tran-dinh-tu.jpg" },
   { stt: "06", name: "Cộng Đồng Làng Farmstay VN", desc: "Đồng sáng lập — hàng nghìn chủ Farm là người thầy thực tiễn sâu sắc nhất." },
   { stt: "07", name: "Tổ Chức BNI", desc: "Hiểu thấu hệ thống vận hành toàn cầu — nền tảng Giáo dục là cốt lõi thành công." },
   { stt: "08", name: "Anh Nguyễn An Nam", desc: "Đả thông tư tưởng tâm linh — giúp tâm trí tĩnh tại, đôi chân vững trên mặt đất." },
