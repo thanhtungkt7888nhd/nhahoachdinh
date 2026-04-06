@@ -19,7 +19,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Về Tôi", href: "/ve-toi" },
-  { label: "Tôi Làm", href: "#viec-toi-lam" },
+  { label: "Tôi Làm", href: "/#viec-toi-lam" },
   { label: "Chia Sẻ", href: "/chia-se-kien-thuc" },
   { label: "Sách Farmstay", href: "/sach-farmstay" },
   { label: "Thông Tin", href: "/lien-he" },
@@ -74,28 +74,28 @@ export const companies = [
     role: "CEO & Founder",
     description: "Tư vấn, Thiết kế & Quản trị Farmstay chuyên nghiệp",
     logo: "",
-    href: "#",
+    href: "/lien-he",
   },
   {
     name: "MASTERY",
     role: "CEO & Founder",
     description: "Hoạch định Chiến lược Đầu tư Dự án nông nghiệp sinh thái",
     logo: "",
-    href: "#",
+    href: "/lien-he",
   },
   {
     name: "HTX Khe Sanh",
     role: "Cố Vấn Chiến Lược",
     description: "Truyền lửa, chuyển giao tri thức vào vùng đất — Mô hình HTX tiên phong",
     logo: "",
-    href: "#",
+    href: "/lien-he",
   },
   {
     name: "Xuyên Việt Farmstay",
     role: "Nhà Sáng Lập",
     description: "Hành trình kết nối cộng đồng Farmstay toàn quốc — 4 mùa, 100+ điểm đến",
     logo: "",
-    href: "#",
+    href: "/ve-toi",
   },
 ];
 

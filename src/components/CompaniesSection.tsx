@@ -31,7 +31,7 @@ export default function CompaniesSection() {
             className="gold-shine font-serif"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)" }}
           >
-            Các Tổ Chức Tôi Dẫn Dắt
+            Các Tổ Chức Mình Dẫn Dắt
           </h2>
           <motion.div
             className="w-12 h-0.5 bg-primary mx-auto mt-5"

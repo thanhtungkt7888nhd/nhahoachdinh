@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { siteConfig } from "@/lib/data";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaYoutube } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaYoutube, FaPinterest } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Liên Hệ - Phạm Thanh Tùng",
@@ -76,8 +76,9 @@ export default function ContactPage() {
                 </p>
                 <div className="flex gap-3">
                   {[
-                    { href: siteConfig.social.facebook, Icon: FaFacebook, label: "Facebook" },
-                    { href: siteConfig.social.youtube,  Icon: FaYoutube,  label: "YouTube" },
+                    { href: siteConfig.social.facebook,  Icon: FaFacebook,  label: "Facebook" },
+                    { href: siteConfig.social.youtube,   Icon: FaYoutube,   label: "YouTube" },
+                    { href: siteConfig.social.pinterest, Icon: FaPinterest, label: "Pinterest" },
                   ].map(({ href, Icon, label }) => (
                     <a
                       key={label}

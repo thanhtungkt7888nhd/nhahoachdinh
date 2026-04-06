@@ -22,7 +22,7 @@ export default function KnowledgePage() {
           </h1>
           <div className="w-12 h-0.5 bg-primary mx-auto mb-6" />
           <p className="font-sans text-muted mt-4 max-w-xl mx-auto leading-relaxed text-sm italic font-serif">
-            &ldquo;Khi tôi chia sẻ kiến thức mình có với người khác, tôi học lại kiến thức
+            &ldquo;Khi mình chia sẻ kiến thức mình có với người khác, mình học lại kiến thức
             đó thêm một lần nữa.&rdquo;
           </p>
         </div>

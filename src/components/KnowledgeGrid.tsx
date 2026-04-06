@@ -35,7 +35,7 @@ export default function KnowledgeGrid({ limit, showHeading = true }: Props) {
               style={{ transformOrigin: "center" }}
             />
             <p className="font-sans text-muted max-w-xl mx-auto text-sm leading-relaxed italic font-serif">
-              &ldquo;Khi tôi chia sẻ kiến thức mình có với người khác, tôi học lại kiến thức đó thêm một lần nữa.&rdquo;
+              &ldquo;Khi mình chia sẻ kiến thức mình có với người khác, mình học lại kiến thức đó thêm một lần nữa.&rdquo;
             </p>
 
             {/* Filter tags */}
