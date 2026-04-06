@@ -8,7 +8,7 @@ import { FadeUp, SlideIn, StaggerParent, StaggerChild } from "@/components/anima
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
-const teachers: { stt: string; name: string; desc: string; detail: string; img?: string; imgPos?: string; modalImgPos?: string }[] = [
+const teachers: { stt: string; name: string; desc: string; detail: string; img?: string; imgPos?: string; cardImgPos?: string; modalImgPos?: string }[] = [
   {
     stt: "01", name: "GS. Phan Văn Trường",
     desc: "Triết lý cho đi vô điều kiện — nền tảng tổ chức cộng đồng dựa trên sự tử tế và lòng vị tha.",
@@ -37,13 +37,14 @@ const teachers: { stt: string; name: string; desc: string; detail: string; img?:
     stt: "05", name: "Anh Trần Đình Tú",
     desc: "Quản trị công ty bài bản — mọi quyết định đầu tư, nhân sự hôm nay đều trổ quả trong tương lai.",
     detail: "Anh Trần Đình Tú là người đã trao cho mình những kiến thức cơ sở nền tảng về việc quản trị công ty bài bản. Nhờ sự chỉ dẫn chi tiết của anh, mình thấu hiểu được tính nhân quả trong sự vận động của một doanh nghiệp — rằng mọi quyết định đầu tư, mọi chính sách nhân sự ngày hôm nay đều sẽ trổ quả tốt hay xấu trong tương lai. Đây là lý do mình luôn đặt nặng chiến lược dài hạn trong từng dự án tư vấn.",
-    img: "/images/teacher-tran-dinh-tu.jpg", imgPos: "object-top", modalImgPos: "center 38%",
+    img: "/images/teacher-tran-dinh-tu.jpg", imgPos: "object-top", cardImgPos: "center 25%", modalImgPos: "center 38%",
   },
   {
     stt: "06", name: "Người Vợ — Nguyễn Thị Thanh Huyền",
     desc: "Người đồng hành bền bỉ, kỷ luật yêu thương phía sau những quyết định táo bạo nhất.",
     detail: "Người phụ nữ quyền lực nhất, cô giáo chủ nhiệm và đồng thời cũng là người Vợ tào khang của mình — Nguyễn Thị Thanh Huyền. Phía sau những quyết định táo bạo của mình luôn có bóng dáng của sự vun vén. Mình đã phát triển mạnh mẽ về mặt tri thức, rèn giũa được những thói quen tốt chính là nhờ sự khắt khe, sự yêu thương kỷ luật và sự đồng hành bền bỉ của cô ấy qua bao thăng trầm. Không có cô ấy, sẽ không có Phạm Thanh Tùng của ngày hôm nay.",
     img: "/images/portrait-vo-thanh-huyen.jpg",
+    cardImgPos: "center 30%",
     modalImgPos: "center 55%",
   },
   {
@@ -584,7 +585,8 @@ export default function VeToi() {
                       src={t.img}
                       alt={t.name}
                       fill
-                      className={`object-cover transition-transform duration-700 group-hover:scale-105 ${t.imgPos ?? "object-center"}`}
+                      className={`object-cover transition-transform duration-700 group-hover:scale-105 ${t.cardImgPos ? "" : (t.imgPos ?? "object-center")}`}
+                      style={t.cardImgPos ? { objectPosition: t.cardImgPos } : undefined}
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-beige/90 via-beige/20 to-transparent" />
