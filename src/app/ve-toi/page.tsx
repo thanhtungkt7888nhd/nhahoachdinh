@@ -57,6 +57,7 @@ const teachers: { stt: string; name: string; desc: string; detail: string; img?:
     desc: "Đả thông tư tưởng tâm linh — giúp tâm trí tĩnh tại, đôi chân vững trên mặt đất.",
     detail: "Anh Nguyễn An Nam là một người bạn tri kỷ đã ngồi lại trò chuyện với mình về những quan điểm tâm linh sâu thẳm. Nhờ sự đả thông tư tưởng từ anh, mình đã kết thúc được những hoang mang, những giá trị tâm linh vướng mắc trong suy nghĩ. Nhờ đó, tâm trí mình hoàn toàn tĩnh tại và giữ vững đôi chân trên mặt đất khi đưa ra những quyết định chiến lược lớn. Đây là nền tảng nội tâm không thể thiếu của một người làm công việc hoạch định.",
     img: "/images/teacher-nguyen-an-nam.jpg",
+    modalImgPos: "center center",
   },
   {
     stt: "09", name: "Cộng Đồng Làng Farmstay VN",
