@@ -37,7 +37,7 @@ const teachers: { stt: string; name: string; desc: string; detail: string; img?:
     stt: "05", name: "Anh Trần Đình Tú",
     desc: "Quản trị công ty bài bản — mọi quyết định đầu tư, nhân sự hôm nay đều trổ quả trong tương lai.",
     detail: "Anh Trần Đình Tú là người đã trao cho mình những kiến thức cơ sở nền tảng về việc quản trị công ty bài bản. Nhờ sự chỉ dẫn chi tiết của anh, mình thấu hiểu được tính nhân quả trong sự vận động của một doanh nghiệp — rằng mọi quyết định đầu tư, mọi chính sách nhân sự ngày hôm nay đều sẽ trổ quả tốt hay xấu trong tương lai. Đây là lý do mình luôn đặt nặng chiến lược dài hạn trong từng dự án tư vấn.",
-    img: "/images/teacher-tran-dinh-tu.jpg", imgPos: "object-top", cardImgPos: "center 25%", modalImgPos: "center 38%",
+    img: "/images/teacher-tran-dinh-tu.jpg", imgPos: "object-top", cardImgPos: "center 25%", modalImgPos: "center 20%",
   },
   {
     stt: "06", name: "Người Vợ — Nguyễn Thị Thanh Huyền",
