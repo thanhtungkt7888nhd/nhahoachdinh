@@ -8,7 +8,7 @@ import { FadeUp, SlideIn, StaggerParent, StaggerChild } from "@/components/anima
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
-const teachers: { stt: string; name: string; desc: string; detail: string; img?: string; imgPos?: string }[] = [
+const teachers: { stt: string; name: string; desc: string; detail: string; img?: string; imgPos?: string; modalImgPos?: string }[] = [
   {
     stt: "01", name: "GS. Phan Văn Trường",
     desc: "Triết lý cho đi vô điều kiện — nền tảng tổ chức cộng đồng dựa trên sự tử tế và lòng vị tha.",
@@ -44,6 +44,7 @@ const teachers: { stt: string; name: string; desc: string; detail: string; img?:
     desc: "Người đồng hành bền bỉ, kỷ luật yêu thương phía sau những quyết định táo bạo nhất.",
     detail: "Người phụ nữ quyền lực nhất, cô giáo chủ nhiệm và đồng thời cũng là người Vợ tào khang của mình — Nguyễn Thị Thanh Huyền. Phía sau những quyết định táo bạo của mình luôn có bóng dáng của sự vun vén. Mình đã phát triển mạnh mẽ về mặt tri thức, rèn giũa được những thói quen tốt chính là nhờ sự khắt khe, sự yêu thương kỷ luật và sự đồng hành bền bỉ của cô ấy qua bao thăng trầm. Không có cô ấy, sẽ không có Phạm Thanh Tùng của ngày hôm nay.",
     img: "/images/portrait-vo-thanh-huyen.jpg",
+    modalImgPos: "center 55%",
   },
   {
     stt: "07", name: "Học Trò & Nhân Sự",
@@ -603,7 +604,7 @@ export default function VeToi() {
                           alt={selectedTeacher.name}
                           fill
                           className="object-cover"
-                          style={{ objectPosition: "center 22%" }}
+                          style={{ objectPosition: selectedTeacher.modalImgPos ?? "center 22%" }}
                           sizes="672px"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1C2A1C] via-[#1C2A1C]/30 to-transparent" />
