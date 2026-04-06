@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FadeUp, SlideIn, StaggerParent, StaggerChild } from "@/components/animations";
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
@@ -273,6 +273,12 @@ export default function VeToi() {
   const teachersRef = useRef<HTMLDivElement>(null);
   const teachersInView = useInView(teachersRef, { once: true, margin: "-60px 0px" });
   const [selectedTeacher, setSelectedTeacher] = useState<typeof teachers[0] | null>(null);
+
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") setSelectedTeacher(null); };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
 
   return (
     <div className="pt-[88px]">
@@ -571,14 +577,18 @@ export default function VeToi() {
                     onClick={e => e.stopPropagation()}
                   >
                     {/* Close button */}
-                    <button
+                    <motion.button
                       onClick={() => setSelectedTeacher(null)}
-                      className="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/50 transition-all"
+                      className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full"
+                      style={{ border: "2px solid #C8A84B", color: "#C8A84B" }}
+                      animate={{ boxShadow: ["0 0 0px 0px rgba(200,168,75,0)", "0 0 12px 4px rgba(200,168,75,0.5)", "0 0 0px 0px rgba(200,168,75,0)"] }}
+                      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                      whileHover={{ scale: 1.1, backgroundColor: "rgba(200,168,75,0.15)" }}
                     >
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                         <path d="M1 1l12 12M13 1L1 13"/>
                       </svg>
-                    </button>
+                    </motion.button>
 
                     {/* Ảnh header */}
                     {selectedTeacher.img && (
