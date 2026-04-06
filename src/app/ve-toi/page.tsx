@@ -691,7 +691,7 @@ export default function VeToi() {
       {/* ── TRIẾT LÝ & SỨ MỆNH ──────────────────────────────────── */}
       <section
         id="triet-ly"
-        className="py-24 md:py-32 relative overflow-hidden"
+        className="py-24 md:py-32 relative overflow-hidden scroll-mt-[88px]"
         style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
       >
         <motion.div
