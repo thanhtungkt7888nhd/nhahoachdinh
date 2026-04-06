@@ -575,6 +575,7 @@ export default function VeToi() {
                     className="relative w-full md:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl md:rounded-xl"
                     style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
                     onClick={e => e.stopPropagation()}
+                    onWheel={e => { if (Math.abs(e.deltaX) > 60 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) setSelectedTeacher(null); }}
                   >
                     {/* Close button */}
                     <motion.button
