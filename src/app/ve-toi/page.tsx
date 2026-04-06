@@ -70,6 +70,7 @@ const teachers: { stt: string; name: string; desc: string; detail: string; img?:
     desc: "Hiểu thấu hệ thống vận hành toàn cầu — nền tảng Giáo dục là cốt lõi thành công.",
     detail: "Nhờ 2 năm dấn thân tham gia tổ chức BNI và hấp thụ những kiến thức được truyền dạy từ các thành viên xuất chúng, mình đã hiểu thấu đáo tính hệ thống của một cỗ máy vận hành toàn cầu. Qua đó, mình ngộ ra câu trả lời cho bài toán: Một hệ thống toàn cầu cần có những gì? Và nhận ra rằng điều cốt lõi làm nên thành công của một tổ chức toàn cầu chính là nền tảng Giáo dục — bài học mình áp dụng vào mọi hệ sinh thái farmstay mình xây dựng.",
     img: "/images/teacher-bni.jpg",
+    modalImgPos: "center center",
   },
 ];
 
@@ -78,21 +79,25 @@ const principles = [
     icon: "🌱",
     title: "Tận Dụng Nội Lực",
     body: "Phát triển dựa trên tiềm năng vốn có — thiên nhiên, văn hóa, con người địa phương. Không sao chép giải pháp chung chung.",
+    detail: "Cách tiếp cận của mình nhấn mạnh sự phát triển phải dựa trên nền tảng tiềm năng vốn có của một khu vực, từ thiên nhiên, văn hóa đến con người.\n\nMình ủng hộ tuyệt đối việc xác định các đặc điểm độc đáo của địa phương làm bệ phóng cho sự phát triển, thay vì sao chép các giải pháp chung chung khiên cưỡng.\n\nMỗi vùng đất đều mang trong mình một ADN riêng biệt — câu chuyện về lịch sử, con người, địa hình, khí hậu, cây trồng đặc hữu. Nhiệm vụ của Nhà Hoạch Định là bóc tách, giải phẫu và biến những đặc điểm độc bản đó thành lợi thế cạnh tranh không thể sao chép.",
   },
   {
     icon: "♻️",
     title: "Bền Vững & Hài Hòa",
     body: "Mọi nhát cuốc, mọi viên gạch đặt xuống đều bắt nguồn từ sự phát triển bền vững và tôn trọng tối thượng với môi trường.",
+    detail: "Mình hướng tới nghệ thuật thiết kế sinh thái và quy hoạch thuận tự nhiên. Mọi nhát cuốc, mọi viên gạch đặt xuống đều bắt nguồn từ sự phát triển bền vững và sự tôn trọng tối thượng đối với môi trường sống.\n\nMột dự án farmstay thực sự bền vững không phải là dự án kiếm được nhiều tiền nhất trong năm đầu tiên — mà là dự án vẫn còn đẹp, còn sống và còn sinh ra dòng tiền sau 20 năm.\n\nTriết lý này đòi hỏi sự kiên nhẫn và bản lĩnh của người làm nghề. Khi địa hình nói không, ta phải biết nghe. Khi cây cổ thụ cần được giữ lại, ta phải dám từ chối những giải pháp tiện lợi ngắn hạn.",
   },
   {
     icon: "👥",
     title: "Trọng Tâm Cộng Đồng",
     body: "Đào tạo, trao quyền người dân địa phương. Nâng tầm con người là chìa khóa duy nhất cho sự phát triển không thể phá vỡ.",
+    detail: "Mình đồng sáng lập các cộng đồng du lịch nông nghiệp và nhấn mạnh việc đào tạo, trao quyền cho người dân địa phương. Mình tập trung vào sứ mệnh đào tạo các nhà lãnh đạo, nâng tầm con người, coi đó là chìa khóa duy nhất cho sự phát triển không thể bị phá vỡ.\n\nMột farmstay mà dân địa phương không được hưởng lợi, không có việc làm, không tự hào về mảnh đất của mình — đó là dự án chờ ngày sụp đổ.\n\nNgược lại, khi cộng đồng bản địa được trao quyền làm chủ câu chuyện của mình, họ trở thành người bảo vệ dự án mạnh mẽ nhất, người kể chuyện có sức lan tỏa nhất và nguồn nhân lực trung thành nhất.",
   },
   {
     icon: "🔗",
     title: "Mô Hình Tích Hợp",
     body: "Kinh tế — sinh thái — cộng đồng đan xen thành khối thống nhất. Không có gì tồn tại đơn lẻ trong hệ sinh thái bền vững.",
+    detail: "Mình luôn khát khao thúc đẩy một mô hình tích hợp toàn diện. Nơi đó, sự phát triển kinh tế thông qua du lịch và bất động sản, sự bền vững của hệ sinh thái và việc trao quyền vinh danh cộng đồng được đan xen chặt chẽ với nhau thành một khối thống nhất.\n\nKhông có gì tồn tại đơn lẻ trong một hệ sinh thái bền vững. Cây trồng nuôi đất. Đất nuôi nước. Nước nuôi cảnh quan. Cảnh quan thu hút khách. Khách tạo ra doanh thu. Doanh thu nuôi con người. Con người chăm sóc lại cây trồng.\n\nKhi vòng tròn này được thiết kế đúng, dự án không chỉ sinh lời — mà trở thành di sản.",
   },
 ];
 
@@ -100,22 +105,32 @@ const services = [
   {
     title: "Một Giờ Mentor Giải Cứu",
     desc: "Trực tuyến — cắt đứt nút thắt tư duy đang khiến bạn bế tắc và đốt tiền vô ích.",
+    detail: "Dành cho những ai đang rối rắm. Chỉ với một giờ làm việc trực tiếp, mình sẽ giúp cắt đứt nút thắt tư duy đang khiến bạn bế tắc.\n\nĐôi khi, một câu nói đúng thời điểm sẽ cứu bạn khỏi việc đốt tiền oan uổng.\n\nHình thức: Online, 1-on-1 trực tiếp với Phạm Thanh Tùng.",
     icon: "⚡",
   },
   {
-    title: "Khảo Sát Thực Địa",
-    desc: "Trực tiếp đến mảnh đất của bạn — đọc vị, phác thảo định hướng tàn nhẫn và khả thi nhất.",
+    title: "Khảo Sát Thực Địa & Định Hướng",
+    desc: "Trực tiếp giẫm chân lên mảnh đất của bạn — đọc vị và phác thảo định hướng phát triển thực tế nhất.",
+    detail: "Mình sẽ trực tiếp xách ba lô đến giẫm chân lên mảnh đất của bạn. Quan sát địa thế, đọc vị khu đất và phác thảo ngay định hướng phát triển chia theo từng giai đoạn.\n\nDựa trên chính nguồn lực thực tế bạn đang có — tuyệt đối không vẽ vời ảo tưởng.\n\nBạn sẽ ra về với một bản đồ hành động rõ ràng, khả thi và được cá nhân hóa hoàn toàn.",
     icon: "🗺️",
   },
   {
     title: "Cố Vấn Chiến Lược Dài Hạn",
-    desc: "Đồng hành từ thai nghén đến khi dự án vận hành ra dòng tiền ổn định dương.",
+    desc: "Đồng hành từ lúc thai nghén ý tưởng đến khi vận hành ra dòng tiền ổn định.",
+    detail: "Đồng hành sát cánh từ lúc thai nghén ý tưởng, vượt rào cản pháp lý, thiết kế quy hoạch cho đến khi vận hành ra dòng tiền ổn định.\n\nSự đồng hành này có thể kéo dài bền bỉ theo suốt vòng đời dự án — miễn là đôi bên còn chung một hệ giá trị và tầm nhìn.\n\nĐây là gói hợp tác sâu nhất và có giá trị lâu dài nhất mình cung cấp.",
     icon: "🧭",
   },
   {
     title: "Member Hội Đồng Nhà Hoạch Định",
-    desc: "Sân chơi chuyên sâu hàng tháng — cập nhật tri thức, giải phẫu bài toán thực tế.",
+    desc: "Sinh hoạt chuyên sâu hàng tháng — cập nhật tri thức và giải phẫu các bài toán thực tế.",
+    detail: "Sân chơi dành riêng cho cộng đồng tinh hoa. Mỗi tháng chúng ta sinh hoạt online kín 8 tiếng để cập nhật tri thức mới nhất về Farmstay thế giới, ngách kinh doanh, chính sách.\n\nVà trực tiếp giải phẫu các bài toán thực tế của hội viên — cùng nhau phân tích, phản biện và tìm ra giải pháp.\n\nĐây là cộng đồng của những người làm thật, không có chỗ cho lý thuyết suông.",
     icon: "🏛️",
+  },
+  {
+    title: "Tư Vấn Vĩ Mô Cấp Địa Phương",
+    desc: "Dành riêng cho Lãnh đạo cấp Xã, Tỉnh về khai phóng nguồn lực nông thôn và chuyển đổi số.",
+    detail: "Dành riêng cho Lãnh đạo cấp Xã, Tỉnh. Mình đóng vai trò cố vấn chiến lược phát triển kinh tế địa phương thông qua khai phóng nguồn lực nông thôn, du lịch bản địa và chuyển đổi số.\n\nMình đã làm việc trực tiếp với nhiều tỉnh thành từ Quảng Nam, Đắk Lắk, Phú Yên, Bình Định, Hà Tĩnh đến Quảng Trị — giúp địa phương định vị đúng thế mạnh và xây dựng chiến lược phát triển dài hạn.\n\nKhi chính quyền và cộng đồng cùng đi một hướng, sức mạnh tổng lực tạo ra là không thể đo đếm.",
+    icon: "🌐",
   },
 ];
 
@@ -275,9 +290,17 @@ export default function VeToi() {
   const teachersRef = useRef<HTMLDivElement>(null);
   const teachersInView = useInView(teachersRef, { once: true, margin: "-60px 0px" });
   const [selectedTeacher, setSelectedTeacher] = useState<typeof teachers[0] | null>(null);
+  const [selectedPrinciple, setSelectedPrinciple] = useState<typeof principles[0] | null>(null);
+  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
 
   useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => { if (e.key === "Escape") setSelectedTeacher(null); };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSelectedTeacher(null);
+        setSelectedPrinciple(null);
+        setSelectedService(null);
+      }
+    };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, []);
@@ -661,8 +684,9 @@ export default function VeToi() {
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-20">
             {principles.map((p, i) => (
               <StaggerChild key={i}>
-                <div
-                  className="p-8 border transition-all duration-300 rounded-sm group"
+                <button
+                  onClick={() => setSelectedPrinciple(p)}
+                  className="group p-8 border transition-all duration-300 rounded-sm w-full text-left cursor-pointer focus:outline-none"
                   style={{ borderColor: "rgba(200,168,75,0.2)", background: "rgba(200,168,75,0.04)" }}
                   onMouseEnter={e => (e.currentTarget.style.borderColor = "#C8A84B")}
                   onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(200,168,75,0.2)")}
@@ -673,10 +697,72 @@ export default function VeToi() {
                   <div className="w-8 h-px mb-4" style={{ background: "#C8A84B" }} />
                   <h3 className="font-serif text-white text-xl mb-3">{p.title}</h3>
                   <p className="font-sans text-white/60 text-sm leading-relaxed">{p.body}</p>
-                </div>
+                  <span className="inline-flex items-center gap-1.5 mt-4 font-sans text-xs font-semibold uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">
+                    Đọc thêm
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                      <path d="M6.5 1L11 6l-4.5 5M1 6h10" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                    </svg>
+                  </span>
+                </button>
               </StaggerChild>
             ))}
           </StaggerParent>
+
+          {/* ── MODAL TRIẾT LÝ ── */}
+          <AnimatePresence>
+            {selectedPrinciple && (
+              <>
+                <motion.div
+                  className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setSelectedPrinciple(null)}
+                />
+                <motion.div
+                  className="fixed inset-x-0 bottom-0 md:inset-0 md:flex md:items-center md:justify-center z-50 p-0 md:p-6"
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 40 }}
+                  transition={{ duration: 0.4, ease: easeOut }}
+                >
+                  <div
+                    className="relative w-full md:max-w-xl max-h-[90vh] overflow-y-auto rounded-t-2xl md:rounded-xl"
+                    style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
+                    onClick={e => e.stopPropagation()}
+                    onWheel={e => { if (Math.abs(e.deltaX) > 60 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) setSelectedPrinciple(null); }}
+                  >
+                    <motion.button
+                      onClick={() => setSelectedPrinciple(null)}
+                      className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full"
+                      style={{ border: "2px solid #C8A84B", color: "#C8A84B" }}
+                      animate={{ boxShadow: ["0 0 0px 0px rgba(200,168,75,0)", "0 0 12px 4px rgba(200,168,75,0.5)", "0 0 0px 0px rgba(200,168,75,0)"] }}
+                      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                      whileHover={{ scale: 1.1, backgroundColor: "rgba(200,168,75,0.15)" }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                        <path d="M1 1l12 12M13 1L1 13"/>
+                      </svg>
+                    </motion.button>
+                    <div className="p-8 pt-14">
+                      <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-xs mb-2">
+                        Nguyên Tắc 0{principles.indexOf(selectedPrinciple) + 1}
+                      </p>
+                      <h2 className="font-serif text-white mb-1" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
+                        {selectedPrinciple.title}
+                      </h2>
+                      <div className="w-10 h-0.5 bg-primary mb-6" />
+                      {selectedPrinciple.detail.split("\n\n").map((para, idx) => (
+                        <p key={idx} className="font-sans text-white/80 leading-relaxed text-base mb-4">
+                          {para}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
 
           {/* Sứ mệnh quốc gia */}
           <FadeUp>
@@ -717,8 +803,9 @@ export default function VeToi() {
           <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {services.map((s, i) => (
               <StaggerChild key={i}>
-                <motion.div
-                  className="group p-8 relative overflow-hidden rounded-sm cursor-pointer transition-all duration-300"
+                <motion.button
+                  onClick={() => setSelectedService(s)}
+                  className="group p-8 relative overflow-hidden rounded-sm cursor-pointer transition-all duration-300 w-full text-left focus:outline-none"
                   style={{ border: "1px solid rgba(200,168,75,0.2)", background: "rgba(200,168,75,0.04)" }}
                   whileHover={{ y: -3, borderColor: "#C8A84B" } as any}
                   transition={{ duration: 0.25 }}
@@ -729,10 +816,77 @@ export default function VeToi() {
                   <div className="w-8 h-px mb-4" style={{ background: "#C8A84B" }} />
                   <h3 className="font-serif text-white text-xl mb-3">{s.title}</h3>
                   <p className="font-sans text-white/55 text-sm leading-relaxed">{s.desc}</p>
-                </motion.div>
+                  <span className="inline-flex items-center gap-1.5 mt-4 font-sans text-xs font-semibold uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">
+                    Chi tiết
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                      <path d="M6.5 1L11 6l-4.5 5M1 6h10" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                    </svg>
+                  </span>
+                </motion.button>
               </StaggerChild>
             ))}
           </StaggerParent>
+
+          {/* ── MODAL GÓI DỊCH VỤ ── */}
+          <AnimatePresence>
+            {selectedService && (
+              <>
+                <motion.div
+                  className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setSelectedService(null)}
+                />
+                <motion.div
+                  className="fixed inset-x-0 bottom-0 md:inset-0 md:flex md:items-center md:justify-center z-50 p-0 md:p-6"
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 40 }}
+                  transition={{ duration: 0.4, ease: easeOut }}
+                >
+                  <div
+                    className="relative w-full md:max-w-xl max-h-[90vh] overflow-y-auto rounded-t-2xl md:rounded-xl"
+                    style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
+                    onClick={e => e.stopPropagation()}
+                    onWheel={e => { if (Math.abs(e.deltaX) > 60 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) setSelectedService(null); }}
+                  >
+                    <motion.button
+                      onClick={() => setSelectedService(null)}
+                      className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full"
+                      style={{ border: "2px solid #C8A84B", color: "#C8A84B" }}
+                      animate={{ boxShadow: ["0 0 0px 0px rgba(200,168,75,0)", "0 0 12px 4px rgba(200,168,75,0.5)", "0 0 0px 0px rgba(200,168,75,0)"] }}
+                      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                      whileHover={{ scale: 1.1, backgroundColor: "rgba(200,168,75,0.15)" }}
+                    >
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                        <path d="M1 1l12 12M13 1L1 13"/>
+                      </svg>
+                    </motion.button>
+                    <div className="p-8 pt-14">
+                      <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-xs mb-2">
+                        Gói 0{services.indexOf(selectedService) + 1}
+                      </p>
+                      <h2 className="font-serif text-white mb-1" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
+                        {selectedService.title}
+                      </h2>
+                      <div className="w-10 h-0.5 bg-primary mb-6" />
+                      {selectedService.detail.split("\n\n").map((para, idx) => (
+                        <p key={idx} className="font-sans text-white/80 leading-relaxed text-base mb-4">
+                          {para}
+                        </p>
+                      ))}
+                      <div className="mt-8 pt-6 border-t border-primary/20">
+                        <Link href="/lien-he" className="btn-lienhe inline-flex" onClick={() => setSelectedService(null)}>
+                          <span className="gold-shine">Liên Hệ Đăng Ký</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
