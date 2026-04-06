@@ -16,7 +16,7 @@ const teachers: { stt: string; name: string; desc: string; img?: string }[] = [
   { stt: "05", name: "Anh Trần Đình Tú", desc: "Quản trị công ty bài bản — mọi quyết định đầu tư, nhân sự hôm nay đều trổ quả trong tương lai.", img: "/images/teacher-tran-dinh-tu.jpg" },
   { stt: "06", name: "Cộng Đồng Làng Farmstay VN", desc: "Đồng sáng lập — hàng nghìn chủ Farm là người thầy thực tiễn sâu sắc nhất." },
   { stt: "07", name: "Tổ Chức BNI", desc: "Hiểu thấu hệ thống vận hành toàn cầu — nền tảng Giáo dục là cốt lõi thành công." },
-  { stt: "08", name: "Anh Nguyễn An Nam", desc: "Đả thông tư tưởng tâm linh — giúp tâm trí tĩnh tại, đôi chân vững trên mặt đất." },
+  { stt: "08", name: "Anh Nguyễn An Nam", desc: "Đả thông tư tưởng tâm linh — giúp tâm trí tĩnh tại, đôi chân vững trên mặt đất.", img: "/images/teacher-nguyen-an-nam.jpg" },
   { stt: "09", name: "Người Vợ — Nguyễn Thị Thanh Huyền", desc: "Người đồng hành bền bỉ, kỷ luật yêu thương phía sau những quyết định táo bạo nhất.", img: "/images/portrait-vo-thanh-huyen.jpg" },
   { stt: "10", name: "Con Trai — Phạm Nguyên Khuê", desc: "Dạy tình yêu vô điều kiện — nâng tâm bao dung với nhân sự, cộng đồng và nhân loại.", img: "/images/portrait-con-trai-nguyen-khue.jpg" },
   { stt: "11", name: "Bố — Phạm Văn Thu", desc: "Khí chất đàn ông — giới hạn lớn nhất không nằm ở hoàn cảnh mà ở chính bản thân mình.", img: "/images/portrait-bo-pham-van-thu.jpg" },
