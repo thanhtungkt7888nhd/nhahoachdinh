@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Gold Shimmer Keyframes ──────────────────────────────────────────────── */
+@keyframes gold-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes gold-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.75; }
+}
+
+@keyframes gold-border-pulse {
+  0%, 100% { border-color: #C8A84B; box-shadow: 0 0 0px 0px rgba(200,168,75,0); }
+  50%       { border-color: #F0D075; box-shadow: 0 0 14px 3px rgba(200,168,75,0.30); }
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply font-sans; color: #1C2A1C; }
+  h1, h2, h3, h4 { @apply font-serif; }
+}
+
+@layer components {
+  .container-main {
+    @apply max-w-container mx-auto px-6 lg:px-10;
+  }
+
+  /* ── Ánh Kim Vàng — dùng trên nền tối (hero, companies, testimonials) */
+  .gold-shine {
+    background: linear-gradient(
+      120deg,
+      #9A7A2E 0%,
+      #C8A84B 20%,
+      #F0D075 40%,
+      #FFF0A0 50%,
+      #F0D075 60%,
+      #C8A84B 80%,
+      #9A7A2E 100%
+    );
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gold-shimmer 5s linear infinite;
+  }
+
+  /* ── Ánh Kim Vàng nhẹ — dùng trên nền sáng */
+  .gold-shine-subtle {
+    background: linear-gradient(
+      120deg,
+      #8A6B1A 0%,
+      #C8A84B 25%,
+      #E8C860 45%,
+      #D4AF40 55%,
+      #C8A84B 75%,
+      #8A6B1A 100%
+    );
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gold-shimmer 6s linear infinite;
+  }
+
+  /* Vàng lúa chín — primary CTA outline button */
+  .btn-primary {
+    @apply inline-block border-2 font-sans font-semibold
+           uppercase tracking-[0.25em] text-sm px-7 py-3 rounded-full
+           transition-all duration-300;
+    border-color: #C8A84B;
+    color: #C8A84B;
+  }
+  .btn-primary:hover {
+    background-color: #C8A84B;
+    color: #1C2A1C;
+  }
+
+  /* Trắng — dùng trên nền tối */
+  .btn-white {
+    @apply inline-block border-2 border-white text-white font-sans font-semibold
+           uppercase tracking-[0.25em] text-sm px-7 py-3 rounded-full
+           transition-all duration-300;
+  }
+  .btn-white:hover {
+    background-color: #ffffff;
+    color: #1C2A1C;
+  }
+
+  /* Xanh rừng thẳm — secondary CTA */
+  .btn-navy {
+    @apply inline-block border-2 font-sans font-semibold
+           uppercase tracking-[0.25em] text-sm px-7 py-3 rounded-full
+           transition-all duration-300;
+    border-color: #1D3A1D;
+    color: #1D3A1D;
+  }
+  .btn-navy:hover {
+    background-color: #1D3A1D;
+    color: #ffffff;
+  }
+
+  /* Nút Liên Hệ — nền xanh rừng + viền vàng ánh kim + chữ vàng */
+  .btn-lienhe {
+    @apply inline-block border-2 font-sans font-semibold
+           uppercase tracking-[0.25em] text-sm px-7 py-3 rounded-full
+           transition-all duration-300;
+    background-color: #1D3A1D;
+    border-color: #C8A84B;
+    animation: gold-border-pulse 3s ease-in-out infinite;
+  }
+  .btn-lienhe:hover {
+    background-color: #2A5228;
+    border-color: #F0D075;
+    box-shadow: 0 0 22px 5px rgba(200,168,75,0.35);
+    transform: translateY(-2px);
+  }
+
+  /* Label nhỏ — vàng lúa */
+  .section-label {
+    @apply font-sans font-semibold uppercase tracking-[0.2em] text-sm;
+    color: #C8A84B;
+  }
+
+  /* Bóng đổ ảnh */
+  .img-shadow {
+    @apply rounded-[5px];
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.25);
+  }
+}
