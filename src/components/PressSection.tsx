@@ -24,14 +24,14 @@ export default function PressSection() {
           <div className="w-10 h-0.5 bg-primary mx-auto mt-5" />
         </FadeUp>
 
-        <StaggerParent className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <StaggerParent className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {pressItems.map((p, i) => (
-            <StaggerChild key={i}>
+            <StaggerChild key={i} className="h-full">
               <motion.a
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col gap-3 p-6 border rounded-sm relative overflow-hidden"
+                className="group h-full flex flex-col gap-3 p-6 border rounded-sm relative overflow-hidden"
                 style={{ borderColor: "rgba(200,168,75,0.18)", background: "rgba(255,255,255,0.03)" }}
                 whileHover={{ y: -4, transition: { duration: 0.25 } }}
                 onMouseEnter={e => (e.currentTarget.style.borderColor = "rgba(200,168,75,0.6)")}
@@ -42,13 +42,13 @@ export default function PressSection() {
                   {p.name}
                 </p>
 
-                {/* Article title */}
+                {/* Article title — flex-1 to push arrow to bottom */}
                 <p className="font-serif text-white/75 text-sm leading-snug group-hover:text-white/95 transition-colors duration-300 flex-1">
                   {p.title}
                 </p>
 
-                {/* Read arrow */}
-                <span className="inline-flex items-center gap-1.5 font-sans text-[10px] font-semibold uppercase tracking-widest text-primary/50 group-hover:text-primary transition-colors duration-300 mt-1">
+                {/* Read arrow — always at bottom */}
+                <span className="inline-flex items-center gap-1.5 font-sans text-[10px] font-semibold uppercase tracking-widest text-primary/50 group-hover:text-primary transition-colors duration-300 mt-2">
                   Đọc bài
                   <motion.span
                     animate={{ x: [0, 3, 0] }}
@@ -58,7 +58,7 @@ export default function PressSection() {
                   </motion.span>
                 </span>
 
-                {/* Bottom line reveal */}
+                {/* Bottom line reveal on hover */}
                 <motion.div
                   className="absolute bottom-0 left-0 h-0.5 bg-primary"
                   initial={{ width: 0 }}

@@ -145,16 +145,6 @@ export const pressItems = [
     href: "https://theleader.vn/dat-nong-nghiep-thanh-vang-nho-du-lich-co-hoi-hay-cam-bay-d41697.html",
   },
   {
-    name: "Tạp Chí Tài Chính",
-    title: "7 sai lầm cơ bản khi thiết kế homestay và farmstay",
-    href: "https://tapchitaichinh.vn/tai-chinh-gia-dinh/7-sai-lam-co-ban-khi-thiet-ke-homestay-va-farmstay-322575.html",
-  },
-  {
-    name: "Đời Sống Kinh Tế",
-    title: "Phạm Thanh Tùng — Nhà Hoạch Định với khát vọng đưa Việt Nam trở thành quốc gia du lịch nông nghiệp",
-    href: "https://doisongkinhte.com.vn/bai-viet/pham-thanh-tung-nha-hoach-dinh-voi-khat-vong-dua-viet-nam-tro-thanh-quoc-gia-du-lich-nong-nghiep",
-  },
-  {
     name: "Reatimes",
     title: "Xu hướng phát triển farmstay nhìn từ tiềm năng BĐS nông nghiệp",
     href: "https://reatimes.vn/xu-huong-phat-trien-farmstay-nhin-tu-tiem-nang-bds-nong-nghiep-1597387193831.html",
@@ -170,19 +160,9 @@ export const pressItems = [
     href: "https://cafeland.vn/tin-tuc/farmstay-truoc-con-loc-phan-lo-ban-nen-89860.html",
   },
   {
-    name: "Ngôi Sao",
-    title: "Có bố chủ nhiệm",
-    href: "https://ngoisao.net/gia-dinh/co-bo-chu-nhiem-2928575.html",
-  },
-  {
     name: "Báo Quảng Nam",
     title: "Nông Sơn: Hội thảo giới thiệu tiềm năng du lịch Đại Bình",
     href: "https://baoquangnam.vn/du-lich/nong-son-hoi-thao-gioi-thieu-tiem-nang-du-lich-dai-binh-111408.html",
-  },
-  {
-    name: "TN Chứng Khoán",
-    title: "Farmstay: Trước hết phải là Farm",
-    href: "https://bds.tinnhanhchungkhoan.vn/bat-dong-san/farmstay-truoc-het-phai-la-farm-257934.html",
   },
 ];
 
