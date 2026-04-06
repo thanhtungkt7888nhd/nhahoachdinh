@@ -508,6 +508,72 @@ export default function VeToi() {
         </div>
       </section>
 
+      {/* ── 4 NĂNG LỰC CỐT LÕI ──────────────────────────────────── */}
+      <section className="bg-white py-24 md:py-32">
+        <div className="container-main">
+          <div className="text-center mb-14">
+            <FadeUp>
+              <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.2em] text-sm mb-2">Năng Lực</p>
+              <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
+                4 Năng Lực Cốt Lõi
+              </h2>
+              <div className="w-12 h-0.5 bg-primary mx-auto mt-5" />
+            </FadeUp>
+          </div>
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                num: "01",
+                icon: "🗺️",
+                title: "Hoạch Định Vùng Đất",
+                body: "Năng lực đọc vị địa thế, phân tích tiềm năng vùng đất từ góc độ sinh thái, văn hóa bản địa và kinh tế. Biến các mảnh đất thô sơ thành những điểm đến có tầm nhìn chiến lược rõ ràng và bền vững lâu dài — từ quy hoạch tổng thể đến từng lối đi, từng cây trồng.",
+              },
+              {
+                num: "02",
+                icon: "🌿",
+                title: "Kiến Tạo Mô Hình Farmstay",
+                body: "Thiết kế tổng thể hệ sinh thái farmstay từ concept, quy hoạch không gian, mô hình kinh doanh đến vận hành ra dòng tiền. Hơn 100 dự án thực chiến tại khắp Việt Nam — từ cao nguyên Tây Bắc đến đồng bằng Cửu Long.",
+              },
+              {
+                num: "03",
+                icon: "🌐",
+                title: "Xây Dựng Hệ Sinh Thái Cộng Đồng",
+                body: "Sáng lập và dẫn dắt các cộng đồng du lịch nông nghiệp quy mô quốc gia. Tổ chức hành trình Xuyên Việt Farmstay 4 mùa, kết nối hơn 100 farm/farmstay toàn quốc. Đồng sáng lập Làng Farmstay Việt Nam — cộng đồng hàng nghìn chủ farm.",
+              },
+              {
+                num: "04",
+                icon: "📣",
+                title: "Lan Truyền & Kiến Tạo Tri Thức",
+                body: "Diễn giả quốc gia về farmstay và du lịch nông nghiệp tại BNI, VCCI, Bộ NN&PTNT. Tác giả cuốn 'Hướng Dẫn Thiết Lập Farmstay'. Hơn 40 hội thảo cấp tỉnh/bộ, đào tạo cán bộ và truyền lửa cho cộng đồng địa phương.",
+              },
+            ].map((item, i) => (
+              <StaggerChild key={i}>
+                <motion.div
+                  className="p-8 border border-earth/10 bg-beige/30 relative overflow-hidden group"
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <div className="flex items-start gap-5">
+                    <span className="gold-shine-subtle font-serif text-4xl font-bold flex-shrink-0">{item.num}</span>
+                    <div>
+                      <p className="text-2xl mb-3">{item.icon}</p>
+                      <h3 className="font-serif text-charcoal text-lg mb-3">{item.title}</h3>
+                      <p className="font-sans text-muted text-sm leading-relaxed">{item.body}</p>
+                    </div>
+                  </div>
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 bg-primary"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.35 }}
+                  />
+                </motion.div>
+              </StaggerChild>
+            ))}
+          </StaggerParent>
+        </div>
+      </section>
+
       {/* ── STATS ────────────────────────────────────────────────── */}
       <StatsSection />
 
@@ -548,6 +614,78 @@ export default function VeToi() {
               cho toàn ngành Farmstay và Du lịch nông nghiệp Việt Nam."
             </div>
           </FadeUp>
+        </div>
+      </section>
+
+      {/* ── DẤU ẤN XUYÊN VIỆT FARMSTAY ──────────────────────────── */}
+      <section className="bg-white py-24 md:py-32">
+        <div className="container-main">
+          <div className="text-center mb-14">
+            <FadeUp>
+              <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.2em] text-sm mb-2">Hành Trình</p>
+              <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
+                Dấu Ấn Xuyên Việt Farmstay
+              </h2>
+              <div className="w-12 h-0.5 bg-primary mx-auto mt-5 mb-4" />
+              <p className="font-sans text-muted text-sm max-w-xl mx-auto">
+                4 mùa hành trình — kết nối cộng đồng farmstay từ Bắc vào Nam, từ biên giới đến hải đảo.
+              </p>
+            </FadeUp>
+          </div>
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                year: "2021",
+                title: "Mùa Khai Phá",
+                stats: [{ label: "Mùa đầu tiên", val: "#01" }, { label: "Khởi nguồn", val: "Cộng đồng" }],
+                desc: "Hành trình đặt nền móng kết nối cộng đồng farmstay toàn quốc lần đầu tiên — từ ý tưởng táo bạo đến hiện thực, mở ra một phong trào mới cho ngành du lịch nông nghiệp.",
+              },
+              {
+                year: "2023",
+                title: "Mùa Bứt Phá",
+                stats: [{ label: "Quãng đường", val: "2.000km" }, { label: "Hành trình", val: "10 ngày" }, { label: "Tỉnh thành", val: "19 tỉnh" }, { label: "Thành viên", val: "90 người" }],
+                desc: "Xuyên suốt 19 tỉnh thành trong 10 ngày, 90 thành viên cùng nhau khám phá và kết nối hệ sinh thái farmstay toàn quốc từ Bắc vào Nam.",
+              },
+              {
+                year: "2024",
+                title: "Mùa Di Sản",
+                stats: [{ label: "Quãng đường", val: "2.000km" }, { label: "Hành trình", val: "15 ngày" }, { label: "Tỉnh thành", val: "15 tỉnh" }, { label: "Thành viên", val: "70 người" }],
+                desc: "15 ngày băng qua 15 tỉnh với điểm nhấn đặc biệt: đấu giá sâm Ngọc Linh — đặc sản quý hiếm Tây Nguyên, tôn vinh di sản văn hóa bản địa vùng cao.",
+              },
+              {
+                year: "2025",
+                title: "Mùa Tiếp Nối",
+                stats: [{ label: "Mùa thứ", val: "4" }, { label: "Vẫn đang", val: "Tiếp tục" }],
+                desc: "Hành trình tiếp tục — mở rộng tầm nhìn, sâu thêm kết nối, lan tỏa giá trị du lịch nông nghiệp Việt Nam ra cộng đồng quốc tế.",
+              },
+            ].map((season, i) => (
+              <StaggerChild key={i}>
+                <motion.div
+                  className="p-7 border border-earth/10 bg-beige/30 h-full flex flex-col relative overflow-hidden group"
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.25 }}
+                >
+                  <span className="gold-shine-subtle font-serif text-4xl font-bold block mb-1">{season.year}</span>
+                  <h3 className="font-serif text-charcoal text-base font-medium mb-4">{season.title}</h3>
+                  <div className="grid grid-cols-2 gap-2 mb-5">
+                    {season.stats.map((s, j) => (
+                      <div key={j} className="bg-white/80 px-3 py-2 rounded-sm text-center">
+                        <p className="font-serif text-primary font-bold text-lg leading-none mb-0.5">{s.val}</p>
+                        <p className="font-sans text-muted text-[10px] uppercase tracking-wide leading-tight">{s.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="font-sans text-muted text-sm leading-relaxed flex-1">{season.desc}</p>
+                  <motion.div
+                    className="absolute bottom-0 left-0 h-0.5 bg-primary"
+                    initial={{ width: 0 }}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.35 }}
+                  />
+                </motion.div>
+              </StaggerChild>
+            ))}
+          </StaggerParent>
         </div>
       </section>
 
