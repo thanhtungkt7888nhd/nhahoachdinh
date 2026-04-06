@@ -292,14 +292,13 @@ export default function VeToi() {
   const teachersInView = useInView(teachersRef, { once: true, margin: "-60px 0px" });
   const [selectedTeacher, setSelectedTeacher] = useState<typeof teachers[0] | null>(null);
   const [selectedPrinciple, setSelectedPrinciple] = useState<typeof principles[0] | null>(null);
-  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+  const [openServiceIdx, setOpenServiceIdx] = useState<number | null>(null);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setSelectedTeacher(null);
         setSelectedPrinciple(null);
-        setSelectedService(null);
       }
     };
     window.addEventListener("keydown", handleKey);
@@ -816,108 +815,99 @@ export default function VeToi() {
       </section>
 
       {/* ── CÁC GÓI ĐỒNG HÀNH ───────────────────────────────────── */}
-      <section className="py-24 md:py-32" style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}>
+      <section className="py-20" style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}>
         <div className="container-main">
-          <div className="text-center mb-14">
-            <FadeUp>
-              <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-sm mb-2">
-                Hợp Tác
-              </p>
-              <h2 className="font-serif text-white" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
-                Các Gói Đồng Hành
-              </h2>
-              <div className="w-12 h-0.5 bg-primary mx-auto mt-5 mb-4" />
-              <p className="font-sans text-white/50 text-sm max-w-xl mx-auto">
-                Dành cho những người làm việc nghiêm túc, có khát vọng làm nông nghiệp sạch và muốn để lại di sản xanh.
-              </p>
-            </FadeUp>
+          <FadeUp>
+            <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-sm text-center mb-12">
+              Các Gói Đồng Hành
+            </p>
+          </FadeUp>
+
+          {/* 5 nút dàn ngang */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-2">
+            {services.map((s, i) => (
+              <button
+                key={i}
+                onClick={() => setOpenServiceIdx(openServiceIdx === i ? null : i)}
+                className="group text-center px-4 py-6 border transition-all duration-300 rounded-sm focus:outline-none"
+                style={{
+                  borderColor: openServiceIdx === i ? "#C8A84B" : "rgba(200,168,75,0.2)",
+                  background: openServiceIdx === i ? "rgba(200,168,75,0.08)" : "transparent",
+                }}
+              >
+                <p
+                  className="gold-shine font-serif font-bold mb-2 transition-all duration-300"
+                  style={{ fontSize: "clamp(1.4rem, 3vw, 2.2rem)" }}
+                >
+                  0{i + 1}
+                </p>
+                <p className="font-sans text-white/50 text-xs uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors">
+                  {s.title}
+                </p>
+                <motion.div
+                  className="mx-auto mt-3 text-primary/60"
+                  animate={{ rotate: openServiceIdx === i ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M8 10.5L2.5 5h11L8 10.5z" />
+                  </svg>
+                </motion.div>
+              </button>
+            ))}
           </div>
 
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {services.map((s, i) => (
-              <StaggerChild key={i}>
-                <motion.button
-                  onClick={() => setSelectedService(s)}
-                  className="group p-8 relative overflow-hidden rounded-sm cursor-pointer transition-all duration-300 w-full text-left focus:outline-none"
-                  style={{ border: "1px solid rgba(200,168,75,0.2)", background: "rgba(200,168,75,0.04)" }}
-                  whileHover={{ y: -3, borderColor: "#C8A84B" } as any}
-                  transition={{ duration: 0.25 }}
+          {/* Accordion nội dung */}
+          <AnimatePresence mode="wait">
+            {openServiceIdx !== null && (
+              <motion.div
+                key={openServiceIdx}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: "auto" }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="overflow-hidden"
+              >
+                <div
+                  className="mt-4 p-8 md:p-10 border rounded-sm"
+                  style={{ borderColor: "rgba(200,168,75,0.25)", background: "rgba(200,168,75,0.05)" }}
                 >
-                  <p className="gold-shine font-serif font-bold mb-4" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)" }}>
-                    0{i + 1}
-                  </p>
-                  <div className="w-8 h-px mb-4" style={{ background: "#C8A84B" }} />
-                  <h3 className="font-serif text-white text-xl mb-3">{s.title}</h3>
-                  <p className="font-sans text-white/55 text-sm leading-relaxed">{s.desc}</p>
-                  <span className="inline-flex items-center gap-1.5 mt-4 font-sans text-xs font-semibold uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">
-                    Chi tiết
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                      <path d="M6.5 1L11 6l-4.5 5M1 6h10" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-                    </svg>
-                  </span>
-                </motion.button>
-              </StaggerChild>
-            ))}
-          </StaggerParent>
-
-          {/* ── MODAL GÓI DỊCH VỤ ── */}
-          <AnimatePresence>
-            {selectedService && (
-              <>
-                <motion.div
-                  className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  onClick={() => setSelectedService(null)}
-                />
-                <motion.div
-                  className="fixed inset-x-0 bottom-0 md:inset-0 md:flex md:items-center md:justify-center z-50 p-0 md:p-6"
-                  initial={{ opacity: 0, y: 60 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 40 }}
-                  transition={{ duration: 0.4, ease: easeOut }}
-                >
-                  <div
-                    className="relative w-full md:max-w-xl max-h-[90vh] overflow-y-auto rounded-t-2xl md:rounded-xl"
-                    style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
-                    onClick={e => e.stopPropagation()}
-                    onWheel={e => { if (Math.abs(e.deltaX) > 60 && Math.abs(e.deltaX) > Math.abs(e.deltaY)) setSelectedService(null); }}
-                  >
-                    <motion.button
-                      onClick={() => setSelectedService(null)}
-                      className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full"
-                      style={{ border: "2px solid #C8A84B", color: "#C8A84B" }}
-                      animate={{ boxShadow: ["0 0 0px 0px rgba(200,168,75,0)", "0 0 12px 4px rgba(200,168,75,0.5)", "0 0 0px 0px rgba(200,168,75,0)"] }}
-                      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                      whileHover={{ scale: 1.1, backgroundColor: "rgba(200,168,75,0.15)" }}
-                    >
-                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                        <path d="M1 1l12 12M13 1L1 13"/>
-                      </svg>
-                    </motion.button>
-                    <div className="p-8 pt-14">
-                      <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-xs mb-2">
-                        Gói 0{services.indexOf(selectedService) + 1}
+                  <div className="flex items-center gap-4 mb-8">
+                    <span className="gold-shine font-serif font-bold" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>
+                      0{openServiceIdx + 1}
+                    </span>
+                    <div>
+                      <div className="w-8 h-px bg-primary mb-2" />
+                      <p className="font-sans text-white/70 text-sm uppercase tracking-widest">
+                        {services[openServiceIdx].title}
                       </p>
-                      <h2 className="font-serif text-white mb-1" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
-                        {selectedService.title}
-                      </h2>
-                      <div className="w-10 h-0.5 bg-primary mb-6" />
-                      {selectedService.detail.split("\n\n").map((para, idx) => (
-                        <p key={idx} className="font-sans text-white/80 leading-relaxed text-base mb-4">
-                          {para}
-                        </p>
-                      ))}
-                      <div className="mt-8 pt-6 border-t border-primary/20">
-                        <Link href="/lien-he" className="btn-lienhe inline-flex" onClick={() => setSelectedService(null)}>
-                          <span className="gold-shine">Liên Hệ Đăng Ký</span>
-                        </Link>
-                      </div>
                     </div>
                   </div>
-                </motion.div>
-              </>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 mb-8">
+                    {services[openServiceIdx].detail.split("\n\n").map((para, j) => (
+                      <motion.div
+                        key={j}
+                        initial={{ opacity: 0, x: -16 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.35, delay: j * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                        className="flex gap-3"
+                      >
+                        <div className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                        <p className="font-sans text-white/70 text-sm leading-relaxed">{para}</p>
+                      </motion.div>
+                    ))}
+                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.25 }}
+                  >
+                    <Link href="/lien-he" className="btn-lienhe inline-flex">
+                      <span className="gold-shine">Liên Hệ Đăng Ký</span>
+                    </Link>
+                  </motion.div>
+                </div>
+              </motion.div>
             )}
           </AnimatePresence>
         </div>
