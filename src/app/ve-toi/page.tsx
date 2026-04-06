@@ -332,7 +332,9 @@ export default function VeToi() {
               transition={{ duration: 1, delay: 0.2, ease: easeOut }}
             >
               <div className="relative mx-auto" style={{ maxWidth: 420 }}>
-                <div className="aspect-[3/4] relative overflow-hidden rounded-sm img-shadow">
+                {/* Gold frame accent — chìm sau ảnh */}
+                <div className="absolute -bottom-4 -right-4 w-3/4 h-3/4 border border-primary/30 rounded-sm pointer-events-none z-0" />
+                <div className="aspect-[3/4] relative overflow-hidden rounded-sm img-shadow z-10">
                   <Image
                     src="/images/portrait-nhahoachdinh.jpg"
                     alt="Phạm Thanh Tùng — Nhà Hoạch Định"
@@ -344,8 +346,6 @@ export default function VeToi() {
                   {/* Gold overlay bottom */}
                   <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-navy/70 to-transparent" />
                 </div>
-                {/* Gold frame accent */}
-                <div className="absolute -bottom-4 -right-4 w-3/4 h-3/4 border border-primary/30 rounded-sm pointer-events-none" />
               </div>
             </motion.div>
 
