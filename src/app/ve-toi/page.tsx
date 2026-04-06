@@ -652,11 +652,19 @@ export default function VeToi() {
             </FadeUp>
           </div>
 
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-20">
             {principles.map((p, i) => (
               <StaggerChild key={i}>
-                <div className="p-8 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors duration-300 group">
-                  <span className="text-3xl mb-4 block">{p.icon}</span>
+                <div
+                  className="p-8 border transition-all duration-300 rounded-sm group"
+                  style={{ borderColor: "rgba(200,168,75,0.2)", background: "rgba(200,168,75,0.04)" }}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = "#C8A84B")}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = "rgba(200,168,75,0.2)")}
+                >
+                  <p className="gold-shine font-serif font-bold mb-4" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)" }}>
+                    0{i + 1}
+                  </p>
+                  <div className="w-8 h-px mb-4" style={{ background: "#C8A84B" }} />
                   <h3 className="font-serif text-white text-xl mb-3">{p.title}</h3>
                   <p className="font-sans text-white/60 text-sm leading-relaxed">{p.body}</p>
                 </div>
