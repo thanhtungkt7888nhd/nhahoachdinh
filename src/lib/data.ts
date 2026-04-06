@@ -18,7 +18,7 @@ export const siteConfig = {
 };
 
 export const navLinks = [
-  { label: "Về Tôi", href: "#ve-toi" },
+  { label: "Về Tôi", href: "/ve-toi" },
   { label: "Việc Tôi Làm", href: "#viec-toi-lam" },
   { label: "Chia Sẻ Kiến Thức", href: "/chia-se-kien-thuc" },
   { label: "Blog", href: "/blog" },
