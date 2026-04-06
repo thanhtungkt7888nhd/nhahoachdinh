@@ -411,65 +411,96 @@ export default function VeToi() {
       </section>
 
       {/* ── DANH XƯNG NHÀ HOẠCH ĐỊNH ───────────────────────────── */}
-      <section className="bg-white py-24 md:py-32">
-        <div className="container-main max-w-5xl">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+      <section className="relative overflow-hidden py-24 md:py-32" style={{ background: "#F6F3EE" }}>
+        {/* Corner accent */}
+        <div className="absolute top-0 left-0 w-72 h-72 pointer-events-none" style={{ background: "radial-gradient(circle at 0% 0%, rgba(28,42,28,0.06) 0%, transparent 70%)" }} />
+        <div className="absolute bottom-0 right-0 w-96 h-96 pointer-events-none" style={{ background: "radial-gradient(circle at 100% 100%, rgba(200,168,75,0.07) 0%, transparent 65%)" }} />
 
-            {/* Ảnh — tỉ lệ dọc 3/4 để đủ khuôn mặt */}
+        <div className="container-main max-w-5xl relative z-10">
+          <div className="flex flex-col lg:flex-row-reverse gap-12 lg:gap-16 items-center">
+
+            {/* Ảnh — bên PHẢI, tỉ lệ dọc, khuôn mặt nổi bật */}
             <motion.div
-              className="w-full lg:w-2/5 flex-shrink-0"
-              initial={{ opacity: 0, x: -60 }}
+              className="w-full lg:w-[42%] flex-shrink-0"
+              initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.85, delay: 0.15, ease: easeOut }}
             >
-              <div className="relative overflow-hidden rounded-sm img-shadow" style={{ aspectRatio: "3/4", maxWidth: 380, margin: "0 auto" }}>
-                <Image
-                  src="/images/portrait-chandung.jpg"
-                  alt="Phạm Thanh Tùng — Nhà Hoạch Định"
-                  fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 90vw, 380px"
+              <div className="relative" style={{ maxWidth: 400, margin: "0 auto" }}>
+                {/* Gold frame accent behind */}
+                <div
+                  className="absolute -bottom-5 -left-5 w-full h-full rounded-sm pointer-events-none"
+                  style={{ border: "2px solid rgba(200,168,75,0.35)", zIndex: 0 }}
                 />
+                {/* Dark green corner tag */}
+                <div
+                  className="absolute top-5 -left-3 z-20 px-3 py-1 font-sans text-xs font-semibold uppercase tracking-widest"
+                  style={{ background: "#1C2A1C", color: "#C8A84B", letterSpacing: "0.18em" }}
+                >
+                  Nhà Hoạch Định
+                </div>
+                <div className="relative overflow-hidden rounded-sm img-shadow" style={{ aspectRatio: "3/4", zIndex: 1 }}>
+                  <Image
+                    src="/images/portrait-chandung.jpg"
+                    alt="Phạm Thanh Tùng — Nhà Hoạch Định"
+                    fill
+                    className="object-cover"
+                    style={{ objectPosition: "center 8%" }}
+                    sizes="(max-width: 1024px) 90vw, 400px"
+                  />
+                  {/* Subtle vignette bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-black/20 to-transparent" />
+                </div>
               </div>
             </motion.div>
 
-            {/* Nội dung */}
-            <div className="w-full lg:w-3/5">
+            {/* Nội dung — bên TRÁI */}
+            <div className="w-full lg:w-[58%]">
               <FadeUp>
-                <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.2em] text-sm mb-2">
+                <p className="font-sans font-semibold uppercase tracking-[0.25em] text-xs mb-3" style={{ color: "#C8A84B" }}>
                   Danh Xưng
                 </p>
-                <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
-                  Vượt Ra Khỏi Bản Vẽ Kiến Trúc
+                <h2 className="font-serif leading-tight mb-2" style={{ fontSize: "clamp(1.9rem, 3.2vw, 2.9rem)", color: "#1C2A1C" }}>
+                  Vượt Ra Khỏi<br />
+                  <span style={{ color: "#C8A84B" }}>Bản Vẽ Kiến Trúc</span>
                 </h2>
                 <SectionDivider />
               </FadeUp>
               <FadeUp delay={0.15}>
-                <p className="font-sans text-muted leading-relaxed mb-5">
-                  Danh xưng <strong className="text-charcoal">Nhà Hoạch Định</strong> không phải tự tôn hay đánh bóng tên tuổi,
-                  mà xác lập một vai trò vượt ra ngoài giới hạn của nhà tư vấn hay người thợ vẽ bản vẽ đơn thuần.
+                <p className="font-sans leading-relaxed mb-5" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
+                  Danh xưng{" "}
+                  <strong style={{ color: "#1C2A1C", fontWeight: 700 }}>Nhà Hoạch Định</strong>{" "}
+                  không phải tự tôn hay đánh bóng tên tuổi, mà xác lập một vai trò vượt ra ngoài
+                  giới hạn của nhà tư vấn hay người thợ vẽ bản vẽ đơn thuần.
                 </p>
               </FadeUp>
               <FadeUp delay={0.25}>
-                <p className="font-sans text-muted leading-relaxed mb-5">
-                  Tôi là người có khả năng thay đổi và tác động trực tiếp đến sự phát triển các vùng đất từ cấp làng, xã, huyện
-                  đến cấp tỉnh — đồng thời định hướng chiến lược vĩ mô cho các tổ chức kinh tế, văn hóa và cộng đồng.
+                <p className="font-sans leading-relaxed mb-5" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
+                  Tôi là người có khả năng{" "}
+                  <span style={{ color: "#1C2A1C", fontWeight: 600 }}>thay đổi và tác động trực tiếp</span>{" "}
+                  đến sự phát triển các vùng đất từ cấp làng, xã, huyện đến cấp tỉnh — đồng thời
+                  định hướng{" "}
+                  <span style={{ color: "#1C2A1C", fontWeight: 600 }}>chiến lược vĩ mô</span>{" "}
+                  cho các tổ chức kinh tế, văn hóa và cộng đồng.
                 </p>
               </FadeUp>
               <FadeUp delay={0.35}>
-                <p className="font-sans text-muted leading-relaxed mb-8">
-                  Công tác hoạch định nhắm cụ thể vào việc bóc tách, giải phẫu và tận dụng triệt để thế mạnh nội tại
-                  độc bản của địa phương về thiên nhiên, văn hóa, con người để phát triển.
+                <p className="font-sans leading-relaxed mb-8" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
+                  Công tác hoạch định nhắm cụ thể vào việc bóc tách, giải phẫu và{" "}
+                  <span style={{ color: "#1C2A1C", fontWeight: 600 }}>tận dụng triệt để thế mạnh nội tại độc bản</span>{" "}
+                  của địa phương về thiên nhiên, văn hóa, con người để phát triển.
                 </p>
               </FadeUp>
               <FadeUp delay={0.45}>
                 <blockquote
-                  className="pl-5 border-l-2 border-primary font-serif text-charcoal/75 italic"
-                  style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.15rem)" }}
+                  className="pl-5 border-l-[3px] font-serif italic leading-relaxed"
+                  style={{ borderColor: "#C8A84B", fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)", color: "#3A3A2A" }}
                 >
                   "Một bản vẽ kiến trúc dù lung linh đến mấy cũng trở nên vô nghĩa nếu đặt trên
-                  một vùng đất sai chiến lược và thiếu vắng sinh kế cho người dân bản địa."
+                  một vùng đất{" "}
+                  <span style={{ color: "#1C2A1C", fontStyle: "normal", fontWeight: 600 }}>sai chiến lược</span>{" "}
+                  và thiếu vắng sinh kế cho người dân bản địa."
                 </blockquote>
               </FadeUp>
             </div>
