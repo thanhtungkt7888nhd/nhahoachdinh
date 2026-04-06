@@ -593,12 +593,13 @@ export default function VeToi() {
 
                     {/* Ảnh header */}
                     {selectedTeacher.img && (
-                      <div className="relative w-full h-52 overflow-hidden rounded-t-2xl md:rounded-t-xl flex-shrink-0">
+                      <div className="relative w-full h-64 overflow-hidden rounded-t-2xl md:rounded-t-xl flex-shrink-0">
                         <Image
                           src={selectedTeacher.img}
                           alt={selectedTeacher.name}
                           fill
-                          className={`object-cover ${selectedTeacher.imgPos ?? "object-center"}`}
+                          className="object-cover"
+                          style={{ objectPosition: "center 22%" }}
                           sizes="672px"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1C2A1C] via-[#1C2A1C]/30 to-transparent" />
