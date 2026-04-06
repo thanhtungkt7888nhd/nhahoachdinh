@@ -391,19 +391,23 @@ export default function VeToi() {
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
 
             {/* Ảnh — tỉ lệ dọc 3/4 để đủ khuôn mặt */}
-            <SlideIn direction="left" delay={0.15}>
-              <div className="w-full lg:w-2/5 flex-shrink-0">
-                <div className="relative overflow-hidden rounded-sm img-shadow" style={{ aspectRatio: "3/4", maxWidth: 380, margin: "0 auto" }}>
-                  <Image
-                    src="/images/portrait-chandung.jpg"
-                    alt="Phạm Thanh Tùng — Nhà Hoạch Định"
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 1024px) 90vw, 380px"
-                  />
-                </div>
+            <motion.div
+              className="w-full lg:w-2/5 flex-shrink-0"
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.85, delay: 0.15, ease: easeOut }}
+            >
+              <div className="relative overflow-hidden rounded-sm img-shadow" style={{ aspectRatio: "3/4", maxWidth: 380, margin: "0 auto" }}>
+                <Image
+                  src="/images/portrait-chandung.jpg"
+                  alt="Phạm Thanh Tùng — Nhà Hoạch Định"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 90vw, 380px"
+                />
               </div>
-            </SlideIn>
+            </motion.div>
 
             {/* Nội dung */}
             <div className="w-full lg:w-3/5">
