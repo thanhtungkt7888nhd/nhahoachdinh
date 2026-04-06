@@ -124,11 +124,66 @@ export const testimonials = [
 ];
 
 export const pressItems = [
-  { name: "Vietnominhap.vn", logo: "", href: "https://vietnominhap.vn" },
-  { name: "Baolong.vn", logo: "", href: "https://baolong.vn" },
-  { name: "Trenphong.vn", logo: "", href: "https://trenphong.vn" },
-  { name: "The Saigon Times", logo: "", href: "https://thesaigontimes.vn" },
-  { name: "LinkedIn", logo: "", href: "https://linkedin.com" },
+  {
+    name: "Tuổi Trẻ",
+    logo: "",
+    href: "https://tuoitre.vn/vi-sao-nhieu-nguoi-dau-tu-homestay-farmstay-that-bai-chong-vanh-20250819145343618.htm",
+  },
+  {
+    name: "CafeBiz",
+    logo: "",
+    href: "https://cafebiz.vn/kts-pham-thanh-tung-viet-nam-co-day-du-tiem-nang-ve-thien-nhien-va-con-nguoi-de-tro-thanh-mot-quoc-gia-farmstay-20200928192118412.chn",
+  },
+  {
+    name: "Tiền Phong",
+    logo: "",
+    href: "https://tienphong.vn/gioi-tre/kien-truc-su-thuan-tu-nhien-1717276.tpo",
+  },
+  {
+    name: "The Leader",
+    logo: "",
+    href: "https://theleader.vn/dat-nong-nghiep-thanh-vang-nho-du-lich-co-hoi-hay-cam-bay-d41697.html",
+  },
+  {
+    name: "Tạp Chí Tài Chính",
+    logo: "",
+    href: "https://tapchitaichinh.vn/tai-chinh-gia-dinh/7-sai-lam-co-ban-khi-thiet-ke-homestay-va-farmstay-322575.html",
+  },
+  {
+    name: "Đời Sống Kinh Tế",
+    logo: "",
+    href: "https://doisongkinhte.com.vn/bai-viet/pham-thanh-tung-nha-hoach-dinh-voi-khat-vong-dua-viet-nam-tro-thanh-quoc-gia-du-lich-nong-nghiep",
+  },
+  {
+    name: "Reatimes",
+    logo: "",
+    href: "https://reatimes.vn/xu-huong-phat-trien-farmstay-nhin-tu-tiem-nang-bds-nong-nghiep-1597387193831.html",
+  },
+  {
+    name: "TBTC Việt Nam",
+    logo: "",
+    href: "https://thoibaotaichinhvietnam.vn/bat-dong-san-du-lich-nong-nghiep-phan-khuc-nhieu-tiem-nang-127352.html",
+  },
+  {
+    name: "Cafeland",
+    logo: "",
+    href: "https://cafeland.vn/tin-tuc/farmstay-truoc-con-loc-phan-lo-ban-nen-89860.html",
+  },
+  {
+    name: "Ngôi Sao",
+    logo: "",
+    href: "https://ngoisao.net/gia-dinh/co-bo-chu-nhiem-2928575.html",
+  },
+  {
+    name: "Báo Quảng Nam",
+    logo: "",
+    href: "https://baoquangnam.vn/du-lich/nong-son-hoi-thao-gioi-thieu-tiem-nang-du-lich-dai-binh-111408.html",
+  },
+  {
+    name: "TN Chứng Khoán",
+    logo: "",
+    href: "https://bds.tinnhanhchungkhoan.vn/bat-dong-san/farmstay-truoc-het-phai-la-farm-257934.html",
+  },
 ];
 
 export interface Article {
