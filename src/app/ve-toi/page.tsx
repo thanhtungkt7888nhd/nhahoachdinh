@@ -8,17 +8,67 @@ import { FadeUp, SlideIn, StaggerParent, StaggerChild } from "@/components/anima
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
-const teachers: { stt: string; name: string; desc: string; img?: string; imgPos?: string }[] = [
-  { stt: "01", name: "GS. Phan Văn Trường", desc: "Triết lý cho đi vô điều kiện — nền tảng tổ chức cộng đồng dựa trên sự tử tế và lòng vị tha.", img: "/images/teacher-phan-van-truong.webp" },
-  { stt: "02", name: "Thầy Giản Tư Trung", desc: "Tư duy quản trị mục tiêu cuộc đời — kinh doanh là hành trình tu thân, không chỉ là kiếm tiền.", img: "/images/teacher-gian-tu-trung.jpg" },
-  { stt: "03", name: "Anh Tạ Minh Trãi", desc: "Tư duy sáng tạo bứt phá — phá vỡ giới hạn để dám nghĩ đến những đại dự án mang tầm quốc gia.", img: "/images/teacher-ta-minh-trai.jpg", imgPos: "object-top" },
-  { stt: "04", name: "Thầy Phạm Thành Long", desc: "Kỷ luật thép và thói quen của người chiến thắng — liên tục vượt qua giới hạn của ngày hôm qua.", img: "/images/teacher-pham-thanh-long.jpg" },
-  { stt: "05", name: "Anh Trần Đình Tú", desc: "Quản trị công ty bài bản — mọi quyết định đầu tư, nhân sự hôm nay đều trổ quả trong tương lai.", img: "/images/teacher-tran-dinh-tu.jpg", imgPos: "object-top" },
-  { stt: "06", name: "Người Vợ — Nguyễn Thị Thanh Huyền", desc: "Người đồng hành bền bỉ, kỷ luật yêu thương phía sau những quyết định táo bạo nhất.", img: "/images/portrait-vo-thanh-huyen.jpg" },
-  { stt: "07", name: "Học Trò & Nhân Sự", desc: "Những câu hỏi hóc búa, sự tận tụy, lòng trung thành — chất liệu vô giá để mài giũa hệ thống tư duy.", img: "/images/teacher-hoc-tro-nhan-su.jpg" },
-  { stt: "08", name: "Anh Nguyễn An Nam", desc: "Đả thông tư tưởng tâm linh — giúp tâm trí tĩnh tại, đôi chân vững trên mặt đất.", img: "/images/teacher-nguyen-an-nam.jpg" },
-  { stt: "09", name: "Cộng Đồng Làng Farmstay VN", desc: "Đồng sáng lập — hàng nghìn chủ Farm là người thầy thực tiễn sâu sắc nhất.", img: "/images/teacher-cong-dong-farmstay.jpg" },
-  { stt: "10", name: "Tổ Chức BNI", desc: "Hiểu thấu hệ thống vận hành toàn cầu — nền tảng Giáo dục là cốt lõi thành công.", img: "/images/teacher-bni.jpg" },
+const teachers: { stt: string; name: string; desc: string; detail: string; img?: string; imgPos?: string }[] = [
+  {
+    stt: "01", name: "GS. Phan Văn Trường",
+    desc: "Triết lý cho đi vô điều kiện — nền tảng tổ chức cộng đồng dựa trên sự tử tế và lòng vị tha.",
+    detail: "Mình xin cúi đầu biết ơn Giáo sư Phan Văn Trường — người đã khai sáng cho mình về triết lý của sự cho đi vô điều kiện. Nhờ Thầy, mình giác ngộ được phương pháp tổ chức cộng đồng dựa trên nền tảng của sự tử tế và lòng vị tha. Thầy dạy mình rằng một hệ sinh thái chỉ trường tồn khi những người tham gia biết đặt lợi ích của tập thể lên trên sự ích kỷ của cá nhân. Đây là nền tảng triết học cốt lõi của mọi mô hình cộng đồng farmstay mà mình xây dựng.",
+    img: "/images/teacher-phan-van-truong.webp",
+  },
+  {
+    stt: "02", name: "Thầy Giản Tư Trung",
+    desc: "Tư duy quản trị mục tiêu cuộc đời — kinh doanh là hành trình tu thân, không chỉ là kiếm tiền.",
+    detail: "Thầy Giản Tư Trung là ngọn hải đăng soi sáng cho mình những nền tảng tối thượng về tư duy quản trị mục tiêu cuộc đời. Nhờ những bài học sâu sắc của Thầy, mình hiểu rằng kinh doanh không chỉ là kiếm tiền, mà là một hành trình tu thân. Qua đó, mình biết cách quản trị các mối quan hệ, cân bằng các giá trị cốt lõi trong cuộc sống hàng ngày để không bao giờ bị lạc lối giữa ma trận vật chất. Mỗi dự án farmstay mình tư vấn đều mang trong đó triết lý: phát triển kinh tế đi liền với tu dưỡng nhân cách.",
+    img: "/images/teacher-gian-tu-trung.jpg",
+  },
+  {
+    stt: "03", name: "Anh Tạ Minh Trãi",
+    desc: "Tư duy sáng tạo bứt phá — phá vỡ giới hạn để dám nghĩ đến những đại dự án mang tầm quốc gia.",
+    detail: "Anh Tạ Minh Trãi là người anh lớn đã đập tan những rào cản cằn cỗi trong tâm trí mình, trao cho mình những tư duy bứt phá về mặt sáng tạo. Anh dạy mình cách tư duy đi ra khỏi lối mòn quen thuộc. Chính anh đã cung cấp cho mình một phương thức tư duy sắc lẹm để phá vỡ mọi giới hạn được đặt ra trước đó, giúp mình dám nghĩ đến những đại dự án mang tầm vóc quốc gia — điều mà trước kia mình chưa bao giờ dám mơ đến.",
+    img: "/images/teacher-ta-minh-trai.jpg", imgPos: "object-top",
+  },
+  {
+    stt: "04", name: "Thầy Phạm Thành Long",
+    desc: "Kỷ luật thép và thói quen của người chiến thắng — liên tục vượt qua giới hạn của ngày hôm qua.",
+    detail: "Thầy Phạm Thành Long là ngọn lửa cuồng nộ đã nung nấu và dạy cho mình sự bứt phá khủng khiếp về những mục tiêu kinh doanh và mục tiêu khẳng định giá trị bản thân. Đây là người đã giúp mình rất nhiều trong việc rèn luyện kỷ luật thép, tạo ra những thói quen của người chiến thắng. Một trong những thói quen mang tính sinh tử mà Thầy truyền lại chính là: Phải liên tục vượt qua giới hạn của chính mình ngày hôm qua. Triết lý này hiện diện trong từng buổi sáng mình thức dậy để làm việc.",
+    img: "/images/teacher-pham-thanh-long.jpg",
+  },
+  {
+    stt: "05", name: "Anh Trần Đình Tú",
+    desc: "Quản trị công ty bài bản — mọi quyết định đầu tư, nhân sự hôm nay đều trổ quả trong tương lai.",
+    detail: "Anh Trần Đình Tú là người đã trao cho mình những kiến thức cơ sở nền tảng về việc quản trị công ty bài bản. Nhờ sự chỉ dẫn chi tiết của anh, mình thấu hiểu được tính nhân quả trong sự vận động của một doanh nghiệp — rằng mọi quyết định đầu tư, mọi chính sách nhân sự ngày hôm nay đều sẽ trổ quả tốt hay xấu trong tương lai. Đây là lý do mình luôn đặt nặng chiến lược dài hạn trong từng dự án tư vấn.",
+    img: "/images/teacher-tran-dinh-tu.jpg", imgPos: "object-top",
+  },
+  {
+    stt: "06", name: "Người Vợ — Nguyễn Thị Thanh Huyền",
+    desc: "Người đồng hành bền bỉ, kỷ luật yêu thương phía sau những quyết định táo bạo nhất.",
+    detail: "Người phụ nữ quyền lực nhất, cô giáo chủ nhiệm và đồng thời cũng là người Vợ tào khang của mình — Nguyễn Thị Thanh Huyền. Phía sau những quyết định táo bạo của mình luôn có bóng dáng của sự vun vén. Mình đã phát triển mạnh mẽ về mặt tri thức, rèn giũa được những thói quen tốt chính là nhờ sự khắt khe, sự yêu thương kỷ luật và sự đồng hành bền bỉ của cô ấy qua bao thăng trầm. Không có cô ấy, sẽ không có Phạm Thanh Tùng của ngày hôm nay.",
+    img: "/images/portrait-vo-thanh-huyen.jpg",
+  },
+  {
+    stt: "07", name: "Học Trò & Nhân Sự",
+    desc: "Những câu hỏi hóc búa, sự tận tụy, lòng trung thành — chất liệu vô giá để mài giũa hệ thống tư duy.",
+    detail: "Trong quá trình đi chia sẻ và giảng dạy, mình nhận ra chính những học viên — những người gọi mình là Thầy — lại là những người thầy thực tiễn sâu sắc nhất. Những góp ý chân thành, những câu hỏi hóc búa, những trăn trở và cả những điểm nghẽn mà họ gặp phải trên thực địa chính là chất liệu vô giá để mình liên tục mài giũa hệ thống tư duy. Việc đồng hành tháo gỡ vấn đề cho học trò chính là quá trình mình tự hoàn thiện bản thân không ngừng.",
+    img: "/images/teacher-hoc-tro-nhan-su.jpg",
+  },
+  {
+    stt: "08", name: "Anh Nguyễn An Nam",
+    desc: "Đả thông tư tưởng tâm linh — giúp tâm trí tĩnh tại, đôi chân vững trên mặt đất.",
+    detail: "Anh Nguyễn An Nam là một người bạn tri kỷ đã ngồi lại trò chuyện với mình về những quan điểm tâm linh sâu thẳm. Nhờ sự đả thông tư tưởng từ anh, mình đã kết thúc được những hoang mang, những giá trị tâm linh vướng mắc trong suy nghĩ. Nhờ đó, tâm trí mình hoàn toàn tĩnh tại và giữ vững đôi chân trên mặt đất khi đưa ra những quyết định chiến lược lớn. Đây là nền tảng nội tâm không thể thiếu của một người làm công việc hoạch định.",
+    img: "/images/teacher-nguyen-an-nam.jpg",
+  },
+  {
+    stt: "09", name: "Cộng Đồng Làng Farmstay VN",
+    desc: "Đồng sáng lập — hàng nghìn chủ Farm là người thầy thực tiễn sâu sắc nhất.",
+    detail: "Người thầy khổng lồ mang tên Cộng đồng Du lịch Nông nghiệp Việt Nam — nay là Làng Farmstay Việt Nam. Mình là người đồng sáng lập, nhưng chính cộng đồng lại là người dạy mình nhiều nhất. Nhờ sự va đập hàng ngày với hàng nghìn anh em chủ Farm, mình đã học được cách tổ chức một cộng đồng có sự kết nối sâu sắc, biết hy sinh cho đi và hình thành một văn hóa chung để tạo ra sức mạnh tác động vào toàn ngành du lịch nông nghiệp Việt Nam.",
+    img: "/images/teacher-cong-dong-farmstay.jpg",
+  },
+  {
+    stt: "10", name: "Tổ Chức BNI",
+    desc: "Hiểu thấu hệ thống vận hành toàn cầu — nền tảng Giáo dục là cốt lõi thành công.",
+    detail: "Nhờ 2 năm dấn thân tham gia tổ chức BNI và hấp thụ những kiến thức được truyền dạy từ các thành viên xuất chúng, mình đã hiểu thấu đáo tính hệ thống của một cỗ máy vận hành toàn cầu. Qua đó, mình ngộ ra câu trả lời cho bài toán: Một hệ thống toàn cầu cần có những gì? Và nhận ra rằng điều cốt lõi làm nên thành công của một tổ chức toàn cầu chính là nền tảng Giáo dục — bài học mình áp dụng vào mọi hệ sinh thái farmstay mình xây dựng.",
+    img: "/images/teacher-bni.jpg",
+  },
 ];
 
 const principles = [
@@ -222,6 +272,7 @@ function SectionDivider() {
 export default function VeToi() {
   const teachersRef = useRef<HTMLDivElement>(null);
   const teachersInView = useInView(teachersRef, { once: true, margin: "-60px 0px" });
+  const [selectedTeacher, setSelectedTeacher] = useState<typeof teachers[0] | null>(null);
 
   return (
     <div className="pt-[88px]">
@@ -452,14 +503,15 @@ export default function VeToi() {
 
           <div ref={teachersRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {teachers.map((t, i) => (
-              <motion.div
+              <motion.button
                 key={i}
-                className="group relative border border-earth/10 bg-beige/40 hover:bg-beige transition-colors duration-300 overflow-hidden"
+                onClick={() => setSelectedTeacher(t)}
+                className="group relative border border-earth/10 bg-beige/40 hover:bg-beige transition-colors duration-300 overflow-hidden text-left cursor-pointer"
                 initial={{ opacity: 0, y: 30 }}
                 animate={teachersInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.55, delay: i * 0.06, ease: easeOut }}
+                whileHover={{ y: -3 }}
               >
-                {/* Ảnh thật nếu có */}
                 {t.img && (
                   <div className="relative w-full h-56 overflow-hidden">
                     <Image
@@ -475,18 +527,91 @@ export default function VeToi() {
                 <div className="p-6">
                   <span className="gold-shine-subtle font-serif text-3xl font-bold block mb-3">{t.stt}</span>
                   <h3 className="font-serif text-charcoal text-base font-medium mb-2">{t.name}</h3>
-                  <p className="font-sans text-muted text-sm leading-relaxed">{t.desc}</p>
+                  <p className="font-sans text-muted text-sm leading-relaxed mb-4">{t.desc}</p>
+                  <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-widest text-primary/70 group-hover:text-primary transition-colors">
+                    Đọc thêm
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                      <path d="M6.5 1L11 6l-4.5 5M1 6h10" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                    </svg>
+                  </span>
                 </div>
-                {/* Bottom accent */}
                 <motion.div
                   className="absolute bottom-0 left-0 h-0.5 bg-primary"
                   initial={{ width: 0 }}
                   whileHover={{ width: "100%" }}
                   transition={{ duration: 0.3 }}
                 />
-              </motion.div>
+              </motion.button>
             ))}
           </div>
+
+          {/* ── MODAL CHI TIẾT ── */}
+          <AnimatePresence>
+            {selectedTeacher && (
+              <>
+                {/* Backdrop */}
+                <motion.div
+                  className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setSelectedTeacher(null)}
+                />
+                {/* Panel */}
+                <motion.div
+                  className="fixed inset-x-0 bottom-0 md:inset-0 md:flex md:items-center md:justify-center z-50 p-0 md:p-6"
+                  initial={{ opacity: 0, y: 60 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 40 }}
+                  transition={{ duration: 0.4, ease: easeOut }}
+                >
+                  <div
+                    className="relative w-full md:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl md:rounded-xl"
+                    style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
+                    onClick={e => e.stopPropagation()}
+                  >
+                    {/* Close button */}
+                    <button
+                      onClick={() => setSelectedTeacher(null)}
+                      className="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center rounded-full border border-white/20 text-white/60 hover:text-white hover:border-white/50 transition-all"
+                    >
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                        <path d="M1 1l12 12M13 1L1 13"/>
+                      </svg>
+                    </button>
+
+                    {/* Ảnh header */}
+                    {selectedTeacher.img && (
+                      <div className="relative w-full h-52 overflow-hidden rounded-t-2xl md:rounded-t-xl flex-shrink-0">
+                        <Image
+                          src={selectedTeacher.img}
+                          alt={selectedTeacher.name}
+                          fill
+                          className={`object-cover ${selectedTeacher.imgPos ?? "object-center"}`}
+                          sizes="672px"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#1C2A1C] via-[#1C2A1C]/30 to-transparent" />
+                      </div>
+                    )}
+
+                    {/* Nội dung */}
+                    <div className="p-8">
+                      <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-xs mb-2">
+                        Người Thầy {selectedTeacher.stt}
+                      </p>
+                      <h2 className="font-serif text-white mb-1" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)" }}>
+                        {selectedTeacher.name}
+                      </h2>
+                      <div className="w-10 h-0.5 bg-primary mb-6" />
+                      <p className="font-sans text-white/80 leading-relaxed text-base">
+                        {selectedTeacher.detail}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </>
+            )}
+          </AnimatePresence>
         </div>
       </section>
 
