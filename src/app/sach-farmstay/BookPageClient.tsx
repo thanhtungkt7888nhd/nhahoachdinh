@@ -20,7 +20,7 @@ interface FormData {
   district: string; districtCode: string;
   ward: string; wardCode: string;
   quantity: number; note: string;
-  paymentMethod: "qr" | "cod";
+  paymentMethod: "qr";
 }
 interface AddrItem { code: number; name: string; districts?: AddrItem[]; wards?: AddrItem[]; }
 
@@ -118,7 +118,7 @@ const testimonials = [
 
 const faqs = [
   { q: "Sách được giao trong bao lâu?", a: "Toàn quốc 2–4 ngày làm việc qua GHN Express. Khu vực nội thành Hà Nội và TP.HCM thường nhận trong 1–2 ngày." },
-  { q: "Có thể thanh toán khi nhận hàng không?", a: "Có. Chọn COD (Thanh toán khi nhận hàng) trong form đặt mua. Shipper sẽ thu tiền khi giao." },
+  { q: "Thanh toán bằng ngân hàng nào cũng được không?", a: "Được. Mã QR dùng chuẩn VietQR — quét bằng app của bất kỳ ngân hàng nào tại Việt Nam đều thanh toán được." },
   { q: "Sách có mấy trang? Bìa cứng hay bìa mềm?", a: "Sách khoảng 280 trang, khổ A5, bìa cứng ép kim vàng. Giấy kem cao cấp, in màu toàn bộ ảnh minh họa thực tế." },
   { q: "Nếu muốn mua số lượng lớn (trên 10 cuốn) để tặng?", a: "Liên hệ trực tiếp qua Zalo 0935 396 705 để được báo giá ưu đãi và có thể yêu cầu ký tặng cá nhân." },
   { q: "Có bản ebook/PDF không?", a: "Hiện tại chỉ có bản in. Bản số hóa đang trong kế hoạch phát hành trong năm 2025." },
@@ -259,8 +259,7 @@ export default function BookPageClient() {
       if (data.trackingCode) setTrackingCode(data.trackingCode);
     } catch { /* silent */ }
     setSubmitting(false);
-    if (form.paymentMethod === "qr") setScreen("qr");
-    else setScreen("success");
+    setScreen("qr");
   };
 
   const handlePaymentDone = async () => {
@@ -304,16 +303,12 @@ export default function BookPageClient() {
           </div>
         </div>
         <p style={{ color: "rgba(237,224,196,0.55)", fontSize: "0.85rem", textAlign: "center", maxWidth: "380px", margin: "0 auto 1.5rem", lineHeight: 1.7 }}>
-          {form.paymentMethod === "cod"
-            ? "Đơn hàng của bạn đã được ghi nhận. Shipper sẽ liên hệ trong 1–3 ngày làm việc."
-            : "Cảm ơn bạn đã thanh toán. Đơn hàng sẽ được xử lý và giao trong 2–4 ngày làm việc."}
+          Cảm ơn bạn đã thanh toán. Đơn hàng sẽ được xử lý và giao trong 2–4 ngày làm việc.
         </p>
         {trackingCode && <p style={{ color: "rgba(196,154,40,0.8)", fontSize: "0.85rem", textAlign: "center", marginBottom: "1.5rem" }}>Mã vận đơn GHN: <strong style={{ color: "#C49A28" }}>{trackingCode}</strong></p>}
-        {form.paymentMethod === "qr" && (
-          <p style={{ color: "rgba(237,224,196,0.45)", fontSize: "0.8rem", textAlign: "center", maxWidth: "360px", margin: "0 auto 2rem", lineHeight: 1.6 }}>
-            Nếu chưa chuyển khoản, vui lòng liên hệ Zalo <strong style={{ color: "#C49A28" }}>0935 396 705</strong> để được hỗ trợ.
-          </p>
-        )}
+        <p style={{ color: "rgba(237,224,196,0.45)", fontSize: "0.8rem", textAlign: "center", maxWidth: "360px", margin: "0 auto 2rem", lineHeight: 1.6 }}>
+          Nếu chưa chuyển khoản, vui lòng liên hệ Zalo <strong style={{ color: "#C49A28" }}>0935 396 705</strong> để được hỗ trợ.
+        </p>
         <div style={{ textAlign: "center" }}>
           <Link href="/" style={{ display: "inline-block", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", padding: "12px 28px", background: "transparent", color: "#EDE0C4", border: "1px solid rgba(237,224,196,0.25)", borderRadius: "8px", textDecoration: "none" }}>
             Về Trang Chủ
@@ -759,7 +754,7 @@ export default function BookPageClient() {
             {[
               { icon: "🔒", text: "Thanh toán an toàn" },
               { icon: "🚚", text: "Giao hàng toàn quốc" },
-              { icon: "↩️", text: "Đổi trả nếu lỗi in" },
+              { icon: "↩️", text: "Đổi sách nếu lỗi in" },
               { icon: "⚡", text: "Xử lý trong 24h" },
             ].map((b, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
@@ -948,46 +943,12 @@ export default function BookPageClient() {
                 />
               </div>
 
-              {/* Payment method */}
-              <div>
-                <label style={labelStyle}>Phương thức thanh toán</label>
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
-                  {/* QR */}
-                  <button
-                    type="button"
-                    onClick={() => setForm(f => ({ ...f, paymentMethod: "qr" }))}
-                    style={{
-                      padding: "1rem",
-                      borderRadius: 10,
-                      border: form.paymentMethod === "qr" ? "2px solid #C49A28" : "1px solid rgba(196,154,40,0.2)",
-                      background: form.paymentMethod === "qr" ? "rgba(196,154,40,0.08)" : "rgba(237,224,196,0.02)",
-                      cursor: "pointer",
-                      textAlign: "center",
-                      transition: "all 0.2s",
-                    }}
-                  >
-                    <div style={{ fontSize: "1.5rem", marginBottom: "0.4rem" }}>📱</div>
-                    <p style={{ color: form.paymentMethod === "qr" ? "#D4B050" : "#EDE0C4", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "0.8rem", marginBottom: "0.25rem" }}>Chuyển Khoản QR</p>
-                    <p style={{ color: "rgba(237,224,196,0.4)", fontFamily: "var(--font-nunito)", fontSize: "0.7rem" }}>VietQR mọi ngân hàng</p>
-                  </button>
-                  {/* COD */}
-                  <button
-                    type="button"
-                    onClick={() => setForm(f => ({ ...f, paymentMethod: "cod" }))}
-                    style={{
-                      padding: "1rem",
-                      borderRadius: 10,
-                      border: form.paymentMethod === "cod" ? "2px solid #C49A28" : "1px solid rgba(196,154,40,0.2)",
-                      background: form.paymentMethod === "cod" ? "rgba(196,154,40,0.08)" : "rgba(237,224,196,0.02)",
-                      cursor: "pointer",
-                      textAlign: "center",
-                      transition: "all 0.2s",
-                    }}
-                  >
-                    <div style={{ fontSize: "1.5rem", marginBottom: "0.4rem" }}>💵</div>
-                    <p style={{ color: form.paymentMethod === "cod" ? "#D4B050" : "#EDE0C4", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "0.8rem", marginBottom: "0.25rem" }}>COD</p>
-                    <p style={{ color: "rgba(237,224,196,0.4)", fontFamily: "var(--font-nunito)", fontSize: "0.7rem" }}>Nhận hàng rồi thanh toán</p>
-                  </button>
+              {/* Payment method — QR only */}
+              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", padding: "0.9rem 1.1rem", border: "1px solid rgba(196,154,40,0.25)", borderRadius: 10, background: "rgba(196,154,40,0.05)" }}>
+                <span style={{ fontSize: "1.3rem" }}>📱</span>
+                <div>
+                  <p style={{ color: "#D4B050", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "0.85rem", margin: 0 }}>Chuyển Khoản VietQR</p>
+                  <p style={{ color: "rgba(237,224,196,0.45)", fontFamily: "var(--font-nunito)", fontSize: "0.72rem", margin: "2px 0 0" }}>Quét mã bằng app ngân hàng bất kỳ — xác nhận tức thì</p>
                 </div>
               </div>
 
@@ -1040,7 +1001,7 @@ export default function BookPageClient() {
                     Đang xử lý...
                   </>
                 ) : (
-                  form.paymentMethod === "qr" ? "Tiến hành thanh toán QR" : "Xác nhận đặt hàng COD"
+                  "Tiến Hành Thanh Toán QR"
                 )}
               </button>
 
