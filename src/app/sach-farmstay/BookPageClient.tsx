@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/animations";
@@ -151,6 +151,54 @@ const labelStyle: React.CSSProperties = {
   fontWeight: 600,
 };
 
+// ── MicButton ─────────────────────────────────────────────────────────────────
+function MicButton({ isListening, onClick }: { isListening: boolean; onClick: () => void }) {
+  return (
+    <motion.button
+      type="button"
+      onClick={onClick}
+      title={isListening ? "Đang nghe... Nhấn để dừng" : "Nhấn để nói tiếng Việt"}
+      animate={isListening ? { scale: [1, 1.15, 1] } : { scale: 1 }}
+      transition={isListening ? { duration: 1, repeat: Infinity, ease: "easeInOut" } : {}}
+      style={{
+        position: "absolute",
+        right: 10,
+        top: "50%",
+        transform: "translateY(-50%)",
+        background: isListening ? "rgba(196,154,40,0.18)" : "transparent",
+        border: isListening ? "1px solid rgba(196,154,40,0.4)" : "none",
+        borderRadius: 6,
+        cursor: "pointer",
+        padding: "5px 6px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: isListening ? "#D4B050" : "rgba(196,154,40,0.35)",
+        transition: "color 0.2s, background 0.2s",
+        zIndex: 2,
+      }}
+    >
+      {isListening ? (
+        /* Sóng âm khi đang nghe */
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="2"  y="9"  width="3" height="6" rx="1.5" opacity="0.5"/>
+          <rect x="7"  y="6"  width="3" height="12" rx="1.5" opacity="0.75"/>
+          <rect x="12" y="3"  width="3" height="18" rx="1.5"/>
+          <rect x="17" y="6"  width="3" height="12" rx="1.5" opacity="0.75"/>
+        </svg>
+      ) : (
+        /* Mic icon */
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8"  y1="23" x2="16" y2="23"/>
+        </svg>
+      )}
+    </motion.button>
+  );
+}
+
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function BookPageClient() {
   const [screen, setScreen] = useState<Screen>("page");
@@ -168,6 +216,41 @@ export default function BookPageClient() {
 
   // FAQ open state
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  // Voice input
+  const [listeningField, setListeningField] = useState<keyof FormData | null>(null);
+  const recognitionRef = useRef<unknown>(null);
+
+  const startListening = useCallback((field: keyof FormData) => {
+    // Dừng nếu đang nghe cùng field
+    if (listeningField === field) {
+      (recognitionRef.current as { stop: () => void } | null)?.stop();
+      setListeningField(null);
+      return;
+    }
+    const SR = (window as unknown as Record<string, unknown>).SpeechRecognition
+            || (window as unknown as Record<string, unknown>).webkitSpeechRecognition;
+    if (!SR) {
+      alert("Trình duyệt chưa hỗ trợ nhập giọng nói.\nVui lòng dùng Chrome hoặc Edge.");
+      return;
+    }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const recognition = new (SR as new () => any)();
+    recognition.lang = "vi-VN";
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.onstart = () => setListeningField(field);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    recognition.onresult = (e: any) => {
+      const text: string = e.results[0][0].transcript;
+      setForm(f => ({ ...f, [field]: text }));
+      setErrors(prev => ({ ...prev, [field]: undefined }));
+    };
+    recognition.onend = () => setListeningField(null);
+    recognition.onerror = () => setListeningField(null);
+    recognitionRef.current = recognition;
+    recognition.start();
+  }, [listeningField]);
 
   // QR countdown
   const [countdown, setCountdown] = useState(15 * 60);
@@ -789,13 +872,16 @@ export default function BookPageClient() {
               {/* Name */}
               <div>
                 <label style={labelStyle}>Họ và tên *</label>
-                <input
-                  type="text"
-                  value={form.name}
-                  onChange={e => { setForm(f => ({ ...f, name: e.target.value })); setErrors(prev => ({ ...prev, name: undefined })); }}
-                  placeholder="Nguyễn Văn A"
-                  style={errors.name ? inputErrorStyle : inputStyle}
-                />
+                <div style={{ position: "relative" }}>
+                  <input
+                    type="text"
+                    value={form.name}
+                    onChange={e => { setForm(f => ({ ...f, name: e.target.value })); setErrors(prev => ({ ...prev, name: undefined })); }}
+                    placeholder="Nguyễn Văn A"
+                    style={{ ...(errors.name ? inputErrorStyle : inputStyle), paddingRight: 42 }}
+                  />
+                  <MicButton isListening={listeningField === "name"} onClick={() => startListening("name")} />
+                </div>
                 {errors.name && <p style={{ color: "#E87070", fontSize: "11px", marginTop: "4px" }}>{errors.name}</p>}
               </div>
 
@@ -827,13 +913,16 @@ export default function BookPageClient() {
               {/* Street */}
               <div>
                 <label style={labelStyle}>Số nhà / Tên đường *</label>
-                <input
-                  type="text"
-                  value={form.street}
-                  onChange={e => { setForm(f => ({ ...f, street: e.target.value })); setErrors(prev => ({ ...prev, street: undefined })); }}
-                  placeholder="123 Đường Lê Lợi"
-                  style={errors.street ? inputErrorStyle : inputStyle}
-                />
+                <div style={{ position: "relative" }}>
+                  <input
+                    type="text"
+                    value={form.street}
+                    onChange={e => { setForm(f => ({ ...f, street: e.target.value })); setErrors(prev => ({ ...prev, street: undefined })); }}
+                    placeholder="123 Đường Lê Lợi"
+                    style={{ ...(errors.street ? inputErrorStyle : inputStyle), paddingRight: 42 }}
+                  />
+                  <MicButton isListening={listeningField === "street"} onClick={() => startListening("street")} />
+                </div>
                 {errors.street && <p style={{ color: "#E87070", fontSize: "11px", marginTop: "4px" }}>{errors.street}</p>}
               </div>
 
@@ -933,13 +1022,48 @@ export default function BookPageClient() {
 
               {/* Note */}
               <div>
-                <label style={labelStyle}>Ghi chú (tùy chọn)</label>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "6px" }}>
+                  <label style={{ ...labelStyle, marginBottom: 0 }}>Ghi chú (tùy chọn)</label>
+                  <motion.button
+                    type="button"
+                    onClick={() => startListening("note")}
+                    title={listeningField === "note" ? "Đang nghe... Nhấn để dừng" : "Nhấn để nói ghi chú"}
+                    animate={listeningField === "note" ? { scale: [1, 1.1, 1] } : { scale: 1 }}
+                    transition={listeningField === "note" ? { duration: 1, repeat: Infinity } : {}}
+                    style={{
+                      display: "flex", alignItems: "center", gap: "5px",
+                      background: listeningField === "note" ? "rgba(196,154,40,0.15)" : "transparent",
+                      border: listeningField === "note" ? "1px solid rgba(196,154,40,0.35)" : "1px solid rgba(196,154,40,0.15)",
+                      borderRadius: 6, cursor: "pointer", padding: "4px 10px",
+                      color: listeningField === "note" ? "#D4B050" : "rgba(196,154,40,0.45)",
+                      fontFamily: "var(--font-nunito)", fontSize: "10px", letterSpacing: "0.08em",
+                      transition: "all 0.2s",
+                    }}
+                  >
+                    {listeningField === "note" ? (
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                        <rect x="2" y="9" width="3" height="6" rx="1.5" opacity="0.5"/>
+                        <rect x="7" y="6" width="3" height="12" rx="1.5" opacity="0.75"/>
+                        <rect x="12" y="3" width="3" height="18" rx="1.5"/>
+                        <rect x="17" y="6" width="3" height="12" rx="1.5" opacity="0.75"/>
+                      </svg>
+                    ) : (
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                        <line x1="12" y1="19" x2="12" y2="23"/>
+                        <line x1="8" y1="23" x2="16" y2="23"/>
+                      </svg>
+                    )}
+                    {listeningField === "note" ? "Đang nghe..." : "Nói"}
+                  </motion.button>
+                </div>
                 <textarea
                   value={form.note}
                   onChange={e => setForm(f => ({ ...f, note: e.target.value }))}
-                  placeholder="Yêu cầu đặc biệt, ký tặng, v.v..."
+                  placeholder="Nói hoặc gõ yêu cầu đặc biệt, ký tặng, v.v..."
                   rows={3}
-                  style={{ ...inputStyle, resize: "vertical" }}
+                  style={{ ...inputStyle, resize: "vertical", border: listeningField === "note" ? "1px solid rgba(196,154,40,0.45)" : inputStyle.border }}
                 />
               </div>
 
