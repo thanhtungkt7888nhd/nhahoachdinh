@@ -566,7 +566,14 @@ export default function ToiLam() {
                 onClick={() => setOpenServiceIdx(openServiceIdx === i ? null : i)}
                 className="group text-center px-4 py-6 border transition-all duration-300 rounded-sm focus:outline-none"
                 style={{ borderColor: openServiceIdx === i ? "#C8A84B" : "rgba(200,168,75,0.2)", background: openServiceIdx === i ? "rgba(200,168,75,0.08)" : "transparent" }}>
-                <p className="text-2xl mb-2">{s.icon}</p>
+                <div className="mx-auto mb-3 w-14 h-14 rounded-full flex items-center justify-center text-2xl"
+                  style={{
+                    background: "linear-gradient(135deg, #1C2A1C, #1D3A1D) padding-box, linear-gradient(135deg, #8a6a1a 0%, #C8A84B 35%, #f5e07a 55%, #C8A84B 75%, #8a6a1a 100%) border-box",
+                    border: "1.5px solid transparent",
+                    boxShadow: "0 0 10px rgba(200,168,75,0.18), inset 0 0 6px rgba(200,168,75,0.06)",
+                  }}>
+                  {s.icon}
+                </div>
                 <p className="gold-shine font-serif font-bold mb-1" style={{ fontSize: "clamp(1.3rem, 2.5vw, 2rem)" }}>{s.num}</p>
                 <p className="font-sans text-white/50 text-xs uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors">{s.title}</p>
                 <motion.div className="mx-auto mt-3 text-primary/60" animate={{ rotate: openServiceIdx === i ? 180 : 0 }} transition={{ duration: 0.3 }}>
@@ -583,7 +590,14 @@ export default function ToiLam() {
                 transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }} className="overflow-hidden">
                 <div className="mt-4 p-8 md:p-10 border rounded-sm" style={{ borderColor: "rgba(200,168,75,0.25)", background: "rgba(200,168,75,0.05)" }}>
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="text-3xl">{services[openServiceIdx].icon}</span>
+                    <div className="w-14 h-14 rounded-full flex items-center justify-center text-3xl flex-shrink-0"
+                      style={{
+                        background: "linear-gradient(135deg, #1C2A1C, #1D3A1D) padding-box, linear-gradient(135deg, #8a6a1a 0%, #C8A84B 35%, #f5e07a 55%, #C8A84B 75%, #8a6a1a 100%) border-box",
+                        border: "1.5px solid transparent",
+                        boxShadow: "0 0 14px rgba(200,168,75,0.22), inset 0 0 8px rgba(200,168,75,0.07)",
+                      }}>
+                      {services[openServiceIdx].icon}
+                    </div>
                     <div>
                       <span className="gold-shine font-serif font-bold" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)" }}>{services[openServiceIdx].num}</span>
                       <p className="font-sans text-white/70 text-sm uppercase tracking-widest">{services[openServiceIdx].title}</p>
