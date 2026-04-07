@@ -57,31 +57,36 @@ const tangTac = [
     num: "01", title: "Nền Tảng Chuyên Môn", color: "#C8A84B",
     items: ["Dezicor — kiến trúc & quy hoạch chuẩn quốc tế", "Defarm — tư vấn chiến lược & thiết kế farmstay", "Dehome — thiết kế nhà ở cá nhân hóa"],
     desc: "Nơi mình rèn năng lực và kiểm chứng tư duy chiến lược qua từng dự án thực tế.",
-    img: "/images/cv-slide5-img0.jpg",
+    img: "/images/event-bds-604.jpg",
+    imgPos: "center 10%",
   },
   {
     num: "02", title: "Cộng Đồng Thực Hành", color: "#C8A84B",
     items: ["Cấy Nền Farmstay", "FSA Farmstay", "Khởi Nghiệp Farmstay → Hiệp hội Farmstay VN"],
     desc: "Trao tri thức, đồng hành chiến lược. Mỗi farmstay bền vững là một mảnh ghép trong bức tranh lớn.",
-    img: "/images/community.jpg",
+    img: "/images/event-bds-1031.jpg",
+    imgPos: "center 30%",
   },
   {
     num: "03", title: "Vùng Đất & Địa Phương", color: "#C8A84B",
     items: ["Làng Đại Bình — Nông Sơn, Quảng Nam", "Làng sinh thái Bình Thuận", "Tư vấn huyện, tỉnh về chiến lược du lịch nông nghiệp"],
     desc: "Từ một ngôi làng có thể thay đổi tư duy cả một vùng.",
-    img: "/images/cv-slide7-img0.jpg",
+    img: "/images/field-portrait-1.jpg",
+    imgPos: "center 20%",
   },
   {
     num: "04", title: "Nhận Thức Quốc Gia", color: "#C8A84B",
     items: ["Xuyên Việt Farmstay — hành trình thực địa hằng năm", "Cộng đồng trực tuyến & bài viết chiến lược", "Thay đổi thói quen tiêu dùng, du lịch farm"],
     desc: "Tác động để thay đổi nhận thức của cả một thế hệ.",
-    img: "/images/event-farmstay-update.jpg",
+    img: "/images/event-bds-596.jpg",
+    imgPos: "center 20%",
   },
   {
     num: "05", title: "Tri Thức Hệ Thống", color: "#C8A84B",
     items: ["Farmstay Update — chương trình thường niên tháng 3", "Kho tri thức chuẩn cho toàn ngành", "Tổ chức tham chiếu cho chính sách & đầu tư"],
     desc: "Một quốc gia muốn hùng cường phải có tri thức được hệ thống hóa — không chỉ kinh nghiệm rời rạc.",
-    img: "/images/event-conference.jpg",
+    img: "/images/event-bds-1069.jpg",
+    imgPos: "center 25%",
   },
 ];
 
@@ -95,8 +100,8 @@ export default function ToiLam() {
       <section className="relative min-h-[80vh] flex items-center overflow-hidden"
         style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}>
         <div className="absolute inset-0">
-          <Image src="/images/portrait-speaking.jpg" alt="Phạm Thanh Tùng đang chia sẻ" fill className="object-cover object-center opacity-25" sizes="100vw" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#1C2A1C]/90 via-[#1C2A1C]/60 to-transparent" />
+          <Image src="/images/event-bds-589.jpg" alt="Phạm Thanh Tùng trên sân khấu" fill className="object-cover object-top opacity-30" sizes="100vw" priority />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1C2A1C]/95 via-[#1C2A1C]/70 to-[#1C2A1C]/40" />
         </div>
         <motion.div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle at 20% 50%, #C8A84B 0%, transparent 55%)", opacity: 0.07 }}
@@ -136,7 +141,7 @@ export default function ToiLam() {
         <div className="container-main max-w-6xl">
           <div className="flex flex-col lg:flex-row gap-14 lg:gap-20 items-center">
             <SlideIn direction="left" className="w-full lg:w-1/2">
-              <ImageBlock src="/images/cv-slide1-img0.jpg" alt="Bối cảnh thời đại farmstay Việt Nam" aspect="4/3" />
+              <ImageBlock src="/images/event-bds-1023.jpg" alt="Hội thảo BĐS Du lịch Nông nghiệp" aspect="4/3" position="center 30%" />
             </SlideIn>
             <div className="w-full lg:w-1/2">
               <FadeUp>
@@ -178,7 +183,7 @@ export default function ToiLam() {
         <div className="container-main max-w-6xl">
           <div className="flex flex-col lg:flex-row-reverse gap-14 lg:gap-20 items-center">
             <SlideIn direction="right" className="w-full lg:w-[45%]">
-              <ImageBlock src="/images/portrait-casual.jpg" alt="Phạm Thanh Tùng — sự thức tỉnh" aspect="3/4" position="center 15%" />
+              <ImageBlock src="/images/field-portrait-1.jpg" alt="Phạm Thanh Tùng tại farmstay thực địa" aspect="3/4" position="center 20%" />
             </SlideIn>
             <div className="w-full lg:w-[55%]">
               <FadeUp>
@@ -269,7 +274,7 @@ export default function ToiLam() {
                 </div>
               </div>
               <SlideIn direction="right">
-                <ImageBlock src="/images/cv-slide3-img0.jpg" alt="Cơ hội đang bị bỏ phí" aspect="4/3" />
+                <ImageBlock src="/images/event-bds-496.jpg" alt="Hội thảo BĐS Du lịch Nông nghiệp quy mô lớn" aspect="4/3" position="center 40%" />
               </SlideIn>
             </div>
           </FadeUp>
@@ -278,7 +283,7 @@ export default function ToiLam() {
           <FadeUp>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <SlideIn direction="left">
-                <ImageBlock src="/images/cv-slide4-img0.jpg" alt="Du lịch nông nghiệp là marketing quốc gia" aspect="4/3" />
+                <ImageBlock src="/images/event-bds-483.jpg" alt="Phạm Thanh Tùng diễn thuyết trước hàng trăm người" aspect="4/3" position="center 25%" />
               </SlideIn>
               <div>
                 <h3 className="font-serif text-charcoal text-xl mb-4">3.3 — Du Lịch Nông Nghiệp Là Chiến Lược Marketing Đỉnh Cao Cho Quốc Gia</h3>
@@ -355,10 +360,10 @@ export default function ToiLam() {
             </FadeUp>
             <div className="space-y-4">
               <SlideIn direction="right">
-                <ImageBlock src="/images/cv-slide8-img0.jpg" alt="Xuyên Việt Farmstay hành trình" aspect="16/10" />
+                <ImageBlock src="/images/event-bds-534.jpg" alt="Phạm Thanh Tùng đứng trên sân khấu chia sẻ" aspect="16/10" position="center 15%" />
               </SlideIn>
               <SlideIn direction="right" delay={0.15}>
-                <ImageBlock src="/images/cv-slide9-img0.jpg" alt="Cộng đồng farmstay Việt Nam" aspect="16/10" />
+                <ImageBlock src="/images/event-bds-604.jpg" alt="Phạm Thanh Tùng trên sân khấu tròn" aspect="16/10" position="center 10%" />
               </SlideIn>
             </div>
           </div>
@@ -366,9 +371,16 @@ export default function ToiLam() {
           {/* Photo gallery strip */}
           <FadeUp>
             <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
-              {["cv-slide10-img0.jpg","cv-slide12-img0.jpg","cv-slide13-img0.jpg","cv-slide14-img0.jpg","cv-slide15-img0.jpg","cv-slide16-img0.jpg"].map((img, i) => (
+              {[
+                { src: "event-bds-488.jpg", pos: "center 20%" },
+                { src: "event-bds-508.jpg", pos: "center 25%" },
+                { src: "event-bds-519.jpg", pos: "center 20%" },
+                { src: "event-bds-597.jpg", pos: "center 20%" },
+                { src: "event-bds-609.jpg", pos: "center 20%" },
+                { src: "event-bds-1036.jpg", pos: "center 20%" },
+              ].map((img, i) => (
                 <div key={i} className="relative overflow-hidden rounded-sm" style={{ aspectRatio: "1/1" }}>
-                  <Image src={`/images/${img}`} alt={`Hoạt động thực địa ${i+1}`} fill className="object-cover hover:scale-110 transition-transform duration-500" sizes="15vw" />
+                  <Image src={`/images/${img.src}`} alt={`Hoạt động thực địa ${i+1}`} fill className="object-cover hover:scale-110 transition-transform duration-500" style={{ objectPosition: img.pos }} sizes="15vw" />
                 </div>
               ))}
             </div>
@@ -408,7 +420,7 @@ export default function ToiLam() {
                     <p className="font-sans text-muted text-sm italic border-l-2 pl-4" style={{ borderColor: "#C8A84B" }}>{t.desc}</p>
                   </div>
                   <div className={`relative h-64 lg:h-full min-h-[260px] ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                    <Image src={t.img} alt={t.title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                    <Image src={t.img} alt={t.title} fill className="object-cover" style={{ objectPosition: t.imgPos ?? "center center" }} sizes="(max-width: 1024px) 100vw, 50vw" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   </div>
                 </div>
@@ -470,11 +482,11 @@ export default function ToiLam() {
           <FadeUp>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div className="md:col-span-2">
-                <ImageBlock src="/images/teacher-hoc-tro-nhan-su.jpg" alt="Phạm Thanh Tùng đang giảng dạy" aspect="16/9" />
+                <ImageBlock src="/images/event-bds-1058.jpg" alt="Phạm Thanh Tùng tại talkshow BĐS Du lịch Nông nghiệp" aspect="16/9" position="center 30%" />
               </div>
               <div className="space-y-4">
-                <ImageBlock src="/images/cv-slide6-img0.jpg" alt="Hoạt động thực địa" aspect="4/3" />
-                <ImageBlock src="/images/cv-slide2-img0.jpg" alt="Tư vấn chiến lược" aspect="4/3" />
+                <ImageBlock src="/images/event-bds-614.jpg" alt="Phạm Thanh Tùng thuyết trình" aspect="4/3" position="center 15%" />
+                <ImageBlock src="/images/event-bds-489.jpg" alt="Phạm Thanh Tùng với cộng đồng" aspect="4/3" position="center 25%" />
               </div>
             </div>
           </FadeUp>
@@ -599,8 +611,8 @@ export default function ToiLam() {
       {/* ── 9. LỜI HIỆU TRIỆU ── */}
       <section className="relative py-32 overflow-hidden" style={{ background: "#1C2A1C" }}>
         <div className="absolute inset-0">
-          <Image src="/images/mission-1.jpg" alt="Tầm nhìn quốc gia" fill className="object-cover opacity-20" sizes="100vw" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, #1C2A1C/80, #1C2A1C)" }} />
+          <Image src="/images/event-bds-589.jpg" alt="Phạm Thanh Tùng trên sân khấu" fill className="object-cover object-top opacity-20" sizes="100vw" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(28,42,28,0.7), #1C2A1C)" }} />
         </div>
         <motion.div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle at 50% 40%, #C8A84B 0%, transparent 60%)", opacity: 0.08 }}
