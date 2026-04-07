@@ -132,6 +132,7 @@
   }
 
   /* ─── Article Content Styles ─────────────────────────────────────────────── */
+  /* Counter lives on the wrapper — spans ALL <ol> in the article */
   .article-content {
     @apply font-sans;
     font-size: 1.075rem;
@@ -139,6 +140,7 @@
     color: #3D2B1F;
     text-align: justify;
     hyphens: auto;
+    counter-reset: article-ol;
   }
 
   .article-content p {
@@ -151,21 +153,22 @@
 
   .article-content h2 {
     @apply font-serif font-semibold leading-snug;
-    font-size: 1.4rem;
+    font-size: 1.45rem;
     color: #1C2A1C;
-    margin-top: 2.8rem;
+    margin-top: 3rem;
     margin-bottom: 1rem;
     padding-left: 1rem;
     border-left: 3px solid #C8A84B;
+    text-align: left;
   }
 
   .article-content h3 {
-    @apply font-sans font-bold leading-snug;
-    font-size: 1.05rem;
+    @apply font-serif font-semibold leading-snug;
+    font-size: 1.2rem;
     color: #1C2A1C;
-    margin-top: 2rem;
+    margin-top: 2.2rem;
     margin-bottom: 0.65rem;
-    letter-spacing: 0.01em;
+    text-align: left;
   }
 
   /* Custom unordered list */
@@ -173,15 +176,15 @@
     margin-bottom: 1.5rem;
     padding-left: 0;
     list-style: none;
-    space-y: 0.5rem;
   }
 
   .article-content ul li {
     color: #3D2B1F;
-    line-height: 1.75;
+    line-height: 1.8;
     padding-left: 1.75rem;
     position: relative;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.65rem;
+    text-align: left;
   }
 
   .article-content ul li::before {
@@ -193,41 +196,46 @@
     font-size: 0.9rem;
   }
 
-  /* Custom ordered list with gold circle numbers */
+  /* Ordered list — NO counter-reset per <ol>, uses shared article-ol counter */
   .article-content ol {
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     padding-left: 0;
     list-style: none;
-    counter-reset: ol-counter;
+    /* intentionally no counter-reset here */
   }
 
+  /* Each <ol><li> = a numbered section heading */
   .article-content ol li {
-    counter-increment: ol-counter;
-    color: #3D2B1F;
-    line-height: 1.75;
-    padding-left: 2.75rem;
+    counter-increment: article-ol;
+    font-family: var(--font-serif, serif);
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #1C2A1C;
+    line-height: 1.45;
+    padding-left: 3.6rem;
     position: relative;
-    margin-bottom: 0.9rem;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    text-align: left;
   }
 
   .article-content ol li::before {
-    content: counter(ol-counter);
+    content: counter(article-ol);
     position: absolute;
     left: 0;
-    top: 0.1em;
-    width: 1.65rem;
-    height: 1.65rem;
+    top: 0.05em;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background: #1C2A1C;
     border: 1.5px solid #C8A84B;
     color: #C8A84B;
-    font-size: 0.7rem;
+    font-size: 0.78rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-serif, serif);
-    flex-shrink: 0;
   }
 
   /* Blockquote */
@@ -262,25 +270,25 @@
     border: 1px solid rgba(200,168,75,0.35);
   }
 
-  /* Editorial dark layout — gold numbered headings */
+  /* Editorial dark layout — gold numbered h2 headings (separate counter from ol) */
   .article-content--editorial {
-    counter-reset: section;
+    counter-reset: article-ol editorial-h2;
   }
 
   .article-content--editorial h2 {
     @apply relative;
-    padding-left: 3rem;
+    padding-left: 3.2rem;
     border-left: none;
-    counter-increment: section;
+    counter-increment: editorial-h2;
   }
 
   .article-content--editorial h2::before {
-    content: counter(section, decimal-leading-zero);
+    content: counter(editorial-h2, decimal-leading-zero);
     position: absolute;
     left: 0;
-    top: 0;
+    top: 0.05em;
     font-family: var(--font-serif, serif);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #C8A84B;
     line-height: 1;
