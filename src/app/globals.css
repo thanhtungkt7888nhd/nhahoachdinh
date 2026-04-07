@@ -130,4 +130,89 @@
     @apply rounded-[5px];
     box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.25);
   }
+
+  /* ─── Article Content Styles ─────────────────────────────────────────────── */
+  .article-content {
+    @apply font-sans text-base leading-relaxed;
+    color: #3D2B1F;
+  }
+
+  .article-content p {
+    @apply mb-5 leading-relaxed;
+    font-size: 1.0625rem;
+  }
+
+  .article-content h2 {
+    @apply font-serif font-semibold mt-10 mb-4 leading-snug;
+    font-size: 1.35rem;
+    color: #1C2A1C;
+    border-bottom: 2px solid rgba(200,168,75,0.3);
+    padding-bottom: 0.4rem;
+  }
+
+  .article-content h3 {
+    @apply font-sans font-semibold mt-8 mb-3 leading-snug;
+    font-size: 1.05rem;
+    color: #1C2A1C;
+  }
+
+  .article-content ul {
+    @apply mb-5 pl-5 space-y-2;
+    list-style-type: disc;
+  }
+
+  .article-content ul li {
+    @apply leading-relaxed;
+    color: #3D2B1F;
+  }
+
+  .article-content ol {
+    @apply mb-5 pl-5 space-y-2;
+    list-style-type: decimal;
+  }
+
+  .article-content blockquote {
+    @apply my-6 px-5 py-3 rounded-r;
+    border-left: 4px solid #C8A84B;
+    background: rgba(245,234,213,0.5);
+    font-style: italic;
+    color: #3D2B1F;
+  }
+
+  .article-content strong {
+    @apply font-semibold;
+    color: #1C2A1C;
+  }
+
+  .article-content em {
+    font-style: italic;
+    color: #3D2B1F;
+  }
+
+  /* Editorial dark layout — bigger numbers on headings */
+  .article-content--editorial h2 {
+    @apply relative pl-10;
+    counter-increment: section;
+  }
+
+  .article-content--editorial h2::before {
+    content: counter(section, decimal-leading-zero);
+    @apply absolute left-0 font-serif font-bold;
+    font-size: 1.5rem;
+    color: #C8A84B;
+    line-height: 1;
+  }
+
+  .article-content--editorial {
+    counter-reset: section;
+  }
+
+  /* Essay layout — drop cap on first paragraph */
+  .article-content--essay > p:first-of-type::first-letter {
+    @apply font-serif float-left leading-none mr-2;
+    font-size: 4rem;
+    color: #C8A84B;
+    line-height: 0.8;
+    margin-top: 0.1rem;
+  }
 }
