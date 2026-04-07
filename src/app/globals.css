@@ -21,13 +21,10 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    /* Ngăn pull-to-refresh / overscroll reload trên mobile & trackpad */
-    overscroll-behavior: none;
   }
   body {
     @apply font-sans;
     color: #1C2A1C;
-    overscroll-behavior: none;
   }
   h1, h2, h3, h4 { @apply font-serif; }
 }
