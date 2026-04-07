@@ -137,7 +137,13 @@ export default function ToiLam() {
       </section>
 
       {/* ── 1. BỐI CẢNH THỜI ĐẠI ── */}
-      <section className="py-24 md:py-32" style={{ background: "#F6F3EE" }}>
+      <section className="py-24 md:py-32 relative overflow-hidden"
+        style={{
+          background: [
+            "radial-gradient(ellipse 70% 50% at 80% 30%, rgba(160,110,40,0.06) 0%, transparent 60%)",
+            "linear-gradient(150deg, #F2E8D0 0%, #EDE0C0 100%)",
+          ].join(", "),
+        }}>
         <div className="container-main max-w-6xl">
           <div className="flex flex-col lg:flex-row gap-14 lg:gap-20 items-center">
             <SlideIn direction="left" className="w-full lg:w-1/2">
@@ -226,11 +232,25 @@ export default function ToiLam() {
       </section>
 
       {/* ── 3. GÓC NHÌN CHIẾN LƯỢC ── */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="container-main">
+      <section className="py-24 md:py-32 relative overflow-hidden"
+        style={{
+          background: [
+            "radial-gradient(ellipse 60% 40% at 15% 20%, rgba(160,110,40,0.07) 0%, transparent 60%)",
+            "radial-gradient(ellipse 50% 50% at 85% 75%, rgba(130,90,30,0.06) 0%, transparent 55%)",
+            "radial-gradient(ellipse 80% 60% at 50% 50%, rgba(180,140,60,0.04) 0%, transparent 70%)",
+            "linear-gradient(160deg, #F5EAD5 0%, #EFE2C6 40%, #F2E8D0 70%, #EDE0C0 100%)",
+          ].join(", "),
+        }}>
+        {/* Vân giấy dó — SVG noise overlay */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.18]"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
+            backgroundSize: "300px 300px",
+          }} />
+        <div className="container-main relative z-10">
           <div className="text-center mb-14">
             <FadeUp>
-              <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.22em] text-sm mb-2">Chương 03</p>
+              <p className="font-sans font-semibold uppercase tracking-[0.22em] text-sm mb-2" style={{ color: "#8B6914" }}>Chương 03</p>
               <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(2.6rem, 4.2vw, 4rem)" }}>Mình Thấy Gì — Góc Nhìn Chiến Lược</h2>
               <div className="w-12 h-0.5 bg-primary mx-auto mt-5" />
             </FadeUp>
@@ -241,15 +261,26 @@ export default function ToiLam() {
             <h3 className="font-serif text-charcoal text-2xl mb-8 text-center">3.1 — Việt Nam Sở Hữu 3 Lợi Thế Tuyệt Đối</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
-                { icon: "🗺️", label: "Địa Lợi", body: "Trung tâm Đông Nam Á, đường bờ biển 3.260km, trong vòng 5 giờ bay có thể tới mọi nơi ở Châu Á. Vị trí cho phép xuất khẩu nông sản tươi nhanh nhất và đón dòng khách thuận tiện nhất." },
-                { icon: "🌿", label: "Thiên Thời", body: "Khí hậu nhiệt đới đa dạng, dược liệu đỉnh thế giới — Sâm Ngọc Linh, Trầm hương, Hồi, Quế, hơn 300 mỏ khoáng nóng lộ thiên, hệ thống thác — sông — suối dày đặc." },
-                { icon: "🤝", label: "Nhân Hòa", body: "54 dân tộc cùng chung sống, chính trị ổn định — một kho tàng văn hóa bản địa mà không nơi nào trên thế giới có thể sao chép." },
+                { label: "Địa Lợi", body: "Trung tâm Đông Nam Á, đường bờ biển 3.260km, trong vòng 5 giờ bay có thể tới mọi nơi ở Châu Á. Vị trí cho phép xuất khẩu nông sản tươi nhanh nhất và đón dòng khách thuận tiện nhất." },
+                { label: "Thiên Thời", body: "Khí hậu nhiệt đới đa dạng, dược liệu đỉnh thế giới — Sâm Ngọc Linh, Trầm hương, Hồi, Quế, hơn 300 mỏ khoáng nóng lộ thiên, hệ thống thác — sông — suối dày đặc." },
+                { label: "Nhân Hòa", body: "54 dân tộc cùng chung sống, chính trị ổn định — một kho tàng văn hóa bản địa mà không nơi nào trên thế giới có thể sao chép." },
               ].map((item, i) => (
-                <motion.div key={i} className="p-8 border border-earth/10 bg-beige/30 relative overflow-hidden group" whileHover={{ y: -4 }} transition={{ duration: 0.25 }}>
-                  <p className="text-3xl mb-4">{item.icon}</p>
-                  <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-widest text-xs mb-3">{item.label}</p>
-                  <p className="font-sans text-muted leading-relaxed" style={{ fontSize: "1.05rem" }}>{item.body}</p>
-                  <motion.div className="absolute bottom-0 left-0 h-0.5 bg-primary" initial={{ width: 0 }} whileHover={{ width: "100%" }} transition={{ duration: 0.35 }} />
+                <motion.div key={i}
+                  className="p-8 relative overflow-hidden group"
+                  style={{
+                    background: "rgba(245,234,200,0.55)",
+                    border: "1px solid rgba(160,110,40,0.22)",
+                    backdropFilter: "blur(2px)",
+                  }}
+                  whileHover={{ y: -4 }} transition={{ duration: 0.25 }}>
+                  {/* Số thứ tự kiểu bút lông */}
+                  <span className="block font-serif font-bold mb-4 select-none" style={{ fontSize: "2.8rem", lineHeight: 1, color: "rgba(160,110,40,0.18)", letterSpacing: "-0.02em" }}>
+                    {["一", "二", "三"][i]}
+                  </span>
+                  <p className="font-sans font-semibold uppercase tracking-widest text-xs mb-3" style={{ color: "#8B6914" }}>{item.label}</p>
+                  <p className="font-sans text-charcoal/75 leading-relaxed" style={{ fontSize: "1.05rem" }}>{item.body}</p>
+                  <motion.div className="absolute bottom-0 left-0 h-px" style={{ background: "linear-gradient(90deg, #C8A84B, #8B6914)" }}
+                    initial={{ width: 0 }} whileHover={{ width: "100%" }} transition={{ duration: 0.4 }} />
                 </motion.div>
               ))}
             </div>
@@ -287,11 +318,11 @@ export default function ToiLam() {
               </SlideIn>
               <div>
                 <h3 className="font-serif text-charcoal text-2xl mb-4">3.3 — Du Lịch Nông Nghiệp Là Chiến Lược Marketing Đỉnh Cao Cho Quốc Gia</h3>
-                <p className="font-sans text-muted text-sm leading-relaxed mb-4">
+                <p className="font-sans text-charcoal/75 leading-relaxed mb-4" style={{ fontSize: "1.05rem" }}>
                   Khi khách quốc tế đến một farmstay có Sâm Ngọc Linh, Trầm hương, trái cây đặc sản — họ ăn tại vườn,
                   uống ly nước sâm tại nguồn — họ mới thấm thía giá trị thật. Sản phẩm lúc đó trở thành &ldquo;quà tặng văn hóa&rdquo;.
                 </p>
-                <p className="font-sans text-muted text-sm leading-relaxed mb-6">
+                <p className="font-sans text-charcoal/75 leading-relaxed mb-6" style={{ fontSize: "1.05rem" }}>
                   Khách mua bằng niềm tin và cảm xúc — giá trị nhân lên gấp bội. Đây chính là <strong className="text-charcoal">xuất khẩu tại chỗ</strong>,
                   không cần chở hàng đi, hàng tự đến tay người mua.
                 </p>
@@ -389,7 +420,14 @@ export default function ToiLam() {
       </section>
 
       {/* ── 5. HỆ SINH THÁI 5 TẦNG ── */}
-      <section className="py-24 md:py-32 bg-beige">
+      <section className="py-24 md:py-32 relative overflow-hidden"
+        style={{
+          background: [
+            "radial-gradient(ellipse 50% 60% at 20% 50%, rgba(140,100,30,0.06) 0%, transparent 55%)",
+            "radial-gradient(ellipse 60% 40% at 80% 20%, rgba(160,120,40,0.05) 0%, transparent 55%)",
+            "linear-gradient(140deg, #F4EAD5 0%, #EEE0C4 50%, #F0E5CE 100%)",
+          ].join(", "),
+        }}>
         <div className="container-main">
           <div className="text-center mb-14">
             <FadeUp>
