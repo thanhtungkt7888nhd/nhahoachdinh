@@ -31,14 +31,84 @@ const qrUrl = (amount: number, orderId: string) =>
   `https://img.vietqr.io/image/${BANK_ID}-${ACCT_NO}-compact2.png?amount=${amount}&addInfo=${encodeURIComponent(orderId)}&accountName=${encodeURIComponent(ACCT_NAME)}`;
 
 // ── Static data ───────────────────────────────────────────────────────────────
-const chapters = [
-  { num: "01", title: "Tư Duy Nền Tảng", desc: "Nhận thức đúng về farmstay — không phải resort thu nhỏ, không phải homestay đơn thuần." },
-  { num: "02", title: "Chọn Đất & Đọc Vị", desc: "Tiêu chí vàng lựa chọn quỹ đất — địa hình, thổ nhưỡng, kết nối hạ tầng và tiềm năng sinh thái." },
-  { num: "03", title: "Hoạch Định Chiến Lược", desc: "Xây dựng mô hình kinh doanh bền vững từ ngày đầu — tránh đốt tiền sai chỗ." },
-  { num: "04", title: "Thiết Kế Sinh Thái", desc: "Nguyên lý thiết kế thuận tự nhiên — tôn trọng địa hình, cảnh quan và văn hóa bản địa." },
-  { num: "05", title: "Vận Hành & Dòng Tiền", desc: "Tạo nhiều nguồn doanh thu đa dạng — lưu trú, ẩm thực, trải nghiệm và sản phẩm địa phương." },
-  { num: "06", title: "Marketing & Thương Hiệu", desc: "Kể câu chuyện có chiều sâu văn hóa — cách xây dựng thương hiệu farmstay độc bản." },
+// Cấu trúc 5 phần theo nội dung thực của sách
+const parts = [
+  {
+    num: "I",
+    title: "Nền Tảng Tư Duy",
+    subtitle: "Cơ sở để bạn quyết định",
+    color: "#C49A28",
+    items: [
+      "Farmstay 4D là gì — định nghĩa chuẩn quốc tế, không phải cảm tính",
+      "Farmstay trên thế giới & tại Việt Nam — bức tranh toàn cảnh",
+      "5 sai lầm phổ biến khiến farmstay thất bại trước khi mở cửa",
+      "Farmstay có phù hợp với bạn? — 10 câu hỏi sàng lọc thực tế",
+      "Gia đình: yếu tố quyết định thành bại — thường bị bỏ qua nhất",
+      "Đánh giá nguồn lực tổng thể — đất, vốn, con người, thời gian",
+      "Tầm nhìn 3 – 5 – 10 – 50 năm: xây hôm nay, sống được mai sau",
+    ],
+  },
+  {
+    num: "II",
+    title: "Lên Kế Hoạch",
+    subtitle: "Từ ý tưởng đến số liệu",
+    color: "#A07820",
+    items: [
+      "Khảo sát thực địa trước khi vẽ bản đồ — quy trình 7 bước",
+      "Pháp lý & giấy phép kinh doanh farmstay theo NĐ 44/2014",
+      "Lập mô hình tài chính: ROI, break-even, dòng tiền theo mùa",
+      "Mẫu kế hoạch kinh doanh farmstay đầy đủ (template có sẵn)",
+    ],
+  },
+  {
+    num: "III",
+    title: "Thiết Kế & Xây Dựng",
+    subtitle: "Vẽ đúng trước khi xây",
+    color: "#8A6518",
+    items: [
+      "Quy hoạch tổng thể — triết lý hoà quyện cảnh quan, không áp đặt",
+      "Phân khu chức năng cốt lõi: đón tiếp, lưu trú, canh tác, trải nghiệm",
+      "Thiết kế khu lưu trú — bungalow, glamping, container, nhà sàn",
+      "Hạ tầng kỹ thuật: điện mặt trời, nước sạch, xử lý nước thải",
+      "Tại sao farmstay cần hiên rộng — và cách thiết kế đúng",
+      "Lựa chọn vật liệu xây dựng theo vật liệu sẵn có tại địa phương",
+    ],
+  },
+  {
+    num: "IV",
+    title: "Vận Hành Mỗi Ngày",
+    subtitle: "Mỗi ngày là nghệ thuật",
+    color: "#7A5510",
+    items: [
+      "Quy trình check-in / check-out chuẩn — tạo ấn tượng đầu & cuối",
+      "Hệ thống vận hành — hồn của mô hình farmstay bền vững",
+      "Mô hình Farm-to-Table: kết nối bữa ăn với vườn rau của chính bạn",
+      "Checklist 50 điểm kiểm tra trước khi đón khách đầu tiên",
+      "Soft opening — cách thử nghiệm đúng để tránh sai lầm đắt giá",
+      "Hoạt động trải nghiệm 4 mùa — tạo lý do để khách quay lại",
+    ],
+  },
+  {
+    num: "V",
+    title: "Tiếp Thị & Phát Triển",
+    subtitle: "Phải tự kể câu chuyện của mình",
+    color: "#6A4C10",
+    items: [
+      "Xây dựng thương hiệu cá nhân & thương hiệu farmstay song song",
+      "Chiến lược 3 kênh: OTA (Booking, Agoda, Airbnb) + mạng xã hội + cộng đồng",
+      "Customer Journey Map — hiểu hành trình cảm xúc của khách từng bước",
+      "30+ ý tưởng marketing thực chiến không tốn nhiều ngân sách",
+      "Nhận diện & quản lý rủi ro — 7 loại rủi ro thường gặp nhất",
+    ],
+  },
 ];
+
+// Legacy: kept for type compat — không dùng trực tiếp nữa
+const chapters = parts.map((p, i) => ({
+  num: String(i + 1).padStart(2, "0"),
+  title: p.title,
+  desc: p.subtitle,
+}));
 
 const testimonials = [
   { name: "Nguyễn Minh Tuấn", role: "Chủ Farmstay Đắk Nông", content: "Cuốn sách này giúp mình tránh được hàng trăm triệu sai lầm ngay từ bước lựa chọn đất. Đọc xong mới hiểu tại sao nhiều farmstay thất bại không phải vì thiếu tiền mà vì thiếu tư duy đúng.", avatar: "MT" },
@@ -382,39 +452,101 @@ export default function BookPageClient() {
         </div>
       </section>
 
-      {/* ── CHAPTER GRID ────────────────────────────────────────────────────── */}
+      {/* ── MỤC LỤC THỰC TẾ ────────────────────────────────────────────────── */}
       <section style={{ background: "#0D1A0C", padding: "6rem 0", borderTop: "1px solid rgba(196,154,40,0.1)" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", padding: "0 2rem" }}>
-          <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 2rem" }}>
+          <div style={{ textAlign: "center", marginBottom: "4rem" }}>
             <FadeUp>
-              <p style={{ color: "rgba(196,154,40,0.7)", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "0.75rem" }}>Nội Dung</p>
-              <h2 style={{ fontFamily: "var(--font-alegreya)", fontSize: "clamp(1.8rem,3vw,2.8rem)", color: "#EDE0C4", marginBottom: "1.25rem" }}>
-                Những Gì Bạn Sẽ Học Được
+              <p style={{ color: "rgba(196,154,40,0.7)", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "0.75rem" }}>Mục Lục</p>
+              <h2 style={{ fontFamily: "var(--font-alegreya)", fontSize: "clamp(1.8rem,3vw,2.8rem)", color: "#EDE0C4", marginBottom: "0.75rem" }}>
+                Những Gì Bạn Sẽ Nắm Được
               </h2>
+              <p style={{ fontFamily: "var(--font-nunito)", color: "rgba(237,224,196,0.5)", fontSize: "0.9rem", marginBottom: "1.5rem", maxWidth: 520, margin: "0 auto 1.5rem" }}>
+                5 phần · 15 chương · Đầy đủ từ tư duy đến vận hành
+              </p>
               <div style={{ width: 48, height: 1, background: "linear-gradient(90deg,transparent,#C49A28,transparent)", margin: "0 auto" }} />
             </FadeUp>
           </div>
-          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {chapters.map((c, i) => (
-              <StaggerChild key={i}>
+
+          <StaggerParent className="space-y-5">
+            {parts.map((part, pi) => (
+              <StaggerChild key={pi}>
                 <motion.div
-                  style={{ padding: "2rem", background: "rgba(237,224,196,0.02)", border: "1px solid rgba(196,154,40,0.12)", borderRadius: 12, position: "relative", overflow: "hidden", cursor: "default" }}
-                  whileHover={{ y: -4, borderColor: "rgba(196,154,40,0.3)" }}
-                  transition={{ duration: 0.25 }}
+                  style={{
+                    border: "1px solid rgba(196,154,40,0.15)",
+                    borderRadius: 14,
+                    overflow: "hidden",
+                    background: "rgba(13,26,12,0.6)",
+                  }}
+                  whileHover={{ borderColor: "rgba(196,154,40,0.35)" }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <span style={{ fontFamily: "var(--font-alegreya)", fontSize: "2.5rem", fontWeight: 700, color: "rgba(196,154,40,0.35)", display: "block", marginBottom: "1rem" }}>{c.num}</span>
-                  <h3 style={{ fontFamily: "var(--font-alegreya)", fontSize: "1.1rem", color: "#EDE0C4", marginBottom: "0.75rem" }}>{c.title}</h3>
-                  <p style={{ fontFamily: "var(--font-nunito)", color: "rgba(237,224,196,0.5)", fontSize: "0.85rem", lineHeight: 1.7 }}>{c.desc}</p>
-                  <motion.div
-                    style={{ position: "absolute", bottom: 0, left: 0, height: 2, background: "linear-gradient(90deg,#C49A28,#D4B050)" }}
-                    initial={{ width: 0 }}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.35 }}
-                  />
+                  {/* Part header */}
+                  <div style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "1.25rem",
+                    padding: "1.5rem 2rem",
+                    borderBottom: "1px solid rgba(196,154,40,0.08)",
+                    background: "rgba(196,154,40,0.03)",
+                  }}>
+                    <span style={{
+                      minWidth: 44,
+                      height: 44,
+                      borderRadius: "50%",
+                      border: `1.5px solid ${part.color}`,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontFamily: "var(--font-alegreya)",
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                      color: part.color,
+                    }}>{part.num}</span>
+                    <div>
+                      <h3 style={{ fontFamily: "var(--font-alegreya)", fontSize: "1.15rem", color: "#EDE0C4", margin: 0, lineHeight: 1.3 }}>
+                        Phần {part.num}: {part.title}
+                      </h3>
+                      <p style={{ fontFamily: "var(--font-nunito)", fontSize: "0.78rem", color: "rgba(196,154,40,0.65)", margin: "3px 0 0", letterSpacing: "0.05em" }}>
+                        {part.subtitle}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Chapter items */}
+                  <ul style={{ margin: 0, padding: "1rem 1.5rem", listStyle: "none" }}>
+                    {part.items.map((item, ii) => (
+                      <li key={ii} style={{
+                        display: "flex",
+                        alignItems: "flex-start",
+                        gap: "0.75rem",
+                        padding: "0.6rem 0.5rem",
+                        borderBottom: ii < part.items.length - 1 ? "1px solid rgba(196,154,40,0.05)" : "none",
+                      }}>
+                        <span style={{ color: part.color, fontSize: "0.55rem", marginTop: "0.45em", flexShrink: 0, opacity: 0.7 }}>◆</span>
+                        <span style={{ fontFamily: "var(--font-nunito)", fontSize: "0.88rem", color: "rgba(237,224,196,0.7)", lineHeight: 1.65 }}>
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
                 </motion.div>
               </StaggerChild>
             ))}
           </StaggerParent>
+
+          {/* Appendix note */}
+          <FadeUp delay={0.3}>
+            <div style={{ marginTop: "2.5rem", padding: "1.25rem 2rem", border: "1px solid rgba(196,154,40,0.1)", borderRadius: 12, background: "rgba(196,154,40,0.03)", display: "flex", alignItems: "flex-start", gap: "1rem" }}>
+              <span style={{ color: "#C49A28", fontSize: "1.1rem", marginTop: "1px" }}>+</span>
+              <div>
+                <p style={{ fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "0.82rem", color: "#C49A28", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.35rem" }}>Phụ Lục Thực Hành</p>
+                <p style={{ fontFamily: "var(--font-nunito)", fontSize: "0.85rem", color: "rgba(237,224,196,0.55)", lineHeight: 1.7, margin: 0 }}>
+                  Template mẫu kế hoạch kinh doanh đầy đủ · Worksheet phân tích tài chính 5 năm · Glossary thuật ngữ Anh–Việt chuyên ngành farmstay
+                </p>
+              </div>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
