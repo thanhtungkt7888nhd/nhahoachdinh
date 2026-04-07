@@ -19,7 +19,7 @@ export const siteConfig = {
 
 export const navLinks = [
   { label: "Về Tôi", href: "/ve-toi" },
-  { label: "Tôi Làm", href: "/#viec-toi-lam" },
+  { label: "Tôi Làm", href: "/toi-lam" },
   { label: "Chia Sẻ", href: "/chia-se-kien-thuc" },
   { label: "Sách Farmstay", href: "/sach-farmstay" },
   { label: "Thông Tin", href: "/lien-he" },
