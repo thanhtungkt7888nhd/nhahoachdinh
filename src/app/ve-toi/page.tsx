@@ -497,10 +497,10 @@ export default function VeToi() {
                   className="pl-5 border-l-[3px] font-serif italic leading-relaxed"
                   style={{ borderColor: "#C8A84B", fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)", color: "#3A3A2A" }}
                 >
-                  "Một bản vẽ kiến trúc dù lung linh đến mấy cũng trở nên vô nghĩa nếu đặt trên
+                  &ldquo;Một bản vẽ kiến trúc dù lung linh đến mấy cũng trở nên vô nghĩa nếu đặt trên
                   một vùng đất{" "}
                   <span style={{ color: "#1C2A1C", fontStyle: "normal", fontWeight: 600 }}>sai chiến lược</span>{" "}
-                  và thiếu vắng sinh kế cho người dân bản địa."
+                  và thiếu vắng sinh kế cho người dân bản địa.&rdquo;
                 </blockquote>
               </FadeUp>
             </div>
@@ -610,8 +610,8 @@ export default function VeToi() {
               className="mx-auto mt-4 px-8 py-6 border-l-2 border-primary text-left font-serif text-charcoal/80 italic"
               style={{ fontSize: "clamp(1rem, 1.5vw, 1.25rem)" }}
             >
-              "Mình dùng tư duy vĩ mô để tác động, bẻ lái và thiết lập lại luật chơi chân chính
-              cho toàn ngành Farmstay và Du lịch nông nghiệp Việt Nam."
+              &ldquo;Mình dùng tư duy vĩ mô để tác động, bẻ lái và thiết lập lại luật chơi chân chính
+              cho toàn ngành Farmstay và Du lịch nông nghiệp Việt Nam.&rdquo;
             </div>
           </FadeUp>
         </div>
@@ -948,8 +948,8 @@ export default function VeToi() {
                 className="font-serif text-white/90 leading-relaxed italic"
                 style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)" }}
               >
-                "Nâng tầm ngành du lịch nông nghiệp Việt Nam vươn lên mức độ ảnh hưởng toàn cầu.
-                Định vị Việt Nam trở thành Quốc gia Du lịch Nông nghiệp độc đáo nhất trong mắt bạn bè thế giới."
+                &ldquo;Nâng tầm ngành du lịch nông nghiệp Việt Nam vươn lên mức độ ảnh hưởng toàn cầu.
+                Định vị Việt Nam trở thành Quốc gia Du lịch Nông nghiệp độc đáo nhất trong mắt bạn bè thế giới.&rdquo;
               </p>
             </div>
           </FadeUp>

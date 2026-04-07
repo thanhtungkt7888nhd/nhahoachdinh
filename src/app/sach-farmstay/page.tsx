@@ -127,9 +127,9 @@ export default function SachFarmstay() {
               className="font-serif text-white/90 italic leading-relaxed mb-10"
               style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)" }}
             >
-              "Tôi viết cuốn sách này không phải để bán sách — mà để ngăn bạn mắc những sai lầm
+              &ldquo;Tôi viết cuốn sách này không phải để bán sách — mà để ngăn bạn mắc những sai lầm
               tôi đã chứng kiến hàng trăm người vấp phải. Mỗi trang là một bài học thực địa,
-              không phải lý thuyết sách vở."
+              không phải lý thuyết sách vở.&rdquo;
             </p>
             <p className="gold-shine font-sans font-semibold text-sm uppercase tracking-widest">
               Phạm Thanh Tùng — Nhà Hoạch Định
