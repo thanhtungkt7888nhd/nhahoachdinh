@@ -57,15 +57,15 @@ const tangTac = [
     num: "01", title: "Nền Tảng Chuyên Môn", color: "#C8A84B",
     items: ["Dezicor — kiến trúc & quy hoạch chuẩn quốc tế", "Defarm — tư vấn chiến lược & thiết kế farmstay", "Dehome — thiết kế nhà ở cá nhân hóa"],
     desc: "Nơi mình rèn năng lực và kiểm chứng tư duy chiến lược qua từng dự án thực tế.",
-    img: "/images/event-bds-604.jpg",
-    imgPos: "center 10%",
+    img: "/images/event-bds-594.jpg",
+    imgPos: "center 30%",
   },
   {
     num: "02", title: "Cộng Đồng Thực Hành", color: "#C8A84B",
     items: ["Cấy Nền Farmstay", "FSA Farmstay", "Khởi Nghiệp Farmstay → Hiệp hội Farmstay VN"],
     desc: "Trao tri thức, đồng hành chiến lược. Mỗi farmstay bền vững là một mảnh ghép trong bức tranh lớn.",
-    img: "/images/event-bds-1031.jpg",
-    imgPos: "center 30%",
+    img: "/images/event-bds-527.jpg",
+    imgPos: "center 35%",
   },
   {
     num: "03", title: "Vùng Đất & Địa Phương", color: "#C8A84B",
@@ -78,15 +78,15 @@ const tangTac = [
     num: "04", title: "Nhận Thức Quốc Gia", color: "#C8A84B",
     items: ["Xuyên Việt Farmstay — hành trình thực địa hằng năm", "Cộng đồng trực tuyến & bài viết chiến lược", "Thay đổi thói quen tiêu dùng, du lịch farm"],
     desc: "Tác động để thay đổi nhận thức của cả một thế hệ.",
-    img: "/images/event-bds-596.jpg",
-    imgPos: "center 20%",
+    img: "/images/event-bds-591.jpg",
+    imgPos: "center 25%",
   },
   {
     num: "05", title: "Tri Thức Hệ Thống", color: "#C8A84B",
     items: ["Farmstay Update — chương trình thường niên tháng 3", "Kho tri thức chuẩn cho toàn ngành", "Tổ chức tham chiếu cho chính sách & đầu tư"],
     desc: "Một quốc gia muốn hùng cường phải có tri thức được hệ thống hóa — không chỉ kinh nghiệm rời rạc.",
-    img: "/images/event-bds-1069.jpg",
-    imgPos: "center 25%",
+    img: "/images/event-bds-1056.jpg",
+    imgPos: "center 20%",
   },
 ];
 
@@ -113,7 +113,7 @@ export default function ToiLam() {
             Tôi Làm
           </motion.p>
           <motion.h1 className="font-serif text-white leading-tight mb-6"
-            style={{ fontSize: "clamp(2.4rem, 6vw, 5rem)" }}
+            style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.35, ease: easeOut }}>
             Nhà Hoạch Định<br />
             <span className="gold-shine">Tạo Tác Động</span>
@@ -122,7 +122,7 @@ export default function ToiLam() {
             initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
             transition={{ duration: 0.5, delay: 0.6, ease: easeOut }} style={{ transformOrigin: "left" }} />
           <motion.p className="font-sans text-white/70 leading-relaxed mb-3 max-w-xl"
-            style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)" }}
+            style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)" }}
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.75, ease: easeOut }}>
             Đây là bài viết chia sẻ những gì mình đã thực chứng — không nói những thứ chưa làm được.
             Nguyên tắc làm nghề của mình là: tuyệt đối không nói những điều chưa thực hiện được,
@@ -146,24 +146,24 @@ export default function ToiLam() {
             <div className="w-full lg:w-1/2">
               <FadeUp>
                 <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.22em] text-xs mb-2">Chương 01</p>
-                <h2 className="font-serif text-charcoal leading-tight mb-2" style={{ fontSize: "clamp(1.7rem, 3vw, 2.6rem)" }}>
+                <h2 className="font-serif text-charcoal leading-tight mb-2" style={{ fontSize: "clamp(2.4rem, 4vw, 3.6rem)" }}>
                   Bối Cảnh Thời Đại —<br />Tại Sao Lúc Này?
                 </h2>
                 <SectionDivider />
               </FadeUp>
               <FadeUp delay={0.1}>
-                <p className="font-sans text-muted leading-relaxed mb-5" style={{ fontSize: "0.97rem" }}>
+                <p className="font-sans text-muted leading-relaxed mb-5" style={{ fontSize: "1.15rem" }}>
                   Thế giới đang tái cấu trúc. Khí hậu cực đoan, bất ổn địa chính trị, chuỗi cung ứng
                   toàn cầu bị xáo trộn — dòng vốn đầu tư xanh đang tìm kiếm những vùng trũng an toàn và bền vững.
                 </p>
               </FadeUp>
               <FadeUp delay={0.2}>
-                <p className="font-sans text-muted leading-relaxed mb-5" style={{ fontSize: "0.97rem" }}>
+                <p className="font-sans text-muted leading-relaxed mb-5" style={{ fontSize: "1.15rem" }}>
                   Đúng lúc đó, <strong className="text-charcoal">Việt Nam đang ngồi trên một kho báu chưa được khai mở đúng cách.</strong>
                 </p>
               </FadeUp>
               <FadeUp delay={0.3}>
-                <p className="font-sans text-muted leading-relaxed mb-7" style={{ fontSize: "0.97rem" }}>
+                <p className="font-sans text-muted leading-relaxed mb-7" style={{ fontSize: "1.15rem" }}>
                   Câu hỏi không phải là có nên làm nông nghiệp hay không — mà là: <em>làm thế nào để nông nghiệp
                   trở thành đòn bẩy đưa Việt Nam thành cường quốc?</em>
                 </p>
@@ -188,19 +188,19 @@ export default function ToiLam() {
             <div className="w-full lg:w-[55%]">
               <FadeUp>
                 <p className="gold-shine font-sans font-semibold uppercase tracking-[0.22em] text-xs mb-2">Chương 02</p>
-                <h2 className="font-serif text-white leading-tight mb-2" style={{ fontSize: "clamp(1.7rem, 3vw, 2.6rem)" }}>
+                <h2 className="font-serif text-white leading-tight mb-2" style={{ fontSize: "clamp(2.4rem, 4vw, 3.6rem)" }}>
                   Mình Là Ai —<br />Sự Thức Tỉnh Của Một Kiến Trúc Sư
                 </h2>
                 <div className="w-12 h-0.5 bg-primary mt-5 mb-6" />
               </FadeUp>
               <FadeUp delay={0.1}>
-                <p className="font-sans text-white/70 leading-relaxed mb-5" style={{ fontSize: "0.97rem" }}>
+                <p className="font-sans text-white/70 leading-relaxed mb-5" style={{ fontSize: "1.15rem" }}>
                   Tại sao một người xuất thân là kiến trúc sư lại không ngoan ngoãn ngồi vẽ nhà, mà ngày ngày
                   nói chuyện về chiến lược dòng tiền, sinh kế nông dân và tầm nhìn quốc gia?
                 </p>
               </FadeUp>
               <FadeUp delay={0.2}>
-                <p className="font-sans text-white/70 leading-relaxed mb-5" style={{ fontSize: "0.97rem" }}>
+                <p className="font-sans text-white/70 leading-relaxed mb-5" style={{ fontSize: "1.15rem" }}>
                   Câu trả lời bắt đầu từ giai đoạn 2019–2020 — thời hoàng kim của trào lưu <em>bỏ phố về rừng</em>.
                   Đó là sự bùng nổ mang tính bản năng nhưng thiếu vắng hoàn toàn nền tảng lý luận. Hàng loạt cá nhân
                   nhân danh từ khóa <strong className="text-white">Farmstay</strong> để ngụy trang cho hoạt động đầu cơ,
@@ -208,14 +208,14 @@ export default function ToiLam() {
                 </p>
               </FadeUp>
               <FadeUp delay={0.3}>
-                <p className="font-sans text-white/70 leading-relaxed mb-7" style={{ fontSize: "0.97rem" }}>
+                <p className="font-sans text-white/70 leading-relaxed mb-7" style={{ fontSize: "1.15rem" }}>
                   Đứng trước sự tàn phá đó, mình nhận ra một sự thật cay đắng: một bản vẽ kiến trúc dù đẹp đến mấy
                   cũng trở nên vô nghĩa nếu đặt trên vùng đất sai chiến lược và thiếu sinh kế cho người dân bản địa.
                 </p>
               </FadeUp>
               <FadeUp delay={0.4}>
                 <div className="p-6 border rounded-sm" style={{ borderColor: "rgba(200,168,75,0.35)", background: "rgba(200,168,75,0.06)" }}>
-                  <p className="gold-shine font-serif italic" style={{ fontSize: "clamp(1rem, 1.5vw, 1.15rem)" }}>
+                  <p className="gold-shine font-serif italic" style={{ fontSize: "clamp(1.4rem, 2vw, 1.6rem)" }}>
                     &ldquo;Mình quyết định bước ra khỏi giới hạn của một kiến trúc sư — để trở thành Nhà Hoạch Định, dùng tư duy vĩ mô để bẻ lái và tạo tác động lên toàn ngành Farmstay và Du lịch nông nghiệp Việt Nam.&rdquo;
                   </p>
                 </div>
@@ -231,14 +231,14 @@ export default function ToiLam() {
           <div className="text-center mb-14">
             <FadeUp>
               <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.22em] text-sm mb-2">Chương 03</p>
-              <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>Mình Thấy Gì — Góc Nhìn Chiến Lược</h2>
+              <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(2.6rem, 4.2vw, 4rem)" }}>Mình Thấy Gì — Góc Nhìn Chiến Lược</h2>
               <div className="w-12 h-0.5 bg-primary mx-auto mt-5" />
             </FadeUp>
           </div>
 
           {/* 3.1 — 3 lợi thế */}
           <FadeUp className="mb-16">
-            <h3 className="font-serif text-charcoal text-xl mb-8 text-center">3.1 — Việt Nam Sở Hữu 3 Lợi Thế Tuyệt Đối</h3>
+            <h3 className="font-serif text-charcoal text-2xl mb-8 text-center">3.1 — Việt Nam Sở Hữu 3 Lợi Thế Tuyệt Đối</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 { icon: "🗺️", label: "Địa Lợi", body: "Trung tâm Đông Nam Á, đường bờ biển 3.260km, trong vòng 5 giờ bay có thể tới mọi nơi ở Châu Á. Vị trí cho phép xuất khẩu nông sản tươi nhanh nhất và đón dòng khách thuận tiện nhất." },
@@ -248,7 +248,7 @@ export default function ToiLam() {
                 <motion.div key={i} className="p-8 border border-earth/10 bg-beige/30 relative overflow-hidden group" whileHover={{ y: -4 }} transition={{ duration: 0.25 }}>
                   <p className="text-3xl mb-4">{item.icon}</p>
                   <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-widest text-xs mb-3">{item.label}</p>
-                  <p className="font-sans text-muted text-sm leading-relaxed">{item.body}</p>
+                  <p className="font-sans text-muted leading-relaxed" style={{ fontSize: "1.05rem" }}>{item.body}</p>
                   <motion.div className="absolute bottom-0 left-0 h-0.5 bg-primary" initial={{ width: 0 }} whileHover={{ width: "100%" }} transition={{ duration: 0.35 }} />
                 </motion.div>
               ))}
@@ -259,7 +259,7 @@ export default function ToiLam() {
           <FadeUp className="mb-16">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h3 className="font-serif text-charcoal text-xl mb-6">3.2 — Nhưng Chúng Ta Đang Bỏ Phí</h3>
+                <h3 className="font-serif text-charcoal text-2xl mb-6">3.2 — Nhưng Chúng Ta Đang Bỏ Phí</h3>
                 <div className="space-y-5">
                   {[
                     "Bán nông sản thô, chưa chế biến sâu. Sâm Ngọc Linh — Quốc Bảo — vẫn đang bán củ tươi, trong khi Hàn Quốc xây cả ngành công nghiệp tỷ đô từ duy nhất một loại sâm.",
@@ -268,7 +268,7 @@ export default function ToiLam() {
                   ].map((text, i) => (
                     <div key={i} className="flex gap-4">
                       <div className="mt-1.5 w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold" style={{ background: "rgba(200,168,75,0.15)", color: "#C8A84B" }}>!</div>
-                      <p className="font-sans text-muted text-sm leading-relaxed">{text}</p>
+                      <p className="font-sans text-muted leading-relaxed" style={{ fontSize: "1.05rem" }}>{text}</p>
                     </div>
                   ))}
                 </div>
@@ -286,7 +286,7 @@ export default function ToiLam() {
                 <ImageBlock src="/images/event-bds-483.jpg" alt="Phạm Thanh Tùng diễn thuyết trước hàng trăm người" aspect="4/3" position="center 25%" />
               </SlideIn>
               <div>
-                <h3 className="font-serif text-charcoal text-xl mb-4">3.3 — Du Lịch Nông Nghiệp Là Chiến Lược Marketing Đỉnh Cao Cho Quốc Gia</h3>
+                <h3 className="font-serif text-charcoal text-2xl mb-4">3.3 — Du Lịch Nông Nghiệp Là Chiến Lược Marketing Đỉnh Cao Cho Quốc Gia</h3>
                 <p className="font-sans text-muted text-sm leading-relaxed mb-4">
                   Khi khách quốc tế đến một farmstay có Sâm Ngọc Linh, Trầm hương, trái cây đặc sản — họ ăn tại vườn,
                   uống ly nước sâm tại nguồn — họ mới thấm thía giá trị thật. Sản phẩm lúc đó trở thành &ldquo;quà tặng văn hóa&rdquo;.
@@ -295,7 +295,7 @@ export default function ToiLam() {
                   Khách mua bằng niềm tin và cảm xúc — giá trị nhân lên gấp bội. Đây chính là <strong className="text-charcoal">xuất khẩu tại chỗ</strong>,
                   không cần chở hàng đi, hàng tự đến tay người mua.
                 </p>
-                <div className="p-5 border-l-[3px] font-serif italic text-charcoal/75" style={{ borderColor: "#C8A84B", fontSize: "0.95rem" }}>
+                <div className="p-5 border-l-[3px] font-serif italic text-charcoal/75" style={{ borderColor: "#C8A84B", fontSize: "1.15rem" }}>
                   &ldquo;An ninh lương thực là an ninh quốc gia. Nắm giữ nguồn lương thực sạch và dược liệu quý giúp Việt Nam có ưu thế đặc biệt trong đàm phán quốc tế.&rdquo;
                 </div>
               </div>
@@ -310,7 +310,7 @@ export default function ToiLam() {
           <div className="text-center mb-14">
             <FadeUp>
               <p className="gold-shine font-sans font-semibold uppercase tracking-[0.22em] text-sm mb-2">Chương 04</p>
-              <h2 className="font-serif text-white" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>Mình Đã Làm Gì — Thành Tích Thực Chứng</h2>
+              <h2 className="font-serif text-white" style={{ fontSize: "clamp(2.6rem, 4.2vw, 4rem)" }}>Mình Đã Làm Gì — Thành Tích Thực Chứng</h2>
               <div className="w-12 h-0.5 bg-primary mx-auto mt-5 mb-3" />
               <p className="font-sans text-white/50 text-sm italic">Những con số nói thay lời.</p>
             </FadeUp>
@@ -326,7 +326,7 @@ export default function ToiLam() {
             ].map((s, i) => (
               <StaggerChild key={i}>
                 <div className="text-center p-6 border rounded-sm" style={{ borderColor: "rgba(200,168,75,0.2)", background: "rgba(200,168,75,0.04)" }}>
-                  <p className="gold-shine font-serif font-bold mb-1" style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>{s.num}</p>
+                  <p className="gold-shine font-serif font-bold mb-1" style={{ fontSize: "clamp(2.8rem, 5.5vw, 4.2rem)" }}>{s.num}</p>
                   <p className="font-sans text-white/60 text-xs uppercase tracking-widest leading-relaxed mb-1">{s.label}</p>
                   <p className="font-sans text-white/35 text-[10px] leading-relaxed">{s.sub}</p>
                 </div>
@@ -394,7 +394,7 @@ export default function ToiLam() {
           <div className="text-center mb-14">
             <FadeUp>
               <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.22em] text-sm mb-2">Chương 05</p>
-              <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>Mình Đang Làm Gì — Hệ Sinh Thái Hành Động</h2>
+              <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(2.6rem, 4.2vw, 4rem)" }}>Mình Đang Làm Gì — Hệ Sinh Thái Hành Động</h2>
               <div className="w-12 h-0.5 bg-primary mx-auto mt-5 mb-3" />
               <p className="font-sans text-muted text-sm max-w-xl mx-auto">Mình không làm một mình. Mình đang xây một hệ sinh thái 5 tầng tác động — từ cá nhân đến quốc gia.</p>
             </FadeUp>
@@ -405,19 +405,19 @@ export default function ToiLam() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center bg-white border border-earth/10 overflow-hidden rounded-sm">
                   <div className={`p-8 md:p-10 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                     <div className="flex items-center gap-4 mb-5">
-                      <span className="gold-shine-subtle font-serif text-4xl font-bold">Tầng {t.num}</span>
+                      <span className="gold-shine-subtle font-serif text-5xl font-bold">Tầng {t.num}</span>
                       <div className="w-8 h-px bg-primary" />
                     </div>
-                    <h3 className="font-serif text-charcoal text-xl mb-4">{t.title}</h3>
+                    <h3 className="font-serif text-charcoal text-2xl mb-4">{t.title}</h3>
                     <ul className="space-y-2 mb-5">
                       {t.items.map((item, j) => (
                         <li key={j} className="flex gap-3">
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                          <span className="font-sans text-charcoal/80 text-sm">{item}</span>
+                          <div className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                          <span className="font-sans text-charcoal/80" style={{ fontSize: "1.05rem" }}>{item}</span>
                         </li>
                       ))}
                     </ul>
-                    <p className="font-sans text-muted text-sm italic border-l-2 pl-4" style={{ borderColor: "#C8A84B" }}>{t.desc}</p>
+                    <p className="font-sans text-muted italic border-l-2 pl-4" style={{ borderColor: "#C8A84B", fontSize: "1.05rem" }}>{t.desc}</p>
                   </div>
                   <div className={`relative h-64 lg:h-full min-h-[260px] ${i % 2 === 1 ? "lg:order-1" : ""}`}>
                     <Image src={t.img} alt={t.title} fill className="object-cover" style={{ objectPosition: t.imgPos ?? "center center" }} sizes="(max-width: 1024px) 100vw, 50vw" />
@@ -436,7 +436,7 @@ export default function ToiLam() {
           <div className="text-center mb-14">
             <FadeUp>
               <p className="gold-shine font-sans font-semibold uppercase tracking-[0.22em] text-sm mb-2">Chương 06</p>
-              <h2 className="font-serif text-white" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>Mình Có Thể Làm Gì Cho Bạn — 4 Năng Lực Cốt Lõi</h2>
+              <h2 className="font-serif text-white" style={{ fontSize: "clamp(2.6rem, 4.2vw, 4rem)" }}>Mình Có Thể Làm Gì Cho Bạn — 4 Năng Lực Cốt Lõi</h2>
               <div className="w-12 h-0.5 bg-primary mx-auto mt-5" />
             </FadeUp>
           </div>
@@ -468,7 +468,7 @@ export default function ToiLam() {
                 <div className="p-8 border rounded-sm h-full flex flex-col" style={{ borderColor: "rgba(200,168,75,0.2)", background: "rgba(200,168,75,0.04)" }}>
                   <p className="gold-shine font-sans text-xs font-semibold uppercase tracking-widest mb-3">{item.num}</p>
                   <h3 className="font-serif text-white text-lg mb-4">{item.title}</h3>
-                  <p className="font-sans text-white/65 text-sm leading-relaxed mb-4 flex-1">{item.body}</p>
+                  <p className="font-sans text-white/65 leading-relaxed mb-4 flex-1" style={{ fontSize: "1.05rem" }}>{item.body}</p>
                   <div className="flex gap-2 mt-auto pt-4 border-t" style={{ borderColor: "rgba(200,168,75,0.15)" }}>
                     <div className="w-1 flex-shrink-0 rounded-full bg-primary" />
                     <p className="font-sans text-primary/80 text-xs leading-relaxed italic">{item.result}</p>
@@ -602,7 +602,7 @@ export default function ToiLam() {
         <div className="container-main">
           <FadeUp className="text-center mb-12">
             <p className="gold-shine font-sans font-semibold uppercase tracking-[0.22em] text-sm mb-2">Chương 08</p>
-            <h2 className="font-serif text-white" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>Các Gói Đồng Hành</h2>
+            <h2 className="font-serif text-white" style={{ fontSize: "clamp(2.6rem, 4.2vw, 4rem)" }}>Các Gói Đồng Hành</h2>
             <div className="w-12 h-0.5 bg-primary mx-auto mt-5 mb-4" />
             <p className="font-sans text-white/50 text-sm max-w-xl mx-auto">
               Từ giờ đến năm 2030, mình chỉ tập trung vào 5 vai trò.
@@ -624,7 +624,7 @@ export default function ToiLam() {
                   }}>
                   {s.icon}
                 </div>
-                <p className="gold-shine font-serif font-bold mb-1" style={{ fontSize: "clamp(1.3rem, 2.5vw, 2rem)" }}>{s.num}</p>
+                <p className="gold-shine font-serif font-bold mb-1" style={{ fontSize: "clamp(1.8rem, 3vw, 2.6rem)" }}>{s.num}</p>
                 <p className="font-sans text-white/50 text-xs uppercase tracking-widest leading-relaxed group-hover:text-white/70 transition-colors">{s.title}</p>
                 <motion.div className="mx-auto mt-3 text-primary/60" animate={{ rotate: openServiceIdx === i ? 180 : 0 }} transition={{ duration: 0.3 }}>
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 10.5L2.5 5h11L8 10.5z" /></svg>
@@ -649,16 +649,16 @@ export default function ToiLam() {
                       {services[openServiceIdx].icon}
                     </div>
                     <div>
-                      <span className="gold-shine font-serif font-bold" style={{ fontSize: "clamp(1.8rem, 3vw, 2.4rem)" }}>{services[openServiceIdx].num}</span>
+                      <span className="gold-shine font-serif font-bold" style={{ fontSize: "clamp(2.4rem, 3.8vw, 3.2rem)" }}>{services[openServiceIdx].num}</span>
                       <p className="font-sans text-white/70 text-sm uppercase tracking-widest">{services[openServiceIdx].title}</p>
                     </div>
                   </div>
-                  <p className="font-sans text-white/60 text-sm mb-6 italic">{services[openServiceIdx].desc}</p>
+                  <p className="font-sans text-white/60 mb-6 italic" style={{ fontSize: "1.05rem" }}>{services[openServiceIdx].desc}</p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 mb-8">
                     {services[openServiceIdx].detail.split("\n\n").map((para, j) => (
                       <motion.div key={j} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.35, delay: j * 0.08, ease: [0.22, 1, 0.36, 1] }} className="flex gap-3">
                         <div className="mt-2 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                        <p className="font-sans text-white/70 text-sm leading-relaxed">{para}</p>
+                        <p className="font-sans text-white/70 leading-relaxed" style={{ fontSize: "1.05rem" }}>{para}</p>
                       </motion.div>
                     ))}
                   </div>
