@@ -113,7 +113,7 @@ export default function ToiLam() {
             Tôi Làm
           </motion.p>
           <motion.h1 className="font-serif text-white leading-tight mb-6"
-            style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}
+            style={{ fontSize: "clamp(2.2rem, 5vw, 4rem)" }}
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.35, ease: easeOut }}>
             Nhà Hoạch Định<br />
             <span className="gold-shine">Tạo Tác Động</span>
@@ -122,7 +122,7 @@ export default function ToiLam() {
             initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}
             transition={{ duration: 0.5, delay: 0.6, ease: easeOut }} style={{ transformOrigin: "left" }} />
           <motion.p className="font-sans text-white/70 leading-relaxed mb-3 max-w-xl"
-            style={{ fontSize: "clamp(1.2rem, 2vw, 1.5rem)" }}
+            style={{ fontSize: "clamp(1rem, 1.5vw, 1.2rem)" }}
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.75, ease: easeOut }}>
             Đây là bài viết chia sẻ những gì mình đã thực chứng — không nói những thứ chưa làm được.
             Nguyên tắc làm nghề của mình là: tuyệt đối không nói những điều chưa thực hiện được,
