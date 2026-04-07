@@ -385,7 +385,7 @@ export default function VeToi() {
                 style={{ transformOrigin: "left" }}
               />
               <motion.p
-                className="font-sans text-white/70 leading-relaxed text-base mb-8"
+                className="font-sans text-white/70 leading-relaxed text-base mb-8 text-justify"
                 style={{ maxWidth: 560 }}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -468,7 +468,7 @@ export default function VeToi() {
                 <SectionDivider />
               </FadeUp>
               <FadeUp delay={0.15}>
-                <p className="font-sans leading-relaxed mb-5" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
+                <p className="font-sans leading-relaxed mb-5 text-justify" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
                   Danh xưng{" "}
                   <strong style={{ color: "#1C2A1C", fontWeight: 700 }}>Nhà Hoạch Định</strong>{" "}
                   không phải tự tôn hay đánh bóng tên tuổi, mà xác lập một vai trò vượt ra ngoài
@@ -476,7 +476,7 @@ export default function VeToi() {
                 </p>
               </FadeUp>
               <FadeUp delay={0.25}>
-                <p className="font-sans leading-relaxed mb-5" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
+                <p className="font-sans leading-relaxed mb-5 text-justify" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
                   Mình là người có khả năng{" "}
                   <span style={{ color: "#1C2A1C", fontWeight: 600 }}>thay đổi và tác động trực tiếp</span>{" "}
                   đến sự phát triển các vùng đất từ cấp làng, xã, huyện đến cấp tỉnh — đồng thời
@@ -486,7 +486,7 @@ export default function VeToi() {
                 </p>
               </FadeUp>
               <FadeUp delay={0.35}>
-                <p className="font-sans leading-relaxed mb-8" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
+                <p className="font-sans leading-relaxed mb-8 text-justify" style={{ color: "#5C5C4A", fontSize: "0.97rem" }}>
                   Công tác hoạch định nhắm cụ thể vào việc bóc tách, giải phẫu và{" "}
                   <span style={{ color: "#1C2A1C", fontWeight: 600 }}>tận dụng triệt để thế mạnh nội tại độc bản</span>{" "}
                   của địa phương về thiên nhiên, văn hóa, con người để phát triển.
@@ -557,7 +557,7 @@ export default function VeToi() {
                     <span className="gold-shine-subtle font-serif text-4xl font-bold flex-shrink-0">{item.num}</span>
                     <div>
                       <h3 className="font-serif text-charcoal text-lg mb-3">{item.title}</h3>
-                      <p className="font-sans text-muted text-sm leading-relaxed">{item.body}</p>
+                      <p className="font-sans text-muted text-sm leading-relaxed text-justify">{item.body}</p>
                     </div>
                   </div>
                   <motion.div
@@ -589,7 +589,7 @@ export default function VeToi() {
             <SectionDivider />
           </FadeUp>
           <FadeUp delay={0.15}>
-            <p className="font-sans text-muted leading-relaxed mb-6">
+            <p className="font-sans text-muted leading-relaxed mb-6 text-justify">
               Thời điểm hoàng kim của trào lưu <em>bỏ phố về rừng</em> — một sự bùng nổ mang tính bản năng nhưng thiếu vắng
               hoàn toàn nền tảng lý luận và tư duy quản trị, đa số làm vì thấy đó là trào lưu. Hàng loạt cá nhân nhân danh{" "}
               <strong>Farmstay</strong> để ngụy trang cho hoạt động đầu cơ, phân lô bán nền trái phép, băm nát địa hình,
@@ -597,7 +597,7 @@ export default function VeToi() {
             </p>
           </FadeUp>
           <FadeUp delay={0.25}>
-            <p className="font-sans text-muted leading-relaxed mb-6">
+            <p className="font-sans text-muted leading-relaxed mb-6 text-justify">
               Đứng trước sự tàn phá khủng khiếp đó, mình nhận ra: <em>Một bản vẽ kiến trúc dù lung linh đến mấy cũng trở thành
               vô nghĩa nếu đặt trên vùng đất sai chiến lược, không nhắm đúng vào đối tượng khách hàng mục tiêu.</em> Mình
               quyết định bước ra khỏi ranh giới an toàn của một kiến trúc sư, để dùng tư duy vĩ mô tác động, tạo ra tác động
@@ -674,7 +674,7 @@ export default function VeToi() {
                       </div>
                     ))}
                   </div>
-                  <p className="font-sans text-muted text-sm leading-relaxed flex-1">{season.desc}</p>
+                  <p className="font-sans text-muted text-sm leading-relaxed flex-1 text-justify">{season.desc}</p>
                   <motion.div
                     className="absolute bottom-0 left-0 h-0.5 bg-primary"
                     initial={{ width: 0 }}
@@ -733,7 +733,7 @@ export default function VeToi() {
                 <div className="p-6">
                   <span className="gold-shine-subtle font-serif text-3xl font-bold block mb-3">{t.stt}</span>
                   <h3 className="font-serif text-charcoal text-base font-medium mb-2">{t.name}</h3>
-                  <p className="font-sans text-muted text-sm leading-relaxed mb-4">{t.desc}</p>
+                  <p className="font-sans text-muted text-sm leading-relaxed mb-4 text-justify">{t.desc}</p>
                   <span className="inline-flex items-center gap-1.5 font-sans text-xs font-semibold uppercase tracking-widest text-primary/70 group-hover:text-primary transition-colors">
                     Đọc thêm
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
@@ -816,7 +816,7 @@ export default function VeToi() {
                         {selectedTeacher.name}
                       </h2>
                       <div className="w-10 h-0.5 bg-primary mb-6" />
-                      <p className="font-sans text-white/80 leading-relaxed text-base">
+                      <p className="font-sans text-white/80 leading-relaxed text-base text-justify">
                         {selectedTeacher.detail}
                       </p>
                     </div>
@@ -868,7 +868,7 @@ export default function VeToi() {
                   </p>
                   <div className="w-8 h-px mb-4" style={{ background: "#C8A84B" }} />
                   <h3 className="font-serif text-white text-xl mb-3">{p.title}</h3>
-                  <p className="font-sans text-white/60 text-sm leading-relaxed">{p.body}</p>
+                  <p className="font-sans text-white/60 text-sm leading-relaxed text-justify">{p.body}</p>
                   <span className="inline-flex items-center gap-1.5 mt-4 font-sans text-xs font-semibold uppercase tracking-widest text-primary/60 group-hover:text-primary transition-colors">
                     Đọc thêm
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
@@ -926,7 +926,7 @@ export default function VeToi() {
                       </h2>
                       <div className="w-10 h-0.5 bg-primary mb-6" />
                       {selectedPrinciple.detail.split("\n\n").map((para, idx) => (
-                        <p key={idx} className="font-sans text-white/80 leading-relaxed text-base mb-4">
+                        <p key={idx} className="font-sans text-white/80 leading-relaxed text-base mb-4 text-justify">
                           {para}
                         </p>
                       ))}
@@ -944,7 +944,7 @@ export default function VeToi() {
                 Sứ Mệnh Cả Đời
               </p>
               <p
-                className="font-serif text-white/90 leading-relaxed italic"
+                className="font-serif text-white/90 leading-relaxed italic text-justify"
                 style={{ fontSize: "clamp(1.1rem, 2vw, 1.5rem)" }}
               >
                 &ldquo;Nâng tầm ngành du lịch nông nghiệp Việt Nam vươn lên mức độ ảnh hưởng toàn cầu.

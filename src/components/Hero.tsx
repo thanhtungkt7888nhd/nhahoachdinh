@@ -101,7 +101,7 @@ export default function Hero() {
 
         {/* Vision */}
         <motion.p
-          className="font-sans leading-relaxed mb-9 max-w-sm"
+          className="font-sans leading-relaxed mb-9 max-w-sm text-justify"
           style={{ fontSize: "0.95rem", color: "rgba(28,42,28,0.65)" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

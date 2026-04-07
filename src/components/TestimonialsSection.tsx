@@ -47,7 +47,7 @@ export default function TestimonialsSection() {
                   <div className="text-center">
                     <FaQuoteLeft className="gold-shine text-4xl mx-auto mb-7" />
                     <p
-                      className="font-serif text-white/90 italic mb-10 leading-relaxed"
+                      className="font-serif text-white/90 italic mb-10 leading-relaxed text-justify"
                       style={{ fontSize: "clamp(1.1rem, 2vw, 1.4rem)" }}
                     >
                       &ldquo;{t.content}&rdquo;

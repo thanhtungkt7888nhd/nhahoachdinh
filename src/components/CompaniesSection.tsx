@@ -69,7 +69,7 @@ export default function CompaniesSection() {
                   {c.name}
                 </h3>
                 <p className="section-label text-primary/70 text-[10px] mb-3">{c.role}</p>
-                <p className="font-sans text-white/50 text-sm leading-relaxed">{c.description}</p>
+                <p className="font-sans text-white/50 text-sm leading-relaxed text-justify">{c.description}</p>
 
                 {/* Bottom border reveal on hover */}
                 <motion.div

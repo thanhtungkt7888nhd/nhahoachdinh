@@ -13,7 +13,7 @@ export default function Footer() {
               <h3 className="gold-shine font-serif text-2xl font-medium mb-2 group-hover:opacity-80 transition-opacity">{siteConfig.name}</h3>
               <p className="gold-shine font-sans font-semibold uppercase tracking-[0.2em] text-sm group-hover:opacity-80 transition-opacity">{siteConfig.tagline}</p>
             </Link>
-            <p className="font-sans text-sm text-white/60 leading-relaxed max-w-xs">
+            <p className="font-sans text-sm text-white/60 leading-relaxed max-w-xs text-justify">
               {siteConfig.vision}
             </p>
             <div className="flex gap-4 mt-7">

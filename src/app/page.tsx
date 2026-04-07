@@ -84,7 +84,7 @@ export default function HomePage() {
               </FadeUp>
               <FadeUp delay={0.3}>
                 <p
-                  className="font-sans leading-relaxed mb-9 max-w-sm"
+                  className="font-sans leading-relaxed mb-9 max-w-sm text-justify"
                   style={{ fontSize: "0.95rem", color: "rgba(28,42,28,0.6)" }}
                 >
                   Bạn có một vùng đất, một ý tưởng, hay một dự án cần định hướng?

@@ -216,7 +216,7 @@ function KeyInsightBox({ text }: { text: string }) {
       </p>
       <p
         className="font-serif italic leading-relaxed"
-        style={{ fontSize: "1.02rem", color: CREAM_MUT, lineHeight: 1.75 }}
+        style={{ fontSize: "1.02rem", color: CREAM_MUT, lineHeight: 1.75, textAlign: "justify" }}
       >
         {text}
       </p>
@@ -331,7 +331,7 @@ function ArticleCTA() {
               Bạn Đang Có Ý Định Làm Farmstay?
             </h3>
             <p
-              className="font-sans text-sm leading-relaxed"
+              className="font-sans text-sm leading-relaxed text-justify"
               style={{ color: `rgba(237,224,196,0.6)`, maxWidth: 380 }}
             >
               Đặt lịch tư vấn 1-1 cùng chuyên gia đã đồng hành hơn 50 dự
@@ -410,7 +410,7 @@ function AuthorSection() {
             Nhà Hoạch Định · Chuyên gia Farmstay
           </p>
           <p
-            className="font-sans text-sm leading-relaxed"
+            className="font-sans text-sm leading-relaxed text-justify"
             style={{ color: `rgba(237,224,196,0.6)`, maxWidth: 460 }}
           >
             Hơn 9 năm hoạch định và phát triển farmstay trên toàn Việt Nam.
@@ -719,6 +719,7 @@ export function ArticleClient({
                   paddingLeft: "1.2rem",
                   borderLeft: `1px solid rgba(196,154,40,0.5)`,
                   lineHeight: 1.85,
+                  textAlign: "justify",
                 }}
                 dangerouslySetInnerHTML={{ __html: article.excerpt }}
               />

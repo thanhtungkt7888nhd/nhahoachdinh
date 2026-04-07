@@ -81,7 +81,7 @@ function MissionBlock({
               style={{ transformOrigin: "left" }}
             />
             <motion.p
-              className="font-sans text-muted leading-relaxed text-base mb-8"
+              className="font-sans text-muted leading-relaxed text-base mb-8 text-justify"
               initial={{ opacity: 0, y: 16 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6, ease: easeOut }}
