@@ -61,7 +61,7 @@ export default function SachFarmstay() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.6, ease: easeOut }}
           >
-            Cuốn cẩm nang thực chiến từ hơn 12 năm kinh nghiệm tư vấn, thiết kế và vận hành
+            Cuốn cẩm nang thực chiến từ hơn 9 năm kinh nghiệm tư vấn, thiết kế và vận hành
             hơn 50 dự án farmstay trên khắp Việt Nam. Không lý thuyết hào nhoáng — chỉ là những
             bài học máu và nước mắt được đúc kết thành hệ thống.
           </motion.p>

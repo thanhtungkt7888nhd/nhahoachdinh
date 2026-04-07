@@ -77,9 +77,9 @@ function AuthorSection() {
             Nhà Hoạch Định · Chuyên gia Farmstay
           </p>
           <p className="font-sans text-sm text-muted leading-relaxed max-w-xl">
-            Hơn 12 năm hoạch định và phát triển farmstay trên toàn Việt Nam.
-            Sáng lập DEFARM, MASTERY và Xuyên Việt Farmstay. Tác giả bộ sách
-            &ldquo;Farmstay — Từ Đất Đến Giấc Mơ&rdquo;.
+            Hơn 9 năm hoạch định và phát triển farmstay trên toàn Việt Nam.
+            Sáng lập DEFARM, MASTERY và Xuyên Việt Farmstay, Farmstay Update. Tác giả bộ sách
+            &ldquo;Farmstay Bền Vững&rdquo;.
           </p>
         </div>
       </div>
