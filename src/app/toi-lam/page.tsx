@@ -494,56 +494,106 @@ export default function ToiLam() {
       </section>
 
       {/* ── 7. BẠN CÓ PHẢI NGƯỜI MÌNH TÌM? ── */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="container-main max-w-5xl">
-          <div className="text-center mb-14">
+      <section className="relative py-28 md:py-36 overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #141e14 100%)" }}>
+        {/* Subtle radial glow */}
+        <motion.div className="absolute inset-0 pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(200,168,75,0.07) 0%, transparent 70%)" }}
+          animate={{ opacity: [0.6, 1, 0.6] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} />
+
+        <div className="container-main max-w-5xl relative z-10">
+          {/* Header */}
+          <div className="text-center mb-16">
             <FadeUp>
-              <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.22em] text-sm mb-2">Chương 07</p>
-              <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>Bạn Có Phải Người Mình Tìm Không?</h2>
-              <div className="w-12 h-0.5 bg-primary mx-auto mt-5" />
+              <p className="gold-shine font-sans font-semibold uppercase tracking-[0.3em] text-xs mb-4">Chương 07</p>
+              <h2 className="font-serif text-white" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
+                Bạn Có Phải Người Mình Tìm?
+              </h2>
+              <div className="w-16 h-px mx-auto mt-6" style={{ background: "linear-gradient(90deg, transparent, #C8A84B, transparent)" }} />
             </FadeUp>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Tương Thích */}
             <FadeUp>
-              <div className="p-8 h-full border-l-4" style={{ borderColor: "#4E7040", background: "#F0F7EE" }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-2xl">✅</span>
-                  <h3 className="font-serif text-charcoal text-xl">Tương Thích</h3>
+              <div className="relative h-full rounded-sm overflow-hidden"
+                style={{
+                  background: "linear-gradient(135deg, rgba(78,112,64,0.18) 0%, rgba(78,112,64,0.06) 100%)",
+                  border: "1px solid rgba(78,112,64,0.35)",
+                }}>
+                {/* Top accent line */}
+                <div className="h-0.5 w-full" style={{ background: "linear-gradient(90deg, transparent, #4E7040, #7ab35e, #4E7040, transparent)" }} />
+                <div className="p-8 md:p-10">
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full"
+                    style={{ background: "rgba(78,112,64,0.2)", border: "1px solid rgba(78,112,64,0.4)" }}>
+                    <span className="text-base">✦</span>
+                    <span className="font-sans font-semibold uppercase tracking-[0.2em] text-xs" style={{ color: "#7ab35e" }}>
+                      Tương Thích
+                    </span>
+                  </div>
+                  <ul className="space-y-5">
+                    {[
+                      { icon: "🌿", text: "Làm nông nghiệp sạch, du lịch tử tế và muốn để lại di sản xanh" },
+                      { icon: "🕰️", text: "Sẵn sàng chơi dài hạn — không tìm kiếm giải pháp mì ăn liền" },
+                      { icon: "🌏", text: "Có khát vọng đóng góp vào bức tranh lớn hơn chính dự án của mình" },
+                    ].map((item, i) => (
+                      <motion.li key={i} className="flex gap-4 items-start"
+                        initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: i * 0.1 }} viewport={{ once: true }}>
+                        <span className="text-lg flex-shrink-0 mt-0.5">{item.icon}</span>
+                        <span className="font-sans text-white/75 text-sm leading-relaxed">{item.text}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-4">
-                  {[
-                    "Làm nông nghiệp sạch, du lịch tử tế và muốn để lại di sản xanh",
-                    "Sẵn sàng chơi dài hạn — không tìm kiếm giải pháp mì ăn liền",
-                    "Có khát vọng đóng góp vào bức tranh lớn hơn chính dự án của mình",
-                  ].map((text, i) => (
-                    <li key={i} className="flex gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#4E7040" }} />
-                      <span className="font-sans text-charcoal/80 text-sm leading-relaxed">{text}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </FadeUp>
+
+            {/* Không Phù Hợp */}
             <FadeUp delay={0.15}>
-              <div className="p-8 h-full border-l-4" style={{ borderColor: "#8B3030", background: "#FDF0F0" }}>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-2xl">❌</span>
-                  <h3 className="font-serif text-charcoal text-xl">Không Phù Hợp</h3>
+              <div className="relative h-full rounded-sm overflow-hidden"
+                style={{
+                  background: "linear-gradient(135deg, rgba(139,48,48,0.18) 0%, rgba(139,48,48,0.06) 100%)",
+                  border: "1px solid rgba(139,48,48,0.35)",
+                }}>
+                {/* Top accent line */}
+                <div className="h-0.5 w-full" style={{ background: "linear-gradient(90deg, transparent, #8B3030, #c45c5c, #8B3030, transparent)" }} />
+                <div className="p-8 md:p-10">
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full"
+                    style={{ background: "rgba(139,48,48,0.2)", border: "1px solid rgba(139,48,48,0.4)" }}>
+                    <span className="text-base">✦</span>
+                    <span className="font-sans font-semibold uppercase tracking-[0.2em] text-xs" style={{ color: "#c45c5c" }}>
+                      Không Phù Hợp
+                    </span>
+                  </div>
+                  <ul className="space-y-5">
+                    {[
+                      { icon: "📉", text: "Tư duy đầu cơ, lướt sóng, tàn phá thiên nhiên để lấy lợi nhuận ngắn hạn" },
+                      { icon: "🚫", text: "Bất chấp hệ lụy môi trường và văn hóa bản địa" },
+                      { icon: "💸", text: "Chỉ muốn kiếm tiền nhanh mà không có cam kết với đất và người" },
+                    ].map((item, i) => (
+                      <motion.li key={i} className="flex gap-4 items-start"
+                        initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: i * 0.1 }} viewport={{ once: true }}>
+                        <span className="text-lg flex-shrink-0 mt-0.5">{item.icon}</span>
+                        <span className="font-sans text-white/75 text-sm leading-relaxed">{item.text}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-4">
-                  {[
-                    "Tư duy đầu cơ, lướt sóng, tàn phá thiên nhiên để lấy lợi nhuận ngắn hạn",
-                    "Bất chấp hệ lụy môi trường và văn hóa bản địa",
-                  ].map((text, i) => (
-                    <li key={i} className="flex gap-3">
-                      <div className="mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#8B3030" }} />
-                      <span className="font-sans text-charcoal/80 text-sm leading-relaxed">{text}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             </FadeUp>
           </div>
+
+          {/* Bottom quote */}
+          <FadeUp delay={0.3}>
+            <p className="text-center font-serif text-white/40 italic mt-12 text-sm"
+              style={{ fontSize: "clamp(0.85rem, 1.5vw, 1rem)" }}>
+              &ldquo;Mình không làm việc với tất cả mọi người — mình chỉ đồng hành với những người đúng.&rdquo;
+            </p>
+          </FadeUp>
         </div>
       </section>
 
