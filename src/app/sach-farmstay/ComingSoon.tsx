@@ -88,31 +88,6 @@ export default function ComingSoon() {
           Phạm Thanh Tùng · Nhà Hoạch Định
         </motion.p>
 
-        {/* Book icon */}
-        <motion.div
-          style={{ marginBottom: "2rem" }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.3, ease }}
-        >
-          <div
-            style={{
-              width: 80,
-              height: 80,
-              borderRadius: 16,
-              border: "1.5px solid rgba(196,154,40,0.4)",
-              background: "rgba(196,154,40,0.06)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "0 auto",
-              fontSize: "2.2rem",
-            }}
-          >
-            📖
-          </div>
-        </motion.div>
-
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
