@@ -452,6 +452,25 @@ export default function BookPageClient() {
         </div>
       </section>
 
+      {/* ── STATS BAR ───────────────────────────────────────────────────────── */}
+      <section style={{ background: "#060E05", padding: "2.5rem 0", borderTop: "1px solid rgba(196,154,40,0.12)", borderBottom: "1px solid rgba(196,154,40,0.12)" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1rem", textAlign: "center" }}>
+            {[
+              { num: "9+", label: "Năm kinh nghiệm thực chiến" },
+              { num: "50+", label: "Dự án farmstay đã tư vấn" },
+              { num: "3.000+", label: "Học viên đã đào tạo" },
+              { num: "280", label: "Trang kiến thức hệ thống" },
+            ].map((s, i) => (
+              <div key={i} style={{ padding: "0.5rem" }}>
+                <p style={{ fontFamily: "var(--font-alegreya)", fontSize: "clamp(1.6rem,3vw,2.4rem)", color: "#D4B050", marginBottom: "0.25rem", lineHeight: 1 }}>{s.num}</p>
+                <p style={{ fontFamily: "var(--font-nunito)", fontSize: "0.72rem", color: "rgba(237,224,196,0.5)", lineHeight: 1.4, letterSpacing: "0.03em" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── MỤC LỤC THỰC TẾ ────────────────────────────────────────────────── */}
       <section style={{ background: "#0D1A0C", padding: "6rem 0", borderTop: "1px solid rgba(196,154,40,0.1)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 2rem" }}>
@@ -550,19 +569,114 @@ export default function BookPageClient() {
         </div>
       </section>
 
-      {/* ── AUTHOR QUOTE ────────────────────────────────────────────────────── */}
-      <section style={{ background: "linear-gradient(135deg,#0A1208 0%,#0D2010 100%)", padding: "6rem 0", textAlign: "center", borderTop: "1px solid rgba(196,154,40,0.08)" }}>
-        <div style={{ maxWidth: 720, margin: "0 auto", padding: "0 2rem" }}>
-          <FadeUp>
-            <p style={{ color: "#C49A28", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "2rem" }}>Lời Tác Giả</p>
-            <p style={{ fontFamily: "var(--font-alegreya)", color: "rgba(237,224,196,0.88)", fontStyle: "italic", fontSize: "clamp(1.1rem,2vw,1.45rem)", lineHeight: 1.8, marginBottom: "2rem" }}>
-              &ldquo;Tôi viết cuốn sách này không phải để bán sách — mà để ngăn bạn mắc những sai lầm tôi đã chứng kiến hàng trăm người vấp phải. Mỗi trang là một bài học thực địa, không phải lý thuyết sách vở.&rdquo;
-            </p>
-            <div style={{ height: 1, width: 48, background: "linear-gradient(90deg,transparent,#C49A28,transparent)", margin: "0 auto 1.25rem" }} />
-            <p style={{ color: "#C49A28", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase" }}>
-              Phạm Thanh Tùng — Nhà Hoạch Định
-            </p>
+      {/* ── DÀNH CHO AI ─────────────────────────────────────────────────────── */}
+      <section style={{ background: "#0A1208", padding: "6rem 0", borderTop: "1px solid rgba(196,154,40,0.08)" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 2rem" }}>
+          <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
+            <FadeUp>
+              <p style={{ color: "rgba(196,154,40,0.7)", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "0.75rem" }}>Đối Tượng</p>
+              <h2 style={{ fontFamily: "var(--font-alegreya)", fontSize: "clamp(1.8rem,3vw,2.8rem)", color: "#EDE0C4", marginBottom: "0.5rem" }}>
+                Sách Này Dành Cho Bạn Nếu...
+              </h2>
+              <div style={{ width: 48, height: 1, background: "linear-gradient(90deg,transparent,#C49A28,transparent)", margin: "0 auto" }} />
+            </FadeUp>
+          </div>
+          <StaggerParent className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              {
+                icon: "🌱",
+                title: "Bạn đang có đất và muốn làm farmstay",
+                desc: "Chưa biết bắt đầu từ đâu, lo ngại về pháp lý, thiết kế và vốn đầu tư ban đầu.",
+              },
+              {
+                icon: "📐",
+                title: "Bạn đã mở farmstay nhưng chưa hiệu quả",
+                desc: "Khách thưa, dòng tiền không ổn định, vận hành rối — cần hệ thống lại từ gốc.",
+              },
+              {
+                icon: "💼",
+                title: "Bạn là nhà đầu tư tìm cơ hội mới",
+                desc: "Muốn đánh giá tiềm năng dự án farmstay trước khi rót vốn một cách có căn cứ.",
+              },
+              {
+                icon: "🎓",
+                title: "Bạn đang học về du lịch nông nghiệp",
+                desc: "Cần tài liệu thực chiến kết hợp lý thuyết chuẩn quốc tế và case study Việt Nam.",
+              },
+            ].map((item, i) => (
+              <StaggerChild key={i}>
+                <motion.div
+                  style={{ display: "flex", gap: "1.25rem", padding: "1.5rem", background: "rgba(196,154,40,0.03)", border: "1px solid rgba(196,154,40,0.1)", borderRadius: 12 }}
+                  whileHover={{ borderColor: "rgba(196,154,40,0.28)", y: -3 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <span style={{ fontSize: "1.8rem", flexShrink: 0, lineHeight: 1 }}>{item.icon}</span>
+                  <div>
+                    <h3 style={{ fontFamily: "var(--font-alegreya)", fontSize: "1.05rem", color: "#EDE0C4", marginBottom: "0.5rem", lineHeight: 1.35 }}>{item.title}</h3>
+                    <p style={{ fontFamily: "var(--font-nunito)", fontSize: "0.85rem", color: "rgba(237,224,196,0.55)", lineHeight: 1.7, margin: 0 }}>{item.desc}</p>
+                  </div>
+                </motion.div>
+              </StaggerChild>
+            ))}
+          </StaggerParent>
+
+          {/* Not for */}
+          <FadeUp delay={0.2}>
+            <div style={{ marginTop: "2rem", padding: "1.25rem 2rem", border: "1px solid rgba(196,154,40,0.08)", borderRadius: 12, background: "rgba(237,224,196,0.01)" }}>
+              <p style={{ fontFamily: "var(--font-nunito)", fontSize: "0.82rem", color: "rgba(237,224,196,0.35)", margin: 0, lineHeight: 1.75 }}>
+                <span style={{ color: "rgba(196,154,40,0.5)", fontWeight: 600 }}>Sách không phù hợp nếu</span> bạn đang tìm kiếm một công thức làm giàu nhanh hay mô hình copy-paste. Farmstay bền vững đòi hỏi sự cam kết, tình yêu với đất đai và tư duy dài hạn.
+              </p>
+            </div>
           </FadeUp>
+        </div>
+      </section>
+
+      {/* ── AUTHOR BIO ──────────────────────────────────────────────────────── */}
+      <section style={{ background: "linear-gradient(135deg,#0A1208 0%,#0D2010 100%)", padding: "6rem 0", borderTop: "1px solid rgba(196,154,40,0.08)" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 2rem" }}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "3rem" }}>
+            <FadeUp>
+              <div style={{ textAlign: "center" }}>
+              <p style={{ color: "rgba(196,154,40,0.7)", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "10px", letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: "2rem" }}>Tác Giả</p>
+              {/* Avatar placeholder */}
+              <div style={{ width: 90, height: 90, borderRadius: "50%", border: "2px solid rgba(196,154,40,0.4)", background: "rgba(196,154,40,0.08)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 1.5rem", fontFamily: "var(--font-alegreya)", fontSize: "2rem", color: "#C49A28" }}>PTT</div>
+              <h2 style={{ fontFamily: "var(--font-alegreya)", fontSize: "clamp(1.5rem,3vw,2.2rem)", color: "#EDE0C4", marginBottom: "0.35rem" }}>Phạm Thanh Tùng</h2>
+              <p style={{ fontFamily: "var(--font-nunito)", fontSize: "0.82rem", color: "rgba(196,154,40,0.7)", letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "2rem" }}>Nhà Hoạch Định Farmstay & Du Lịch Nông Nghiệp</p>
+              <div style={{ height: 1, width: 48, background: "linear-gradient(90deg,transparent,#C49A28,transparent)", margin: "0 auto 2rem" }} />
+              </div>
+            </FadeUp>
+
+            <FadeUp delay={0.15}>
+              <div style={{ maxWidth: 680, textAlign: "center" }}>
+              <p style={{ fontFamily: "var(--font-alegreya)", color: "rgba(237,224,196,0.88)", fontStyle: "italic", fontSize: "clamp(1.05rem,1.8vw,1.35rem)", lineHeight: 1.85, marginBottom: "2.5rem" }}>
+                &ldquo;Tôi viết cuốn sách này với nước mắt lẫn cười. Nước mắt vì chứng kiến quá nhiều gia đình đổ hết tiền tích cóp vào một giấc mơ farmstay rồi thất bại. Nụ cười vì tôi biết — nếu được trang bị đúng — giấc mơ đó hoàn toàn thực hiện được.&rdquo;
+              </p>
+
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: "1rem", maxWidth: 600, margin: "0 auto 2rem" }}>
+                {[
+                  { label: "Sáng lập", value: "DEFARM · MASTERY" },
+                  { label: "Dự án", value: "Xuyên Việt Farmstay" },
+                  { label: "Cộng đồng", value: "Farmstay Update" },
+                ].map((item, i) => (
+                  <div key={i} style={{ padding: "1rem", border: "1px solid rgba(196,154,40,0.12)", borderRadius: 10, background: "rgba(196,154,40,0.03)" }}>
+                    <p style={{ fontFamily: "var(--font-nunito)", fontSize: "0.68rem", color: "rgba(196,154,40,0.55)", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.35rem" }}>{item.label}</p>
+                    <p style={{ fontFamily: "var(--font-alegreya)", fontSize: "0.95rem", color: "#EDE0C4" }}>{item.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <p style={{ fontFamily: "var(--font-nunito)", color: "rgba(237,224,196,0.5)", fontSize: "0.88rem", lineHeight: 1.8, marginBottom: "1.5rem" }}>
+                Hơn 9 năm tư vấn và đồng hành cùng 50+ dự án farmstay từ Hà Giang đến Cà Mau. Người sáng lập DEFARM — tổ chức đào tạo và tư vấn phát triển farmstay bền vững đầu tiên tại Việt Nam. Tác giả bộ sách <em style={{ color: "rgba(196,154,40,0.8)" }}>Farmstay Bền Vững</em>.
+              </p>
+              <a
+                href="/ve-toi"
+                style={{ display: "inline-block", fontFamily: "var(--font-nunito)", fontWeight: 600, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", color: "#C49A28", textDecoration: "none", borderBottom: "1px solid rgba(196,154,40,0.3)", paddingBottom: "2px" }}
+              >
+                Xem Hồ Sơ Đầy Đủ →
+              </a>
+              </div>
+            </FadeUp>
+          </div>
         </div>
       </section>
 
@@ -635,6 +749,25 @@ export default function BookPageClient() {
               </button>
             </div>
           </FadeUp>
+        </div>
+      </section>
+
+      {/* ── TRUST BADGES ────────────────────────────────────────────────────── */}
+      <section style={{ background: "#060E05", padding: "2rem 0", borderTop: "1px solid rgba(196,154,40,0.08)" }}>
+        <div style={{ maxWidth: 700, margin: "0 auto", padding: "0 2rem" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1.5rem 3rem" }}>
+            {[
+              { icon: "🔒", text: "Thanh toán an toàn" },
+              { icon: "🚚", text: "Giao hàng toàn quốc" },
+              { icon: "↩️", text: "Đổi trả nếu lỗi in" },
+              { icon: "⚡", text: "Xử lý trong 24h" },
+            ].map((b, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                <span style={{ fontSize: "1rem" }}>{b.icon}</span>
+                <span style={{ fontFamily: "var(--font-nunito)", fontSize: "0.78rem", color: "rgba(237,224,196,0.45)", letterSpacing: "0.05em" }}>{b.text}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1013,6 +1146,37 @@ export default function BookPageClient() {
           </FadeUp>
         </div>
       </section>
+
+      {/* ── STICKY MOBILE CTA ───────────────────────────────────────────────── */}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          zIndex: 50,
+          padding: "0.85rem 1.25rem",
+          background: "rgba(6,14,5,0.95)",
+          borderTop: "1px solid rgba(196,154,40,0.2)",
+          backdropFilter: "blur(12px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "1rem",
+        }}
+        className="md:hidden"
+      >
+        <div>
+          <p style={{ fontFamily: "var(--font-alegreya)", fontSize: "1.2rem", color: "#D4B050", margin: 0, lineHeight: 1 }}>{fmt(PRICE)}</p>
+          <p style={{ fontFamily: "var(--font-nunito)", fontSize: "0.68rem", color: "rgba(237,224,196,0.4)", margin: "2px 0 0" }}>+ phí ship {fmt(SHIPPING)}</p>
+        </div>
+        <button
+          onClick={() => formRef.current?.scrollIntoView({ behavior: "smooth" })}
+          style={{ flexShrink: 0, background: "linear-gradient(135deg,#C49A28,#D4B050)", color: "#0A1208", fontFamily: "var(--font-nunito)", fontWeight: 700, fontSize: "11px", letterSpacing: "0.2em", textTransform: "uppercase", padding: "12px 24px", borderRadius: 8, border: "none", cursor: "pointer" }}
+        >
+          Đặt Mua Ngay
+        </button>
+      </div>
 
       {/* Keyframes for spinner */}
       <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
