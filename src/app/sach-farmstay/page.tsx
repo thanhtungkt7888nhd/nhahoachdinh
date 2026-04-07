@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BookPageClient from "./BookPageClient";
+import ComingSoon from "./ComingSoon";
 
 export const metadata: Metadata = {
   title: "Sách Farmstay — Hướng Dẫn Thiết Lập Farmstay Bền Vững",
@@ -12,5 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function SachFarmstayPage() {
-  return <BookPageClient />;
+  // Mặc định khoá — đặt BOOK_LAUNCHED=true trong Vercel khi sẵn sàng công bố
+  const launched = process.env.BOOK_LAUNCHED === "true";
+  return launched ? <BookPageClient /> : <ComingSoon />;
 }
