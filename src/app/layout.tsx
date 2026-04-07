@@ -6,16 +6,18 @@ import Footer from "@/components/Footer";
 
 const alegreya = Alegreya({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "500"],          // bỏ 700 — ít dùng
   variable: "--font-alegreya",
   display: "swap",
+  preload: true,
 });
 
 const nunito = Nunito_Sans({
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["400", "600", "700"],   // bỏ 300 — ít dùng
   variable: "--font-nunito",
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -85,6 +87,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="vi" className={`${alegreya.variable} ${nunito.variable}`}>
       <head>
+        {/* Preconnect để giảm latency font & third-party */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* DNS prefetch cho các domain có thể dùng */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

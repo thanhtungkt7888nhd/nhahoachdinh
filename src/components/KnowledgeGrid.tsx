@@ -88,6 +88,7 @@ function ArticleCard({ article }: { article: Article }) {
             src={article.image}
             alt={article.title}
             fill
+            loading="lazy"
             className="object-cover transition-transform duration-700 group-hover:scale-108"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
           />

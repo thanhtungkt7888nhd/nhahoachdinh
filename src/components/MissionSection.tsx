@@ -43,6 +43,7 @@ function MissionBlock({
                 src={b.img}
                 alt={b.imgAlt}
                 fill
+                loading="lazy"
                 className="object-cover transition-transform duration-700 hover:scale-105"
                 sizes="(max-width: 1024px) 100vw, 520px"
               />

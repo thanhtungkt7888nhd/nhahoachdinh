@@ -1,18 +1,16 @@
-"use client";
-
+import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
 import StatsSection from "@/components/StatsSection";
 import MissionSection from "@/components/MissionSection";
-import CompaniesSection from "@/components/CompaniesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import PressSection from "@/components/PressSection";
-import KnowledgeGrid from "@/components/KnowledgeGrid";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { FadeUp } from "@/components/animations";
 import { siteConfig } from "@/lib/data";
 
-const easeOut = [0.22, 1, 0.36, 1] as const;
+// ── Dynamic import cho heavy/below-fold components
+const CompaniesSection   = dynamic(() => import("@/components/CompaniesSection"));
+const TestimonialsSection = dynamic(() => import("@/components/TestimonialsSection"));
+const PressSection       = dynamic(() => import("@/components/PressSection"));
+const KnowledgeGrid      = dynamic(() => import("@/components/KnowledgeGrid"));
 
 export default function HomePage() {
   return (
@@ -25,7 +23,7 @@ export default function HomePage() {
       <PressSection />
       <KnowledgeGrid limit={6} showHeading={true} />
 
-      {/* CTA — Magazine Dark light, editorial split */}
+      {/* CTA — Magazine Dark Light, editorial split */}
       <section
         className="relative overflow-hidden"
         style={{ background: "linear-gradient(160deg, #FAF6EE 0%, #F2E8D5 100%)" }}
@@ -40,7 +38,6 @@ export default function HomePage() {
         />
 
         <div className="container-main max-w-5xl py-24 md:py-32">
-          {/* Split: text left | contact right */}
           <div className="flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-20">
 
             {/* Left — main message */}
@@ -142,16 +139,12 @@ export default function HomePage() {
                     <p className="font-sans text-[10px] uppercase tracking-[0.15em] mb-1" style={{ color: "rgba(28,42,28,0.4)" }}>Điện Thoại</p>
                     <p className="font-serif text-base" style={{ color: "#1C2A1C" }}>{siteConfig.phone}</p>
                   </div>
-                  <div
-                    style={{ height: "1px", background: "rgba(200,168,75,0.15)" }}
-                  />
+                  <div style={{ height: "1px", background: "rgba(200,168,75,0.15)" }} />
                   <div>
                     <p className="font-sans text-[10px] uppercase tracking-[0.15em] mb-1" style={{ color: "rgba(28,42,28,0.4)" }}>Email</p>
                     <p className="font-serif text-sm" style={{ color: "#1C2A1C" }}>{siteConfig.email}</p>
                   </div>
-                  <div
-                    style={{ height: "1px", background: "rgba(200,168,75,0.15)" }}
-                  />
+                  <div style={{ height: "1px", background: "rgba(200,168,75,0.15)" }} />
                   <div>
                     <p className="font-sans text-[10px] uppercase tracking-[0.15em] mb-1" style={{ color: "rgba(28,42,28,0.4)" }}>Chuyên Môn</p>
                     <p className="font-sans text-xs leading-relaxed" style={{ color: "rgba(28,42,28,0.6)" }}>
