@@ -189,7 +189,7 @@ export default function ToiLam() {
         <div className="container-main max-w-6xl">
           <div className="flex flex-col lg:flex-row-reverse gap-14 lg:gap-20 items-center">
             <SlideIn direction="right" className="w-full lg:w-[45%]">
-              <ImageBlock src="/images/field-portrait-1.jpg" alt="Phạm Thanh Tùng tại farmstay thực địa" aspect="3/4" position="center 20%" />
+              <ImageBlock src="/images/portrait-stage-1.jpg" alt="Phạm Thanh Tùng trên sân khấu" aspect="3/4" position="center 30%" />
             </SlideIn>
             <div className="w-full lg:w-[55%]">
               <FadeUp>
