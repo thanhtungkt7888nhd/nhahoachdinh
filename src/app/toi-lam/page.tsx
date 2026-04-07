@@ -351,7 +351,7 @@ export default function ToiLam() {
           <StaggerParent className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
             {[
               { num: "100+", label: "Dự Án Farmstay & Sinh Thái", sub: "Từ cao nguyên Tây Bắc đến đồng bằng Cửu Long" },
-              { num: "3.000+", label: "Hecta Đất Chi Phối", sub: "Trên toàn quốc" },
+              { num: "3.000+", label: "Lượt Tư Vấn", sub: "Dự án, cá nhân & địa phương" },
               { num: "40+", label: "Tọa Đàm Cấp Tỉnh/Bộ", sub: "BNI · VCCI · Bộ NN&PTNT" },
               { num: "150+", label: "Bài Viết Chuyên Đề", sub: "Về farmstay & du lịch nông nghiệp" },
             ].map((s, i) => (

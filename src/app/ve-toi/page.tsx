@@ -150,7 +150,7 @@ const statsData = [
   },
   {
     num: "3.000+",
-    label: "Hecta Đất Chi Phối",
+    label: "Lượt Tư Vấn",
     details: [
       { title: "Đắk Nông & Tây Nguyên", sub: "Vùng đất bazan màu mỡ — hoạch định phát triển nông nghiệp sinh thái quy mô lớn" },
       { title: "Quảng Nam & Duyên Hải", sub: "Kết nối di sản văn hóa Chăm với du lịch nông nghiệp ven biển" },
