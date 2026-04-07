@@ -556,7 +556,6 @@ export default function VeToi() {
                   <div className="flex items-start gap-5">
                     <span className="gold-shine-subtle font-serif text-4xl font-bold flex-shrink-0">{item.num}</span>
                     <div>
-                      <p className="text-2xl mb-3">{item.icon}</p>
                       <h3 className="font-serif text-charcoal text-lg mb-3">{item.title}</h3>
                       <p className="font-sans text-muted text-sm leading-relaxed">{item.body}</p>
                     </div>

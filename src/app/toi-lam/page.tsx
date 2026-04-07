@@ -572,15 +572,15 @@ export default function ToiLam() {
                   </div>
                   <ul className="space-y-5">
                     {[
-                      { icon: "🌿", text: "Làm nông nghiệp sạch, du lịch tử tế và muốn để lại di sản xanh" },
-                      { icon: "🕰️", text: "Sẵn sàng chơi dài hạn — không tìm kiếm giải pháp mì ăn liền" },
-                      { icon: "🌏", text: "Có khát vọng đóng góp vào bức tranh lớn hơn chính dự án của mình" },
-                    ].map((item, i) => (
-                      <motion.li key={i} className="flex gap-4 items-start"
+                      "Làm nông nghiệp sạch, du lịch tử tế và muốn để lại di sản xanh",
+                      "Sẵn sàng chơi dài hạn — không tìm kiếm giải pháp mì ăn liền",
+                      "Có khát vọng đóng góp vào bức tranh lớn hơn chính dự án của mình",
+                    ].map((text, i) => (
+                      <motion.li key={i} className="flex gap-3 items-start"
                         initial={{ opacity: 0, x: -12 }} whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.1 }} viewport={{ once: true }}>
-                        <span className="text-lg flex-shrink-0 mt-0.5">{item.icon}</span>
-                        <span className="font-sans text-white/75 text-sm leading-relaxed">{item.text}</span>
+                        <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "#7ab35e" }} />
+                        <span className="font-sans text-white/75 text-sm leading-relaxed">{text}</span>
                       </motion.li>
                     ))}
                   </ul>
@@ -608,15 +608,15 @@ export default function ToiLam() {
                   </div>
                   <ul className="space-y-5">
                     {[
-                      { icon: "📉", text: "Tư duy đầu cơ, lướt sóng, tàn phá thiên nhiên để lấy lợi nhuận ngắn hạn" },
-                      { icon: "🚫", text: "Bất chấp hệ lụy môi trường và văn hóa bản địa" },
-                      { icon: "💸", text: "Chỉ muốn kiếm tiền nhanh mà không có cam kết với đất và người" },
-                    ].map((item, i) => (
-                      <motion.li key={i} className="flex gap-4 items-start"
+                      "Tư duy đầu cơ, lướt sóng, tàn phá thiên nhiên để lấy lợi nhuận ngắn hạn",
+                      "Bất chấp hệ lụy môi trường và văn hóa bản địa",
+                      "Chỉ muốn kiếm tiền nhanh mà không có cam kết với đất và người",
+                    ].map((text, i) => (
+                      <motion.li key={i} className="flex gap-3 items-start"
                         initial={{ opacity: 0, x: 12 }} whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.4, delay: i * 0.1 }} viewport={{ once: true }}>
-                        <span className="text-lg flex-shrink-0 mt-0.5">{item.icon}</span>
-                        <span className="font-sans text-white/75 text-sm leading-relaxed">{item.text}</span>
+                        <span className="flex-shrink-0 mt-1.5 w-1.5 h-1.5 rounded-full" style={{ background: "#c45c5c" }} />
+                        <span className="font-sans text-white/75 text-sm leading-relaxed">{text}</span>
                       </motion.li>
                     ))}
                   </ul>

@@ -133,54 +133,118 @@
 
   /* ─── Article Content Styles ─────────────────────────────────────────────── */
   .article-content {
-    @apply font-sans text-base leading-relaxed;
+    @apply font-sans;
+    font-size: 1.075rem;
+    line-height: 1.9;
     color: #3D2B1F;
+    text-align: justify;
+    hyphens: auto;
   }
 
   .article-content p {
-    @apply mb-5 leading-relaxed;
-    font-size: 1.0625rem;
+    margin-bottom: 1.65rem;
+    font-size: 1.075rem;
+    line-height: 1.9;
+    text-align: justify;
+    hyphens: auto;
   }
 
   .article-content h2 {
-    @apply font-serif font-semibold mt-10 mb-4 leading-snug;
-    font-size: 1.35rem;
+    @apply font-serif font-semibold leading-snug;
+    font-size: 1.4rem;
     color: #1C2A1C;
-    border-bottom: 2px solid rgba(200,168,75,0.3);
-    padding-bottom: 0.4rem;
+    margin-top: 2.8rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 3px solid #C8A84B;
   }
 
   .article-content h3 {
-    @apply font-sans font-semibold mt-8 mb-3 leading-snug;
+    @apply font-sans font-bold leading-snug;
     font-size: 1.05rem;
     color: #1C2A1C;
+    margin-top: 2rem;
+    margin-bottom: 0.65rem;
+    letter-spacing: 0.01em;
   }
 
+  /* Custom unordered list */
   .article-content ul {
-    @apply mb-5 pl-5 space-y-2;
-    list-style-type: disc;
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+    list-style: none;
+    space-y: 0.5rem;
   }
 
   .article-content ul li {
-    @apply leading-relaxed;
     color: #3D2B1F;
+    line-height: 1.75;
+    padding-left: 1.75rem;
+    position: relative;
+    margin-bottom: 0.6rem;
   }
 
+  .article-content ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #C8A84B;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+
+  /* Custom ordered list with gold circle numbers */
   .article-content ol {
-    @apply mb-5 pl-5 space-y-2;
-    list-style-type: decimal;
+    margin-bottom: 1.5rem;
+    padding-left: 0;
+    list-style: none;
+    counter-reset: ol-counter;
   }
 
+  .article-content ol li {
+    counter-increment: ol-counter;
+    color: #3D2B1F;
+    line-height: 1.75;
+    padding-left: 2.75rem;
+    position: relative;
+    margin-bottom: 0.9rem;
+  }
+
+  .article-content ol li::before {
+    content: counter(ol-counter);
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 1.65rem;
+    height: 1.65rem;
+    border-radius: 50%;
+    background: #1C2A1C;
+    border: 1.5px solid #C8A84B;
+    color: #C8A84B;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif, serif);
+    flex-shrink: 0;
+  }
+
+  /* Blockquote */
   .article-content blockquote {
-    @apply my-6 px-5 py-3 rounded-r;
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
     border-left: 4px solid #C8A84B;
-    background: rgba(245,234,213,0.5);
+    background: rgba(245,234,213,0.55);
+    border-radius: 0 0.5rem 0.5rem 0;
     font-style: italic;
     color: #3D2B1F;
+    font-size: 1.05rem;
+    line-height: 1.8;
   }
 
   .article-content strong {
-    @apply font-semibold;
+    font-weight: 700;
     color: #1C2A1C;
   }
 
@@ -189,30 +253,51 @@
     color: #3D2B1F;
   }
 
-  /* Editorial dark layout — bigger numbers on headings */
+  /* Highlight box — for key takeaway paragraphs */
+  .article-content .highlight-box {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.75rem;
+    background: rgba(28,42,28,0.05);
+    border: 1px solid rgba(200,168,75,0.35);
+  }
+
+  /* Editorial dark layout — gold numbered headings */
+  .article-content--editorial {
+    counter-reset: section;
+  }
+
   .article-content--editorial h2 {
-    @apply relative pl-10;
+    @apply relative;
+    padding-left: 3rem;
+    border-left: none;
     counter-increment: section;
   }
 
   .article-content--editorial h2::before {
     content: counter(section, decimal-leading-zero);
-    @apply absolute left-0 font-serif font-bold;
-    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--font-serif, serif);
+    font-size: 1.4rem;
+    font-weight: 700;
     color: #C8A84B;
     line-height: 1;
   }
 
-  .article-content--editorial {
-    counter-reset: section;
-  }
-
   /* Essay layout — drop cap on first paragraph */
   .article-content--essay > p:first-of-type::first-letter {
-    @apply font-serif float-left leading-none mr-2;
-    font-size: 4rem;
+    @apply font-serif float-left leading-none;
+    font-size: 4.2rem;
     color: #C8A84B;
-    line-height: 0.8;
-    margin-top: 0.1rem;
+    line-height: 0.78;
+    margin-right: 0.15rem;
+    margin-top: 0.05rem;
+  }
+
+  /* Wide layout for editorial */
+  .article-content--wide {
+    font-size: 1.05rem;
   }
 }
