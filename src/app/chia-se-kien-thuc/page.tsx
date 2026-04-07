@@ -2,9 +2,21 @@ import type { Metadata } from "next";
 import KnowledgeGrid from "@/components/KnowledgeGrid";
 
 export const metadata: Metadata = {
-  title: "Chia Sẻ Kiến Thức - Phạm Thanh Tùng",
+  title: "Chia Sẻ Kiến Thức Farmstay & Du Lịch Nông Nghiệp",
   description:
-    "Tổng hợp kiến thức về phát triển farmstay, du lịch nông nghiệp, thiết kế và chiến lược kinh doanh.",
+    "75+ bài viết chuyên sâu về phát triển farmstay, quy hoạch vùng đất, chiến lược đầu tư, vận hành và du lịch nông nghiệp bền vững tại Việt Nam — bởi Phạm Thanh Tùng.",
+  keywords: [
+    "kiến thức farmstay", "bài viết farmstay", "hướng dẫn làm farmstay",
+    "tư vấn đầu tư farmstay", "du lịch nông nghiệp Việt Nam",
+    "thiết kế farmstay", "quy hoạch farmstay", "vận hành farmstay",
+  ],
+  alternates: { canonical: "https://nhahoachdinh.com/chia-se-kien-thuc" },
+  openGraph: {
+    title: "Chia Sẻ Kiến Thức Farmstay | Phạm Thanh Tùng",
+    description: "75+ bài viết thực chiến về farmstay & du lịch nông nghiệp từ chuyên gia 9 năm kinh nghiệm.",
+    url: "https://nhahoachdinh.com/chia-se-kien-thuc",
+    type: "website",
+  },
 };
 
 export default function KnowledgePage() {
