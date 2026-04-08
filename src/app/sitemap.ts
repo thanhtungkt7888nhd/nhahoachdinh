@@ -13,12 +13,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/sach-farmstay`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
   ];
 
-  const articlePages: MetadataRoute.Sitemap = articles.map((article) => ({
-    url: `${BASE}/chia-se-kien-thuc/${article.slug}`,
-    lastModified: new Date(article.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const articlePages: MetadataRoute.Sitemap = articles.map((article) => {
+    const d = new Date(article.date);
+    return {
+      url: `${BASE}/chia-se-kien-thuc/${article.slug}`,
+      lastModified: isNaN(d.getTime()) ? new Date("2025-01-01") : d,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    };
+  });
 
   return [...staticPages, ...articlePages];
 }

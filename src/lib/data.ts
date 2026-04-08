@@ -1083,7 +1083,7 @@ export const articles: Article[] = [
     title: "XÂY DỰNG NỘI LỰC",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: xây dựng nội lực. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Cộng Đồng",
-    date: "2025-01-0 01",
+    date: "2025-01-01",
     image: "/images/outdoor-5-garden-chair.jpg",
     readTime: 7,
     content: `<p>Bài viết này sẽ hơi khó đọc, có thể bị cho là "sáo rỗng" nếu anh em chưa xâu chuỗi được các tầng thông tin. Nhưng mình cứ viết như mọi ngày thôi nhé, có điều hôm nay mình không chỉ nói về Farmstay. Hãy thử liên hệ bài viết này với từ khóa "Nội lực Farmstay".</p>
@@ -1110,7 +1110,7 @@ export const articles: Article[] = [
     title: "ẢO MỘNG \"BỎ PHỐ VỀ RỪNG\" VÀ NHỮNG SỰ THẬT KHÔNG MẤY AI DÁM NÓI VỀ FARMSTAY",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: ảo mộng \"bỏ phố về rừng\" và những sự thật không mấy ai dám nói về farmstay. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Chiến Lược",
-    date: "2025-01-0 28",
+    date: "2025-01-28",
     image: "/images/fs-outdoor-field.jpg",
     readTime: 13,
     content: `<p>Bài viết này có thể gây sốc và nhiều ý kiến trái chiều, tuy nhiên mình phải nói thẳng ra một số sự thật của mấy anh em có dự định bỏ phố về rừng hay làm Farmstay phải suy nghĩ cho kỹ nhé\\!</p>
@@ -1144,7 +1144,7 @@ export const articles: Article[] = [
     title: "GIÁ TRỊ PHÁP LÝ TRONG FARMSTAY: RÀO CẢN LÀ ĐẠI DƯƠNG XANH VÀ NƯỚC ĐI CHIẾN LƯỢC",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: giá trị pháp lý trong farmstay: rào cản là đại dương xanh và nước đi chiến lược. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Đất Đai",
-    date: "2025-01-1 02",
+    date: "2025-01-12",
     image: "/images/fs-interview-mountain.jpg",
     readTime: 13,
     content: `<p>Trong lĩnh vực Farmstay và Du lịch Nông nghiệp, mình đã thấy quá nhiều người coi pháp lý là một gánh nặng, là một rào cản hành chính cần phải né tránh hoặc đối phó. Đôi khi còn nghĩ rằng sẽ thay đổi phương thức hay mô hình farmstay để phù hợp với quỹ đất đang có, như vậy là đã sai lầm ngay từ tư duy. Khi đó đã sai cốt lõi trong tư duy phát triển bền vững, không có tư duy coi Pháp lý Farmstay là đầu tư, là nước đi chiến lược, là gia tăng giá trị bất động sản dẫn đến sự thất bại, thua lỗ hay thu hồi đất đai.</p>
@@ -1176,7 +1176,7 @@ export const articles: Article[] = [
     title: "NHỮNG LƯU Ý KHI TÌM ĐƠN VỊ THIẾT KẾ CHO FARMSTAY",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: những lưu ý khi tìm đơn vị thiết kế cho farmstay. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Thiết Kế",
-    date: "2025-01-1 07",
+    date: "2025-01-17",
     image: "/images/portrait-stage-1.jpg",
     readTime: 10,
     content: `<p>Farmstay là một loại hình du lịch mới, xuất hiện ở Việt Nam khoảng những năm 2010\\. Lượng tri thức chuẩn về ngành này còn rất ít, đa số các farmstay ở Việt Nam đang trong quá trình thử sai để tìm ra cái phù hợp. Các chủ farm thực thụ, những người không đầu tư lướt sóng, thường phải tự mày mò, sửa sai, và một trong những sai lầm lớn nhất chính là chọn sai đơn vị tư vấn thiết kế.</p>
@@ -1214,7 +1214,7 @@ export const articles: Article[] = [
     title: "FARMSTAY LÀ TIỀN THÂN CỦA ECOVILLAGE: KIẾN TẠO DI SẢN BỀN VỮNG TRONG BỐI CẢNH BIẾN ĐỔI KHÍ HẬU",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: farmstay là tiền thân của ecovillage: kiến tạo di sản bền vững trong bối cảnh biến đổi khí hậu. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Chiến Lược",
-    date: "2025-01-1 09",
+    date: "2025-01-19",
     image: "/images/outdoor-2-garden-speaking.jpg",
     readTime: 15,
     content: `<p>Mình có viết về Ecovillage (Làng Sinh Thái) từ năm 2020\\. Giờ đây, sau 5 năm, với những biến động không ngừng của khí hậu và kinh tế. mình nhận thấy đã đến lúc phải viết bài viết này để các anh em đang phát triển Farmstay nhìn nhận ở một góc độ mới, rộng hơn và xa hơn: Farmstay chính là tiền thân, là nền móng chiến lược để hình thành Ecovillage. Nó không chỉ là nơi nghỉ dưỡng hay kinh doanh đơn thuần, mà là một bước đi có tầm nhìn dài hạn.</p>
@@ -1251,7 +1251,7 @@ export const articles: Article[] = [
     title: "LÀM FARMSTAY ĐỂ CÓ KHÁCH HAY CÓ KHÁCH RỒI MỚI LÀM FARMSTAY?",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: làm farmstay để có khách hay có khách rồi mới làm farmstay?. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Chiến Lược",
-    date: "2025-01-1 13",
+    date: "2025-01-13",
     image: "/images/outdoor-1-mountain-tea.jpg",
     readTime: 11,
     content: `<p>Đây là câu hỏi cốt lõi mà mọi nhà đầu tư Farmstay đều phải trả lời trước khi đặt bút vẽ hay đổ một đồng vốn nào xuống đất. Sự thành bại của một dự án Farmstay không nằm ở vẻ đẹp của bản vẽ, mà nằm ở triết lý vận hành và thời điểm khởi sự.</p>
@@ -1286,7 +1286,7 @@ export const articles: Article[] = [
     title: "BẢN CHẤT CỦA TRỊ THỦY VÀ QUẢN TRỊ NƯỚC, VÌ HIỂU SAI NÊN LŨ LỤT LỚN",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: bản chất của trị thủy và quản trị nước, vì hiểu sai nên lũ lụt lớn. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Chiến Lược",
-    date: "2025-01-1 20",
+    date: "2025-01-20",
     image: "/images/fs-portrait-bamboo.jpg",
     readTime: 12,
     content: `<p>Chúng ta đã sai quá lớn trong triết lý phát triển đô thị, các công trình thủy lợi,... có lẽ cái sai này là do tư duy kiểu tự tin rằng "khoa học", "đo lường", sẽ quản được nước. Sự hiểu thấu đáo, toàn diện về khả năng của nước khi mưa lũ lớn, hay nói cách khác thiếu đi sự hiểu về "đạo của nước" đang để lại hậu quả nặng nề. Rồi thêm những nguyên do sau đây:</p>
@@ -1318,7 +1318,7 @@ export const articles: Article[] = [
     title: "HÀNH TRÌNH 7 NĂM \"TĂNG TRƯỞNG NÓNG VÀ THANH LỌC KHẮC NGHIỆT\" CỦA MÔ HÌNH FARMSTAY VIỆT NAM",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: hành trình 7 năm \"tăng trưởng nóng và thanh lọc khắc nghiệt\" của mô hình farmstay việt nam. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Chiến Lược",
-    date: "2025-01-2 18",
+    date: "2025-01-28",
     image: "/images/outdoor-3-forest-stream.jpg",
     readTime: 15,
     content: `<p>Mình bắt đầu viết bài về Farmstay, tư vấn, thiết kế tổng thể nhiều dự án trên khắp Việt Nam từ năm 2019 đến nay. Ngoài ra mình tổ chức 4 lần Xuyên Việt Farmstay, talk với các cấp chính quyền nhiều tỉnh, tổ chức lớp học,... nên nắm khá rõ hơi thở của ngành này những năm qua.</p>
@@ -1356,7 +1356,7 @@ export const articles: Article[] = [
     title: "TƯ DUY MỚI VỀ BẤT ĐỘNG SẢN GẮN VỚI DU LỊCH NÔNG THÔN",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: tư duy mới về bất động sản gắn với du lịch nông thôn. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Đất Đai",
-    date: "2025-01-2 20",
+    date: "2025-01-22",
     image: "/images/fs-windmill.jpg",
     readTime: 11,
     content: `<p>Cách đây chừng một tháng, mình có dịp ghé thăm và làm việc với một công ty phát triển bất động sản. Lý do ban đầu của chuyến đi đơn thuần là tư vấn cho họ về các mô hình BĐS sinh thái, cụ thể là Farmstay – lĩnh vực mà mình vẫn đang miệt mài theo đuổi. Tuy nhiên, câu chuyện hôm nay mình muốn kể với các bạn lại không nằm ở Farmstay, mà bắt nguồn từ một phát hiện thú vị hơn nhiều.</p>
@@ -1374,7 +1374,7 @@ export const articles: Article[] = [
     title: "HIỂU CHƯA ĐỦ VỀ PHÁP LÝ: NGUY CƠ MẤT DỰ ÁN HAY MẤT ĐẤT FARMSTAY",
     excerpt: "Bài viết chia sẻ góc nhìn thực chiến về: hiểu chưa đủ về pháp lý: nguy cơ mất dự án hay mất đất farmstay. Kiến thức được đúc kết từ hàng trăm dự án farmstay và du lịch nông nghiệp trên toàn Việt Nam.",
     category: "Đất Đai",
-    date: "2025-01-2 21",
+    date: "2025-01-21",
     image: "/images/outdoor-4-waterfall.jpg",
     readTime: 12,
     content: `<p>​Khi làm Farmstay hay đầu tư đất đai quy mô lớn, chúng ta thường sợ "lỗ", sợ không có khách. Nhưng có một nỗi sợ lớn hơn, mang tính sinh tử mà ít người dám nhìn thẳng: Sợ mất đất và mất dự án.</p>
