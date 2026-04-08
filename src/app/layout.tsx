@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Alegreya, Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -60,6 +60,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://nhahoachdinh.com" },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#0A1208",
+  width: "device-width",
+  initialScale: 1,
+};
+
 // JSON-LD Person schema — injected globally for AI crawlers
 const personJsonLd = {
   "@context": "https://schema.org",
@@ -83,6 +89,42 @@ const personJsonLd = {
   },
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Phạm Thanh Tùng — Nhà Hoạch Định",
+  url: "https://nhahoachdinh.com",
+  description: "Hướng dẫn xây dựng và vận hành farmstay bền vững tại Việt Nam",
+  inLanguage: "vi-VN",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: {
+      "@type": "EntryPoint",
+      urlTemplate: "https://nhahoachdinh.com/chia-se-kien-thuc?q={search_term_string}",
+    },
+    "query-input": "required name=search_term_string",
+  },
+  publisher: {
+    "@type": "Person",
+    name: "Phạm Thanh Tùng",
+    url: "https://nhahoachdinh.com",
+  },
+};
+
+const blogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  name: "Kiến Thức Farmstay — Phạm Thanh Tùng",
+  url: "https://nhahoachdinh.com/chia-se-kien-thuc",
+  description: "Kho kiến thức thực chiến về farmstay, du lịch nông nghiệp và phát triển bền vững",
+  inLanguage: "vi-VN",
+  author: {
+    "@type": "Person",
+    name: "Phạm Thanh Tùng",
+    url: "https://nhahoachdinh.com",
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi" className={`${alegreya.variable} ${nunito.variable}`}>
@@ -95,6 +137,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
         />
       </head>
       <body className="font-sans text-charcoal bg-white antialiased">

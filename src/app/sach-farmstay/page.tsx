@@ -5,10 +5,12 @@ import ComingSoon from "./ComingSoon";
 export const metadata: Metadata = {
   title: "Sách Farmstay — Hướng Dẫn Thiết Lập Farmstay Bền Vững",
   description: "Cẩm nang thực chiến từ 9 năm kinh nghiệm. Đặt mua sách trực tiếp với giao hàng toàn quốc.",
+  alternates: { canonical: "https://nhahoachdinh.com/sach-farmstay" },
   openGraph: {
     title: "Sách Farmstay — Phạm Thanh Tùng",
     description: "Cẩm nang thiết lập farmstay thực chiến",
     url: "https://nhahoachdinh.com/sach-farmstay",
+    images: [{ url: "https://nhahoachdinh.com/og-home.jpg", width: 1200, height: 630, alt: "Sách Farmstay Bền Vững — Phạm Thanh Tùng" }],
   },
 };
 

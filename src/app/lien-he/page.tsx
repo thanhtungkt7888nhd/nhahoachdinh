@@ -6,6 +6,13 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaFacebook, FaYoutube, FaPinterest
 export const metadata: Metadata = {
   title: "Liên Hệ - Phạm Thanh Tùng",
   description: "Liên hệ với Phạm Thanh Tùng để tư vấn phát triển farmstay và du lịch nông nghiệp.",
+  alternates: { canonical: "https://nhahoachdinh.com/lien-he" },
+  openGraph: {
+    title: "Liên Hệ — Phạm Thanh Tùng",
+    description: "Liên hệ tư vấn dự án farmstay, hợp tác hoặc đặt lịch gặp mặt.",
+    url: "https://nhahoachdinh.com/lien-he",
+    images: [{ url: "https://nhahoachdinh.com/og-home.jpg", width: 1200, height: 630, alt: "Liên hệ Phạm Thanh Tùng" }],
+  },
 };
 
 const contactDetails = [

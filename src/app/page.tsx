@@ -1,5 +1,19 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Hero from "@/components/Hero";
+
+export const metadata: Metadata = {
+  title: "Phạm Thanh Tùng — Nhà Hoạch Định Farmstay & Du Lịch Nông Nghiệp",
+  description: "Hơn 9 năm hoạch định 50+ dự án farmstay trên toàn Việt Nam. Tư vấn chiến lược, thiết kế sinh thái, vận hành bền vững — từ ý tưởng đến dòng tiền ổn định.",
+  keywords: ["farmstay", "nhà hoạch định farmstay", "du lịch nông nghiệp", "Phạm Thanh Tùng", "tư vấn farmstay", "farmstay bền vững", "agritourism Việt Nam"],
+  alternates: { canonical: "https://nhahoachdinh.com" },
+  openGraph: {
+    title: "Phạm Thanh Tùng — Nhà Hoạch Định Farmstay",
+    description: "Hơn 9 năm hoạch định 50+ dự án farmstay. Tư vấn chiến lược, thiết kế sinh thái và vận hành bền vững.",
+    url: "https://nhahoachdinh.com",
+    images: [{ url: "https://nhahoachdinh.com/og-home.jpg", width: 1200, height: 630, alt: "Phạm Thanh Tùng — Nhà Hoạch Định Farmstay" }],
+  },
+};
 import StatsSection from "@/components/StatsSection";
 import MissionSection from "@/components/MissionSection";
 import Link from "next/link";

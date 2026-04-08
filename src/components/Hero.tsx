@@ -67,18 +67,13 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.35, ease }}
         >
           <h1
-            className="font-serif leading-none mb-1"
+            className="font-serif leading-none mb-7"
             style={{ fontSize: "clamp(2.6rem, 5vw, 5rem)", color: "#EDE0C4" }}
           >
             Phạm
             <br />
-            Thanh
-          </h1>
-          <h1
-            className="font-serif leading-none mb-7"
-            style={{ fontSize: "clamp(2.6rem, 5vw, 5rem)", ...shimmerStyle }}
-          >
-            Tùng
+            Thanh{" "}
+            <span style={{ ...shimmerStyle }}>Tùng</span>
           </h1>
         </motion.div>
 

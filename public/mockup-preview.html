@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3 Mẫu Thiết Kế Landing Page — Ánh Kim & Gam Màu</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Georgia', serif; background: #e8e2d8; }
+
+/* ══════════════════════════════════════
+   GOLD SHIMMER ANIMATIONS
+══════════════════════════════════════ */
+@keyframes gold-shimmer {
+  0%   { background-position: -250% center; }
+  100% { background-position: 250% center; }
+}
+@keyframes gold-shimmer-slow {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes gold-sweep {
+  0%   { left: -80%; }
+  100% { left: 160%; }
+}
+@keyframes gold-pulse-glow {
+  0%, 100% { box-shadow: 0 0 0px 0px rgba(200,168,75,0); }
+  50%       { box-shadow: 0 0 18px 4px rgba(200,168,75,0.35); }
+}
+@keyframes gold-border-pulse {
+  0%, 100% { border-color: #C8A84B; }
+  50%       { border-color: #F0D075; box-shadow: 0 0 10px rgba(200,168,75,.4); }
+}
+@keyframes subtle-glow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .78; filter: brightness(1.15); }
+}
+
+/* Ánh kim trên text */
+.shimmer-gold {
+  background: linear-gradient(90deg,
+    #7A5C1A 0%, #B8902A 18%, #C8A84B 30%,
+    #F0D075 45%, #FFF8C0 52%, #F0D075 58%,
+    #C8A84B 70%, #B8902A 82%, #7A5C1A 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer 5s linear infinite;
+}
+.shimmer-gold-slow {
+  background: linear-gradient(90deg,
+    #7A5C1A 0%, #C8A84B 25%, #E8C860 45%,
+    #FFF8C0 52%, #E8C860 58%, #C8A84B 75%, #7A5C1A 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer-slow 7s linear infinite;
+}
+
+/* Ánh kim sweep trên nền (stats band, CTA band) */
+.shimmer-surface {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-surface::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.18) 50%, transparent 100%);
+  transform: skewX(-15deg);
+  animation: gold-sweep 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: #0e1a0e;
+  padding: 10px 24px;
+  display: flex; gap: 8px; justify-content: center; align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid rgba(200,168,75,.2);
+}
+.nav a {
+  color: #C8A84B; text-decoration: none;
+  font-family: sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  padding: 7px 14px; border-radius: 6px;
+  transition: all .25s; border: 1px solid transparent;
+}
+.nav a:hover { border-color: rgba(200,168,75,.3); background: rgba(200,168,75,.1); }
+.nav a.active { background: rgba(200,168,75,.18); border-color: rgba(200,168,75,.4); }
+.nav-divider { width: 1px; height: 20px; background: rgba(200,168,75,.2); }
+.nav-label { font-family: sans-serif; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: rgba(200,168,75,.45); padding: 0 4px; }
+
+.section-divider {
+  background: #1C2A1C; color: rgba(200,168,75,.55);
+  font-family: sans-serif; font-size: 9px; letter-spacing: .25em; text-transform: uppercase;
+  text-align: center; padding: 28px 0 10px;
+}
+
+
+/* ══════════════════════════════════════
+   MẪU 1 — MAGAZINE DARK PREMIUM
+   Gam màu chuẩn
+══════════════════════════════════════ */
+#mau1 { background: #fff; }
+
+.m1-hero {
+  background: linear-gradient(170deg, #0e1a0e 0%, #1C2A1C 55%, #162814 100%);
+  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+  align-items: stretch; position: relative; overflow: hidden;
+}
+.m1-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 28% 50%, rgba(200,168,75,.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+/* Đường ánh kim chạy ngang */
+.m1-hero::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #C8A84B 30%, #F0D075 50%, #C8A84B 70%, transparent 100%);
+  background-size: 200% auto;
+  animation: gold-shimmer 4s linear infinite;
+}
+.m1-hero-left {
+  padding: 110px 64px 90px;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
+}
+.m1-hero-right { position: relative; overflow: hidden; }
+.m1-hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; opacity: .65; }
+.m1-hero-right::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, #1C2A1C 0%, rgba(28,42,28,.2) 50%, transparent 100%);
+}
+.m1-tag {
+  font-family: sans-serif; font-size: 9.5px; letter-spacing: .32em;
+  text-transform: uppercase; margin-bottom: 22px;
+}
+.m1-hero h1 {
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  color: #F5EAD5; line-height: 1.08; margin-bottom: 26px;
+}
+.m1-hero h1 em { font-style: normal; }
+.m1-hero p {
+  font-family: sans-serif; font-size: 1.02rem;
+  color: rgba(245,234,213,.58); line-height: 1.85;
+  max-width: 440px; margin-bottom: 42px;
+}
+.m1-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* Button styles — tất cả bo góc 8px */
+.btn-gold {
+  background: linear-gradient(135deg, #C8A84B 0%, #D4B860 40%, #B8902A 100%);
+  color: #1C2A1C; border: none;
+  padding: 14px 30px; font-family: sans-serif;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px;
+  position: relative; overflow: hidden;
+  animation: subtle-glow 3s ease-in-out infinite;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,168,75,.4); }
+.btn-gold::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 50%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  transform: skewX(-15deg);
+  animation: gold-sweep 3s ease-in-out infinite;
+}
+
+.btn-outline {
+  background: transparent; color: rgba(245,234,213,.8);
+  border: 1.5px solid rgba(245,234,213,.28);
+  padding: 14px 30px; font-family: sans-serif;
+  font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px; transition: all .25s;
+}
+.btn-outline:hover { border-color: #C8A84B; color: #C8A84B; }
+
+.btn-dark {
+  background: #1C2A1C; color: #C8A84B; border: 1.5px solid #C8A84B;
+  padding: 16px 36px; font-family: sans-serif;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px;
+  animation: gold-border-pulse 3s ease-in-out infinite;
+  transition: transform .2s;
+}
+.btn-dark:hover { transform: translateY(-2px); background: #233523; }
+
+/* Stats band */
+.m1-stats { display: grid; grid-template-columns: repeat(4,1fr); }
+.m1-stat {
+  padding: 32px 24px; text-align: center;
+  border-right: 1px solid rgba(28,42,28,.12);
+  background: linear-gradient(135deg, #C8A84B 0%, #D4B860 50%, #B8902A 100%);
+  position: relative; overflow: hidden;
+}
+.m1-stat:last-child { border-right: none; }
+.m1-stat-num {
+  font-size: 2.5rem; font-weight: 700; color: #1C2A1C; line-height: 1;
+  font-family: Georgia, serif;
+}
+.m1-stat-label {
+  font-family: sans-serif; font-size: 9.5px; letter-spacing: .16em;
+  text-transform: uppercase; color: rgba(28,42,28,.6); margin-top: 7px;
+}
+
+/* Quote band */
+.m1-quote { background: #F5EAD5; padding: 88px 64px; text-align: center; }
+.m1-quote blockquote {
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem); color: #1C2A1C;
+  line-height: 1.55; max-width: 780px; margin: 0 auto 22px;
+  font-style: italic;
+}
+.m1-quote cite {
+  font-family: sans-serif; font-size: 10px;
+  letter-spacing: .22em; text-transform: uppercase;
+}
+
+/* Who */
+.m1-who { display: grid; grid-template-columns: 1fr 1fr; }
+.m1-who-img { background: #2A3D2A; min-height: 520px; position: relative; overflow: hidden; }
+.m1-who-img img { width: 100%; height: 100%; object-fit: cover; opacity: .82; }
+.m1-who-content { background: #fff; padding: 88px 64px; display: flex; flex-direction: column; justify-content: center; }
+.m1-who-content .lbl { font-family: sans-serif; font-size: 9.5px; letter-spacing: .28em; text-transform: uppercase; margin-bottom: 16px; }
+.m1-who-content h2 { font-size: clamp(2rem, 3vw, 3rem); color: #1C2A1C; margin-bottom: 26px; line-height: 1.2; }
+.m1-who-content p { font-family: sans-serif; font-size: .98rem; color: #555; line-height: 1.9; margin-bottom: 16px; }
+.m1-who-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 26px; }
+.tag {
+  font-family: sans-serif; font-size: 10.5px;
+  padding: 6px 15px; border: 1px solid rgba(200,168,75,.45);
+  color: #7a5c1a; letter-spacing: .08em; border-radius: 6px;
+  transition: all .2s;
+}
+.tag:hover { background: rgba(200,168,75,.12); }
+
+/* Services */
+.m1-services { background: #1C2A1C; padding: 88px 64px; }
+.m1-services-header { text-align: center; margin-bottom: 60px; }
+.m1-services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; max-width: 1020px; margin: 0 auto; }
+.m1-service-card {
+  border: 1px solid rgba(200,168,75,.2); padding: 38px 30px;
+  border-radius: 8px; transition: border-color .3s;
+  animation: gold-border-pulse 4s ease-in-out infinite;
+}
+.m1-service-card:nth-child(2) { animation-delay: 1.3s; }
+.m1-service-card:nth-child(3) { animation-delay: 2.6s; }
+.m1-service-num { font-size: 2.8rem; font-weight: 700; color: rgba(200,168,75,.18); line-height: 1; margin-bottom: 14px; }
+.m1-service-card h3 { font-size: 1.12rem; color: #F5EAD5; margin-bottom: 12px; }
+.m1-service-card p { font-family: sans-serif; font-size: .87rem; color: rgba(245,234,213,.5); line-height: 1.82; }
+
+/* CTA gold */
+.m1-cta {
+  background: linear-gradient(135deg, #B8902A 0%, #C8A84B 35%, #D4B860 55%, #C8A84B 75%, #9A7A2E 100%);
+  background-size: 300% auto;
+  animation: gold-shimmer-slow 8s linear infinite;
+  padding: 88px 64px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.m1-cta::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+  transform: skewX(-15deg);
+  animation: gold-sweep 5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+.m1-cta h2 { font-size: clamp(1.8rem, 3vw, 3rem); color: #1C2A1C; margin-bottom: 16px; position: relative; z-index: 1; }
+.m1-cta p { font-family: sans-serif; font-size: 1rem; color: rgba(28,42,28,.68); margin-bottom: 38px; position: relative; z-index: 1; }
+
+
+/* ══════════════════════════════════════
+   MẪU 2 — EDITORIAL LAYERED
+   Gam màu chuẩn
+══════════════════════════════════════ */
+#mau2 { background: #fff; }
+
+.m2-hero {
+  background: #fff; padding: 108px 88px 68px;
+  position: relative;
+  border-bottom: 3px solid transparent;
+  background-clip: padding-box;
+}
+/* Đường viền vàng ánh kim dưới hero */
+.m2-hero-line {
+  height: 3px; width: 100%;
+  background: linear-gradient(90deg, transparent 0%, #9A7A2E 10%, #C8A84B 30%, #F0D075 50%, #C8A84B 70%, #9A7A2E 90%, transparent 100%);
+  background-size: 300% auto;
+  animation: gold-shimmer 5s linear infinite;
+}
+.m2-hero-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 60% 40%; gap: 64px; align-items: end; }
+.m2-tag {
+  font-family: sans-serif; font-size: 10.5px; letter-spacing: .3em;
+  text-transform: uppercase; margin-bottom: 22px;
+  display: flex; align-items: center; gap: 14px;
+}
+.m2-tag::before { content: ''; display: block; width: 36px; height: 1.5px; background: #C8A84B; }
+.m2-hero h1 {
+  font-size: clamp(3rem, 5.5vw, 6.2rem); color: #1C2A1C;
+  line-height: .93; margin-bottom: 32px; letter-spacing: -.025em;
+}
+.m2-hero h1 span { display: block; }
+.m2-hero-right { padding-bottom: 8px; }
+.m2-hero-excerpt {
+  font-family: sans-serif; font-size: 1.03rem; color: #666;
+  line-height: 1.85; border-left: 3.5px solid #C8A84B;
+  padding-left: 22px; margin-bottom: 28px;
+}
+.m2-hero-meta {
+  font-family: sans-serif; font-size: 10.5px; color: #bbb;
+  letter-spacing: .12em; text-transform: uppercase; margin-bottom: 30px;
+}
+
+.btn-green {
+  background: #1C2A1C; color: #C8A84B;
+  border: 2px solid #1C2A1C; padding: 13px 28px;
+  font-family: sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  cursor: pointer; margin-right: 10px; border-radius: 8px;
+  transition: all .25s;
+  animation: gold-pulse-glow 4s ease-in-out infinite;
+}
+.btn-green:hover { background: #2A4028; box-shadow: 0 6px 20px rgba(200,168,75,.35); }
+.btn-green-outline {
+  background: transparent; color: #1C2A1C;
+  border: 2px solid rgba(28,42,28,.3); padding: 13px 28px;
+  font-family: sans-serif; font-size: 11px; font-weight: 700;
+  letter-spacing: .2em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px; transition: all .25s;
+}
+.btn-green-outline:hover { border-color: #C8A84B; color: #7A5C1A; }
+
+/* Bands */
+.m2-band-beige { background: #F5EAD5; padding: 68px 88px; }
+.m2-band-dark { background: #1C2A1C; padding: 68px 88px; }
+.m2-band-white { background: #fff; padding: 68px 88px; }
+.m2-band-gold {
+  background: linear-gradient(135deg, #B8902A 0%, #C8A84B 40%, #D4B860 60%, #9A7A2E 100%);
+  background-size: 300% auto;
+  animation: gold-shimmer-slow 8s linear infinite;
+  padding: 48px 88px; position: relative; overflow: hidden;
+}
+.m2-band-gold::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+  transform: skewX(-15deg);
+  animation: gold-sweep 5s ease-in-out infinite;
+}
+.m2-band-inner { max-width: 1100px; margin: 0 auto; }
+
+.m2-expertise { display: grid; grid-template-columns: repeat(2,1fr); gap: 0; border-radius: 8px; overflow: hidden; }
+.m2-exp-item {
+  padding: 40px 44px; border: 1px solid rgba(200,168,75,.18);
+  position: relative; transition: border-color .3s;
+}
+.m2-exp-item:hover { border-color: rgba(200,168,75,.45); }
+.m2-exp-num {
+  font-size: 3.8rem; font-weight: 700;
+  color: rgba(200,168,75,.12); line-height: 1;
+  position: absolute; right: 26px; top: 20px;
+}
+.m2-exp-item h3 { font-size: 1.28rem; color: #F5EAD5; margin-bottom: 10px; }
+.m2-exp-item p { font-family: sans-serif; font-size: .88rem; color: rgba(245,234,213,.52); line-height: 1.82; }
+
+.m2-pull-quote {
+  font-size: clamp(1.4rem, 2.5vw, 2rem); color: #1C2A1C;
+  font-style: italic; line-height: 1.5; max-width: 800px;
+  padding: 0 0 0 34px; border-left: 5px solid #C8A84B;
+}
+.m2-stats-row { display: flex; gap: 0; }
+.m2-stat-block { flex: 1; text-align: center; padding: 36px 20px; border-right: 1px solid rgba(28,42,28,.08); }
+.m2-stat-block:last-child { border-right: none; }
+.m2-stat-big { font-size: 3.6rem; font-weight: 700; color: #1C2A1C; line-height: 1; }
+.m2-stat-sub { font-family: sans-serif; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; margin-top: 9px; }
+
+.m2-cta-band { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; position: relative; z-index: 1; }
+.m2-cta-text h2 { font-size: clamp(1.5rem, 2.5vw, 2.2rem); color: #1C2A1C; }
+.m2-cta-text p { font-family: sans-serif; font-size: .95rem; color: rgba(28,42,28,.7); margin-top: 7px; }
+.btn-dark2 {
+  background: #1C2A1C; color: #C8A84B;
+  padding: 16px 34px; font-family: sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  border: none; cursor: pointer; flex-shrink: 0; border-radius: 8px;
+  transition: all .25s; position: relative; z-index: 1;
+  animation: gold-pulse-glow 3.5s ease-in-out infinite;
+}
+.btn-dark2:hover { background: #2A4028; transform: translateY(-2px); }
+
+/* Section titles */
+.section-h2 { font-family: sans-serif; font-size: 10px; letter-spacing: .28em; text-transform: uppercase; margin-bottom: 12px; }
+.section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); color: #F5EAD5; margin-bottom: 44px; }
+
+
+/* ══════════════════════════════════════
+   MẪU 3 — STORYTELLING SCROLL
+   Gam màu chuẩn
+══════════════════════════════════════ */
+#mau3 { background: #fff; }
+
+.m3-hero {
+  min-height: 100vh; background: #fff;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  position: relative; overflow: hidden;
+}
+.m3-hero-bg { position: absolute; inset: 0; background: url('/images/outdoor-4-waterfall.jpg') center/cover; }
+.m3-hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(0deg, #fff 0%, #fff 18%, rgba(255,255,255,.55) 55%, transparent 100%);
+}
+.m3-hero-content { position: relative; z-index: 2; padding: 0 88px 88px; max-width: 860px; }
+.m3-category {
+  font-family: sans-serif; font-size: 9.5px; letter-spacing: .32em;
+  text-transform: uppercase; margin-bottom: 18px;
+}
+.m3-hero h1 {
+  font-size: clamp(3rem, 6vw, 7.2rem); color: #1C2A1C;
+  line-height: .98; letter-spacing: -.03em; margin-bottom: 28px;
+}
+.m3-hero h1 em { font-style: italic; }
+/* Đường vàng dưới tên */
+.m3-hero-line {
+  width: 80px; height: 2px; margin-bottom: 28px;
+  background: linear-gradient(90deg, #C8A84B, #F0D075, #C8A84B);
+  background-size: 200% auto;
+  animation: gold-shimmer 3s linear infinite;
+}
+.m3-scroll-hint {
+  font-family: sans-serif; font-size: 10px; letter-spacing: .22em;
+  text-transform: uppercase; color: #aaa;
+  display: flex; align-items: center; gap: 10px;
+}
+.m3-scroll-hint::after { content: '↓'; font-size: 18px; color: #C8A84B; animation: subtle-glow 2s ease-in-out infinite; }
+
+/* Intro */
+.m3-intro { background: #F5EAD5; padding: 88px; }
+.m3-intro-inner { max-width: 940px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.m3-intro-label { font-family: sans-serif; font-size: 9.5px; letter-spacing: .28em; text-transform: uppercase; margin-bottom: 14px; }
+.m3-intro-big { font-size: clamp(1.8rem, 3vw, 2.9rem); color: #1C2A1C; line-height: 1.25; }
+.m3-intro-right p { font-family: sans-serif; font-size: .98rem; color: #555; line-height: 1.9; margin-bottom: 16px; }
+.btn-outline-dark {
+  background: transparent; color: #1C2A1C;
+  border: 1.5px solid rgba(28,42,28,.28);
+  padding: 13px 28px; font-family: sans-serif;
+  font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px; transition: all .25s;
+}
+.btn-outline-dark:hover { border-color: #C8A84B; color: #7A5C1A; }
+
+/* Stats */
+.m3-stats { display: grid; grid-template-columns: repeat(4,1fr); }
+.m3-stat { padding: 58px 20px; text-align: center; border-right: 1px solid rgba(0,0,0,.06); }
+.m3-stat:nth-child(odd) { background: #F5EAD5; }
+.m3-stat:nth-child(even) { background: #fff; }
+.m3-stat:last-child { border-right: none; }
+.m3-stat-n { font-size: 3.6rem; font-weight: 700; color: #1C2A1C; line-height: 1; }
+.m3-stat-l { font-family: sans-serif; font-size: 10px; letter-spacing: .16em; margin-top: 9px; text-transform: uppercase; }
+.m3-stat-desc { font-family: sans-serif; font-size: 11.5px; color: #888; margin-top: 5px; }
+
+/* Chapters */
+.m3-chapters { background: #fff; }
+.m3-chapter { display: grid; grid-template-columns: 230px 1fr; border-bottom: 1px solid rgba(0,0,0,.055); }
+.m3-chapter:last-child { border-bottom: none; }
+.m3-chapter-num {
+  background: #1C2A1C; display: flex; align-items: center;
+  justify-content: center; flex-direction: column; padding: 44px;
+  position: relative; overflow: hidden;
+}
+/* Ánh kim trên chapter số lẻ (dark) */
+.m3-chapter:nth-child(odd) .m3-chapter-num::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 60%;
+  background: linear-gradient(90deg, transparent, rgba(200,168,75,.12), transparent);
+  transform: skewX(-15deg);
+  animation: gold-sweep 5s ease-in-out infinite;
+}
+.m3-chapter-num span { font-size: 4.2rem; font-weight: 700; color: #C8A84B; line-height: 1; position: relative; z-index: 1; animation: subtle-glow 3.5s ease-in-out infinite; }
+.m3-chapter-num small { font-family: sans-serif; font-size: 8.5px; letter-spacing: .22em; text-transform: uppercase; color: rgba(200,168,75,.45); margin-top: 5px; position: relative; z-index: 1; }
+.m3-chapter-body { padding: 44px 64px; display: flex; flex-direction: column; justify-content: center; }
+.m3-chapter-body h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); color: #1C2A1C; margin-bottom: 12px; }
+.m3-chapter-body p { font-family: sans-serif; font-size: .94rem; color: #666; line-height: 1.88; }
+.m3-chapter-tag { font-family: sans-serif; font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 11px; }
+/* Alternating */
+.m3-chapter:nth-child(even) .m3-chapter-body { background: #F5EAD5; }
+.m3-chapter:nth-child(even) .m3-chapter-num {
+  background: linear-gradient(135deg, #C8A84B 0%, #D4B860 50%, #B8902A 100%);
+  background-size: 200% auto;
+  animation: gold-shimmer-slow 6s linear infinite;
+  overflow: hidden;
+}
+.m3-chapter:nth-child(even) .m3-chapter-num::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 60%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+  transform: skewX(-15deg);
+  animation: gold-sweep 4s ease-in-out infinite;
+}
+.m3-chapter:nth-child(even) .m3-chapter-num span { color: #1C2A1C; }
+.m3-chapter:nth-child(even) .m3-chapter-num small { color: rgba(28,42,28,.45); }
+
+/* Full-width quote */
+.m3-fullquote { background: #1C2A1C; padding: 88px; text-align: center; }
+.m3-fullquote blockquote {
+  font-size: clamp(1.6rem, 3vw, 2.8rem); color: #F5EAD5;
+  line-height: 1.42; max-width: 820px; margin: 0 auto 22px; font-style: italic;
+}
+.m3-fullquote blockquote em { font-style: italic; }
+.m3-fullquote cite { font-family: sans-serif; font-size: 10.5px; letter-spacing: .22em; color: rgba(200,168,75,.55); text-transform: uppercase; }
+
+/* CTA */
+.m3-cta {
+  background: linear-gradient(145deg, #162014, #1C2A1C, #1a2e1a);
+  padding: 88px; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center;
+  position: relative; overflow: hidden;
+}
+.m3-cta::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #C8A84B 30%, #F0D075 50%, #C8A84B 70%, transparent);
+  background-size: 200% auto;
+  animation: gold-shimmer 4s linear infinite;
+}
+.m3-cta h2 { font-size: clamp(1.8rem, 3vw, 3rem); color: #F5EAD5; margin-bottom: 14px; }
+.m3-cta p { font-family: sans-serif; font-size: .95rem; color: rgba(245,234,213,.58); max-width: 500px; line-height: 1.85; }
+.m3-cta-btns { display: flex; flex-direction: column; gap: 13px; align-items: flex-end; }
+.btn-gold2 {
+  background: linear-gradient(135deg, #C8A84B 0%, #D4B860 45%, #B8902A 100%);
+  color: #1C2A1C; padding: 16px 34px;
+  font-family: sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+  border: none; cursor: pointer; white-space: nowrap; border-radius: 8px;
+  position: relative; overflow: hidden;
+  animation: subtle-glow 3s ease-in-out infinite;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-gold2:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,168,75,.45); }
+.btn-gold2::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 50%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+  transform: skewX(-15deg);
+  animation: gold-sweep 3.5s ease-in-out infinite;
+}
+.btn-outline2 {
+  background: transparent; color: rgba(245,234,213,.65);
+  padding: 16px 34px; font-family: sans-serif;
+  font-size: 11.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+  border: 1.5px solid rgba(245,234,213,.2); cursor: pointer; white-space: nowrap; border-radius: 8px;
+  transition: all .25s;
+}
+.btn-outline2:hover { border-color: #C8A84B; color: #C8A84B; }
+
+
+/* ══════════════════════════════════════
+   GAM MÀU NHẠT — Demo Hero
+   Sage green, cream trắng, gold nhẹ
+══════════════════════════════════════ */
+#gam-nhat { background: #FAFAF5; }
+
+.light-hero {
+  background: linear-gradient(165deg, #E8F0E4 0%, #D4E8CE 40%, #C0DDB8 100%);
+  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+  align-items: stretch; position: relative; overflow: hidden;
+}
+.light-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 30% 50%, rgba(200,168,75,.12) 0%, transparent 70%);
+}
+.light-hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #C8A84B 30%, #F0D075 50%, #C8A84B 70%, transparent);
+  background-size: 200% auto;
+  animation: gold-shimmer 4s linear infinite;
+}
+.light-hero-left { padding: 110px 64px 90px; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+.light-hero-right { position: relative; overflow: hidden; }
+.light-hero-right img { width: 100%; height: 100%; object-fit: cover; opacity: .75; }
+.light-hero-right::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, #C0DDB8 0%, rgba(192,221,184,.15) 50%, transparent 100%);
+}
+.light-tag { font-family: sans-serif; font-size: 9.5px; letter-spacing: .32em; text-transform: uppercase; color: #5A8A3A; margin-bottom: 22px; }
+.light-hero h1 { font-size: clamp(2.8rem, 5vw, 5.2rem); color: #1E3A1E; line-height: 1.08; margin-bottom: 26px; }
+.light-hero p { font-family: sans-serif; font-size: 1.02rem; color: rgba(30,58,30,.6); line-height: 1.85; max-width: 440px; margin-bottom: 42px; }
+.btn-gold-light {
+  background: linear-gradient(135deg, #C8A84B 0%, #D4B860 40%, #B8902A 100%);
+  color: #1E3A1E; border: none; padding: 14px 30px;
+  font-family: sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px; position: relative; overflow: hidden;
+  animation: subtle-glow 3s ease-in-out infinite; transition: transform .2s;
+}
+.btn-gold-light:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,168,75,.4); }
+.btn-gold-light::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 50%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.25), transparent);
+  transform: skewX(-15deg); animation: gold-sweep 3s ease-in-out infinite;
+}
+.btn-outline-light {
+  background: transparent; color: rgba(30,58,30,.7);
+  border: 1.5px solid rgba(30,58,30,.25); padding: 14px 30px;
+  font-family: sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px; transition: all .25s;
+}
+.btn-outline-light:hover { border-color: #C8A84B; color: #7A5C1A; }
+
+/* Light stats */
+.light-stats { display: grid; grid-template-columns: repeat(4,1fr); background: #F0F8EC; }
+.light-stat { padding: 32px 24px; text-align: center; border-right: 1px solid rgba(90,138,58,.12); }
+.light-stat:last-child { border-right: none; }
+.light-stat-num { font-size: 2.5rem; font-weight: 700; line-height: 1; font-family: Georgia,serif; }
+.light-stat-label { font-family: sans-serif; font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(30,58,30,.5); margin-top: 7px; }
+
+/* Light quote */
+.light-quote { background: #FFFDF7; padding: 88px 64px; text-align: center; border-top: 1px solid rgba(200,168,75,.15); border-bottom: 1px solid rgba(200,168,75,.15); }
+.light-quote blockquote { font-size: clamp(1.4rem, 2.5vw, 2.1rem); color: #1E3A1E; line-height: 1.55; max-width: 780px; margin: 0 auto 22px; font-style: italic; }
+.light-quote cite { font-family: sans-serif; font-size: 10px; letter-spacing: .22em; text-transform: uppercase; color: #5A8A3A; }
+
+/* Light services */
+.light-services { background: #2E5230; padding: 88px 64px; }
+.light-services-header { text-align: center; margin-bottom: 60px; }
+.light-services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; max-width: 1020px; margin: 0 auto; }
+.light-card { border: 1px solid rgba(200,168,75,.2); padding: 38px 30px; border-radius: 8px; transition: border-color .3s; }
+.light-card-num { font-size: 2.8rem; font-weight: 700; color: rgba(200,168,75,.2); line-height: 1; margin-bottom: 14px; }
+.light-card h3 { font-size: 1.12rem; color: #E8F0E4; margin-bottom: 12px; }
+.light-card p { font-family: sans-serif; font-size: .87rem; color: rgba(232,240,228,.5); line-height: 1.82; }
+
+/* Light CTA */
+.light-cta {
+  background: linear-gradient(135deg, #B8902A 0%, #C8A84B 35%, #D4B860 55%, #C8A84B 75%, #9A7A2E 100%);
+  background-size: 300% auto;
+  animation: gold-shimmer-slow 8s linear infinite;
+  padding: 88px 64px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.light-cta::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+  transform: skewX(-15deg); animation: gold-sweep 5s ease-in-out infinite;
+}
+.light-cta h2 { font-size: clamp(1.8rem, 3vw, 3rem); color: #1E3A1E; margin-bottom: 16px; position: relative; z-index: 1; }
+.light-cta p { font-family: sans-serif; font-size: 1rem; color: rgba(30,58,30,.68); margin-bottom: 38px; position: relative; z-index: 1; }
+.btn-dark-light {
+  background: #1E3A1E; color: #C8A84B; border: 1.5px solid #C8A84B;
+  padding: 16px 36px; font-family: sans-serif;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px; position: relative; z-index: 1;
+  animation: gold-border-pulse 3s ease-in-out infinite; transition: transform .2s;
+}
+.btn-dark-light:hover { transform: translateY(-2px); background: #285228; }
+
+
+/* ══════════════════════════════════════
+   GAM MÀU ĐẬM — Demo Hero
+   Deep forest, near-black, burnished gold
+══════════════════════════════════════ */
+#gam-dam { background: #080F08; }
+
+.dark-hero {
+  background: linear-gradient(170deg, #050C05 0%, #0A1608 40%, #0D1A0B 100%);
+  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
+  align-items: stretch; position: relative; overflow: hidden;
+}
+.dark-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 28% 50%, rgba(184,144,42,.14) 0%, transparent 70%);
+}
+.dark-hero::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, #A07828 30%, #D4A030 50%, #A07828 70%, transparent);
+  background-size: 200% auto;
+  animation: gold-shimmer 4.5s linear infinite;
+}
+.dark-hero-left { padding: 110px 64px 90px; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
+.dark-hero-right { position: relative; overflow: hidden; }
+.dark-hero-right img { width: 100%; height: 100%; object-fit: cover; opacity: .45; filter: sepia(.2) contrast(1.1); }
+.dark-hero-right::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(90deg, #0A1608 0%, rgba(10,22,8,.25) 55%, transparent 100%);
+}
+.dark-tag { font-family: sans-serif; font-size: 9.5px; letter-spacing: .32em; text-transform: uppercase; margin-bottom: 22px; }
+.dark-hero h1 { font-size: clamp(2.8rem, 5vw, 5.2rem); color: #E8D8B0; line-height: 1.08; margin-bottom: 26px; }
+.dark-hero p { font-family: sans-serif; font-size: 1.02rem; color: rgba(232,216,176,.45); line-height: 1.85; max-width: 440px; margin-bottom: 42px; }
+
+/* Buttons gam đậm */
+.btn-gold-dark {
+  background: linear-gradient(135deg, #A07828 0%, #C8A84B 40%, #B8922A 100%);
+  color: #0A1608; border: none; padding: 14px 30px;
+  font-family: sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px; position: relative; overflow: hidden;
+  animation: subtle-glow 3s ease-in-out infinite; transition: transform .2s;
+}
+.btn-gold-dark:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(184,144,42,.5); }
+.btn-gold-dark::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 50%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.2), transparent);
+  transform: skewX(-15deg); animation: gold-sweep 3.5s ease-in-out infinite;
+}
+.btn-outline-dark2 {
+  background: transparent; color: rgba(232,216,176,.65);
+  border: 1.5px solid rgba(232,216,176,.2); padding: 14px 30px;
+  font-family: sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px; transition: all .25s;
+}
+.btn-outline-dark2:hover { border-color: #B8922A; color: #D4A040; }
+
+/* Dark stats */
+.dark-stats { display: grid; grid-template-columns: repeat(4,1fr); background: #0D1A0B; }
+.dark-stat { padding: 36px 24px; text-align: center; border-right: 1px solid rgba(255,255,255,.04); position: relative; overflow: hidden; }
+.dark-stat::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 2px; right: 0;
+  background: linear-gradient(180deg, transparent, rgba(184,144,42,.3), transparent);
+  animation: subtle-glow 3s ease-in-out infinite;
+}
+.dark-stat:last-child { border-right: none; }
+.dark-stat:last-child::after { display: none; }
+.dark-stat-num { font-size: 2.5rem; font-weight: 700; line-height: 1; font-family: Georgia,serif; }
+.dark-stat-label { font-family: sans-serif; font-size: 9.5px; letter-spacing: .16em; text-transform: uppercase; color: rgba(232,216,176,.35); margin-top: 7px; }
+
+/* Dark quote */
+.dark-quote { background: #060D06; padding: 88px 64px; text-align: center; border-top: 1px solid rgba(184,144,42,.1); border-bottom: 1px solid rgba(184,144,42,.1); }
+.dark-quote blockquote { font-size: clamp(1.4rem, 2.5vw, 2.1rem); color: #E8D8B0; line-height: 1.55; max-width: 780px; margin: 0 auto 22px; font-style: italic; }
+
+/* Dark services */
+.dark-services { background: #0A1608; padding: 88px 64px; }
+.dark-services-header { text-align: center; margin-bottom: 60px; }
+.dark-services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; max-width: 1020px; margin: 0 auto; }
+.dark-card { border: 1px solid rgba(184,144,42,.15); padding: 38px 30px; border-radius: 8px; }
+.dark-card-num { font-size: 2.8rem; font-weight: 700; color: rgba(184,144,42,.15); line-height: 1; margin-bottom: 14px; }
+.dark-card h3 { font-size: 1.12rem; color: #E8D8B0; margin-bottom: 12px; }
+.dark-card p { font-family: sans-serif; font-size: .87rem; color: rgba(232,216,176,.4); line-height: 1.82; }
+
+/* Dark CTA */
+.dark-cta {
+  background: linear-gradient(135deg, #A07828 0%, #B8922A 35%, #C8A840 55%, #A07828 80%, #7A5C18 100%);
+  background-size: 300% auto;
+  animation: gold-shimmer-slow 8s linear infinite;
+  padding: 88px 64px; text-align: center;
+  position: relative; overflow: hidden;
+}
+.dark-cta::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.12), transparent);
+  transform: skewX(-15deg); animation: gold-sweep 5.5s ease-in-out infinite;
+}
+.dark-cta h2 { font-size: clamp(1.8rem, 3vw, 3rem); color: #0A1608; margin-bottom: 16px; position: relative; z-index: 1; }
+.dark-cta p { font-family: sans-serif; font-size: 1rem; color: rgba(10,22,8,.65); margin-bottom: 38px; position: relative; z-index: 1; }
+.btn-dark3 {
+  background: #0A1608; color: #C8A84B; border: 1.5px solid #C8A84B;
+  padding: 16px 36px; font-family: sans-serif;
+  font-size: 11.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  cursor: pointer; border-radius: 8px; position: relative; z-index: 1;
+  animation: gold-border-pulse 3s ease-in-out infinite; transition: transform .2s;
+}
+.btn-dark3:hover { transform: translateY(-2px); }
+
+/* ══ Palette swatches ══ */
+.palette-section { background: #1C2A1C; padding: 60px 64px; }
+.palette-section h2 { font-size: 1.8rem; color: #F5EAD5; text-align: center; margin-bottom: 8px; }
+.palette-section p { font-family: sans-serif; font-size: .95rem; color: rgba(245,234,213,.5); text-align: center; margin-bottom: 44px; }
+.palette-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; max-width: 900px; margin: 0 auto; }
+.palette-card { background: rgba(255,255,255,.05); border: 1px solid rgba(200,168,75,.15); border-radius: 10px; overflow: hidden; }
+.palette-name { font-family: sans-serif; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: rgba(245,234,213,.55); padding: 16px 20px 12px; }
+.palette-swatches { display: flex; gap: 0; height: 56px; }
+.swatch { flex: 1; }
+.palette-desc { font-family: sans-serif; font-size: .82rem; color: rgba(245,234,213,.4); padding: 12px 20px 16px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <span class="nav-label">Mẫu</span>
+  <a href="#mau1" class="active">1 — Magazine Dark</a>
+  <a href="#mau2">2 — Editorial Layer</a>
+  <a href="#mau3">3 — Storytelling</a>
+  <div class="nav-divider"></div>
+  <span class="nav-label">Gam màu</span>
+  <a href="#gam-nhat">Nhạt</a>
+  <a href="#gam-dam">Đậm</a>
+</nav>
+
+
+<!-- ══════════════════════ MẪU 1 ══════════════════════ -->
+<div class="section-divider">▼ MẪU 1 — MAGAZINE DARK PREMIUM ▼</div>
+<section id="mau1">
+
+  <div class="m1-hero">
+    <div class="m1-hero-left">
+      <div class="m1-tag shimmer-gold">Nhà Hoạch Định · Farmstay Việt Nam</div>
+      <h1>Phạm<br>Thanh<br><em class="shimmer-gold">Tùng</em></h1>
+      <p>Hoạch định chiến lược phát triển farmstay và du lịch nông nghiệp bền vững — từ mảnh đất thô đến điểm đến có giá trị.</p>
+      <div class="m1-btns">
+        <button class="btn-gold">Tư Vấn Ngay</button>
+        <button class="btn-outline">Xem Hành Trình</button>
+      </div>
+    </div>
+    <div class="m1-hero-right">
+      <img src="/images/outdoor-4-waterfall.jpg" alt="">
+    </div>
+  </div>
+
+  <div class="m1-stats shimmer-surface">
+    <div class="m1-stat"><div class="m1-stat-num">50+</div><div class="m1-stat-label">Dự Án Farmstay</div></div>
+    <div class="m1-stat"><div class="m1-stat-num">3.000+</div><div class="m1-stat-label">Lượt Tư Vấn</div></div>
+    <div class="m1-stat"><div class="m1-stat-num">40+</div><div class="m1-stat-label">Tỉnh Thành</div></div>
+    <div class="m1-stat"><div class="m1-stat-num">9 năm</div><div class="m1-stat-label">Thực Chiến</div></div>
+  </div>
+
+  <div class="m1-quote">
+    <blockquote>«&thinsp;Farmstay không phải là trend — đó là triết lý sống và kinh doanh gắn với đất, với người và với tương lai.&thinsp;»</blockquote>
+    <cite class="shimmer-gold-slow">Phạm Thanh Tùng</cite>
+  </div>
+
+  <div class="m1-who">
+    <div class="m1-who-img"><img src="/images/outdoor-2-garden-speaking.jpg" alt=""></div>
+    <div class="m1-who-content">
+      <div class="lbl shimmer-gold-slow">Về Tôi</div>
+      <h2>Nhà Hoạch Định Tạo Tác Động</h2>
+      <p>Không phải kiến trúc sư, không phải nhà tư vấn thông thường — tôi là người đọc vị đất và người, ghép chúng thành hệ sinh thái tạo dòng tiền thực sự.</p>
+      <p>Hơn 9 năm đồng hành với 50+ dự án farmstay khắp Việt Nam, từ Tây Bắc đến Cà Mau.</p>
+      <div class="m1-who-tags">
+        <span class="tag">DEFARM</span><span class="tag">Xuyên Việt Farmstay</span>
+        <span class="tag">Farmstay Update</span><span class="tag">Farmstay Bền Vững</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="m1-services">
+    <div class="m1-services-header">
+      <div class="section-h2 shimmer-gold-slow" style="color:#C8A84B">Tôi Làm</div>
+      <div class="section-title">4 Năng Lực Cốt Lõi</div>
+    </div>
+    <div class="m1-services-grid">
+      <div class="m1-service-card">
+        <div class="m1-service-num shimmer-gold-slow">01</div>
+        <h3>Hoạch Định Chiến Lược</h3>
+        <p>Đọc vị địa thế — mạch nước, hướng gió, trầm tích văn hóa — tìm ra chìa khóa độc nhất của mảnh đất.</p>
+      </div>
+      <div class="m1-service-card">
+        <div class="m1-service-num shimmer-gold-slow">02</div>
+        <h3>Khai Vấn Con Người</h3>
+        <p>Giúp bạn tìm ra chất riêng — không áp đặt giải pháp từ bên ngoài. Tầm vóc dự án bị giới hạn bởi tư duy chủ.</p>
+      </div>
+      <div class="m1-service-card">
+        <div class="m1-service-num shimmer-gold-slow">03</div>
+        <h3>Kết Nối Hệ Sinh Thái</h3>
+        <p>Chiếc chìa khóa vào trung tâm cộng đồng du lịch nông nghiệp tử tế lớn nhất Việt Nam.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="m1-cta">
+    <h2>Bạn Đang Có Ý Định Làm Farmstay?</h2>
+    <p>Đặt lịch tư vấn 1-1 để nhận lộ trình rõ ràng từ người đã đồng hành hơn 50 dự án.</p>
+    <button class="btn-dark">Đặt Lịch Tư Vấn Ngay →</button>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════ MẪU 2 ══════════════════════ -->
+<div class="section-divider">▼ MẪU 2 — EDITORIAL LAYERED ▼</div>
+<section id="mau2">
+
+  <div class="m2-hero">
+    <div class="m2-hero-inner">
+      <div>
+        <div class="m2-tag shimmer-gold-slow">Nhà Hoạch Định · Farmstay Việt Nam</div>
+        <h1>Phạm<br>Thanh<br><span class="shimmer-gold">Tùng</span></h1>
+      </div>
+      <div class="m2-hero-right">
+        <p class="m2-hero-excerpt">Định vị Việt Nam trở thành quốc gia du lịch nông nghiệp — không phải bằng lý thuyết, mà bằng 50+ dự án thực chiến.</p>
+        <p class="m2-hero-meta">9 năm · 50+ dự án · 3.000+ lượt tư vấn</p>
+        <button class="btn-green">Tư Vấn 1-1</button>
+        <button class="btn-green-outline">Xem Kiến Thức</button>
+      </div>
+    </div>
+  </div>
+  <div class="m2-hero-line"></div>
+
+  <div class="m2-band-white">
+    <div class="m2-band-inner">
+      <div class="m2-stats-row">
+        <div class="m2-stat-block"><div class="m2-stat-big shimmer-gold-slow">50+</div><div class="m2-stat-sub shimmer-gold-slow">Dự Án Farmstay</div></div>
+        <div class="m2-stat-block"><div class="m2-stat-big shimmer-gold-slow">3K+</div><div class="m2-stat-sub shimmer-gold-slow">Lượt Tư Vấn</div></div>
+        <div class="m2-stat-block"><div class="m2-stat-big shimmer-gold-slow">40+</div><div class="m2-stat-sub shimmer-gold-slow">Tỉnh Thành</div></div>
+        <div class="m2-stat-block"><div class="m2-stat-big shimmer-gold-slow">150+</div><div class="m2-stat-sub shimmer-gold-slow">Bài Viết</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m2-band-beige">
+    <div class="m2-band-inner">
+      <p class="m2-pull-quote">«&thinsp;Làm farmstay không phải cuộc dạo chơi — đó là hành trình dài đòi hỏi tư duy chiến lược, hiểu biết chuyên sâu và sự học hỏi không ngừng.&thinsp;»</p>
+    </div>
+  </div>
+
+  <div class="m2-band-dark">
+    <div class="m2-band-inner">
+      <div class="section-h2 shimmer-gold-slow">4 Năng Lực Cốt Lõi</div>
+      <div class="section-title">Tôi Làm Gì Cho Bạn</div>
+      <div class="m2-expertise">
+        <div class="m2-exp-item"><div class="m2-exp-num shimmer-gold-slow">01</div><h3>Hoạch Định Chiến Lược & Phối Trộn Nguồn Lực</h3><p>Đọc vị địa thế — mạch nước, hướng gió, thổ nhưỡng, trầm tích văn hóa — để tìm ra chìa khóa độc nhất.</p></div>
+        <div class="m2-exp-item"><div class="m2-exp-num shimmer-gold-slow">02</div><h3>Khai Vấn Con Người & Định Hướng Nội Lực</h3><p>Tầm vóc của dự án luôn bị giới hạn bởi biên độ tư duy của người chủ. Câu hỏi trực diện để tìm chất riêng.</p></div>
+        <div class="m2-exp-item"><div class="m2-exp-num shimmer-gold-slow">03</div><h3>Kết Nối Hệ Sinh Thái Thực Chiến</h3><p>Chiếc chìa khóa vào cộng đồng du lịch nông nghiệp tử tế — hàng nghìn chủ farm, hàng chục chuyên gia.</p></div>
+        <div class="m2-exp-item"><div class="m2-exp-num shimmer-gold-slow">04</div><h3>Chiến Lược Thương Hiệu & Hệ Thống Vận Hành</h3><p>Xây dựng câu chuyện thương hiệu độc bản. Đóng gói sản phẩm và tiếp cận thị trường thực tế.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m2-band-white" style="padding: 0;">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; min-height: 480px;">
+      <div style="overflow: hidden; position: relative;">
+        <img src="/images/outdoor-3-forest-stream.jpg" style="width:100%;height:100%;object-fit:cover;" alt="">
+      </div>
+      <div style="padding: 88px 64px; display: flex; flex-direction: column; justify-content: center;">
+        <div class="section-h2 shimmer-gold-slow">Hành Trình</div>
+        <h2 style="font-size: clamp(1.8rem, 2.5vw, 2.5rem); color: #1C2A1C; margin-bottom: 22px; line-height: 1.2;">Từ Kiến Trúc Sư Đến Nhà Hoạch Định Quốc Gia</h2>
+        <p style="font-family: sans-serif; color: #666; line-height: 1.9; margin-bottom: 16px; font-size: .95rem;">Năm 2019–2020, trào lưu farmstay bùng nổ nhưng thiếu nền tảng lý luận. Phần lớn là đầu cơ trá hình. Đó là lúc tôi quyết định đứng ra định hình lại ngành này.</p>
+        <p style="font-family: sans-serif; color: #666; line-height: 1.9; font-size: .95rem;">Từ một kiến trúc sư — vươn tới tầm nhìn kiến tạo hệ sinh thái nông nghiệp bền vững cấp quốc gia.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="m2-band-gold">
+    <div class="m2-band-inner m2-cta-band">
+      <div class="m2-cta-text">
+        <h2>Sẵn Sàng Xây Farmstay Bền Vững?</h2>
+        <p>Đặt lịch tư vấn 1-1 — 50+ dự án thực chiến là nền tảng của mỗi lời khuyên.</p>
+      </div>
+      <button class="btn-dark2">Liên Hệ Tư Vấn →</button>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════ MẪU 3 ══════════════════════ -->
+<div class="section-divider">▼ MẪU 3 — STORYTELLING SCROLL ▼</div>
+<section id="mau3">
+
+  <div class="m3-hero">
+    <div class="m3-hero-bg"></div>
+    <div class="m3-hero-content">
+      <div class="m3-category shimmer-gold-slow">Nhà Hoạch Định · Farmstay Việt Nam</div>
+      <h1>Phạm<br>Thanh <em class="shimmer-gold">Tùng</em></h1>
+      <div class="m3-hero-line"></div>
+      <div class="m3-scroll-hint">Khám Phá Hành Trình</div>
+    </div>
+  </div>
+
+  <div class="m3-intro">
+    <div class="m3-intro-inner">
+      <div>
+        <div class="m3-intro-label shimmer-gold-slow">Tầm Nhìn</div>
+        <div class="m3-intro-big">Định vị Việt Nam là Quốc Gia Du Lịch Nông Nghiệp hàng đầu Đông Nam Á</div>
+      </div>
+      <div class="m3-intro-right">
+        <p>Không phải bằng chính sách hay khẩu hiệu — mà bằng từng mảnh đất được hoạch định đúng, từng chủ farmstay được trang bị đủ tư duy và kỹ năng.</p>
+        <p>Hơn 9 năm, 50+ dự án, 3.000+ lượt tư vấn — đó là hành trình thực chiến, không phải lý thuyết.</p>
+        <div style="margin-top: 26px; display: flex; gap: 13px;">
+          <button class="btn-gold">Tư Vấn Ngay</button>
+          <button class="btn-outline-dark">Về Tôi</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="m3-stats">
+    <div class="m3-stat"><div class="m3-stat-n shimmer-gold-slow">50+</div><div class="m3-stat-l shimmer-gold-slow">Dự Án</div><div class="m3-stat-desc">Từ Tây Bắc đến Cà Mau</div></div>
+    <div class="m3-stat"><div class="m3-stat-n shimmer-gold-slow">3K+</div><div class="m3-stat-l shimmer-gold-slow">Lượt Tư Vấn</div><div class="m3-stat-desc">Cá nhân & doanh nghiệp</div></div>
+    <div class="m3-stat"><div class="m3-stat-n shimmer-gold-slow">40+</div><div class="m3-stat-l shimmer-gold-slow">Tỉnh Thành</div><div class="m3-stat-desc">BNI · VCCI · Bộ NN&PTNT</div></div>
+    <div class="m3-stat"><div class="m3-stat-n shimmer-gold-slow">150+</div><div class="m3-stat-l shimmer-gold-slow">Bài Viết</div><div class="m3-stat-desc">Kiến thức thực chiến</div></div>
+  </div>
+
+  <div class="m3-chapters">
+    <div class="m3-chapter">
+      <div class="m3-chapter-num"><span>01</span><small>Năng Lực</small></div>
+      <div class="m3-chapter-body"><div class="m3-chapter-tag shimmer-gold-slow">Hoạch Định</div><h3>Chiến Lược & Phối Trộn Nguồn Lực</h3><p>Đọc vị địa thế — mạch nước, hướng gió, thổ nhưỡng, trầm tích văn hóa — tìm ra chìa khóa độc nhất của mảnh đất đó.</p></div>
+    </div>
+    <div class="m3-chapter">
+      <div class="m3-chapter-num"><span>02</span><small>Năng Lực</small></div>
+      <div class="m3-chapter-body"><div class="m3-chapter-tag shimmer-gold-slow">Khai Vấn</div><h3>Con Người & Định Hướng Nội Lực</h3><p>Tầm vóc của dự án luôn bị giới hạn bởi biên độ tư duy của người chủ. Câu hỏi trực diện để tìm chất riêng.</p></div>
+    </div>
+    <div class="m3-chapter">
+      <div class="m3-chapter-num"><span>03</span><small>Năng Lực</small></div>
+      <div class="m3-chapter-body"><div class="m3-chapter-tag shimmer-gold-slow">Kết Nối</div><h3>Hệ Sinh Thái Thực Chiến Toàn Quốc</h3><p>Chiếc chìa khóa vào trung tâm cộng đồng du lịch nông nghiệp tử tế lớn nhất Việt Nam.</p></div>
+    </div>
+    <div class="m3-chapter">
+      <div class="m3-chapter-num"><span>04</span><small>Năng Lực</small></div>
+      <div class="m3-chapter-body"><div class="m3-chapter-tag shimmer-gold-slow">Thương Hiệu</div><h3>Chiến Lược & Hệ Thống Vận Hành</h3><p>Xây dựng câu chuyện thương hiệu độc bản — đóng gói sản phẩm và đưa dự án tự động hóa dần.</p></div>
+    </div>
+  </div>
+
+  <div class="m3-fullquote">
+    <blockquote>«&thinsp;Farmstay không phải trend — đó là <em class="shimmer-gold">triết lý sống</em> gắn với đất, với người và với tương lai.&thinsp;»</blockquote>
+    <cite class="shimmer-gold-slow">Phạm Thanh Tùng</cite>
+  </div>
+
+  <div class="m3-cta">
+    <div>
+      <h2>Bạn Đang Có Ý Định Làm Farmstay?</h2>
+      <p>Đặt lịch tư vấn 1-1 để nhận lộ trình rõ ràng từ người đã đồng hành hơn 50 dự án farmstay trên khắp Việt Nam.</p>
+    </div>
+    <div class="m3-cta-btns">
+      <button class="btn-gold2">Đặt Lịch Tư Vấn Ngay</button>
+      <button class="btn-outline2">Xem Bài Viết Kiến Thức</button>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════ GAM MÀU NHẠT ══════════════════════ -->
+<div class="section-divider">▼ GAM MÀU NHẠT — Sage Green + Warm Cream ▼</div>
+<section id="gam-nhat">
+
+  <div class="light-hero">
+    <div class="light-hero-left">
+      <div class="light-tag">Nhà Hoạch Định · Farmstay Việt Nam</div>
+      <h1>Phạm<br>Thanh<br><em class="shimmer-gold">Tùng</em></h1>
+      <p>Hoạch định chiến lược phát triển farmstay và du lịch nông nghiệp bền vững — từ mảnh đất thô đến điểm đến có giá trị.</p>
+      <div class="m1-btns">
+        <button class="btn-gold-light">Tư Vấn Ngay</button>
+        <button class="btn-outline-light">Xem Hành Trình</button>
+      </div>
+    </div>
+    <div class="light-hero-right">
+      <img src="/images/outdoor-4-waterfall.jpg" alt="">
+    </div>
+  </div>
+
+  <!-- Stats nhạt — không dùng vàng nền, dùng sage green -->
+  <div class="light-stats shimmer-surface">
+    <div class="light-stat" style="background:linear-gradient(135deg,#C8A84B,#D4B860,#B8902A);background-size:300% auto;animation:gold-shimmer-slow 7s linear infinite;">
+      <div class="light-stat-num" style="color:#1E3A1E">50+</div>
+      <div class="light-stat-label" style="color:rgba(30,58,30,.65)">Dự Án Farmstay</div>
+    </div>
+    <div class="light-stat" style="background:linear-gradient(135deg,#C8A84B,#D4B860,#B8902A);background-size:300% auto;animation:gold-shimmer-slow 7s linear infinite;animation-delay:.5s;">
+      <div class="light-stat-num" style="color:#1E3A1E">3.000+</div>
+      <div class="light-stat-label" style="color:rgba(30,58,30,.65)">Lượt Tư Vấn</div>
+    </div>
+    <div class="light-stat" style="background:linear-gradient(135deg,#C8A84B,#D4B860,#B8902A);background-size:300% auto;animation:gold-shimmer-slow 7s linear infinite;animation-delay:1s;">
+      <div class="light-stat-num" style="color:#1E3A1E">40+</div>
+      <div class="light-stat-label" style="color:rgba(30,58,30,.65)">Tỉnh Thành</div>
+    </div>
+    <div class="light-stat" style="background:linear-gradient(135deg,#C8A84B,#D4B860,#B8902A);background-size:300% auto;animation:gold-shimmer-slow 7s linear infinite;animation-delay:1.5s;">
+      <div class="light-stat-num" style="color:#1E3A1E">9 năm</div>
+      <div class="light-stat-label" style="color:rgba(30,58,30,.65)">Thực Chiến</div>
+    </div>
+  </div>
+
+  <div class="light-quote">
+    <blockquote>«&thinsp;Farmstay không phải là trend — đó là triết lý sống và kinh doanh gắn với đất, với người và với tương lai.&thinsp;»</blockquote>
+    <cite class="shimmer-gold-slow">Phạm Thanh Tùng</cite>
+  </div>
+
+  <div class="light-services">
+    <div class="light-services-header">
+      <div class="section-h2 shimmer-gold-slow" style="color:#C8A84B">Tôi Làm</div>
+      <div style="font-size:clamp(1.8rem,3vw,2.8rem);color:#E8F0E4;margin-bottom:0;">4 Năng Lực Cốt Lõi</div>
+    </div>
+    <div class="light-services-grid">
+      <div class="light-card"><div class="light-card-num shimmer-gold-slow">01</div><h3 style="font-size:1.12rem;color:#E8F0E4;margin-bottom:12px;">Hoạch Định Chiến Lược</h3><p>Đọc vị địa thế — mạch nước, hướng gió, trầm tích văn hóa — tìm ra chìa khóa độc nhất của mảnh đất.</p></div>
+      <div class="light-card"><div class="light-card-num shimmer-gold-slow">02</div><h3 style="font-size:1.12rem;color:#E8F0E4;margin-bottom:12px;">Khai Vấn Con Người</h3><p>Giúp bạn tìm ra chất riêng — không áp đặt giải pháp từ bên ngoài. Tầm vóc dự án bị giới hạn bởi tư duy chủ.</p></div>
+      <div class="light-card"><div class="light-card-num shimmer-gold-slow">03</div><h3 style="font-size:1.12rem;color:#E8F0E4;margin-bottom:12px;">Kết Nối Hệ Sinh Thái</h3><p>Chiếc chìa khóa vào trung tâm cộng đồng du lịch nông nghiệp tử tế lớn nhất Việt Nam.</p></div>
+    </div>
+  </div>
+
+  <div class="light-cta">
+    <h2>Bạn Đang Có Ý Định Làm Farmstay?</h2>
+    <p>Đặt lịch tư vấn 1-1 để nhận lộ trình rõ ràng từ người đã đồng hành hơn 50 dự án.</p>
+    <button class="btn-dark-light">Đặt Lịch Tư Vấn Ngay →</button>
+  </div>
+
+</section>
+
+
+<!-- ══════════════════════ GAM MÀU ĐẬM ══════════════════════ -->
+<div class="section-divider">▼ GAM MÀU ĐẬM — Deep Forest + Burnished Gold ▼</div>
+<section id="gam-dam">
+
+  <div class="dark-hero">
+    <div class="dark-hero-left">
+      <div class="dark-tag shimmer-gold-slow">Nhà Hoạch Định · Farmstay Việt Nam</div>
+      <h1>Phạm<br>Thanh<br><em class="shimmer-gold">Tùng</em></h1>
+      <p>Hoạch định chiến lược phát triển farmstay và du lịch nông nghiệp bền vững — từ mảnh đất thô đến điểm đến có giá trị.</p>
+      <div class="m1-btns">
+        <button class="btn-gold-dark">Tư Vấn Ngay</button>
+        <button class="btn-outline-dark2">Xem Hành Trình</button>
+      </div>
+    </div>
+    <div class="dark-hero-right">
+      <img src="/images/outdoor-4-waterfall.jpg" alt="">
+    </div>
+  </div>
+
+  <div class="dark-stats">
+    <div class="dark-stat"><div class="dark-stat-num shimmer-gold">50+</div><div class="dark-stat-label">Dự Án Farmstay</div></div>
+    <div class="dark-stat"><div class="dark-stat-num shimmer-gold">3.000+</div><div class="dark-stat-label">Lượt Tư Vấn</div></div>
+    <div class="dark-stat"><div class="dark-stat-num shimmer-gold">40+</div><div class="dark-stat-label">Tỉnh Thành</div></div>
+    <div class="dark-stat"><div class="dark-stat-num shimmer-gold">9 năm</div><div class="dark-stat-label">Thực Chiến</div></div>
+  </div>
+
+  <div class="dark-quote">
+    <blockquote>«&thinsp;Farmstay không phải là trend — đó là triết lý sống và kinh doanh gắn với đất, với người và với tương lai.&thinsp;»</blockquote>
+    <cite class="shimmer-gold-slow" style="font-family:sans-serif;font-size:10px;letter-spacing:.22em;text-transform:uppercase;">Phạm Thanh Tùng</cite>
+  </div>
+
+  <div class="dark-services">
+    <div class="dark-services-header">
+      <div class="section-h2 shimmer-gold-slow" style="color:#B8922A">Tôi Làm</div>
+      <div style="font-size:clamp(1.8rem,3vw,2.8rem);color:#E8D8B0;margin-bottom:0;">4 Năng Lực Cốt Lõi</div>
+    </div>
+    <div class="dark-services-grid">
+      <div class="dark-card"><div class="dark-card-num shimmer-gold-slow">01</div><h3>Hoạch Định Chiến Lược</h3><p>Đọc vị địa thế — mạch nước, hướng gió, trầm tích văn hóa — tìm ra chìa khóa độc nhất của mảnh đất.</p></div>
+      <div class="dark-card"><div class="dark-card-num shimmer-gold-slow">02</div><h3>Khai Vấn Con Người</h3><p>Giúp bạn tìm ra chất riêng — không áp đặt giải pháp từ bên ngoài. Tầm vóc dự án bị giới hạn bởi tư duy chủ.</p></div>
+      <div class="dark-card"><div class="dark-card-num shimmer-gold-slow">03</div><h3>Kết Nối Hệ Sinh Thái</h3><p>Chiếc chìa khóa vào trung tâm cộng đồng du lịch nông nghiệp tử tế lớn nhất Việt Nam.</p></div>
+    </div>
+  </div>
+
+  <div class="dark-cta">
+    <h2>Bạn Đang Có Ý Định Làm Farmstay?</h2>
+    <p>Đặt lịch tư vấn 1-1 để nhận lộ trình rõ ràng từ người đã đồng hành hơn 50 dự án.</p>
+    <button class="btn-dark3">Đặt Lịch Tư Vấn Ngay →</button>
+  </div>
+
+</section>
+
+
+<!-- BẢNG MÀU TÓNG KẾT -->
+<div class="palette-section">
+  <h2>So Sánh Gam Màu</h2>
+  <p>3 bảng màu để bạn chọn — áp dụng cho bất kỳ mẫu nào</p>
+  <div class="palette-grid">
+    <div class="palette-card">
+      <div class="palette-name">Chuẩn (Hiện tại)</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#1C2A1C"></div>
+        <div class="swatch" style="background:#C8A84B"></div>
+        <div class="swatch" style="background:#F5EAD5"></div>
+        <div class="swatch" style="background:#ffffff"></div>
+      </div>
+      <div class="palette-desc">Forest xanh rừng sâu · Vàng lúa chín · Kem ấm · Nền trắng</div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-name">Gam Nhạt (Sage)</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#2E5230"></div>
+        <div class="swatch" style="background:#C8A84B"></div>
+        <div class="swatch" style="background:#F0F8EC"></div>
+        <div class="swatch" style="background:#FAFAF5"></div>
+      </div>
+      <div class="palette-desc">Sage xanh lá nhạt · Vàng giữ nguyên · Mint cream · Trắng ngà</div>
+    </div>
+    <div class="palette-card">
+      <div class="palette-name">Gam Đậm (Deep)</div>
+      <div class="palette-swatches">
+        <div class="swatch" style="background:#0A1608"></div>
+        <div class="swatch" style="background:#B8922A"></div>
+        <div class="swatch" style="background:#1A2A18"></div>
+        <div class="swatch" style="background:#E8D8B0"></div>
+      </div>
+      <div class="palette-desc">Deep forest gần đen · Vàng đồng đậm · Nền tối · Kem đậm</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Active nav on scroll
+  const sections = ['mau1','mau2','mau3','gam-nhat','gam-dam'];
+  const links = document.querySelectorAll('.nav a');
+
+  function setActive() {
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 80) current = id;
+    });
+    links.forEach(a => {
+      const href = a.getAttribute('href').replace('#','');
+      a.classList.toggle('active', href === current);
+    });
+  }
+  window.addEventListener('scroll', setActive, { passive: true });
+
+  // Click nav → smooth scroll
+  links.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(a.getAttribute('href').replace('#',''));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>

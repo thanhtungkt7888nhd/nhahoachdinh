@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     description: "75+ bài viết thực chiến về farmstay & du lịch nông nghiệp từ chuyên gia 9 năm kinh nghiệm.",
     url: "https://nhahoachdinh.com/chia-se-kien-thuc",
     type: "website",
+    images: [{ url: "https://nhahoachdinh.com/og-home.jpg", width: 1200, height: 630, alt: "Chia Sẻ Kiến Thức Farmstay — Phạm Thanh Tùng" }],
   },
 };
 
