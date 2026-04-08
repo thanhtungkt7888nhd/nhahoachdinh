@@ -40,6 +40,37 @@ const shimmerStyle: React.CSSProperties = {
   animation: "gold-shimmer 5s linear infinite",
 };
 
+/** Trích xuất các heading dạng câu hỏi từ HTML content để tạo FAQPage schema */
+function extractFaqFromContent(html: string, maxItems = 6): Array<{ q: string; a: string }> {
+  // Tìm tất cả heading H2/H3 là câu hỏi (chứa "?", "tại sao", "làm thế nào", "như thế nào", "bao nhiêu", "khi nào", "ở đâu", "là gì", "có nên")
+  const questionPatterns = /\?|tại sao|làm thế nào|như thế nào|bao nhiêu|khi nào|ở đâu|là gì|có nên|làm sao|bằng cách nào/i;
+
+  const results: Array<{ q: string; a: string }> = [];
+
+  // Parse heading + nội dung sau nó
+  const headingRegex = /<h[23][^>]*>(.*?)<\/h[23]>([\s\S]*?)(?=<h[23]|$)/gi;
+  let match;
+
+  while ((match = headingRegex.exec(html)) !== null && results.length < maxItems) {
+    const heading = match[1].replace(/<[^>]+>/g, "").trim();
+    const bodyHtml = match[2] || "";
+
+    if (!questionPatterns.test(heading)) continue;
+
+    // Lấy text từ đoạn đầu tiên sau heading
+    const firstPara = bodyHtml.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+    const answer = firstPara
+      ? firstPara[1].replace(/<[^>]+>/g, "").trim().slice(0, 300)
+      : heading;
+
+    if (answer.length > 20) {
+      results.push({ q: heading, a: answer });
+    }
+  }
+
+  return results;
+}
+
 // ── Split content at <ol> section boundaries ────────────────────────────────
 function splitAtSections(html: string): string[] {
   return html.split(/(?=<ol>)/).filter((s) => s.trim());
@@ -544,6 +575,30 @@ export function ArticleClient({
         background: `linear-gradient(180deg, ${DARK_BG} 0%, #0C1A0A 50%, ${DARK_BG} 100%)`,
       }}
     >
+      {/* FAQPage Schema */}
+      {(() => {
+        const faqs = extractFaqFromContent(article.content);
+        if (faqs.length === 0) return null;
+        const faqSchema = {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map(({ q, a }) => ({
+            "@type": "Question",
+            "name": q,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": a,
+            },
+          })),
+        };
+        return (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        );
+      })()}
+
       <ReadingProgress />
 
       {/* ── HEADER — Magazine Dark Split · GAM ĐẬM ──────────────────────── */}
@@ -746,6 +801,83 @@ export function ArticleClient({
               excerpt={article.excerpt}
             />
           </motion.div>
+
+          {/* ── AUTHOR BIO ────────────────────────────────────────────────────── */}
+          <div style={{
+            margin: "3rem 0",
+            padding: "1.75rem 2rem",
+            background: "rgba(196,154,40,0.04)",
+            border: "1px solid rgba(196,154,40,0.15)",
+            borderRadius: "12px",
+            display: "flex",
+            gap: "1.25rem",
+            alignItems: "flex-start",
+          }}>
+            {/* Avatar */}
+            <div style={{
+              width: 56,
+              height: 56,
+              borderRadius: "50%",
+              border: "1.5px solid rgba(196,154,40,0.4)",
+              background: "rgba(196,154,40,0.08)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+              color: "#C49A28",
+              fontFamily: "var(--font-alegreya)",
+              fontWeight: 700,
+              fontSize: "1rem",
+            }}>
+              PTT
+            </div>
+            <div style={{ flex: 1 }}>
+              <p style={{
+                fontFamily: "var(--font-nunito)",
+                fontSize: "9px",
+                letterSpacing: "0.25em",
+                textTransform: "uppercase",
+                color: "rgba(196,154,40,0.6)",
+                marginBottom: "4px",
+              }}>
+                Tác Giả
+              </p>
+              <p style={{
+                fontFamily: "var(--font-alegreya)",
+                fontSize: "1.05rem",
+                color: "#EDE0C4",
+                marginBottom: "6px",
+              }}>
+                Phạm Thanh Tùng
+              </p>
+              <p style={{
+                fontFamily: "var(--font-nunito)",
+                fontSize: "0.82rem",
+                color: "rgba(237,224,196,0.55)",
+                lineHeight: 1.7,
+                marginBottom: "0.75rem",
+              }}>
+                Nhà hoạch định farmstay với hơn 9 năm kinh nghiệm tư vấn và đồng hành cùng 50+ dự án trên toàn Việt Nam.{" "}
+                Sáng lập DEFARM — tổ chức đào tạo phát triển farmstay bền vững đầu tiên tại Việt Nam.
+              </p>
+              <a
+                href="/ve-toi"
+                style={{
+                  fontFamily: "var(--font-nunito)",
+                  fontWeight: 600,
+                  fontSize: "11px",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  color: "#C49A28",
+                  textDecoration: "none",
+                  borderBottom: "1px solid rgba(196,154,40,0.3)",
+                  paddingBottom: "1px",
+                }}
+              >
+                Xem hồ sơ đầy đủ →
+              </a>
+            </div>
+          </div>
 
           {/* CTA */}
           <ArticleCTA />

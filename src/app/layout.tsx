@@ -50,6 +50,7 @@ export const metadata: Metadata = {
     siteName: "Phạm Thanh Tùng — Nhà Hoạch Định",
     locale: "vi_VN",
     type: "website",
+    images: [{ url: "https://nhahoachdinh.com/og?title=Ph%E1%BA%A1m+Thanh+T%C3%B9ng&subtitle=Nh%C3%A0+Ho%E1%BA%A1ch+%C4%90%E1%BB%8Bnh+Farmstay", width: 1200, height: 630, alt: "Phạm Thanh Tùng — Nhà Hoạch Định Farmstay" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -58,6 +59,12 @@ export const metadata: Metadata = {
     creator: "@phamthanhtung",
   },
   alternates: { canonical: "https://nhahoachdinh.com" },
+  verification: {
+    google: "",
+    other: {
+      "msvalidate.01": "PENDING",
+    },
+  },
 };
 
 export const viewport: Viewport = {

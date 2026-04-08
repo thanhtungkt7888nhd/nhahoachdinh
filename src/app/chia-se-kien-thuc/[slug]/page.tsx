@@ -47,9 +47,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       authors: [AUTHOR_NAME],
       section: article.category,
       tags: keywords,
-      images: article.image
-        ? [{ url: article.image.startsWith("http") ? article.image : `https://nhahoachdinh.com${article.image}`, width: 1200, height: 630, alt: article.title }]
-        : [{ url: "https://nhahoachdinh.com/og-home.jpg", width: 1200, height: 630, alt: article.title }],
+      images: [{
+        url: `https://nhahoachdinh.com/og?title=${encodeURIComponent(article.title)}&category=${encodeURIComponent(article.category)}&subtitle=Ph%E1%BA%A1m+Thanh+T%C3%B9ng`,
+        width: 1200,
+        height: 630,
+        alt: article.title
+      }],
     },
     twitter: {
       card: "summary_large_image",
