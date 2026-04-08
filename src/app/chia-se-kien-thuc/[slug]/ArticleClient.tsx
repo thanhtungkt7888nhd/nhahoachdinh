@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { articles } from "@/lib/data";
 import { articleImages } from "@/lib/articleImages";
 import { useEffect, useState } from "react";
+import FacebookComments from "@/components/FacebookComments";
 
 type Article = (typeof articles)[0];
 
@@ -1020,6 +1021,12 @@ export function ArticleClient({
 
           {/* Share */}
           <ShareButtons title={article.title} slug={article.slug} />
+
+          {/* Facebook Comments */}
+          <FacebookComments
+            url={`https://nhahoachdinh.com/chia-se-kien-thuc/${article.slug}`}
+            numPosts={10}
+          />
 
           {/* Back */}
           <BackLink />
