@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "https://nhahoachdinh.com" },
   verification: {
-    google: "",
+    google: "B_34in_wOVkiYJqKRkqcSyP6PEroYb7DBx9pnlvVgAc",
     other: {
       "msvalidate.01": "PENDING",
     },
