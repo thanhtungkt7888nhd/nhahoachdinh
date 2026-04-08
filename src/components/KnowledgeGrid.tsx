@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { articles, type Article } from "@/lib/data";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/animations";
 
@@ -12,7 +13,36 @@ const easeOut = [0.22, 1, 0.36, 1] as const;
 interface Props { limit?: number; showHeading?: boolean; }
 
 export default function KnowledgeGrid({ limit, showHeading = true }: Props) {
-  const displayed = limit ? articles.slice(0, limit) : articles;
+  const [activeCategory, setActiveCategory] = useState("Tất Cả");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const isFullPage = !limit;
+
+  // Filter logic
+  const filteredArticles = (limit ? articles.slice(0, limit) : articles).filter((a) => {
+    const matchCat = activeCategory === "Tất Cả" || a.category === activeCategory;
+    const q = searchQuery.toLowerCase();
+    const matchSearch =
+      q === "" ||
+      a.title.toLowerCase().includes(q) ||
+      a.excerpt.toLowerCase().includes(q);
+    return matchCat && matchSearch;
+  });
+
+  // When filtering on full page, don't pre-slice — filter from all articles
+  const displayedArticles = isFullPage
+    ? articles.filter((a) => {
+        const matchCat = activeCategory === "Tất Cả" || a.category === activeCategory;
+        const q = searchQuery.toLowerCase();
+        const matchSearch =
+          q === "" ||
+          a.title.toLowerCase().includes(q) ||
+          a.excerpt.toLowerCase().includes(q);
+        return matchCat && matchSearch;
+      })
+    : filteredArticles;
+
+  const filterKey = `${activeCategory}__${searchQuery}`;
 
   return (
     <section className="bg-white py-24 md:py-32">
@@ -43,27 +73,100 @@ export default function KnowledgeGrid({ limit, showHeading = true }: Props) {
               {categories.map((cat, i) => (
                 <motion.button
                   key={cat}
-                  className="font-sans font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-lg
-                             bg-charcoal/5 text-charcoal/60 hover:bg-primary/20 hover:text-primary transition-colors"
+                  onClick={() => setActiveCategory(cat)}
+                  className="font-sans font-semibold text-xs uppercase tracking-wider px-4 py-2 rounded-lg transition-colors"
+                  style={
+                    activeCategory === cat
+                      ? { background: "var(--color-primary, #7A5C2E)", color: "#fff" }
+                      : undefined
+                  }
+                  data-active={activeCategory === cat}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4 + i * 0.06, duration: 0.4, ease: easeOut }}
                   whileTap={{ scale: 0.96 }}
+                  aria-pressed={activeCategory === cat}
                 >
-                  {cat}
+                  <span
+                    className={
+                      activeCategory === cat
+                        ? ""
+                        : "font-sans font-semibold text-xs uppercase tracking-wider bg-charcoal/5 text-charcoal/60 hover:bg-primary/20 hover:text-primary"
+                    }
+                  >
+                    {cat}
+                  </span>
                 </motion.button>
               ))}
             </div>
+
+            {/* Search input — only on full page */}
+            {isFullPage && (
+              <div className="mt-6 max-w-md mx-auto">
+                <div
+                  className="relative flex items-center"
+                  style={{ borderRadius: "10px", overflow: "hidden" }}
+                >
+                  {/* Magnifying glass icon */}
+                  <span
+                    className="absolute left-4 pointer-events-none"
+                    style={{ color: "rgba(122,92,46,0.5)" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="8" />
+                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    placeholder="Tìm kiếm bài viết..."
+                    className="font-sans w-full text-sm"
+                    style={{
+                      paddingLeft: "2.75rem",
+                      paddingRight: "1rem",
+                      paddingTop: "0.65rem",
+                      paddingBottom: "0.65rem",
+                      background: "#f9f7f3",
+                      border: "1px solid rgba(122,92,46,0.2)",
+                      borderRadius: "10px",
+                      color: "#2c2c2c",
+                      outline: "none",
+                      transition: "border-color 0.2s, box-shadow 0.2s",
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(122,92,46,0.55)";
+                      e.currentTarget.style.boxShadow = "0 0 0 3px rgba(196,154,40,0.12)";
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = "rgba(122,92,46,0.2)";
+                      e.currentTarget.style.boxShadow = "none";
+                    }}
+                  />
+                </div>
+              </div>
+            )}
           </FadeUp>
         )}
 
-        <StaggerParent className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {displayed.map((a) => (
-            <StaggerChild key={a.slug}>
-              <ArticleCard article={a} />
-            </StaggerChild>
-          ))}
+        <StaggerParent key={filterKey} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {displayedArticles.length > 0 ? (
+            displayedArticles.map((a) => (
+              <StaggerChild key={a.slug}>
+                <ArticleCard article={a} />
+              </StaggerChild>
+            ))
+          ) : (
+            <div
+              className="col-span-full text-center py-20"
+              style={{ color: "rgba(44,44,44,0.45)" }}
+            >
+              <p className="font-serif text-xl mb-2">Không tìm thấy bài viết</p>
+              <p className="font-sans text-sm">Thử thay đổi từ khoá hoặc chọn danh mục khác.</p>
+            </div>
+          )}
         </StaggerParent>
 
         {limit && articles.length > limit && (

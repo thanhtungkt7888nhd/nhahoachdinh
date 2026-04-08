@@ -91,8 +91,8 @@ function ReadingProgress() {
   }, []);
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[100] h-px"
-      style={{ background: "rgba(196,154,40,0.15)" }}
+      className="fixed top-0 left-0 right-0 z-[100] h-[2px]"
+      style={{ background: "rgba(196,154,40,0.2)" }}
     >
       <div
         className="h-full transition-none"
@@ -536,6 +536,136 @@ function RelatedArticles({
   );
 }
 
+// ── Copy Link Button ─────────────────────────────────────────────────────────
+function CopyLinkButton({ url }: { url: string }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+  return (
+    <button
+      onClick={handleCopy}
+      style={{
+        display: "inline-flex",
+        alignItems: "center",
+        gap: "0.5rem",
+        padding: "9px 18px",
+        border: `1px solid ${copied ? "rgba(196,154,40,0.55)" : "rgba(196,154,40,0.25)"}`,
+        borderRadius: "8px",
+        background: copied ? "rgba(196,154,40,0.12)" : "rgba(196,154,40,0.06)",
+        color: copied ? "#D4B050" : "#EDE0C4",
+        fontFamily: "var(--font-nunito)",
+        fontWeight: 600,
+        fontSize: "11px",
+        letterSpacing: "0.12em",
+        textTransform: "uppercase",
+        cursor: "pointer",
+        transition: "all 0.2s",
+      }}
+    >
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+      </svg>
+      {copied ? "Đã sao chép!" : "Sao Chép Link"}
+    </button>
+  );
+}
+
+// ── Share Buttons ─────────────────────────────────────────────────────────────
+function ShareButtons({ title, slug }: { title: string; slug: string }) {
+  const url = `https://nhahoachdinh.com/chia-se-kien-thuc/${slug}`;
+  const encodedUrl = encodeURIComponent(url);
+  const encodedTitle = encodeURIComponent(title);
+
+  const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+  const zaloUrl = `https://zalo.me/share?url=${encodedUrl}&text=${encodedTitle}`;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease }}
+      viewport={{ once: true }}
+      className="mt-10 pt-7"
+      style={{ borderTop: "1px solid rgba(196,154,40,0.15)" }}
+    >
+      <p className="font-sans text-[9px] uppercase tracking-[0.28em] mb-4" style={{ color: "rgba(196,154,40,0.65)" }}>
+        Chia Sẻ Bài Viết
+      </p>
+      <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+        {/* Facebook */}
+        <a
+          href={fbUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            padding: "9px 18px",
+            border: "1px solid rgba(196,154,40,0.25)",
+            borderRadius: "8px",
+            background: "rgba(196,154,40,0.06)",
+            color: "#EDE0C4",
+            fontFamily: "var(--font-nunito)",
+            fontWeight: 600,
+            fontSize: "11px",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            textDecoration: "none",
+            transition: "border-color 0.2s, background 0.2s",
+          }}
+          onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(196,154,40,0.55)"; (e.currentTarget as HTMLAnchorElement).style.background = "rgba(196,154,40,0.12)"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(196,154,40,0.25)"; (e.currentTarget as HTMLAnchorElement).style.background = "rgba(196,154,40,0.06)"; }}
+        >
+          {/* Facebook icon */}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+          </svg>
+          Facebook
+        </a>
+        {/* Zalo */}
+        <a
+          href={zaloUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            padding: "9px 18px",
+            border: "1px solid rgba(196,154,40,0.25)",
+            borderRadius: "8px",
+            background: "rgba(196,154,40,0.06)",
+            color: "#EDE0C4",
+            fontFamily: "var(--font-nunito)",
+            fontWeight: 600,
+            fontSize: "11px",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            textDecoration: "none",
+            transition: "border-color 0.2s, background 0.2s",
+          }}
+          onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(196,154,40,0.55)"; (e.currentTarget as HTMLAnchorElement).style.background = "rgba(196,154,40,0.12)"; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(196,154,40,0.25)"; (e.currentTarget as HTMLAnchorElement).style.background = "rgba(196,154,40,0.06)"; }}
+        >
+          {/* Zalo icon — simple Z */}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <polyline points="4 6 20 6 8 18 20 18"/>
+          </svg>
+          Zalo
+        </a>
+        {/* Copy link */}
+        <CopyLinkButton url={url} />
+      </div>
+    </motion.div>
+  );
+}
+
 // ── Back link ────────────────────────────────────────────────────────────────
 function BackLink() {
   return (
@@ -887,6 +1017,9 @@ export function ArticleClient({
 
           {/* Related */}
           <RelatedArticles current={article} allArticles={articles} />
+
+          {/* Share */}
+          <ShareButtons title={article.title} slug={article.slug} />
 
           {/* Back */}
           <BackLink />
