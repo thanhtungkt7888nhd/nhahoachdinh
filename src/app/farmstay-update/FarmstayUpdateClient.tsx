@@ -146,16 +146,31 @@ export default function FarmstayUpdateClient() {
           0%, 100% { box-shadow: 0 0 0 0 rgba(230,74,25,0.35), 0 4px 16px rgba(230,74,25,0.2); }
           50% { box-shadow: 0 0 0 6px rgba(230,74,25,0), 0 4px 24px rgba(230,74,25,0.45); }
         }
+        /* Nền chính: Pattern 01 tối, cố định khi scroll */
         .fsu-page-bg {
           background-image: url("/images/PATTERN%20FARMSTAY%20UPDATE%2001.png");
           background-size: cover;
           background-attachment: fixed;
           background-position: center;
         }
+        /* Hero & Bottom CTA: overlay Pattern 02 sáng ở 30% opacity */
         .fsu-pattern-hero {
+          position: relative;
+        }
+        .fsu-pattern-hero::before {
+          content: '';
+          position: absolute;
+          inset: 0;
           background-image: url("/images/PATTERN%20FARMSTAY%20UPDATE%2002.png");
           background-size: cover;
           background-position: center;
+          opacity: 0.3;
+          z-index: 0;
+          pointer-events: none;
+        }
+        .fsu-pattern-hero > * {
+          position: relative;
+          z-index: 1;
         }
         .fsu-green-shimmer {
           background: linear-gradient(90deg,#1B5E20 0%,#388E3C 20%,#66BB6A 40%,#81C784 50%,#66BB6A 60%,#388E3C 80%,#1B5E20 100%);
