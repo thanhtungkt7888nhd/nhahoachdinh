@@ -246,6 +246,30 @@ export default function XVF2025Client() {
           0%, 100% { box-shadow: 0 0 14px rgba(196,154,40,0.25); }
           50% { box-shadow: 0 0 30px rgba(196,154,40,0.55); }
         }
+
+        /* XVF Brand Pattern 1: nested squares (dùng ở Hero & Lịch sử) */
+        .xvf-pattern-squares {
+          background-image: url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='42' height='42' fill='none' stroke='rgba(255,255,255,0.055)' stroke-width='0.8'/%3E%3Crect x='7' y='7' width='30' height='30' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='0.8'/%3E%3Crect x='14' y='14' width='16' height='16' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='0.8'/%3E%3Ccircle cx='22' cy='22' r='1.2' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
+          background-size: 44px 44px;
+        }
+
+        /* XVF Brand Pattern 2: diamonds (dùng ở Tài trợ & Bottom CTA) */
+        .xvf-pattern-diamonds {
+          background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='24,2 46,24 24,46 2,24' fill='none' stroke='rgba(255,255,255,0.055)' stroke-width='0.8'/%3E%3Cpolygon points='24,10 38,24 24,38 10,24' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='0.8'/%3E%3Cpolygon points='24,18 30,24 24,30 18,24' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='0.8'/%3E%3Ccircle cx='24' cy='24' r='1' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
+          background-size: 48px 48px;
+        }
+
+        /* Light version cho section nền sáng hơn */
+        .xvf-pattern-squares-gold {
+          background-image: url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='42' height='42' fill='none' stroke='rgba(196,154,40,0.12)' stroke-width='0.8'/%3E%3Crect x='7' y='7' width='30' height='30' fill='none' stroke='rgba(196,154,40,0.08)' stroke-width='0.8'/%3E%3Crect x='14' y='14' width='16' height='16' fill='none' stroke='rgba(196,154,40,0.05)' stroke-width='0.8'/%3E%3Ccircle cx='22' cy='22' r='1.2' fill='rgba(196,154,40,0.1)'/%3E%3C/svg%3E");
+          background-size: 44px 44px;
+        }
+
+        .xvf-pattern-diamonds-gold {
+          background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='24,2 46,24 24,46 2,24' fill='none' stroke='rgba(196,154,40,0.12)' stroke-width='0.8'/%3E%3Cpolygon points='24,10 38,24 24,38 10,24' fill='none' stroke='rgba(196,154,40,0.08)' stroke-width='0.8'/%3E%3Cpolygon points='24,18 30,24 24,30 18,24' fill='none' stroke='rgba(196,154,40,0.05)' stroke-width='0.8'/%3E%3Ccircle cx='24' cy='24' r='1' fill='rgba(196,154,40,0.1)'/%3E%3C/svg%3E");
+          background-size: 48px 48px;
+        }
+
         .xvf25-btn-ghost {
           background: transparent;
           color: #EDE0C4;
@@ -276,7 +300,7 @@ export default function XVF2025Client() {
         }}
       >
         {/* ══ HERO ══ */}
-        <section style={{ padding: "6rem 1.5rem 4rem", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <section className="xvf-pattern-squares" style={{ padding: "6rem 1.5rem 4rem", textAlign: "center", position: "relative", overflow: "hidden" }}>
           {/* Background X marks */}
           <div style={{ position: "absolute", top: "2rem", left: "5%", opacity: 0.06 }}><XMark size={80} /></div>
           <div style={{ position: "absolute", bottom: "2rem", right: "5%", opacity: 0.06 }}><XMark size={60} /></div>
@@ -617,7 +641,7 @@ export default function XVF2025Client() {
         </Section>
 
         {/* ══ LỊCH SỬ ══ */}
-        <section style={{ background: "rgba(6,14,5,0.5)", borderTop: "1px solid rgba(196,154,40,0.1)", borderBottom: "1px solid rgba(196,154,40,0.1)", padding: "5rem 1.5rem" }}>
+        <section className="xvf-pattern-squares-gold" style={{ background: "rgba(6,14,5,0.5)", borderTop: "1px solid rgba(196,154,40,0.1)", borderBottom: "1px solid rgba(196,154,40,0.1)", padding: "5rem 1.5rem" }}>
           <div style={{ maxWidth: "900px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "0.5rem" }}>
@@ -839,6 +863,7 @@ export default function XVF2025Client() {
         <section
           id="tai-tro"
           ref={sponsorRef}
+          className="xvf-pattern-diamonds"
           style={{
             background: "rgba(6,14,5,0.7)",
             borderTop: "1px solid rgba(196,154,40,0.15)",
@@ -1106,7 +1131,7 @@ export default function XVF2025Client() {
         </section>
 
         {/* ══ BOTTOM CTA ══ */}
-        <section style={{ padding: "6rem 1.5rem", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <section className="xvf-pattern-diamonds-gold" style={{ padding: "6rem 1.5rem", textAlign: "center", position: "relative", overflow: "hidden" }}>
           <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", opacity: 0.03, pointerEvents: "none" }}>
             <XMark size={400} />
           </div>
