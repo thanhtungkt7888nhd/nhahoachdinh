@@ -508,7 +508,7 @@ export default function XVF2025Client() {
                 <span style={goldShimmerStyle}>Xuyên Việt Farmstay</span>
               </h2>
               <p style={{ color: "#D4C8A4", fontFamily: "var(--font-nunito)", fontSize: "14px", lineHeight: 1.8, marginBottom: "1.5rem" }}>
-                <strong style={{ color: "#EDE0C4" }}>Xuyên Việt</strong> — hành trình xuyên suốt chiều dài đất nước, từ mũi Cà Mau đến địa đầu Lạng Sơn.
+                <strong style={{ color: "#EDE0C4" }}>Xuyên Việt</strong> — hành trình xuyên suốt chiều dài đất nước, từ Hồ Chí Minh ra Hà Nội.
               </p>
               <p style={{ color: "#D4C8A4", fontFamily: "var(--font-nunito)", fontSize: "14px", lineHeight: 1.8, marginBottom: "1.5rem" }}>
                 <strong style={{ color: "#EDE0C4" }}>Farmstay</strong> — mô hình du lịch nông nghiệp kết hợp lưu trú, là tương lai của ngành du lịch bền vững Việt Nam.
