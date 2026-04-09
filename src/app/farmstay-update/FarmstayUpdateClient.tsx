@@ -66,12 +66,12 @@ function Badge({ children, color = "green" }: { children: React.ReactNode; color
 }
 
 const GOALS = [
-  { icon: "📚", title: "Cập Nhật Tri Thức", desc: "Kiến thức chuyên sâu về luật đất đai, xu hướng thị trường, farmstay từ chuyên gia hàng đầu." },
-  { icon: "🤝", title: "Kết Nối Giao Thương", desc: "Gặp gỡ chủ farmstay, nhà đầu tư, chuyên gia — mở rộng quan hệ và cơ hội hợp tác." },
-  { icon: "🌾", title: "Học Hỏi Thực Tiễn", desc: "Tham quan Sản Việt Farm, rút ra bài học thực chiến cho mô hình của chính bạn." },
-  { icon: "📣", title: "Quảng Bá Sản Phẩm", desc: "Giới thiệu farmstay đến cộng đồng du lịch nông nghiệp toàn quốc." },
-  { icon: "💡", title: "Truyền Cảm Hứng", desc: "Lan tỏa năng lượng tích cực, tinh thần đổi mới và khởi nghiệp trong ngành." },
-  { icon: "💰", title: "Cơ Hội Đầu Tư", desc: "Gặp nhà đầu tư tiềm năng, mở rộng quy mô và liên kết chuỗi du lịch nông nghiệp." },
+  { num: "01", title: "Cập Nhật Tri Thức", desc: "Kiến thức chuyên sâu về luật đất đai, xu hướng thị trường, farmstay từ chuyên gia hàng đầu." },
+  { num: "02", title: "Kết Nối Giao Thương", desc: "Gặp gỡ chủ farmstay, nhà đầu tư, chuyên gia — mở rộng quan hệ và cơ hội hợp tác." },
+  { num: "03", title: "Học Hỏi Thực Tiễn", desc: "Tham quan Sản Việt Farm, rút ra bài học thực chiến cho mô hình của chính bạn." },
+  { num: "04", title: "Quảng Bá Sản Phẩm", desc: "Giới thiệu farmstay đến cộng đồng du lịch nông nghiệp toàn quốc." },
+  { num: "05", title: "Truyền Cảm Hứng", desc: "Lan tỏa năng lượng tích cực, tinh thần đổi mới và khởi nghiệp trong ngành." },
+  { num: "06", title: "Cơ Hội Đầu Tư", desc: "Gặp nhà đầu tư tiềm năng, mở rộng quy mô và liên kết chuỗi du lịch nông nghiệp." },
 ];
 
 const HISTORY = [
@@ -303,7 +303,7 @@ export default function FarmstayUpdateClient() {
                 transition={{ duration: 0.45, delay: (i % 3) * 0.07 }}
                 style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderRadius: "14px", padding: "1.5rem" }}
               >
-                <div style={{ fontSize: "1.8rem", marginBottom: "0.75rem" }}>{g.icon}</div>
+                <div style={{ color: C.orange, fontFamily: "var(--font-alegreya)", fontSize: "1.4rem", fontWeight: 700, marginBottom: "0.6rem" }}>{g.num}</div>
                 <h3 style={{ ...heading, fontSize: "0.95rem", marginBottom: "0.5rem" }}>{g.title}</h3>
                 <p style={{ ...body, fontSize: "12px" }}>{g.desc}</p>
               </motion.div>
@@ -362,13 +362,12 @@ export default function FarmstayUpdateClient() {
             {/* Info cards */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", marginBottom: "3rem" }}>
               {[
-                { icon: "📅", title: "Thời Gian", detail: "13–15/03/2026", sub: "3 ngày 2 đêm" },
-                { icon: "📍", title: "Địa Điểm", detail: "Sản Việt Farm", sub: "Ninh Hòa, Khánh Hòa" },
-                { icon: "💵", title: "Chi Phí", detail: "8.100.000đ", sub: "Bao gồm lưu trú & ăn uống" },
-                { icon: "🎤", title: "Diễn Giả", detail: "8 Chuyên Đề", sub: "Chuyên gia hàng đầu" },
+                { title: "Thời Gian", detail: "13–15/03/2026", sub: "3 ngày 2 đêm" },
+                { title: "Địa Điểm", detail: "Sản Việt Farm", sub: "Ninh Hòa, Khánh Hòa" },
+                { title: "Chi Phí", detail: "8.100.000đ", sub: "Bao gồm lưu trú & ăn uống" },
+                { title: "Diễn Giả", detail: "8 Chuyên Đề", sub: "Chuyên gia hàng đầu" },
               ].map((c, i) => (
                 <div key={i} style={{ background: C.bgCard, border: `1px solid ${C.borderOrange}`, borderRadius: "12px", padding: "1.25rem", textAlign: "center" }}>
-                  <div style={{ fontSize: "1.6rem", marginBottom: "0.5rem" }}>{c.icon}</div>
                   <span style={label}>{c.title}</span>
                   <div style={{ color: C.cream, fontFamily: "var(--font-alegreya)", fontSize: "1.1rem", fontWeight: 700 }}>{c.detail}</div>
                   <div style={{ ...body, fontSize: "11px", marginTop: "0.2rem" }}>{c.sub}</div>
@@ -468,7 +467,6 @@ export default function FarmstayUpdateClient() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.25rem" }}>
               {[
                 {
-                  icon: "📦",
                   title: "Nhóm 1 · Tài Trợ Hiện Vật",
                   color: "green" as const,
                   desc: "Dành cho các mạnh thường quân có sản phẩm, dịch vụ phục vụ trực tiếp thành viên trong sự kiện.",
@@ -476,7 +474,6 @@ export default function FarmstayUpdateClient() {
                   benefit: "Logo xuất hiện trên backdrop, standee và tất cả ấn phẩm sự kiện."
                 },
                 {
-                  icon: "💵",
                   title: "Nhóm 2 · Tài Trợ Hiện Kim",
                   color: "orange" as const,
                   desc: "Dành cho các mạnh thường quân muốn logo, nhãn hiệu xuất hiện trong sự kiện dù bản thân không tham gia được.",
@@ -492,7 +489,6 @@ export default function FarmstayUpdateClient() {
                   transition={{ delay: i * 0.1 }}
                   style={{ background: C.bgCard, border: `1px solid ${pkg.color === "green" ? C.border : C.borderOrange}`, borderRadius: "14px", padding: "1.75rem" }}
                 >
-                  <div style={{ fontSize: "1.8rem", marginBottom: "0.75rem" }}>{pkg.icon}</div>
                   <h3 style={{ ...heading, fontSize: "1rem", marginBottom: "0.5rem" }}>{pkg.title}</h3>
                   <p style={{ ...body, fontSize: "12.5px", marginBottom: "1rem" }}>{pkg.desc}</p>
                   <ul style={{ margin: "0 0 1rem", padding: "0 0 0 1.25rem" }}>
