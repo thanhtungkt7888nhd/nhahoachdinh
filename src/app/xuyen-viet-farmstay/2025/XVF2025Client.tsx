@@ -382,7 +382,7 @@ export default function XVF2025Client() {
             transition={{ duration: 0.7, delay: 0.1 }}
             style={{
               ...goldShimmerStyle,
-              fontFamily: "var(--font-alegreya)",
+              fontFamily: "'ClashGrotesk-Bold', sans-serif",
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
               fontWeight: 700,
               marginBottom: "1rem",
@@ -572,7 +572,7 @@ export default function XVF2025Client() {
               <span style={sectionLabel}>Tên Chương Trình</span>
               <h2 style={{ ...sectionTitle, marginBottom: "1rem" }}>
                 Hành Trình<br />
-                <span style={goldShimmerStyle}>Xuyên Việt Farmstay</span>
+                <span style={{ ...goldShimmerStyle, fontFamily: "'ClashGrotesk-Bold', sans-serif" }}>Xuyên Việt Farmstay</span>
               </h2>
               <p style={{ color: "#D4C8A4", fontFamily: "var(--font-nunito)", fontSize: "14px", lineHeight: 1.8, marginBottom: "1.5rem" }}>
                 <strong style={{ color: "#EDE0C4" }}>Xuyên Việt</strong> — hành trình xuyên suốt chiều dài đất nước, từ Hồ Chí Minh ra Hà Nội.
@@ -916,7 +916,7 @@ export default function XVF2025Client() {
               <br /><br />
               <strong style={{ color: "#EDE0C4", fontStyle: "normal" }}>Phạm Thanh Tùng</strong>
               <br />
-              <span style={{ fontSize: "12px", letterSpacing: "0.1em", fontStyle: "normal", textTransform: "uppercase", color: "#C49A28" }}>Nhà Sáng Lập Xuyên Việt Farmstay</span>
+              <span style={{ fontSize: "12px", letterSpacing: "0.1em", fontStyle: "normal", textTransform: "uppercase", color: "#C49A28", fontFamily: "'ClashGrotesk-Bold', sans-serif" }}>Nhà Sáng Lập Xuyên Việt Farmstay</span>
             </motion.div>
 
             {/* Nhóm 1: Đón đoàn */}
@@ -1140,7 +1140,7 @@ export default function XVF2025Client() {
               <LogoWordmark height={40} />
             </div>
             <p style={sectionLabel}>Hành Trình Tiếp Theo</p>
-            <h2 style={{ ...sectionTitle, fontSize: "clamp(1.8rem, 3vw, 3rem)", marginBottom: "1rem" }}>
+            <h2 style={{ ...sectionTitle, fontFamily: "'ClashGrotesk-Bold', sans-serif", fontSize: "clamp(1.8rem, 3vw, 3rem)", marginBottom: "1rem" }}>
               Xuyên Việt Farmstay 2026
               <br />
               <span style={goldShimmerStyle}>Đang Mở Đăng Ký</span>

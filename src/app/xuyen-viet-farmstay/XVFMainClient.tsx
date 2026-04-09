@@ -393,7 +393,7 @@ export default function XVFMainClient() {
             transition={{ duration: 0.7, delay: 0.1 }}
             style={{
               ...goldShimmerStyle,
-              fontFamily: "var(--font-alegreya)",
+              fontFamily: "'ClashGrotesk-Bold', sans-serif",
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
               fontWeight: 700,
               marginBottom: "1rem",

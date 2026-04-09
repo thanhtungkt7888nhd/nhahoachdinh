@@ -368,7 +368,7 @@ export default function ToiLamClient() {
           {/* Xuyên Việt image + text */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-14">
             <FadeUp>
-              <h3 className="gold-shine font-serif text-2xl mb-6">Dấu Ấn Xuyên Việt Farmstay — 4 Mùa Hành Trình</h3>
+              <h3 className="gold-shine text-2xl mb-6" style={{ fontFamily: "'ClashGrotesk-Bold', sans-serif" }}>Dấu Ấn Xuyên Việt Farmstay — 4 Mùa Hành Trình</h3>
               <div className="space-y-4">
                 {[
                   { year: "2021", title: "Mùa Khai Phá", desc: "Đặt nền móng kết nối cộng đồng farmstay toàn quốc lần đầu tiên" },

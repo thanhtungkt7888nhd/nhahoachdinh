@@ -117,7 +117,7 @@ export default function XVFJournalClient({ config }: { config: JournalConfig }) 
             transition={{ duration: 0.6, delay: 0.15 }}
             style={{
               ...goldShimmerStyle,
-              fontFamily: "var(--font-alegreya)",
+              fontFamily: "'ClashGrotesk-Bold', sans-serif",
               fontSize: "clamp(2rem, 4vw, 3.5rem)",
               fontWeight: 700,
               marginBottom: "0.75rem",

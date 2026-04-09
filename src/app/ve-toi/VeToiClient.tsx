@@ -137,8 +137,8 @@ const services = [
 
 const statsData = [
   {
-    num: "50+",
-    label: "Dự Án Farmstay & Sinh Thái",
+    num: "200+",
+    label: "Tư Vấn Farm/Farmstay",
     details: [
       { title: "Hana Land Ecostay", sub: "Đà Lạt — Mô hình farmstay sinh thái tích hợp nông nghiệp & lưu trú cao cấp" },
       { title: "Sản Việt Farm", sub: "Khánh Hòa — Hoạch định tổng thể từ đất trống đến điểm đến du lịch nông nghiệp" },
@@ -150,7 +150,7 @@ const statsData = [
   },
   {
     num: "3.000+",
-    label: "Lượt Tư Vấn",
+    label: "Hecta Đã Tư Vấn",
     details: [
       { title: "Đắk Nông & Tây Nguyên", sub: "Vùng đất bazan màu mỡ — hoạch định phát triển nông nghiệp sinh thái quy mô lớn" },
       { title: "Quảng Nam & Duyên Hải", sub: "Kết nối di sản văn hóa Chăm với du lịch nông nghiệp ven biển" },
@@ -178,6 +178,17 @@ const statsData = [
       { title: "Cộng Đồng & Con Người", sub: "Bài học thực địa từ hàng trăm dự án — gắn kết cộng đồng địa phương trong mô hình phát triển" },
     ],
   },
+  {
+    num: "1",
+    label: "Cuốn Sách",
+    cta: { label: "Mua Sách →", href: "/sach-farmstay" },
+    details: [
+      { title: "Hướng Dẫn Thiết Lập Farmstay", sub: "Cuốn sách farmstay đầu tiên tại Việt Nam — cẩm nang thực chiến từ A đến Z cho người muốn xây dựng mô hình du lịch nông nghiệp." },
+      { title: "Nội Dung Cốt Lõi", sub: "Từ chọn đất, quy hoạch tổng thể, thiết kế không gian đến vận hành, marketing và xây dựng thương hiệu farmstay bền vững." },
+      { title: "Dành Cho Ai?", sub: "Chủ đất muốn chuyển đổi, nhà đầu tư bất động sản nông nghiệp, kiến trúc sư và những người đam mê lối sống gần thiên nhiên." },
+      { title: "Tác Giả", sub: "Phạm Thanh Tùng — Nhà Hoạch Định với hơn 200 dự án tư vấn farmstay và 3.000+ hecta đất nông nghiệp trên toàn quốc." },
+    ],
+  },
 ];
 
 function StatsSection() {
@@ -198,7 +209,7 @@ function StatsSection() {
         </FadeUp>
 
         {/* Stat buttons */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-2">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-2">
           {statsData.map((s, i) => (
             <button
               key={i}
@@ -274,6 +285,28 @@ function StatsSection() {
                     </motion.div>
                   ))}
                 </div>
+                {"cta" in statsData[openIdx] && statsData[openIdx].cta && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.35 }}
+                    className="mt-8 flex justify-center"
+                  >
+                    <a
+                      href={statsData[openIdx].cta!.href}
+                      className="inline-block font-sans font-semibold text-xs uppercase tracking-[0.2em] px-8 py-3 rounded-sm transition-all duration-300"
+                      style={{
+                        border: "1px solid #C8A84B",
+                        color: "#C8A84B",
+                        background: "rgba(200,168,75,0.08)",
+                      }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(200,168,75,0.18)"; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.background = "rgba(200,168,75,0.08)"; }}
+                    >
+                      {statsData[openIdx].cta!.label}
+                    </a>
+                  </motion.div>
+                )}
               </div>
             </motion.div>
           )}
@@ -339,7 +372,8 @@ export default function VeToiClient() {
                     src="/images/portrait-nhahoachdinh.jpg"
                     alt="Phạm Thanh Tùng — Nhà Hoạch Định"
                     fill
-                    className="object-cover object-top"
+                    className="object-cover"
+                    style={{ objectPosition: "center 33%" }}
                     sizes="(max-width: 1024px) 90vw, 420px"
                     priority
                   />
@@ -446,7 +480,7 @@ export default function VeToiClient() {
                     alt="Phạm Thanh Tùng — Nhà Hoạch Định"
                     fill
                     className="object-cover"
-                    style={{ objectPosition: "center 8%" }}
+                    style={{ objectPosition: "center 30%" }}
                     sizes="(max-width: 1024px) 90vw, 400px"
                   />
                   {/* Subtle vignette bottom */}
@@ -622,7 +656,7 @@ export default function VeToiClient() {
           <div className="text-center mb-14">
             <FadeUp>
               <p className="gold-shine-subtle font-sans font-semibold uppercase tracking-[0.2em] text-sm mb-2">Hành Trình</p>
-              <h2 className="font-serif text-charcoal" style={{ fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
+              <h2 className="gold-shine-subtle" style={{ fontFamily: "'ClashGrotesk-Bold', sans-serif", fontSize: "clamp(1.8rem, 3vw, 2.8rem)" }}>
                 Dấu Ấn Xuyên Việt Farmstay
               </h2>
               <div className="w-12 h-0.5 bg-primary mx-auto mt-5 mb-4" />
@@ -654,8 +688,8 @@ export default function VeToiClient() {
               {
                 year: "2025",
                 title: "Mùa Tiếp Nối",
-                stats: [{ label: "Mùa thứ", val: "4" }, { label: "Vẫn đang", val: "Tiếp tục" }],
-                desc: "Hành trình tiếp tục — mở rộng tầm nhìn, sâu thêm kết nối, lan tỏa giá trị du lịch nông nghiệp Việt Nam ra cộng đồng quốc tế.",
+                stats: [{ label: "Quãng đường", val: "2.000km+" }, { label: "Hành trình", val: "19 ngày" }, { label: "Trang trại", val: "45–50" }, { label: "7/5–25/5", val: "2025" }],
+                desc: "Ba Vì → Đồng Nai theo Đường Hồ Chí Minh — 19 ngày, 45–50 trang trại & farmstay trải dài từ Bắc xuống Nam. Mùa thứ 4 khép lại với hành trình dài nhất và nhiều điểm đến nhất.",
               },
             ].map((season, i) => (
               <StaggerChild key={i}>
@@ -675,6 +709,12 @@ export default function VeToiClient() {
                     ))}
                   </div>
                   <p className="font-sans text-muted text-sm leading-relaxed flex-1 text-justify">{season.desc}</p>
+                  <Link
+                    href="/xuyen-viet-farmstay/2026"
+                    className="mt-5 inline-flex items-center gap-2 font-sans text-xs font-semibold uppercase tracking-widest text-primary/70 hover:text-primary transition-colors"
+                  >
+                    <span>→ 2026</span>
+                  </Link>
                   <motion.div
                     className="absolute bottom-0 left-0 h-0.5 bg-primary"
                     initial={{ width: 0 }}
@@ -800,7 +840,7 @@ export default function VeToiClient() {
                           alt={selectedTeacher.name}
                           fill
                           className="object-cover"
-                          style={{ objectPosition: selectedTeacher.modalImgPos ?? "center 22%" }}
+                          style={{ objectPosition: selectedTeacher.modalImgPos ?? "center 45%" }}
                           sizes="672px"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1C2A1C] via-[#1C2A1C]/30 to-transparent" />

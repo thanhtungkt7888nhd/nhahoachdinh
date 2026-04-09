@@ -123,7 +123,7 @@ export default function XVF2026Client() {
             transition={{ duration: 0.7, delay: 0.1 }}
             style={{
               ...goldShimmerStyle,
-              fontFamily: "var(--font-alegreya)",
+              fontFamily: "'ClashGrotesk-Bold', sans-serif",
               fontSize: "clamp(2.5rem,5vw,4rem)",
               fontWeight: 700,
               marginBottom: "1rem",
@@ -305,7 +305,7 @@ export default function XVF2026Client() {
             </p>
             <h2
               style={{
-                fontFamily: "var(--font-alegreya)",
+                fontFamily: "'ClashGrotesk-Bold', sans-serif",
                 color: "#EDE0C4",
                 fontSize: "clamp(1.6rem,2.5vw,2.4rem)",
                 fontWeight: 700,

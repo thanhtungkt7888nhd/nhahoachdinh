@@ -83,52 +83,124 @@ const HISTORY = [
   { year: "2026", title: "Farmstay Update 2026", desc: "13-15/03/2026 tại Sản Việt Farm — Lớn hơn, chuyên nghiệp hơn và nhiều giá trị hơn.", active: true },
 ];
 
-const SCHEDULE_2026 = [
-  {
-    day: "Ngày Tập Trung",
-    date: "Thứ Sáu · 13/03",
-    items: [
-      { time: "Sáng", act: "Đón thành viên tham gia, hội quân tại Sản Việt Farm" },
-      { time: "Trưa", act: "Dùng bữa trưa tập thể" },
-      { time: "Chiều", act: "Chuyên đề khởi động — Mr. Nguyễn Minh Thành mổ xẻ quá trình hình thành Sản Việt Farm" },
-      { time: "Tối", act: "Bữa tối Welcome, thiết lập mạng lưới làm quen, nhận khu vực lưu trú" },
-    ],
-  },
-  {
-    day: "Ngày Thứ Nhất",
-    date: "Thứ Bảy · 14/03",
-    items: [
-      { time: "08:00", act: "Chuyên đề 1 — Doanh nghiệp dẫn dắt kinh tế địa phương bằng mô hình du lịch nông nghiệp" },
-      { time: "10:00", act: "Chuyên đề 2 — Tác động lan tỏa của Farmstay đến giá trị Bất động sản" },
-      { time: "13:30", act: "Chuyên đề 3 — Sứ mệnh làm Farmstay trong làng du lịch cộng đồng" },
-      { time: "16:00", act: "Chuyên đề 4 — Xuất khẩu văn hóa bằng thương hiệu cá nhân" },
-      { time: "19:00", act: "Gala Dinner — Nhạc cụ đồng bào và Diễn xướng văn hóa" },
-    ],
-  },
-  {
-    day: "Ngày Thứ Hai",
-    date: "Chủ Nhật · 15/03",
-    items: [
-      { time: "08:00", act: "Chuyên đề 5 — Trà Mi bản địa Việt Nam, giá trị sử dụng và tiềm năng phát triển" },
-      { time: "10:00", act: "Chuyên đề 6 — Câu chuyện vĩ đại về Future Coffee Farm" },
-      { time: "13:30", act: "Chuyên đề 7 — Cơ hội xuất khẩu nông sản Việt Nam ra toàn cầu" },
-      { time: "16:00", act: "Chuyên đề 8 — Pháp lý đất đa mục đích dành cho Farmstay mở rộng" },
-      { time: "17:30", act: "Bế mạc · Chụp ảnh lưu niệm · Chia tay" },
-    ],
-  },
-];
+type YearKey = "2025" | "2026";
 
-const SPEAKERS_2026 = [
-  { name: "Phạm Thanh Tùng", role: "Host · Nhà Hoạch Định", topic: "Dẫn Chương Trình", desc: "Phó viện trưởng Viện Kinh tế & Du lịch Nông nghiệp. Founder Defarm, Mastery, HTX Du Lịch NN Việt Nam." },
-  { name: "TS. Ngô Kiều Oanh", role: "Nhà sáng lập Trang trại Đồng Quê Ba Vì", topic: "Chuyên Đề 1", desc: "Chuyên gia tư vấn độc lập du lịch nông nghiệp, 40+ năm kinh nghiệm nghiên cứu hệ thống kinh tế." },
-  { name: "PGS.TS Nguyễn Minh Ngọc", role: "Chuyên gia BĐS · 20 năm kinh nghiệm", topic: "Chuyên Đề 2", desc: "Tiên phong nghiên cứu BĐS nông nghiệp đa dụng và BĐS sinh thái tại Việt Nam." },
-  { name: "MBA Nguyễn Đức Dũng", role: "\"Gã Du Nông\" · Konke Ruộng Farmstay", topic: "Chuyên Đề 3", desc: "Chủ tịch HTX Du Lịch Cộng Đồng Làng Kon Vơng Kia, Phó Chủ tịch Hiệp hội Du lịch Quảng Ngãi." },
-  { name: "Phan Nguyên", role: "Founder Sun Media GL, Gia Lai", topic: "Chuyên Đề 4", desc: "20 năm báo chí & truyền thông, Huy chương Vàng quốc gia Happy Vietnam 2024." },
-  { name: "TS. Lương Văn Dũng", role: "Giám đốc TT Đa dạng Sinh học · ĐH Đà Lạt", topic: "Chuyên Đề 5", desc: "Nhà thực vật học uy tín, phát hiện quần thể sồi ba cạnh tại VQG Bidoup – Núi Bà." },
-  { name: "Nguyễn Văn Tới", role: "Founder Future Coffee Farm, Bảo Lộc", topic: "Chuyên Đề 6", desc: "Tiên phong Fine Robusta Việt Nam, xuất khẩu cà phê sang Nhật Bản, Mỹ, Đức, Bỉ." },
-  { name: "Trần Danh Mạnh", role: "CEO FruitShare VietNam", topic: "Chuyên Đề 7", desc: "Chuyên gia xuất khẩu nông sản sang EU và Mỹ, 8+ năm kinh nghiệm trong ngành." },
-  { name: "ThS. Trần Công Thủy", role: "Founder ThuyLand.Group", topic: "Chuyên Đề 8", desc: "Chuyên gia pháp lý đất đai, cựu cán bộ Bộ QP và Bộ TN&MT, tiên phong UAV và 3D LIDAR." },
-];
+const YEAR_DATA: Record<YearKey, {
+  status: "done" | "upcoming";
+  dates: string; location: string; sublocation: string;
+  cost: string; costNote: string; speakersLabel: string;
+  schedule: { day: string; date: string; items: { time: string; act: string }[] }[];
+  speakers: { name: string; role: string; topic: string; desc: string }[];
+}> = {
+  "2025": {
+    status: "done",
+    dates: "03–05/01/2025",
+    location: "Sản Việt Farm",
+    sublocation: "Ninh Hòa, Khánh Hòa",
+    cost: "3.800.000đ",
+    costNote: "Bao gồm lưu trú & ăn uống",
+    speakersLabel: "8 Chuyên Đề",
+    schedule: [
+      {
+        day: "Ngày Tập Trung",
+        date: "Thứ Sáu · 03/01",
+        items: [
+          { time: "Chiều", act: "Đón thành viên tham gia tại Sản Việt Farm" },
+          { time: "Tối", act: "Bữa tối Welcome — kết nối, làm quen" },
+        ],
+      },
+      {
+        day: "Ngày Thứ Nhất",
+        date: "Thứ Bảy · 04/01",
+        items: [
+          { time: "06:30", act: "Thiền chuông, khởi động ngày mới, ăn sáng" },
+          { time: "08:00", act: "Chuyên đề 1 — Sản phẩm nông nghiệp và con đường trở thành quốc bảo" },
+          { time: "10:00", act: "Chuyên đề 2 — Du lịch nông nghiệp và mô hình thực tế" },
+          { time: "13:30", act: "Chuyên đề 3 — Mô hình HTX và kinh nghiệm phát triển chuỗi liên kết" },
+          { time: "16:00", act: "Chuyên đề 4 — Khe Sanh Coffee Tour, hành trình tạo tác động" },
+          { time: "19:00", act: "Gala Dinner — Tiệc tối kết nối" },
+        ],
+      },
+      {
+        day: "Ngày Thứ Hai",
+        date: "Chủ Nhật · 05/01",
+        items: [
+          { time: "06:30", act: "Thiền trà, khởi động ngày mới, ăn sáng" },
+          { time: "08:00", act: "Chuyên đề 5 — Quy hoạch Du lịch Nông nghiệp phát triển kinh tế địa phương" },
+          { time: "10:00", act: "Chuyên đề 6 — Thị trường Halal — đón đầu cơ hội nghìn năm" },
+          { time: "13:30", act: "Chuyên đề 7 — Tự tay tạo chế phẩm cho cây trồng đạt chuẩn xuất khẩu" },
+          { time: "16:00", act: "Chuyên đề 8 — Kích hoạt sức mạnh tiềm ẩn của đất nông nghiệp nhờ Luật Đất đai 2024" },
+          { time: "17:30", act: "Bế mạc · Chụp ảnh lưu niệm · Chia tay" },
+        ],
+      },
+    ],
+    speakers: [
+      { name: "Phạm Thanh Tùng", role: "Host · Nhà Hoạch Định", topic: "Dẫn Chương Trình", desc: "Phó viện trưởng Viện Kinh tế & Du lịch Nông nghiệp. Founder Defarm, Mastery, HTX Du Lịch NN Việt Nam." },
+      { name: "Đào Đức Hiếu", role: "Nghệ nhân văn hóa trà · Đại Lão Vương Trà", topic: "Chuyên Đề 1", desc: "Chủ tịch HTX Hệ sinh thái du lịch Suối Giàng. Đưa trà Shan Tuyết Suối Giàng vươn tầm quốc tế." },
+      { name: "TS. Ngô Kiều Oanh", role: "Nhà sáng lập Trang trại Đồng Quê Ba Vì", topic: "Chuyên Đề 2", desc: "Chuyên gia tư vấn độc lập du lịch nông nghiệp và nông thôn với 40+ năm kinh nghiệm nghiên cứu." },
+      { name: "Hoàng Thanh Tùng", role: "Chủ tịch HTX Phố Yến · CEO RickyFarms79", topic: "Chuyên Đề 3", desc: "20 năm kinh nghiệm nông nghiệp và kinh tế tập thể. Chuyên gia mô hình HTX và chuỗi liên kết." },
+      { name: "Trần Thái Thiên", role: "Chủ tịch HTX Du Lịch NN Việt Nam - Khe Sanh", topic: "Chuyên Đề 4", desc: "Kiến tạo Khe Sanh Coffee Tour — tour du lịch nông nghiệp chỉn chu nhất Việt Nam." },
+      { name: "Nguyễn Tiến Sỹ", role: "Tổng Giám đốc Công ty Quy hoạch Hà Nội", topic: "Chuyên Đề 5", desc: "Chuyên gia quy hoạch du lịch nông nghiệp, cựu chuyên viên Tổng cục Du lịch và Bộ NN&PTNT." },
+      { name: "Nguyễn Phương Thư", role: "Founder & CEO Hệ thống Nhà Bên Hồ", topic: "Chuyên Đề 6", desc: "25+ năm kinh nghiệm tư vấn xuất nhập khẩu. Chuyên gia thị trường Halal và chuỗi giá trị nông sản." },
+      { name: "Bùi Thị Khánh Hòa", role: "Giám đốc CP Nông nghiệp sạch Đắk Nông", topic: "Chuyên Đề 7", desc: "22ha nông nghiệp GlobalGAP. Tiên phong làm chế phẩm hữu cơ 100% cho cây trồng đạt chuẩn xuất khẩu." },
+      { name: "Trần Công Thủy", role: "Founder ThuyLand.Group", topic: "Chuyên Đề 8", desc: "Chuyên gia pháp lý đất đai, cựu cán bộ Bộ QP và Bộ TN&MT, tiên phong UAV và 3D LIDAR tại Việt Nam." },
+    ],
+  },
+  "2026": {
+    status: "upcoming",
+    dates: "13–15/03/2026",
+    location: "Sản Việt Farm",
+    sublocation: "Ninh Hòa, Khánh Hòa",
+    cost: "8.100.000đ",
+    costNote: "Bao gồm lưu trú & ăn uống",
+    speakersLabel: "8 Chuyên Đề",
+    schedule: [
+      {
+        day: "Ngày Tập Trung",
+        date: "Thứ Sáu · 13/03",
+        items: [
+          { time: "Sáng", act: "Đón thành viên tham gia, hội quân tại Sản Việt Farm" },
+          { time: "Trưa", act: "Dùng bữa trưa tập thể" },
+          { time: "Chiều", act: "Chuyên đề khởi động — Mr. Nguyễn Minh Thành mổ xẻ quá trình hình thành Sản Việt Farm" },
+          { time: "Tối", act: "Bữa tối Welcome, thiết lập mạng lưới làm quen, nhận khu vực lưu trú" },
+        ],
+      },
+      {
+        day: "Ngày Thứ Nhất",
+        date: "Thứ Bảy · 14/03",
+        items: [
+          { time: "08:00", act: "Chuyên đề 1 — Doanh nghiệp dẫn dắt kinh tế địa phương bằng mô hình du lịch nông nghiệp" },
+          { time: "10:00", act: "Chuyên đề 2 — Tác động lan tỏa của Farmstay đến giá trị Bất động sản" },
+          { time: "13:30", act: "Chuyên đề 3 — Sứ mệnh làm Farmstay trong làng du lịch cộng đồng" },
+          { time: "16:00", act: "Chuyên đề 4 — Xuất khẩu văn hóa bằng thương hiệu cá nhân" },
+          { time: "19:00", act: "Gala Dinner — Nhạc cụ đồng bào và Diễn xướng văn hóa" },
+        ],
+      },
+      {
+        day: "Ngày Thứ Hai",
+        date: "Chủ Nhật · 15/03",
+        items: [
+          { time: "08:00", act: "Chuyên đề 5 — Trà Mi bản địa Việt Nam, giá trị sử dụng và tiềm năng phát triển" },
+          { time: "10:00", act: "Chuyên đề 6 — Câu chuyện vĩ đại về Future Coffee Farm" },
+          { time: "13:30", act: "Chuyên đề 7 — Cơ hội xuất khẩu nông sản Việt Nam ra toàn cầu" },
+          { time: "16:00", act: "Chuyên đề 8 — Pháp lý đất đa mục đích dành cho Farmstay mở rộng" },
+          { time: "17:30", act: "Bế mạc · Chụp ảnh lưu niệm · Chia tay" },
+        ],
+      },
+    ],
+    speakers: [
+      { name: "Phạm Thanh Tùng", role: "Host · Nhà Hoạch Định", topic: "Dẫn Chương Trình", desc: "Phó viện trưởng Viện Kinh tế & Du lịch Nông nghiệp. Founder Defarm, Mastery, HTX Du Lịch NN Việt Nam." },
+      { name: "TS. Ngô Kiều Oanh", role: "Nhà sáng lập Trang trại Đồng Quê Ba Vì", topic: "Chuyên Đề 1", desc: "Chuyên gia tư vấn độc lập du lịch nông nghiệp, 40+ năm kinh nghiệm nghiên cứu hệ thống kinh tế." },
+      { name: "PGS.TS Nguyễn Minh Ngọc", role: "Chuyên gia BĐS · 20 năm kinh nghiệm", topic: "Chuyên Đề 2", desc: "Tiên phong nghiên cứu BĐS nông nghiệp đa dụng và BĐS sinh thái tại Việt Nam." },
+      { name: "MBA Nguyễn Đức Dũng", role: "\"Gã Du Nông\" · Konke Ruộng Farmstay", topic: "Chuyên Đề 3", desc: "Chủ tịch HTX Du Lịch Cộng Đồng Làng Kon Vơng Kia, Phó Chủ tịch Hiệp hội Du lịch Quảng Ngãi." },
+      { name: "Phan Nguyên", role: "Founder Sun Media GL, Gia Lai", topic: "Chuyên Đề 4", desc: "20 năm báo chí & truyền thông, Huy chương Vàng quốc gia Happy Vietnam 2024." },
+      { name: "TS. Lương Văn Dũng", role: "Giám đốc TT Đa dạng Sinh học · ĐH Đà Lạt", topic: "Chuyên Đề 5", desc: "Nhà thực vật học uy tín, phát hiện quần thể sồi ba cạnh tại VQG Bidoup – Núi Bà." },
+      { name: "Nguyễn Văn Tới", role: "Founder Future Coffee Farm, Bảo Lộc", topic: "Chuyên Đề 6", desc: "Tiên phong Fine Robusta Việt Nam, xuất khẩu cà phê sang Nhật Bản, Mỹ, Đức, Bỉ." },
+      { name: "Trần Danh Mạnh", role: "CEO FruitShare VietNam", topic: "Chuyên Đề 7", desc: "Chuyên gia xuất khẩu nông sản sang EU và Mỹ, 8+ năm kinh nghiệm trong ngành." },
+      { name: "ThS. Trần Công Thủy", role: "Founder ThuyLand.Group", topic: "Chuyên Đề 8", desc: "Chuyên gia pháp lý đất đai, cựu cán bộ Bộ QP và Bộ TN&MT, tiên phong UAV và 3D LIDAR." },
+    ],
+  },
+};
 
 export default function FarmstayUpdateClient() {
   return (
@@ -152,6 +224,20 @@ export default function FarmstayUpdateClient() {
         @keyframes fsu-glow {
           0%, 100% { box-shadow: 0 0 0 0 rgba(230,74,25,0.35), 0 4px 16px rgba(230,74,25,0.2); }
           50% { box-shadow: 0 0 0 6px rgba(230,74,25,0), 0 4px 24px rgba(230,74,25,0.45); }
+        }
+        @keyframes fsu-logo-glow {
+          0%, 100% {
+            filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45));
+          }
+          50% {
+            filter: drop-shadow(0 0 22px rgba(27,94,32,1)) drop-shadow(0 0 50px rgba(46,125,50,0.95)) drop-shadow(0 0 90px rgba(76,175,80,0.65));
+          }
+        }
+        .fsu-logo-hero {
+          filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45));
+          -webkit-filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45));
+          animation: fsu-logo-glow 1.5s ease-in-out infinite;
+          will-change: filter;
         }
         .fsu-page-bg {
           background-image: url("/images/pattern-fsu-01.png");
@@ -199,6 +285,21 @@ export default function FarmstayUpdateClient() {
           animation: fsu-glow 2.5s ease-in-out infinite;
         }
         .fsu-register-btn:hover { opacity: 0.9; }
+        .fsu-year-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1.5rem;
+          align-items: start;
+        }
+        .fsu-year-speakers {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.6rem;
+        }
+        @media (max-width: 860px) {
+          .fsu-year-grid { grid-template-columns: 1fr; }
+          .fsu-year-speakers { grid-template-columns: 1fr; }
+        }
       `}</style>
 
       <div className="fsu-page-bg" style={{ marginTop: "72px", minHeight: "100vh" }}>
@@ -213,7 +314,7 @@ export default function FarmstayUpdateClient() {
             style={{ display: "flex", justifyContent: "center", marginBottom: "2rem" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/logo-farmstay-update.png" alt="Farmstay Update" height={90} style={{ objectFit: "contain", filter: "drop-shadow(0 4px 20px rgba(76,175,80,0.25))" }} />
+            <img src="/images/logo-farmstay-update.png" alt="Farmstay Update" height={110} className="fsu-logo-hero" style={{ objectFit: "contain" }} />
           </motion.div>
 
           <motion.p
@@ -263,7 +364,7 @@ export default function FarmstayUpdateClient() {
         </section>
 
         {/* ══ STATS BAR ══ */}
-        <div style={{ background: "rgba(8,26,8,0.9)", borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}`, padding: "1.5rem 1rem" }}>
+        <div style={{ background: "rgba(8,26,8,0.9)", padding: "1.5rem 1rem" }}>
           <div style={{ maxWidth: "700px", margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,1fr)", textAlign: "center" }}>
             {[
               { num: "2+", label: "Mùa" },
@@ -347,7 +448,7 @@ export default function FarmstayUpdateClient() {
                     <span style={{ ...label, fontSize: "10px", marginBottom: 0, color: h.active ? C.orangeLight : C.green }}>{h.year}</span>
                     {h.active && <Badge color="orange">Sắp Diễn Ra</Badge>}
                   </div>
-                  <h3 style={{ ...heading, fontSize: "0.95rem", marginBottom: "0.25rem" }}>{h.title}</h3>
+                  <h3 style={{ ...heading, fontSize: "0.95rem", marginBottom: "0.25rem", ...(h.title.includes("Farmstay Update") ? { fontFamily: "'FSMagistral', var(--font-alegreya)" } : {}) }}>{h.title}</h3>
                   <p style={{ ...body, fontSize: "12px", margin: 0 }}>{h.desc}</p>
                 </div>
               </motion.div>
@@ -355,99 +456,108 @@ export default function FarmstayUpdateClient() {
           </div>
         </section>
 
-        {/* ══ CHI TIẾT 2026 ══ */}
-        <section id="chuong-trinh" style={{ background: "rgba(8,26,8,0.6)", borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}`, padding: "4rem 1.5rem" }}>
-          <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+        {/* ══ 2 NĂM SONG SONG ══ */}
+        <section id="chuong-trinh" style={{ padding: "4rem 1.5rem" }}>
+          <div style={{ maxWidth: "1300px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-              <span style={label}>Mùa 2 · Năm 2026</span>
-              <h2 style={{ ...heading, fontSize: "clamp(1.6rem,2.5vw,2.4rem)" }}>
-                <span className="fsu-orange-shimmer" style={{ fontFamily: "'FSMagistral', var(--font-alegreya)" }}>Farmstay Update 2026</span>
+              <span style={label}>Chi Tiết Từng Mùa</span>
+              <h2 style={{ ...heading, fontFamily: "'FSMagistral', var(--font-alegreya)", fontSize: "clamp(1.5rem,2.5vw,2.2rem)" }}>
+                Nội Dung Chương Trình
               </h2>
-              <p style={{ color: C.creamMuted, fontFamily: "var(--font-nunito)", fontSize: "13px", marginTop: "0.5rem" }}>
-                13–15 tháng 3 năm 2026 · Sản Việt Farm · Khánh Hòa
-              </p>
             </div>
 
-            {/* Info cards */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1rem", marginBottom: "3rem" }}>
-              {[
-                { title: "Thời Gian", detail: "13–15/03/2026", sub: "3 ngày 2 đêm" },
-                { title: "Địa Điểm", detail: "Sản Việt Farm", sub: "Ninh Hòa, Khánh Hòa" },
-                { title: "Chi Phí", detail: "8.100.000đ", sub: "Bao gồm lưu trú & ăn uống" },
-                { title: "Diễn Giả", detail: "8 Chuyên Đề", sub: "Chuyên gia hàng đầu" },
-              ].map((c, i) => (
-                <div key={i} style={{ background: C.bgCard, border: `1px solid ${C.borderOrange}`, borderRadius: "12px", padding: "1.25rem", textAlign: "center" }}>
-                  <span style={label}>{c.title}</span>
-                  <div style={{ color: C.cream, fontFamily: "var(--font-alegreya)", fontSize: "1.1rem", fontWeight: 700 }}>{c.detail}</div>
-                  <div style={{ ...body, fontSize: "11px", marginTop: "0.2rem" }}>{c.sub}</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Schedule */}
-            <h3 style={{ ...heading, fontSize: "1.1rem", marginBottom: "1.5rem", textAlign: "center" }}>Lịch Trình Chương Trình</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem" }}>
-              {SCHEDULE_2026.map((d, di) => (
-                <motion.div
-                  key={di}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: di * 0.1 }}
-                  style={{ background: C.bgCard, border: `1px solid ${C.border}`, borderRadius: "12px", overflow: "hidden" }}
-                >
-                  <div style={{ background: "rgba(76,175,80,0.12)", borderBottom: `1px solid ${C.border}`, padding: "0.75rem 1rem" }}>
-                    <div style={{ color: C.green, fontFamily: "var(--font-nunito)", fontSize: "9px", letterSpacing: "0.2em", textTransform: "uppercase" }}>{d.day}</div>
-                    <div style={{ color: C.cream, fontFamily: "var(--font-alegreya)", fontSize: "1rem", fontWeight: 700 }}>{d.date}</div>
-                  </div>
-                  <div style={{ padding: "0.75rem" }}>
-                    {d.items.map((item, ii) => (
-                      <div key={ii} style={{ display: "flex", gap: "0.6rem", padding: "0.5rem 0", borderBottom: ii < d.items.length - 1 ? `1px solid rgba(76,175,80,0.08)` : "none" }}>
-                        <span style={{ color: C.orange, fontFamily: "var(--font-nunito)", fontSize: "9px", letterSpacing: "0.05em", minWidth: "36px", marginTop: "2px", flexShrink: 0 }}>{item.time}</span>
-                        <p style={{ ...body, fontSize: "11.5px", margin: 0, lineHeight: 1.5 }}>{item.act}</p>
+            <div className="fsu-year-grid">
+              {(["2026", "2025"] as YearKey[]).map((year) => {
+                const y = YEAR_DATA[year];
+                const accent = y.status === "upcoming" ? C.orange : C.green;
+                const accentBorder = y.status === "upcoming" ? C.borderOrange : C.border;
+                const accentBg = y.status === "upcoming" ? "rgba(230,74,25,0.08)" : "rgba(76,175,80,0.08)";
+                return (
+                  <motion.div
+                    key={year}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                    style={{ background: "rgba(8,26,8,0.7)", borderRadius: "16px", border: `1px solid ${accentBorder}`, overflow: "hidden" }}
+                  >
+                    {/* Year header */}
+                    <div style={{ background: accentBg, padding: "1.25rem 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                      <h2 style={{ ...heading, fontFamily: "'FSMagistral', var(--font-alegreya)", fontSize: "2.8rem", margin: 0, color: accent }}>
+                        {year}
+                      </h2>
+                      <div style={{ textAlign: "right" }}>
+                        <Badge color={y.status === "upcoming" ? "orange" : "green"}>
+                          {y.status === "done" ? "✓ Đã Diễn Ra" : "Sắp Tới"}
+                        </Badge>
+                        <p style={{ ...body, fontSize: "11px", marginTop: "0.35rem", marginBottom: 0 }}>{y.dates} · {y.sublocation}</p>
                       </div>
-                    ))}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+                    </div>
 
-        {/* ══ DIỄN GIẢ ══ */}
-        <section style={{ maxWidth: "1100px", margin: "0 auto", padding: "4rem 1.5rem" }}>
-          <Divider />
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <span style={label}>Farmstay Update 2026</span>
-            <h2 style={{ ...heading, fontSize: "clamp(1.4rem,2.5vw,2rem)" }}>Diễn Giả Chuyên Đề</h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "1.25rem" }}>
-            {SPEAKERS_2026.map((s, i) => (
-              <motion.div
-                key={i}
-                className="fsu-speaker-card"
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: (i % 4) * 0.06 }}
-                style={{ background: C.bgCard, border: `1px solid ${C.borderOrange}`, borderRadius: "14px", padding: "1.5rem", position: "relative" }}
-              >
-                <div style={{ position: "absolute", top: "1rem", right: "1rem" }}>
-                  <Badge color="orange">{s.topic}</Badge>
-                </div>
-                <div style={{ width: "42px", height: "42px", borderRadius: "50%", background: "rgba(230,74,25,0.12)", border: `1px solid ${C.borderOrange}`, display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "0.75rem" }}>
-                  <span style={{ color: C.orangeLight, fontFamily: "var(--font-nunito)", fontWeight: 700, fontSize: "14px" }}>{s.name.charAt(0)}</span>
-                </div>
-                <h3 style={{ ...heading, fontSize: "0.95rem", marginBottom: "0.2rem", paddingRight: "4rem" }}>{s.name}</h3>
-                <p style={{ color: C.orange, fontFamily: "var(--font-nunito)", fontSize: "10px", letterSpacing: "0.05em", marginBottom: "0.6rem" }}>{s.role}</p>
-                <p style={{ ...body, fontSize: "12px", margin: 0 }}>{s.desc}</p>
-              </motion.div>
-            ))}
+                    <div style={{ padding: "1.25rem" }}>
+                      {/* Info mini cards */}
+                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.6rem", marginBottom: "1.5rem" }}>
+                        {[
+                          { t: "Chi Phí", v: y.cost },
+                          { t: "Diễn Giả", v: y.speakersLabel },
+                          { t: "Địa Điểm", v: y.location },
+                          { t: "Thời Lượng", v: "3 ngày 2 đêm" },
+                        ].map((c, i) => (
+                          <div key={i} style={{ background: C.bgCard, borderRadius: "8px", padding: "0.6rem 0.75rem", textAlign: "center" }}>
+                            <span style={{ ...label, fontSize: "8px", marginBottom: "0.2rem" }}>{c.t}</span>
+                            <div style={{ color: C.cream, fontFamily: "var(--font-alegreya)", fontSize: "0.9rem", fontWeight: 700 }}>{c.v}</div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Schedule */}
+                      <p style={{ ...label, color: accent, marginBottom: "0.6rem" }}>Lịch Trình</p>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", marginBottom: "1.5rem" }}>
+                        {y.schedule.map((d, di) => (
+                          <div key={di} style={{ background: C.bgCard, borderRadius: "10px", overflow: "hidden" }}>
+                            <div style={{ background: accentBg, padding: "0.45rem 0.75rem", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                              <span style={{ color: accent, fontFamily: "var(--font-nunito)", fontSize: "8px", letterSpacing: "0.18em", textTransform: "uppercase" }}>{d.day}</span>
+                              <span style={{ color: C.cream, fontFamily: "var(--font-alegreya)", fontSize: "0.82rem", fontWeight: 700 }}>{d.date}</span>
+                            </div>
+                            <div style={{ padding: "0.5rem 0.75rem" }}>
+                              {d.items.map((item, ii) => (
+                                <div key={ii} style={{ display: "flex", gap: "0.5rem", padding: "0.3rem 0", borderBottom: ii < d.items.length - 1 ? "1px solid rgba(255,255,255,0.04)" : "none" }}>
+                                  <span style={{ color: accent, fontFamily: "var(--font-nunito)", fontSize: "8px", minWidth: "34px", marginTop: "2px", flexShrink: 0 }}>{item.time}</span>
+                                  <p style={{ ...body, fontSize: "11px", margin: 0, lineHeight: 1.45 }}>{item.act}</p>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Speakers */}
+                      <p style={{ ...label, color: accent, marginBottom: "0.6rem" }}>Diễn Giả</p>
+                      <div className="fsu-year-speakers">
+                        {y.speakers.map((s, i) => (
+                          <div key={i} style={{ background: C.bgCard, border: `1px solid ${accentBorder}`, borderRadius: "9px", padding: "0.7rem" }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+                              <div style={{ width: "26px", height: "26px", borderRadius: "50%", background: accentBg, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                                <span style={{ color: accent, fontFamily: "var(--font-nunito)", fontWeight: 700, fontSize: "10px" }}>{s.name.charAt(0)}</span>
+                              </div>
+                              <div style={{ flex: 1, minWidth: 0 }}>
+                                <div style={{ color: C.cream, fontFamily: "var(--font-alegreya)", fontSize: "0.78rem", fontWeight: 700, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{s.name}</div>
+                                <div style={{ color: accent, fontFamily: "var(--font-nunito)", fontSize: "7.5px", letterSpacing: "0.05em", marginTop: "1px" }}>{s.topic}</div>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
         {/* ══ TÀI TRỢ ══ */}
-        <section style={{ background: "rgba(8,26,8,0.6)", borderTop: `1px solid ${C.border}`, padding: "4rem 1.5rem" }}>
+        <section style={{ background: "rgba(8,26,8,0.6)", padding: "4rem 1.5rem" }}>
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
               <span style={label}>Kêu Gọi Tài Trợ</span>
@@ -521,7 +631,7 @@ export default function FarmstayUpdateClient() {
           <Divider />
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
             <span style={label}>Đơn Vị Tổ Chức</span>
-            <h2 style={{ ...heading, fontSize: "clamp(1.3rem,2vw,1.8rem)" }}>Đứng Sau Farmstay Update</h2>
+            <h2 style={{ ...heading, fontFamily: "'FSMagistral', var(--font-alegreya)", fontSize: "clamp(1.3rem,2vw,1.8rem)" }}>Đứng Sau Farmstay Update</h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.25rem" }}>
             {[
@@ -551,7 +661,7 @@ export default function FarmstayUpdateClient() {
         </section>
 
         {/* ══ BOTTOM CTA ══ */}
-        <section style={{ padding: "5rem 1.5rem", textAlign: "center", borderTop: `1px solid ${C.border}`, background: "transparent" }}>
+        <section style={{ padding: "5rem 1.5rem", textAlign: "center", background: "transparent" }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

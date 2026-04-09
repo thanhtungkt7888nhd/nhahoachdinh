@@ -136,22 +136,6 @@ export default function Hero() {
           </Link>
         </motion.div>
 
-        {/* Scroll hint */}
-        <motion.div
-          className="absolute bottom-10 flex flex-col items-start gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          style={{ color: "rgba(196,154,40,0.45)" }}
-        >
-          <span className="font-sans text-[9px] uppercase tracking-[0.3em]">Cuộn xuống</span>
-          <motion.div
-            className="w-px h-8"
-            style={{ background: "rgba(196,154,40,0.5)" }}
-            animate={{ scaleY: [1, 0.3, 1], opacity: [0.4, 1, 0.4] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
       </motion.div>
 
       {/* ── RIGHT — full-bleed photo với overlay tối ─────────────────────── */}

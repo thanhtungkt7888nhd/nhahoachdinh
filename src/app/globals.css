@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── ClashGrotesk-Bold — Xuyên Việt Farmstay Brand Font ─────────────────── */
+@font-face {
+  font-family: 'ClashGrotesk-Bold';
+  src: url('/fonts/ClashGrotesk-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ─── Gold Shimmer Keyframes ──────────────────────────────────────────────── */
 @keyframes gold-shimmer {
   0%   { background-position: -200% center; }

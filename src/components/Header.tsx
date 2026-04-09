@@ -145,7 +145,7 @@ export default function Header() {
     >
       <div className="container-main flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex flex-col leading-none">
+        <Link href="/" className="flex flex-col leading-none" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <motion.span
             className="font-serif text-[1.44rem] font-semibold tracking-wide"
             animate={{ color: scrolled ? "#1C2A1C" : "#ffffff" }}

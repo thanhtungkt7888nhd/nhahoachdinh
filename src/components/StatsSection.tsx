@@ -5,7 +5,7 @@ import { useInView } from "framer-motion";
 import { FadeUp, StaggerParent, StaggerChild } from "@/components/animations";
 
 const stats = [
-  { number: 12,  suffix: "+", label: "Năm Kinh Nghiệm"         },
+  { number: 9,   suffix: "+", label: "Năm Kinh Nghiệm"         },
   { number: 100, suffix: "+", label: "Dự Án Farmstay & Du Lịch" },
   { number: 480, suffix: "+", label: "Bài Viết Chuyên Đề"        },
   { number: 30,  suffix: "+", label: "Tỉnh Thành Hợp Tác"        },

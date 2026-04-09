@@ -56,7 +56,16 @@ export default function Footer() {
           <div>
             <p className="section-label text-white/40 mb-5">Liên Hệ</p>
             <div className="space-y-3 font-sans text-sm text-white/60">
-              <p>{siteConfig.address}</p>
+              <p>
+                <a
+                  href="https://maps.google.com/?q=79+Ngô+Mây,+Cẩm+Lệ,+Đà+Nẵng"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  {siteConfig.address}
+                </a>
+              </p>
               <p>
                 <a href={`tel:${siteConfig.phone.replace(/\s/g,"")}`} className="hover:text-primary transition-colors">
                   {siteConfig.phone}
