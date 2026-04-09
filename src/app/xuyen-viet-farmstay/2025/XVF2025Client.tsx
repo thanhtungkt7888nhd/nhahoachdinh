@@ -40,17 +40,57 @@ const dividerStyle: React.CSSProperties = {
   margin: "1rem auto 2rem",
 };
 
-/* ─── X mark visual identity — dùng logo XVF thật ─── */
+/* ─── Logo helpers ─── */
+// Icon X đơn — dùng cho decorative, dividers, section headers
 function XMark({ size = 28, style = {} }: { size?: number; style?: React.CSSProperties }) {
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src="/images/logo-xvf.png"
+      src="/images/logo-xvf-icon.png"
       alt=""
       width={size}
       height={size}
       style={{ display: "inline-block", flexShrink: 0, objectFit: "contain", ...style }}
       aria-hidden="true"
+    />
+  );
+}
+
+// Logo ngang màu (icon + "uyên Việt FARMSTAY") — dùng nền sáng hoặc card
+function LogoColor({ height = 60, style = {} }: { height?: number; style?: React.CSSProperties }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/images/logo-xvf-horizontal-color.png"
+      alt="Xuyên Việt Farmstay"
+      height={height}
+      style={{ display: "block", objectFit: "contain", ...style }}
+    />
+  );
+}
+
+// Logo ngang trắng — dùng nền tối
+function LogoWhite({ height = 60, style = {} }: { height?: number; style?: React.CSSProperties }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/images/logo-xvf-horizontal-white.png"
+      alt="Xuyên Việt Farmstay"
+      height={height}
+      style={{ display: "block", objectFit: "contain", ...style }}
+    />
+  );
+}
+
+// Wordmark dài "Xuyên Việt Farmstay"
+function LogoWordmark({ height = 48, style = {} }: { height?: number; style?: React.CSSProperties }) {
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/images/logo-xvf-wordmark.png"
+      alt="Xuyên Việt Farmstay"
+      height={height}
+      style={{ display: "block", objectFit: "contain", ...style }}
     />
   );
 }
@@ -305,10 +345,20 @@ export default function XVF2025Client() {
           <div style={{ position: "absolute", bottom: "2rem", right: "5%", opacity: 0.06 }}><XMark size={60} /></div>
           <div style={{ position: "absolute", top: "40%", right: "12%", opacity: 0.04 }}><XMark size={100} /></div>
 
+          {/* Logo ngang trắng — nhận diện thương hiệu đầu trang */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            style={{ display: "flex", justifyContent: "center", marginBottom: "2rem" }}
+          >
+            <LogoWhite height={56} />
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             style={sectionLabel}
           >
             HÀNH TRÌNH · LẦN 3 · 2025
@@ -497,13 +547,10 @@ export default function XVF2025Client() {
               transition={{ duration: 0.7 }}
               style={{ display: "flex", justifyContent: "center" }}
             >
-              <div style={{ position: "relative", width: "220px", height: "220px", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/images/logo-xvf.png"
-                  alt="Logo Xuyên Việt Farmstay"
-                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
-                />
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem" }}>
+                <LogoColor height={100} />
+                <div style={{ width: "3rem", height: "1px", background: "rgba(196,154,40,0.3)" }} />
+                <XMark size={72} style={{ opacity: 0.85 }} />
               </div>
             </motion.div>
 
@@ -751,15 +798,9 @@ export default function XVF2025Client() {
                 <XMark size={60} />
               </div>
               <span style={sectionLabel}>Đơn Vị Tổ Chức</span>
-              <h3 style={{
-                ...goldShimmerStyle,
-                fontFamily: "var(--font-alegreya)",
-                fontSize: "1.8rem",
-                fontWeight: 700,
-                marginBottom: "0.75rem",
-              }}>
-                Defarm
-              </h3>
+              <div style={{ marginBottom: "0.75rem" }}>
+                <LogoWordmark height={36} />
+              </div>
               <p style={{ color: "#EDE0C4", fontFamily: "var(--font-nunito)", fontSize: "13px", lineHeight: 1.8, marginBottom: "0.75rem" }}>
                 Công ty Cổ phần Defarm — đơn vị tổ chức chính thức của chuỗi Xuyên Việt Farmstay.
               </p>
@@ -1083,11 +1124,10 @@ export default function XVF2025Client() {
                 borderRadius: "20px",
               }}
             >
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "1rem" }}>
-                <XMark size={24} />
-                <h3 style={{ ...sectionTitle, fontSize: "1.4rem", margin: 0 }}>Liên Hệ Để Tài Trợ</h3>
-                <XMark size={24} />
+              <div style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
+                <LogoColor height={52} />
               </div>
+              <h3 style={{ ...sectionTitle, fontSize: "1.4rem", textAlign: "center", marginBottom: "0.5rem" }}>Liên Hệ Để Tài Trợ</h3>
               <p style={{ color: "rgba(212,200,164,0.7)", fontFamily: "var(--font-nunito)", fontSize: "13px", maxWidth: "520px", margin: "0 auto 2rem", lineHeight: 1.8 }}>
                 Mọi thắc mắc và đăng ký thành <strong style={{ color: "#EDE0C4" }}>NHÀ TÀI TRỢ</strong> vui lòng liên hệ trực tiếp qua trang Liên Hệ hoặc số điện thoại BTC: <strong style={{ color: "#C49A28" }}>0333 889 873</strong>
               </p>
@@ -1129,6 +1169,9 @@ export default function XVF2025Client() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "1.5rem" }}>
+              <LogoWordmark height={40} />
+            </div>
             <p style={sectionLabel}>Hành Trình Tiếp Theo</p>
             <h2 style={{ ...sectionTitle, fontSize: "clamp(1.8rem, 3vw, 3rem)", marginBottom: "1rem" }}>
               Xuyên Việt Farmstay 2026
