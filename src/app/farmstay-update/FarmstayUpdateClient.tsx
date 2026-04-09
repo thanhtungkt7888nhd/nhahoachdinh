@@ -544,7 +544,7 @@ export default function FarmstayUpdateClient() {
         </section>
 
         {/* ══ BOTTOM CTA ══ */}
-        <section className="fsu-pattern-hero" style={{ padding: "5rem 1.5rem", textAlign: "center", borderTop: `1px solid ${C.border}` }}>
+        <section style={{ padding: "5rem 1.5rem", textAlign: "center", borderTop: `1px solid ${C.border}`, background: "transparent" }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
