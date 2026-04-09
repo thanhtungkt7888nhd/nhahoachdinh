@@ -227,17 +227,23 @@ export default function FarmstayUpdateClient() {
         }
         @keyframes fsu-logo-glow {
           0%, 100% {
-            filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45));
+            filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45)) brightness(1);
+          }
+          25% {
+            filter: drop-shadow(0 0 22px rgba(27,94,32,1)) drop-shadow(0 0 50px rgba(46,125,50,0.95)) drop-shadow(0 0 90px rgba(76,175,80,0.65)) brightness(1.15);
           }
           50% {
-            filter: drop-shadow(0 0 22px rgba(27,94,32,1)) drop-shadow(0 0 50px rgba(46,125,50,0.95)) drop-shadow(0 0 90px rgba(76,175,80,0.65));
+            filter: drop-shadow(0 0 18px rgba(27,94,32,0.98)) drop-shadow(0 0 40px rgba(46,125,50,0.85)) drop-shadow(0 0 75px rgba(76,175,80,0.55)) brightness(1.25);
+          }
+          75% {
+            filter: drop-shadow(0 0 22px rgba(27,94,32,1)) drop-shadow(0 0 50px rgba(46,125,50,0.95)) drop-shadow(0 0 90px rgba(76,175,80,0.65)) brightness(1.15);
           }
         }
         .fsu-logo-hero {
-          filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45));
-          -webkit-filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45));
-          animation: fsu-logo-glow 1.5s ease-in-out infinite;
-          will-change: filter;
+          filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45)) brightness(1);
+          -webkit-filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45)) brightness(1);
+          animation: fsu-logo-glow 5s linear infinite, fsu-pulse 4s ease-in-out infinite;
+          will-change: filter, opacity;
         }
         .fsu-page-bg {
           background-image: url("/images/pattern-fsu-01.png");
