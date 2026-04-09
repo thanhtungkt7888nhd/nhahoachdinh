@@ -117,6 +117,18 @@ function XuyenVietBtn({ onClick, href, style = {} }: { onClick?: () => void; hre
   return <button onClick={onClick} style={base}>Xuyên Việt Ngay ✕</button>;
 }
 
+/* ─── Section divider: đường kẻ + logo XVF nhỏ ở giữa ─── */
+function SectionDivider() {
+  return (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem", padding: "1rem 1.5rem", maxWidth: "700px", margin: "0 auto" }}>
+      <div style={{ flex: 1, height: "1px", background: "linear-gradient(to right, transparent, rgba(196,154,40,0.45))" }} />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/images/logo-xvf-icon.png" alt="" width={30} height={30} style={{ opacity: 0.45, objectFit: "contain", flexShrink: 0 }} />
+      <div style={{ flex: 1, height: "1px", background: "linear-gradient(to left, transparent, rgba(196,154,40,0.45))" }} />
+    </div>
+  );
+}
+
 /* ─── Section wrapper ─── */
 function Section({ id, children, style = {} }: { id?: string; children: React.ReactNode; style?: React.CSSProperties }) {
   return (
@@ -340,11 +352,6 @@ export default function XVF2025Client() {
       >
         {/* ══ HERO ══ */}
         <section className="xvf-pattern-squares" style={{ padding: "6rem 1.5rem 4rem", textAlign: "center", position: "relative", overflow: "hidden" }}>
-          {/* Background X marks */}
-          <div style={{ position: "absolute", top: "2rem", left: "5%", opacity: 0.06 }}><XMark size={80} /></div>
-          <div style={{ position: "absolute", bottom: "2rem", right: "5%", opacity: 0.06 }}><XMark size={60} /></div>
-          <div style={{ position: "absolute", top: "40%", right: "12%", opacity: 0.04 }}><XMark size={100} /></div>
-
           {/* Logo ngang trắng — nhận diện thương hiệu đầu trang */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -484,10 +491,8 @@ export default function XVF2025Client() {
         {/* ══ THÔNG ĐIỆP NHÀ SÁNG LẬP ══ */}
         <section style={{ padding: "5rem 1.5rem", borderBottom: "1px solid rgba(196,154,40,0.1)" }}>
           <div style={{ maxWidth: "780px", margin: "0 auto", textAlign: "center" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "2rem" }}>
-              <XMark size={22} />
+            <div style={{ marginBottom: "2rem" }}>
               <span style={sectionLabel}>Thông Điệp Nhà Sáng Lập</span>
-              <XMark size={22} />
             </div>
 
             <motion.blockquote
@@ -547,10 +552,8 @@ export default function XVF2025Client() {
               transition={{ duration: 0.7 }}
               style={{ display: "flex", justifyContent: "center" }}
             >
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem" }}>
-                <LogoColor height={100} />
-                <div style={{ width: "3rem", height: "1px", background: "rgba(196,154,40,0.3)" }} />
-                <XMark size={72} style={{ opacity: 0.85 }} />
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <LogoWhite height={110} />
               </div>
             </motion.div>
 
@@ -579,20 +582,11 @@ export default function XVF2025Client() {
           </div>
         </Section>
 
-        {/* X mark divider */}
-        <div style={{ textAlign: "center", padding: "0 0 2rem", opacity: 0.3 }}>
-          <XMark size={36} />
-        </div>
-
         {/* ══ 6 MỤC TIÊU ══ */}
         <section style={{ background: "rgba(6,14,5,0.6)", borderTop: "1px solid rgba(196,154,40,0.1)", borderBottom: "1px solid rgba(196,154,40,0.1)", padding: "5rem 1.5rem" }}>
           <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "0.5rem" }}>
-                <XMark size={18} />
-                <span style={sectionLabel}>6 Mục Tiêu Chính</span>
-                <XMark size={18} />
-              </div>
+              <span style={sectionLabel}>6 Mục Tiêu Chính</span>
               <h2 style={sectionTitle}>Chúng Tôi Đến Để Làm Gì?</h2>
               <div style={dividerStyle} />
             </div>
@@ -637,14 +631,11 @@ export default function XVF2025Client() {
           </div>
         </section>
 
+        <SectionDivider />
         {/* ══ LỢI ÍCH CỘNG ĐỒNG ══ */}
         <Section>
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "0.5rem" }}>
-              <XMark size={18} />
-              <span style={sectionLabel}>Lợi Ích Cho Cộng Đồng</span>
-              <XMark size={18} />
-            </div>
+            <span style={sectionLabel}>Lợi Ích Cho Cộng Đồng</span>
             <h2 style={sectionTitle}>Tác Động Lan Toả</h2>
             <div style={dividerStyle} />
           </div>
@@ -679,11 +670,7 @@ export default function XVF2025Client() {
         <section className="xvf-pattern-squares-gold" style={{ background: "rgba(6,14,5,0.5)", borderTop: "1px solid rgba(196,154,40,0.1)", borderBottom: "1px solid rgba(196,154,40,0.1)", padding: "5rem 1.5rem" }}>
           <div style={{ maxWidth: "900px", margin: "0 auto" }}>
             <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "0.5rem" }}>
-                <XMark size={18} />
-                <span style={sectionLabel}>Lịch Sử & Nguồn Gốc</span>
-                <XMark size={18} />
-              </div>
+              <span style={sectionLabel}>Lịch Sử & Nguồn Gốc</span>
               <h2 style={sectionTitle}>3 Mùa Hành Trình</h2>
               <div style={dividerStyle} />
             </div>
@@ -776,6 +763,7 @@ export default function XVF2025Client() {
           </div>
         </section>
 
+        <SectionDivider />
         {/* ══ ĐƠN VỊ TỔ CHỨC ══ */}
         <Section>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem" }}>
@@ -794,9 +782,6 @@ export default function XVF2025Client() {
                 overflow: "hidden",
               }}
             >
-              <div style={{ position: "absolute", top: "1rem", right: "1rem", opacity: 0.08 }}>
-                <XMark size={60} />
-              </div>
               <span style={sectionLabel}>Đơn Vị Tổ Chức</span>
               <div style={{ marginBottom: "0.75rem" }}>
                 <LogoWordmark height={36} />
@@ -841,9 +826,6 @@ export default function XVF2025Client() {
                 overflow: "hidden",
               }}
             >
-              <div style={{ position: "absolute", top: "1rem", right: "1rem", opacity: 0.08 }}>
-                <XMark size={60} />
-              </div>
               <span style={sectionLabel}>Thương Hiệu Chỉ Đạo</span>
               <h3 style={{
                 ...goldShimmerStyle,
@@ -879,14 +861,7 @@ export default function XVF2025Client() {
           </div>
         </Section>
 
-        {/* X mark divider */}
-        <div style={{ textAlign: "center", padding: "0 0 3rem", opacity: 0.25 }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem" }}>
-            <div style={{ flex: 1, maxWidth: "200px", height: "1px", background: "rgba(196,154,40,0.2)" }} />
-            <XMark size={32} />
-            <div style={{ flex: 1, maxWidth: "200px", height: "1px", background: "rgba(196,154,40,0.2)" }} />
-          </div>
-        </div>
+        <SectionDivider />
 
         {/* ══ KÊU GỌI TÀI TRỢ ══ */}
         <section
@@ -902,11 +877,7 @@ export default function XVF2025Client() {
           <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
             {/* Header */}
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1rem", marginBottom: "0.5rem" }}>
-                <XMark size={18} />
-                <span style={sectionLabel}>Kêu Gọi Tài Trợ</span>
-                <XMark size={18} />
-              </div>
+              <span style={sectionLabel}>Kêu Gọi Tài Trợ</span>
               <h2 style={sectionTitle}>Cùng Nhau Xây Dựng<br />Du Lịch Nông Nghiệp Việt Nam</h2>
               <div style={dividerStyle} />
             </div>
@@ -945,10 +916,7 @@ export default function XVF2025Client() {
 
             {/* Nhóm 1: Đón đoàn */}
             <div style={{ marginBottom: "4rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-                <XMark size={20} />
-                <h3 style={{ ...sectionTitle, fontSize: "1.3rem" }}>Nhóm 1 · Tài Trợ Đón Đoàn</h3>
-              </div>
+              <h3 style={{ ...sectionTitle, fontSize: "1.3rem", marginBottom: "1.5rem" }}>Nhóm 1 · Tài Trợ Đón Đoàn</h3>
               <p style={{ color: "rgba(212,200,164,0.65)", fontFamily: "var(--font-nunito)", fontSize: "14px", marginBottom: "2rem", maxWidth: "680px", lineHeight: 1.9 }}>
                 Farmstay và trang trại dọc tuyến đường xuyên Việt từng năm hãy đón tiếp đoàn XVF, ban đầu với tinh thần của những người bạn với nhau. Chúng tôi, đơn vị tổ chức thông thường là chi trả chi phí đầy đủ. Tuy nhiên, nếu các điểm đến muốn là <strong style={{ color: "#EDE0C4" }}>NHÀ TÀI TRỢ</strong> thì hình thức tài trợ có mấy cách như sau:
               </p>
@@ -976,7 +944,7 @@ export default function XVF2025Client() {
                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                       {pkg.benefits.map((b) => (
                         <li key={b} style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start", marginBottom: "0.4rem" }}>
-                          <XMark size={12} style={{ marginTop: "2px", flexShrink: 0 }} />
+                          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4CAF50", flexShrink: 0, marginTop: "6px", display: "inline-block" }} />
                           <span style={{ color: "rgba(212,200,164,0.75)", fontFamily: "var(--font-nunito)", fontSize: "12px", lineHeight: 1.6 }}>{b}</span>
                         </li>
                       ))}
@@ -988,10 +956,7 @@ export default function XVF2025Client() {
 
             {/* Nhóm 2: Hiện vật */}
             <div style={{ marginBottom: "4rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-                <XMark size={20} />
-                <h3 style={{ ...sectionTitle, fontSize: "1.3rem" }}>Nhóm 2 · Tài Trợ Hiện Vật</h3>
-              </div>
+              <h3 style={{ ...sectionTitle, fontSize: "1.3rem", marginBottom: "1.5rem" }}>Nhóm 2 · Tài Trợ Hiện Vật</h3>
               <p style={{ color: "rgba(212,200,164,0.65)", fontFamily: "var(--font-nunito)", fontSize: "13px", marginBottom: "2rem", maxWidth: "600px" }}>
                 Tài trợ sản phẩm, hàng hóa phục vụ trực tiếp cho đoàn hành trình Xuyên Việt Farmstay.
               </p>
@@ -1038,7 +1003,7 @@ export default function XVF2025Client() {
                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                       {pkg.items.map((item) => (
                         <li key={item} style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start", marginBottom: "0.5rem" }}>
-                          <XMark size={12} style={{ marginTop: "2px", flexShrink: 0 }} />
+                          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4CAF50", flexShrink: 0, marginTop: "6px", display: "inline-block" }} />
                           <span style={{ color: "rgba(212,200,164,0.75)", fontFamily: "var(--font-nunito)", fontSize: "12px", lineHeight: 1.6 }}>{item}</span>
                         </li>
                       ))}
@@ -1050,10 +1015,7 @@ export default function XVF2025Client() {
 
             {/* Nhóm 3: Hiện kim */}
             <div style={{ marginBottom: "4rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-                <XMark size={20} />
-                <h3 style={{ ...sectionTitle, fontSize: "1.3rem" }}>Nhóm 3 · Tài Trợ Hiện Kim</h3>
-              </div>
+              <h3 style={{ ...sectionTitle, fontSize: "1.3rem", marginBottom: "1.5rem" }}>Nhóm 3 · Tài Trợ Hiện Kim</h3>
               <p style={{ color: "rgba(212,200,164,0.65)", fontFamily: "var(--font-nunito)", fontSize: "13px", marginBottom: "2rem", maxWidth: "600px" }}>
                 Tài trợ tài chính trực tiếp cho chi phí vận hành hành trình Xuyên Việt Farmstay 2025.
               </p>
@@ -1100,7 +1062,7 @@ export default function XVF2025Client() {
                     <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
                       {pkg.items.map((item) => (
                         <li key={item} style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start", marginBottom: "0.5rem" }}>
-                          <XMark size={12} style={{ marginTop: "2px", flexShrink: 0 }} />
+                          <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#4CAF50", flexShrink: 0, marginTop: "6px", display: "inline-block" }} />
                           <span style={{ color: "rgba(212,200,164,0.75)", fontFamily: "var(--font-nunito)", fontSize: "12px", lineHeight: 1.6 }}>{item}</span>
                         </li>
                       ))}
