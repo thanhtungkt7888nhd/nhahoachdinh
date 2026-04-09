@@ -72,7 +72,7 @@ function DesktopDropdown({ link, scrolled, index }: { link: NavLink; scrolled: b
           "font-sans font-semibold text-xs uppercase tracking-[0.2em] relative group transition-opacity hover:opacity-75 flex items-center gap-1 cursor-pointer",
           scrolled ? "gold-shine-subtle" : "gold-shine"
         )}
-        style={{ background: "none", border: "none", padding: 0 }}
+        style={{ backgroundColor: "transparent", border: "none", padding: 0 }}
         onClick={() => setOpen((v) => !v)}
         aria-haspopup="true"
         aria-expanded={open}
@@ -218,7 +218,7 @@ export default function Header() {
                       <button
                         onClick={() => setMobileExpanded(mobileExpanded === l.href ? null : l.href)}
                         className="font-sans font-semibold text-xs uppercase tracking-[0.2em] text-charcoal hover:text-primary transition-colors py-1 flex items-center gap-1 w-full text-left cursor-pointer"
-                        style={{ background: "none", border: "none" }}
+                        style={{ backgroundColor: "transparent", border: "none" }}
                       >
                         {l.label}
                         <span style={{ fontSize: "12px", transition: "transform 0.2s", transform: mobileExpanded === l.href ? "rotate(180deg)" : "rotate(0deg)" }}>▾</span>
