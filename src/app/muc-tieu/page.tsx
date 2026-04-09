@@ -1,55 +1,23 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import ToiLamClient from "@/app/toi-lam/ToiLamClient";
 
 export const metadata: Metadata = {
-  title: "Mục Tiêu Của Tôi | Phạm Thanh Tùng",
+  title: "Mục Tiêu Của Tôi | Phạm Thanh Tùng · Nhà Hoạch Định",
+  description:
+    "Tầm nhìn, sứ mệnh và các tầng tác động của Phạm Thanh Tùng — từ nền tảng chuyên môn, cộng đồng thực hành đến nhận thức quốc gia về du lịch nông nghiệp bền vững.",
+  keywords: [
+    "mục tiêu Phạm Thanh Tùng", "tầm nhìn farmstay", "sứ mệnh nhà hoạch định",
+    "du lịch nông nghiệp Việt Nam", "chiến lược farmstay",
+  ],
+  alternates: { canonical: "https://nhahoachdinh.com/muc-tieu" },
+  openGraph: {
+    title: "Mục Tiêu Của Tôi — Phạm Thanh Tùng · Nhà Hoạch Định",
+    description: "Tầng tác, tầm nhìn và con đường mình đang đi để Việt Nam trở thành quốc gia Du lịch Nông nghiệp.",
+    url: "https://nhahoachdinh.com/muc-tieu",
+    images: [{ url: "https://nhahoachdinh.com/og-home.jpg", width: 1200, height: 630 }],
+  },
 };
 
 export default function MucTieuPage() {
-  return (
-    <div
-      style={{
-        marginTop: "72px",
-        background: "#0A1208",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "4rem 1.5rem",
-        textAlign: "center",
-      }}
-    >
-      <h1
-        style={{
-          fontFamily: "var(--font-alegreya)",
-          color: "#EDE0C4",
-          fontSize: "clamp(2rem,4vw,3rem)",
-          fontWeight: 700,
-          marginBottom: "1rem",
-        }}
-      >
-        Mục Tiêu Của Tôi
-      </h1>
-      <p style={{ color: "#D4C8A4", fontFamily: "var(--font-nunito)", fontSize: "14px", marginBottom: "2.5rem" }}>
-        Đang cập nhật · Sắp ra mắt
-      </p>
-      <Link
-        href="/"
-        style={{
-          color: "#C49A28",
-          fontFamily: "var(--font-nunito)",
-          fontSize: "12px",
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          textDecoration: "none",
-          border: "1px solid rgba(196,154,40,0.4)",
-          padding: "10px 24px",
-          borderRadius: "6px",
-        }}
-      >
-        ← Trang Chủ
-      </Link>
-    </div>
-  );
+  return <ToiLamClient />;
 }
