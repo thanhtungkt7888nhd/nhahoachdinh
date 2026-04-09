@@ -47,7 +47,7 @@ function Divider() {
     <div style={{ display: "flex", alignItems: "center", gap: "1.25rem", padding: "2.5rem 0", maxWidth: "500px", margin: "0 auto" }}>
       <div style={{ flex: 1, height: "1px", background: `linear-gradient(to right, transparent, ${C.green}44)` }} />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/LOGO Farmstay Update 01.png" alt="" width={24} height={24} style={{ opacity: 0.35, objectFit: "contain" }} />
+      <img src="/images/logo-farmstay-update.png" alt="" width={24} height={24} style={{ opacity: 0.35, objectFit: "contain" }} />
       <div style={{ flex: 1, height: "1px", background: `linear-gradient(to left, transparent, ${C.green}44)` }} />
     </div>
   );
@@ -206,7 +206,7 @@ export default function FarmstayUpdateClient() {
             style={{ display: "flex", justifyContent: "center", marginBottom: "2rem" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/LOGO Farmstay Update 01.png" alt="Farmstay Update" height={90} style={{ objectFit: "contain", filter: "drop-shadow(0 4px 20px rgba(76,175,80,0.25))" }} />
+            <img src="/images/logo-farmstay-update.png" alt="Farmstay Update" height={90} style={{ objectFit: "contain", filter: "drop-shadow(0 4px 20px rgba(76,175,80,0.25))" }} />
           </motion.div>
 
           <motion.p
@@ -552,7 +552,7 @@ export default function FarmstayUpdateClient() {
             style={{ maxWidth: "560px", margin: "0 auto" }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/LOGO Farmstay Update 01.png" alt="" height={60} style={{ objectFit: "contain", opacity: 0.85, marginBottom: "1.5rem" }} />
+            <img src="/images/logo-farmstay-update.png" alt="" height={60} style={{ objectFit: "contain", opacity: 0.85, marginBottom: "1.5rem" }} />
             <h2 style={{ ...heading, fontSize: "clamp(1.4rem,2.5vw,2rem)", marginBottom: "1rem" }}>
               Bạn Có Sẵn Sàng Tham Gia?
             </h2>
