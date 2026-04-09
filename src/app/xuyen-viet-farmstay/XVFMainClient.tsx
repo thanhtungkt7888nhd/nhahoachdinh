@@ -688,7 +688,7 @@ export default function XVFMainClient() {
             </div>
 
             {/* 4 cards — click dẫn vào trang hành trình từng năm */}
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "1.25rem" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.25rem" }}>
               {[
                 { year: "2023", label: "Lần 1", route: "TP.HCM → Hà Nội", desc: "Chuyến xuyên Việt đầu tiên trong lịch sử ngành farmstay.", status: "done", href: "/xuyen-viet-farmstay/2023" },
                 { year: "2024", label: "Lần 2", route: "Hà Nội → TP.HCM", desc: "Hành trình ngược chiều, mở rộng mạng lưới toàn quốc.", status: "done", href: "/xuyen-viet-farmstay/2024" },
@@ -711,6 +711,7 @@ export default function XVFMainClient() {
                     padding: "1.75rem",
                     animation: t.status === "open" ? "glow-pulse 3s ease-in-out infinite" : "none",
                     cursor: "pointer",
+                    ...(t.status === "open" ? { gridColumn: "1 / -1" } : {}),
                   }}
                 >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
