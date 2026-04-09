@@ -134,6 +134,13 @@ export default function FarmstayUpdateClient() {
   return (
     <>
       <style>{`
+        @font-face {
+          font-family: 'FSMagistral';
+          src: url('/fonts/fs-magistral-bold.ttf') format('truetype');
+          font-weight: 700;
+          font-style: normal;
+          font-display: swap;
+        }
         @keyframes fsu-shimmer {
           0% { background-position: 0% center; }
           100% { background-position: 300% center; }
@@ -219,7 +226,7 @@ export default function FarmstayUpdateClient() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
             className="fsu-green-shimmer"
-            style={{ ...heading, fontSize: "clamp(2.2rem,5vw,4rem)", marginBottom: "1rem", animation: "fsu-shimmer 5s linear infinite, fsu-pulse 4s ease-in-out infinite" }}
+            style={{ ...heading, fontFamily: "'FSMagistral', var(--font-alegreya)", fontSize: "clamp(2.2rem,5vw,4rem)", marginBottom: "1rem", animation: "fsu-shimmer 5s linear infinite, fsu-pulse 4s ease-in-out infinite" }}
           >
             Farmstay Update
           </motion.h1>
@@ -277,7 +284,7 @@ export default function FarmstayUpdateClient() {
           <Divider />
           <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
             <span style={label}>Giới Thiệu Chương Trình</span>
-            <h2 style={{ ...heading, fontSize: "clamp(1.5rem,2.5vw,2.2rem)" }}>Farmstay Update Là Gì?</h2>
+            <h2 style={{ ...heading, fontFamily: "'FSMagistral', var(--font-alegreya)", fontSize: "clamp(1.5rem,2.5vw,2.2rem)" }}>Farmstay Update Là Gì?</h2>
             <div style={{ width: "2.5rem", height: "2px", background: C.orange, margin: "0.75rem auto 0" }} />
           </div>
           <p style={{ ...body, fontSize: "14px", textAlign: "center", lineHeight: 1.9 }}>
@@ -354,7 +361,7 @@ export default function FarmstayUpdateClient() {
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
               <span style={label}>Mùa 2 · Năm 2026</span>
               <h2 style={{ ...heading, fontSize: "clamp(1.6rem,2.5vw,2.4rem)" }}>
-                <span className="fsu-orange-shimmer">Farmstay Update 2026</span>
+                <span className="fsu-orange-shimmer" style={{ fontFamily: "'FSMagistral', var(--font-alegreya)" }}>Farmstay Update 2026</span>
               </h2>
               <p style={{ color: C.creamMuted, fontFamily: "var(--font-nunito)", fontSize: "13px", marginTop: "0.5rem" }}>
                 13–15 tháng 3 năm 2026 · Sản Việt Farm · Khánh Hòa
