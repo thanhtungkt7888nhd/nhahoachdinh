@@ -1125,7 +1125,7 @@ export default function XVF2025Client() {
               }}
             >
               <div style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
-                <LogoColor height={52} />
+                <LogoWhite height={64} />
               </div>
               <h3 style={{ ...sectionTitle, fontSize: "1.4rem", textAlign: "center", marginBottom: "0.5rem" }}>Liên Hệ Để Tài Trợ</h3>
               <p style={{ color: "rgba(212,200,164,0.7)", fontFamily: "var(--font-nunito)", fontSize: "13px", maxWidth: "520px", margin: "0 auto 2rem", lineHeight: 1.8 }}>
