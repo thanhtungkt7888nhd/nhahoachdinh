@@ -17,9 +17,24 @@ export const siteConfig = {
   },
 };
 
-export const navLinks = [
+export type NavLink = {
+  label: string;
+  href: string;
+  children?: Array<{ label: string; href: string }>;
+};
+
+export const navLinks: NavLink[] = [
   { label: "Về Tôi", href: "/ve-toi" },
-  { label: "Tôi Làm", href: "/toi-lam" },
+  {
+    label: "Tôi Làm",
+    href: "/toi-lam",
+    children: [
+      { label: "Mục Tiêu Của Tôi", href: "/muc-tieu" },
+      { label: "Xuyên Việt Farmstay", href: "/xuyen-viet-farmstay" },
+      { label: "Farmstay Update", href: "/farmstay-update" },
+      { label: "Tư Vấn / Cố Vấn", href: "/tu-van" },
+    ],
+  },
   { label: "Chia Sẻ", href: "/chia-se-kien-thuc" },
   { label: "Sách Farmstay", href: "/sach-farmstay" },
   { label: "Thông Tin", href: "/lien-he" },
