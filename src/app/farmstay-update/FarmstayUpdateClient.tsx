@@ -147,13 +147,13 @@ export default function FarmstayUpdateClient() {
           50% { box-shadow: 0 0 0 6px rgba(230,74,25,0), 0 4px 24px rgba(230,74,25,0.45); }
         }
         .fsu-page-bg {
-          background-image: url("/images/PATTERN%20FARMSTAY%20UPDATE%2001.png");
+          background-image: url("/images/pattern-fsu-01.png");
           background-size: cover;
           background-attachment: fixed;
           background-position: center;
         }
         .fsu-pattern-hero {
-          background-image: url("/images/PATTERN%20FARMSTAY%20UPDATE%2001.png");
+          background-image: url("/images/pattern-fsu-01.png");
           background-size: cover;
           background-position: center;
         }
