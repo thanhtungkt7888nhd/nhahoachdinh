@@ -298,6 +298,10 @@ export default function XVFMainClient() {
           0%, 100% { box-shadow: 0 0 14px rgba(196,154,40,0.25); }
           50% { box-shadow: 0 0 30px rgba(196,154,40,0.55); }
         }
+        @keyframes xvf-title-pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.72; }
+        }
         @keyframes xvf-btn-pulse {
           0%, 100% { box-shadow: 0 0 0 0 rgba(196,154,40,0.5), 0 4px 16px rgba(196,154,40,0.3); opacity: 1; }
           50% { box-shadow: 0 0 0 8px rgba(196,154,40,0), 0 4px 24px rgba(196,154,40,0.6); opacity: 0.88; }
@@ -863,7 +867,14 @@ export default function XVFMainClient() {
             {/* Header */}
             <div style={{ textAlign: "center", marginBottom: "4rem" }}>
               <span style={sectionLabel}>Kêu Gọi Tài Trợ</span>
-              <h2 style={sectionTitle}>Cùng Nhau Xây Dựng<br />Du Lịch Nông Nghiệp Việt Nam</h2>
+              <h2 style={{
+                ...goldShimmerStyle,
+                fontFamily: "var(--font-alegreya)",
+                fontSize: "clamp(1.6rem,2.5vw,2.4rem)",
+                fontWeight: 700,
+                marginBottom: "0",
+                animation: "gold-shimmer 5s linear infinite, xvf-title-pulse 3.5s ease-in-out infinite",
+              }}>Cùng Nhau Xây Dựng<br />Du Lịch Nông Nghiệp Việt Nam</h2>
               <div style={dividerStyle} />
             </div>
 
