@@ -1,68 +1,35 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import XVFJournalClient, { type JournalConfig } from "../XVFJournalClient";
 
 export const metadata: Metadata = {
-  title: "Xuyên Việt Farmstay 2023 | Phạm Thanh Tùng",
+  title: "Xuyên Việt Farmstay 2023 | Phạm Thanh Tùng · Nhà Hoạch Định",
+  description:
+    "Nhật ký hành trình Xuyên Việt Farmstay lần 1 — 2023: Những farmstay và trang trại đầu tiên trên tuyến đường xuyên Việt.",
+  keywords: ["Xuyên Việt Farmstay 2023", "farmstay Việt Nam", "hành trình 2023", "Phạm Thanh Tùng"],
+  alternates: { canonical: "https://nhahoachdinh.com/xuyen-viet-farmstay/2023" },
+  openGraph: {
+    title: "Xuyên Việt Farmstay 2023 — Lần 1 · Hành Trình Đầu Tiên",
+    description: "Nhật ký hành trình lần 1: những farmstay và trang trại đầu tiên trên tuyến đường xuyên Việt.",
+    url: "https://nhahoachdinh.com/xuyen-viet-farmstay/2023",
+  },
 };
 
-const goldShimmerStyle: React.CSSProperties = {
-  background:
-    "linear-gradient(90deg,#6A4C10 0%,#A07820 20%,#C49A28 35%,#D4B050 50%,#C49A28 65%,#A07820 80%,#6A4C10 100%)",
-  backgroundSize: "300% auto",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
-  animation: "gold-shimmer 5s linear infinite",
+const config: JournalConfig = {
+  year: "2023",
+  edition: "Lần 1",
+  route: "Hành trình xuyên Việt — Lần đầu tiên",
+  dateRange: "Năm 2023",
+  stats: [
+    { num: "Lần 1", label: "Hành Trình" },
+    { num: "20+", label: "Farm" },
+    { num: "10+", label: "Tỉnh Thành" },
+  ],
+  summary:
+    "Lần đầu tiên đặt chân lên hành trình xuyên Việt để tìm kiếm và kết nối với những farmstay, trang trại dọc tuyến đường Bắc – Nam. Đây là nơi mà ý tưởng Xuyên Việt Farmstay được chứng minh là có thể trở thành hiện thực.",
+  stops: [],
+  nextYear: { year: "2024", href: "/xuyen-viet-farmstay/2024" },
 };
 
 export default function XVF2023Page() {
-  return (
-    <>
-      <style>{`
-        @keyframes gold-shimmer {
-          0% { background-position: 0% center; }
-          100% { background-position: 300% center; }
-        }
-      `}</style>
-      <div
-        style={{
-          marginTop: "72px",
-          background: "#0A1208",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "4rem 1.5rem",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ ...goldShimmerStyle, fontFamily: "var(--font-alegreya)", fontSize: "5rem", fontWeight: 700, marginBottom: "1rem" }}>
-          2023
-        </div>
-        <h1 style={{ fontFamily: "var(--font-alegreya)", color: "#EDE0C4", fontSize: "clamp(1.8rem,3vw,2.5rem)", fontWeight: 700, marginBottom: "1rem" }}>
-          Xuyên Việt Farmstay 2023
-        </h1>
-        <p style={{ color: "#D4C8A4", fontFamily: "var(--font-nunito)", fontSize: "14px", marginBottom: "2.5rem" }}>
-          Trang đang được xây dựng · Sắp ra mắt
-        </p>
-        <Link
-          href="/xuyen-viet-farmstay"
-          style={{
-            color: "#C49A28",
-            fontFamily: "var(--font-nunito)",
-            fontSize: "12px",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            textDecoration: "none",
-            border: "1px solid rgba(196,154,40,0.4)",
-            padding: "10px 24px",
-            borderRadius: "6px",
-          }}
-        >
-          ← Quay Lại
-        </Link>
-      </div>
-    </>
-  );
+  return <XVFJournalClient config={config} />;
 }

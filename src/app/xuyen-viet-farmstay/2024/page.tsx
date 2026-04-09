@@ -1,68 +1,36 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import XVFJournalClient, { type JournalConfig } from "../XVFJournalClient";
 
 export const metadata: Metadata = {
-  title: "Xuyên Việt Farmstay 2024 | Phạm Thanh Tùng",
+  title: "Xuyên Việt Farmstay 2024 | Phạm Thanh Tùng · Nhà Hoạch Định",
+  description:
+    "Nhật ký hành trình Xuyên Việt Farmstay lần 2 — 2024: Mở rộng tuyến đường, thêm nhiều farmstay và tỉnh thành mới.",
+  keywords: ["Xuyên Việt Farmstay 2024", "farmstay Việt Nam", "hành trình 2024", "Phạm Thanh Tùng"],
+  alternates: { canonical: "https://nhahoachdinh.com/xuyen-viet-farmstay/2024" },
+  openGraph: {
+    title: "Xuyên Việt Farmstay 2024 — Lần 2 · Mở Rộng Hành Trình",
+    description: "Nhật ký hành trình lần 2: mở rộng tuyến đường, thêm nhiều farmstay và tỉnh thành mới.",
+    url: "https://nhahoachdinh.com/xuyen-viet-farmstay/2024",
+  },
 };
 
-const goldShimmerStyle: React.CSSProperties = {
-  background:
-    "linear-gradient(90deg,#6A4C10 0%,#A07820 20%,#C49A28 35%,#D4B050 50%,#C49A28 65%,#A07820 80%,#6A4C10 100%)",
-  backgroundSize: "300% auto",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
-  animation: "gold-shimmer 5s linear infinite",
+const config: JournalConfig = {
+  year: "2024",
+  edition: "Lần 2",
+  route: "Hành trình xuyên Việt — Mùa thứ hai",
+  dateRange: "Năm 2024",
+  stats: [
+    { num: "Lần 2", label: "Hành Trình" },
+    { num: "30+", label: "Farm" },
+    { num: "15+", label: "Tỉnh Thành" },
+  ],
+  summary:
+    "Mùa thứ hai, hành trình được mở rộng hơn với nhiều điểm dừng mới, nhiều tỉnh thành hơn và mạng lưới farmstay dày đặc hơn dọc tuyến đường xuyên Việt. Từng bước xây dựng bản đồ du lịch nông nghiệp Việt Nam.",
+  stops: [],
+  prevYear: { year: "2023", href: "/xuyen-viet-farmstay/2023" },
+  nextYear: { year: "2025", href: "/xuyen-viet-farmstay/2025" },
 };
 
 export default function XVF2024Page() {
-  return (
-    <>
-      <style>{`
-        @keyframes gold-shimmer {
-          0% { background-position: 0% center; }
-          100% { background-position: 300% center; }
-        }
-      `}</style>
-      <div
-        style={{
-          marginTop: "72px",
-          background: "#0A1208",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "4rem 1.5rem",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ ...goldShimmerStyle, fontFamily: "var(--font-alegreya)", fontSize: "5rem", fontWeight: 700, marginBottom: "1rem" }}>
-          2024
-        </div>
-        <h1 style={{ fontFamily: "var(--font-alegreya)", color: "#EDE0C4", fontSize: "clamp(1.8rem,3vw,2.5rem)", fontWeight: 700, marginBottom: "1rem" }}>
-          Xuyên Việt Farmstay 2024
-        </h1>
-        <p style={{ color: "#D4C8A4", fontFamily: "var(--font-nunito)", fontSize: "14px", marginBottom: "2.5rem" }}>
-          Trang đang được xây dựng · Sắp ra mắt
-        </p>
-        <Link
-          href="/xuyen-viet-farmstay"
-          style={{
-            color: "#C49A28",
-            fontFamily: "var(--font-nunito)",
-            fontSize: "12px",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            textDecoration: "none",
-            border: "1px solid rgba(196,154,40,0.4)",
-            padding: "10px 24px",
-            borderRadius: "6px",
-          }}
-        >
-          ← Quay Lại
-        </Link>
-      </div>
-    </>
-  );
+  return <XVFJournalClient config={config} />;
 }
