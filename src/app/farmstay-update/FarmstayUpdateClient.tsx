@@ -147,13 +147,15 @@ export default function FarmstayUpdateClient() {
           50% { box-shadow: 0 0 0 6px rgba(230,74,25,0), 0 4px 24px rgba(230,74,25,0.45); }
         }
         .fsu-page-bg {
-          background-color: ${C.bg};
-          background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='24,2 46,24 24,46 2,24' fill='none' stroke='rgba(76,175,80,0.08)' stroke-width='0.8'/%3E%3Cpolygon points='24,10 38,24 24,38 10,24' fill='none' stroke='rgba(76,175,80,0.05)' stroke-width='0.8'/%3E%3Cpolygon points='24,18 30,24 24,30 18,24' fill='none' stroke='rgba(76,175,80,0.03)' stroke-width='0.8'/%3E%3Ccircle cx='24' cy='24' r='1' fill='rgba(76,175,80,0.06)'/%3E%3C/svg%3E");
-          background-size: 48px 48px;
+          background-image: url("/images/PATTERN%20FARMSTAY%20UPDATE%2001.png");
+          background-size: cover;
+          background-attachment: fixed;
+          background-position: center;
         }
         .fsu-pattern-hero {
-          background-image: url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='42' height='42' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='0.8'/%3E%3Crect x='7' y='7' width='30' height='30' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='0.8'/%3E%3Crect x='14' y='14' width='16' height='16' fill='none' stroke='rgba(255,255,255,0.02)' stroke-width='0.8'/%3E%3Ccircle cx='22' cy='22' r='1.2' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
-          background-size: 44px 44px;
+          background-image: url("/images/PATTERN%20FARMSTAY%20UPDATE%2002.png");
+          background-size: cover;
+          background-position: center;
         }
         .fsu-green-shimmer {
           background: linear-gradient(90deg,#1B5E20 0%,#388E3C 20%,#66BB6A 40%,#81C784 50%,#66BB6A 60%,#388E3C 80%,#1B5E20 100%);
