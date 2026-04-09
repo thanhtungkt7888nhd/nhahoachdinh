@@ -39,8 +39,8 @@ function DesktopDropdown({ link, scrolled, index }: { link: NavLink; scrolled: b
     return (
       <motion.div
         key={link.href}
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ delay: 0.1 + index * 0.07, duration: 0.5, ease: easeOut }}
       >
         <Link
@@ -60,8 +60,8 @@ function DesktopDropdown({ link, scrolled, index }: { link: NavLink; scrolled: b
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ delay: 0.1 + index * 0.07, duration: 0.5, ease: easeOut }}
       style={{ position: "relative" }}
       onMouseEnter={() => setOpen(true)}
