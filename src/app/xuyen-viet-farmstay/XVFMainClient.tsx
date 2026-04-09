@@ -326,6 +326,13 @@ export default function XVFMainClient() {
           background-size: 48px 48px;
         }
 
+        /* Nền toàn trang: màu GAM ĐẬM + diamonds-gold phủ toàn bộ */
+        .xvf-page-bg {
+          background-color: #0A1208;
+          background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='24,2 46,24 24,46 2,24' fill='none' stroke='rgba(196,154,40,0.12)' stroke-width='0.8'/%3E%3Cpolygon points='24,10 38,24 24,38 10,24' fill='none' stroke='rgba(196,154,40,0.08)' stroke-width='0.8'/%3E%3Cpolygon points='24,18 30,24 24,30 18,24' fill='none' stroke='rgba(196,154,40,0.05)' stroke-width='0.8'/%3E%3Ccircle cx='24' cy='24' r='1' fill='rgba(196,154,40,0.1)'/%3E%3C/svg%3E");
+          background-size: 48px 48px;
+        }
+
         .xvf25-btn-ghost {
           background: transparent;
           color: #EDE0C4;
@@ -349,9 +356,9 @@ export default function XVFMainClient() {
       `}</style>
 
       <div
+        className="xvf-page-bg"
         style={{
           marginTop: "72px",
-          background: "linear-gradient(180deg, #060E05 0%, #0A1208 30%, #0D1A0C 100%)",
           minHeight: "100vh",
         }}
       >

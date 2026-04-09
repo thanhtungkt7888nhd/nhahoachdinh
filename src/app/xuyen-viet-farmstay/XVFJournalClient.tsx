@@ -54,12 +54,21 @@ export default function XVFJournalClient({ config }: { config: JournalConfig }) 
           0% { background-position: 0% center; }
           100% { background-position: 300% center; }
         }
+        .xvf-page-bg {
+          background-color: #0A1208;
+          background-image: url("data:image/svg+xml,%3Csvg width='48' height='48' viewBox='0 0 48 48' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='24,2 46,24 24,46 2,24' fill='none' stroke='rgba(196,154,40,0.12)' stroke-width='0.8'/%3E%3Cpolygon points='24,10 38,24 24,38 10,24' fill='none' stroke='rgba(196,154,40,0.08)' stroke-width='0.8'/%3E%3Cpolygon points='24,18 30,24 24,30 18,24' fill='none' stroke='rgba(196,154,40,0.05)' stroke-width='0.8'/%3E%3Ccircle cx='24' cy='24' r='1' fill='rgba(196,154,40,0.1)'/%3E%3C/svg%3E");
+          background-size: 48px 48px;
+        }
+        .xvf-pattern-squares {
+          background-image: url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='1' y='1' width='42' height='42' fill='none' stroke='rgba(255,255,255,0.055)' stroke-width='0.8'/%3E%3Crect x='7' y='7' width='30' height='30' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='0.8'/%3E%3Crect x='14' y='14' width='16' height='16' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='0.8'/%3E%3Ccircle cx='22' cy='22' r='1.2' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E");
+          background-size: 44px 44px;
+        }
       `}</style>
 
       <div
+        className="xvf-page-bg"
         style={{
           marginTop: "72px",
-          background: "linear-gradient(180deg, #060E05 0%, #0A1208 30%, #0D1A0C 100%)",
           minHeight: "100vh",
         }}
       >
