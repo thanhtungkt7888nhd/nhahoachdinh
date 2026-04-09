@@ -1,68 +1,23 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import XVF2025Client from "./XVF2025Client";
 
 export const metadata: Metadata = {
-  title: "Xuyên Việt Farmstay 2025 | Phạm Thanh Tùng",
-};
-
-const goldShimmerStyle: React.CSSProperties = {
-  background:
-    "linear-gradient(90deg,#6A4C10 0%,#A07820 20%,#C49A28 35%,#D4B050 50%,#C49A28 65%,#A07820 80%,#6A4C10 100%)",
-  backgroundSize: "300% auto",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
-  animation: "gold-shimmer 5s linear infinite",
+  title: "Xuyên Việt Farmstay 2025 | Phạm Thanh Tùng · Nhà Hoạch Định",
+  description:
+    "Hành trình Xuyên Việt Farmstay lần 3 — 2025: 15 ngày, 35+ farm, 16+ tỉnh thành dọc Quốc lộ 1A. Giới thiệu chương trình, mục tiêu, lợi ích và thông tin tài trợ.",
+  keywords: [
+    "Xuyên Việt Farmstay 2025", "hành trình farmstay Việt Nam", "du lịch nông nghiệp",
+    "Phạm Thanh Tùng", "Defarm", "tài trợ farmstay", "XVF 2025",
+  ],
+  alternates: { canonical: "https://nhahoachdinh.com/xuyen-viet-farmstay/2025" },
+  openGraph: {
+    title: "Xuyên Việt Farmstay 2025 — Lần 3 · 35 Farm · 15 Ngày",
+    description: "Hành trình xuyên Việt quy mô nhất: 15 ngày, 35 điểm đón, hơn 16 tỉnh thành dọc QL1A. Cùng Phạm Thanh Tùng xây dựng Du lịch Nông nghiệp Việt Nam.",
+    url: "https://nhahoachdinh.com/xuyen-viet-farmstay/2025",
+    images: [{ url: "https://nhahoachdinh.com/og-home.jpg", width: 1200, height: 630 }],
+  },
 };
 
 export default function XVF2025Page() {
-  return (
-    <>
-      <style>{`
-        @keyframes gold-shimmer {
-          0% { background-position: 0% center; }
-          100% { background-position: 300% center; }
-        }
-      `}</style>
-      <div
-        style={{
-          marginTop: "72px",
-          background: "#0A1208",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "4rem 1.5rem",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ ...goldShimmerStyle, fontFamily: "var(--font-alegreya)", fontSize: "5rem", fontWeight: 700, marginBottom: "1rem" }}>
-          2025
-        </div>
-        <h1 style={{ fontFamily: "var(--font-alegreya)", color: "#EDE0C4", fontSize: "clamp(1.8rem,3vw,2.5rem)", fontWeight: 700, marginBottom: "1rem" }}>
-          Xuyên Việt Farmstay 2025
-        </h1>
-        <p style={{ color: "#D4C8A4", fontFamily: "var(--font-nunito)", fontSize: "14px", marginBottom: "2.5rem" }}>
-          Trang đang được xây dựng · Sắp ra mắt
-        </p>
-        <Link
-          href="/xuyen-viet-farmstay"
-          style={{
-            color: "#C49A28",
-            fontFamily: "var(--font-nunito)",
-            fontSize: "12px",
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            textDecoration: "none",
-            border: "1px solid rgba(196,154,40,0.4)",
-            padding: "10px 24px",
-            borderRadius: "6px",
-          }}
-        >
-          ← Quay Lại
-        </Link>
-      </div>
-    </>
-  );
+  return <XVF2025Client />;
 }
