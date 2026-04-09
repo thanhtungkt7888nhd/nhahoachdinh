@@ -895,8 +895,8 @@ export default function XVF2025Client() {
                 <XMark size={20} />
                 <h3 style={{ ...sectionTitle, fontSize: "1.3rem" }}>Nhóm 1 · Tài Trợ Đón Đoàn</h3>
               </div>
-              <p style={{ color: "rgba(212,200,164,0.65)", fontFamily: "var(--font-nunito)", fontSize: "13px", marginBottom: "2rem", maxWidth: "600px" }}>
-                Farmstay và trang trại dọc QL1A đón tiếp đoàn XVF — hình thức tài trợ có giá trị trải nghiệm thực tế nhất.
+              <p style={{ color: "rgba(212,200,164,0.65)", fontFamily: "var(--font-nunito)", fontSize: "14px", marginBottom: "2rem", maxWidth: "680px", lineHeight: 1.9 }}>
+                Farmstay và trang trại dọc tuyến đường xuyên Việt từng năm hãy đón tiếp đoàn XVF, ban đầu với tinh thần của những người bạn với nhau. Chúng tôi, đơn vị tổ chức thông thường là chi trả chi phí đầy đủ. Tuy nhiên, nếu các điểm đến muốn là <strong style={{ color: "#EDE0C4" }}>NHÀ TÀI TRỢ</strong> thì hình thức tài trợ có mấy cách như sau:
               </p>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1.25rem" }}>
                 {donDoanPackages.map((pkg, i) => (
