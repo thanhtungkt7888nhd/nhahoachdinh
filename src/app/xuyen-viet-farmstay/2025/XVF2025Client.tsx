@@ -99,7 +99,7 @@ function LogoWordmark({ height = 48, style = {} }: { height?: number; style?: Re
 function XuyenVietBtn({ onClick, href, style = {} }: { onClick?: () => void; href?: string; style?: React.CSSProperties }) {
   const base: React.CSSProperties = {
     background: "#C49A28",
-    color: "#0A1208",
+    color: "#ffffff",
     fontFamily: "var(--font-nunito)",
     fontWeight: 700,
     fontSize: "12px",
@@ -111,6 +111,7 @@ function XuyenVietBtn({ onClick, href, style = {} }: { onClick?: () => void; hre
     cursor: "pointer",
     display: "inline-block",
     textDecoration: "none",
+    animation: "xvf-btn-pulse 2s ease-in-out infinite",
     ...style,
   };
   if (href) return <Link href={href} style={base}>Xuyên Việt Ngay ✕</Link>;
@@ -296,6 +297,10 @@ export default function XVF2025Client() {
         @keyframes glow-pulse {
           0%, 100% { box-shadow: 0 0 14px rgba(196,154,40,0.25); }
           50% { box-shadow: 0 0 30px rgba(196,154,40,0.55); }
+        }
+        @keyframes xvf-btn-pulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(196,154,40,0.5), 0 4px 16px rgba(196,154,40,0.3); opacity: 1; }
+          50% { box-shadow: 0 0 0 8px rgba(196,154,40,0), 0 4px 24px rgba(196,154,40,0.6); opacity: 0.88; }
         }
 
         /* XVF Brand Pattern 1: nested squares (dùng ở Hero & Lịch sử) */
@@ -1094,7 +1099,7 @@ export default function XVF2025Client() {
                 Mọi thắc mắc và đăng ký thành <strong style={{ color: "#EDE0C4" }}>NHÀ TÀI TRỢ</strong> vui lòng liên hệ trực tiếp qua trang Liên Hệ hoặc số điện thoại BTC: <strong style={{ color: "#C49A28" }}>0333 889 873</strong>
               </p>
               <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-                <XuyenVietBtn href="/lien-he" style={{ background: "#C49A28", color: "#0A1208" }} />
+                <XuyenVietBtn href="/lien-he" />
                 <Link
                   href="/xuyen-viet-farmstay"
                   className="xvf25-btn-ghost"
