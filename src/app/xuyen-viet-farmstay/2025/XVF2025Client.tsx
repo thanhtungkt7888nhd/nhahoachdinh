@@ -40,19 +40,18 @@ const dividerStyle: React.CSSProperties = {
   margin: "1rem auto 2rem",
 };
 
-/* ─── X mark visual identity ─── */
+/* ─── X mark visual identity — dùng logo XVF thật ─── */
 function XMark({ size = 28, style = {} }: { size?: number; style?: React.CSSProperties }) {
   return (
-    <svg
-      viewBox="0 0 40 40"
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/images/logo-xvf.png"
+      alt=""
       width={size}
       height={size}
-      style={{ display: "inline-block", flexShrink: 0, ...style }}
+      style={{ display: "inline-block", flexShrink: 0, objectFit: "contain", ...style }}
       aria-hidden="true"
-    >
-      <line x1="2" y1="2" x2="38" y2="38" stroke="#C49A28" strokeWidth="4" strokeLinecap="round" />
-      <line x1="38" y1="2" x2="2" y2="38" stroke="#C49A28" strokeWidth="4" strokeLinecap="round" />
-    </svg>
+    />
   );
 }
 
@@ -498,24 +497,13 @@ export default function XVF2025Client() {
               transition={{ duration: 0.7 }}
               style={{ display: "flex", justifyContent: "center" }}
             >
-              <div style={{ position: "relative", width: "200px", height: "200px" }}>
-                <svg viewBox="0 0 200 200" style={{ width: "100%", height: "100%" }}>
-                  <line x1="10" y1="10" x2="190" y2="190" stroke="#C49A28" strokeWidth="8" strokeLinecap="round" opacity="0.8" />
-                  <line x1="190" y1="10" x2="10" y2="190" stroke="#C49A28" strokeWidth="8" strokeLinecap="round" opacity="0.8" />
-                  <circle cx="100" cy="100" r="90" fill="none" stroke="rgba(196,154,40,0.15)" strokeWidth="2" />
-                  <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(196,154,40,0.08)" strokeWidth="2" />
-                </svg>
-                <div style={{
-                  position: "absolute",
-                  inset: 0,
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}>
-                  <span style={{ fontFamily: "var(--font-alegreya)", fontSize: "13px", letterSpacing: "0.15em", color: "#C49A28", textTransform: "uppercase", textAlign: "center", lineHeight: 1.6 }}>
-                    XVF<br />2025
-                  </span>
-                </div>
+              <div style={{ position: "relative", width: "220px", height: "220px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/logo-xvf.png"
+                  alt="Logo Xuyên Việt Farmstay"
+                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
+                />
               </div>
             </motion.div>
 
@@ -1132,8 +1120,8 @@ export default function XVF2025Client() {
 
         {/* ══ BOTTOM CTA ══ */}
         <section className="xvf-pattern-diamonds-gold" style={{ padding: "6rem 1.5rem", textAlign: "center", position: "relative", overflow: "hidden" }}>
-          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", opacity: 0.03, pointerEvents: "none" }}>
-            <XMark size={400} />
+          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", opacity: 0.06, pointerEvents: "none" }}>
+            <XMark size={360} />
           </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
