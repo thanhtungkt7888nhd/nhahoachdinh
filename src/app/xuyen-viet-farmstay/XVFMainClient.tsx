@@ -6,13 +6,8 @@ import { useRef } from "react";
 
 /* ─── Shared style helpers ─── */
 const goldShimmerStyle: React.CSSProperties = {
-  background:
-    "linear-gradient(90deg,#6A4C10 0%,#A07820 20%,#C49A28 35%,#D4B050 50%,#C49A28 65%,#A07820 80%,#6A4C10 100%)",
-  backgroundSize: "300% auto",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
-  animation: "gold-shimmer 5s linear infinite",
+  color: "#D4B050",
+  WebkitTextFillColor: "#D4B050",
 };
 
 const sectionLabel: React.CSSProperties = {
@@ -873,7 +868,6 @@ export default function XVFMainClient() {
                 fontSize: "clamp(1.6rem,2.5vw,2.4rem)",
                 fontWeight: 700,
                 marginBottom: "0",
-                animation: "gold-shimmer 5s linear infinite, xvf-title-pulse 3.5s ease-in-out infinite",
               }}>Cùng Nhau Xây Dựng<br />Du Lịch Nông Nghiệp Việt Nam</h2>
               <div style={dividerStyle} />
             </div>

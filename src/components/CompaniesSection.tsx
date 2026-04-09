@@ -12,15 +12,13 @@ export default function CompaniesSection() {
       id="viec-toi-lam"
       className="relative py-24 md:py-32 bg-navy text-white overflow-hidden"
     >
-      {/* Subtle animated gradient orbs */}
-      <motion.div
+      {/* Subtle gradient orbs — static */}
+      <div
         className="absolute inset-0 opacity-10 pointer-events-none"
         style={{
           backgroundImage:
             "radial-gradient(circle at 20% 50%, #C8A84B 0%, transparent 50%), radial-gradient(circle at 80% 20%, #4E7040 0%, transparent 50%)",
         }}
-        animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       />
 
       <div className="container-main relative z-10">

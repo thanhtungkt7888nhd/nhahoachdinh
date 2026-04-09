@@ -347,11 +347,9 @@ export default function VeToiClient() {
         style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
       >
         {/* BG orb */}
-        <motion.div
+        <div
           className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle at 70% 40%, #C8A84B 0%, transparent 55%)", opacity: 0.08 }}
-          animate={{ scale: [1, 1.12, 1], opacity: [0.07, 0.13, 0.07] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
         />
 
         <div className="container-main relative z-10 w-full">
@@ -823,8 +821,6 @@ export default function VeToiClient() {
                       onClick={() => setSelectedTeacher(null)}
                       className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full"
                       style={{ border: "2px solid #C8A84B", color: "#C8A84B" }}
-                      animate={{ boxShadow: ["0 0 0px 0px rgba(200,168,75,0)", "0 0 12px 4px rgba(200,168,75,0.5)", "0 0 0px 0px rgba(200,168,75,0)"] }}
-                      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
                       whileHover={{ scale: 1.1, backgroundColor: "rgba(200,168,75,0.15)" }}
                     >
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -874,11 +870,9 @@ export default function VeToiClient() {
         className="py-24 md:py-32 relative overflow-hidden scroll-mt-[88px]"
         style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #1D3A1D 100%)" }}
       >
-        <motion.div
+        <div
           className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle at 30% 60%, #C8A84B 0%, transparent 50%)", opacity: 0.07 }}
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="container-main relative z-10">
           <div className="text-center mb-14">
@@ -949,8 +943,6 @@ export default function VeToiClient() {
                       onClick={() => setSelectedPrinciple(null)}
                       className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full"
                       style={{ border: "2px solid #C8A84B", color: "#C8A84B" }}
-                      animate={{ boxShadow: ["0 0 0px 0px rgba(200,168,75,0)", "0 0 12px 4px rgba(200,168,75,0.5)", "0 0 0px 0px rgba(200,168,75,0)"] }}
-                      transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
                       whileHover={{ scale: 1.1, backgroundColor: "rgba(200,168,75,0.15)" }}
                     >
                       <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">

@@ -225,13 +225,7 @@ function ArticleCard({ article }: { article: Article }) {
         {/* Arrow with slide animation */}
         <span className="font-sans font-semibold text-xs uppercase tracking-[0.2em] text-primary group-hover:text-brown transition-colors duration-300 flex items-center gap-2">
           Đọc Thêm
-          <motion.span
-            className="inline-block"
-            animate={{ x: [0, 4, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          >
-            →
-          </motion.span>
+          <span>→</span>
         </span>
       </Link>
     </motion.div>

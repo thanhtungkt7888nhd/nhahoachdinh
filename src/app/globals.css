@@ -11,21 +11,7 @@
   font-display: swap;
 }
 
-/* ─── Gold Shimmer Keyframes ──────────────────────────────────────────────── */
-@keyframes gold-shimmer {
-  0%   { background-position: -200% center; }
-  100% { background-position:  200% center; }
-}
-
-@keyframes gold-pulse {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0.75; }
-}
-
-@keyframes gold-border-pulse {
-  0%, 100% { border-color: #C8A84B; box-shadow: 0 0 0px 0px rgba(200,168,75,0); }
-  50%       { border-color: #F0D075; box-shadow: 0 0 14px 3px rgba(200,168,75,0.30); }
-}
+/* ─── Gold Static (no animation — performance) ────────────────────────────── */
 
 @layer base {
   html {
@@ -43,41 +29,16 @@
     @apply max-w-container mx-auto px-6 lg:px-10;
   }
 
-  /* ── Ánh Kim Vàng — dùng trên nền tối (hero, companies, testimonials) */
+  /* ── Ánh Kim Vàng — tĩnh (không animation) */
   .gold-shine {
-    background: linear-gradient(
-      120deg,
-      #9A7A2E 0%,
-      #C8A84B 20%,
-      #F0D075 40%,
-      #FFF0A0 50%,
-      #F0D075 60%,
-      #C8A84B 80%,
-      #9A7A2E 100%
-    );
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gold-shimmer 5s linear infinite;
+    color: #D4AF50;
+    -webkit-text-fill-color: #D4AF50;
   }
 
-  /* ── Ánh Kim Vàng nhẹ — dùng trên nền sáng */
+  /* ── Ánh Kim Vàng nhẹ — tĩnh (không animation) */
   .gold-shine-subtle {
-    background: linear-gradient(
-      120deg,
-      #8A6B1A 0%,
-      #C8A84B 25%,
-      #E8C860 45%,
-      #D4AF40 55%,
-      #C8A84B 75%,
-      #8A6B1A 100%
-    );
-    background-size: 300% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gold-shimmer 6s linear infinite;
+    color: #C8A84B;
+    -webkit-text-fill-color: #C8A84B;
   }
 
   /* Vàng lúa chín — primary CTA outline button */
@@ -124,7 +85,6 @@
            transition-all duration-300;
     background-color: #1D3A1D;
     border-color: #C8A84B;
-    animation: gold-border-pulse 3s ease-in-out infinite;
   }
   .btn-lienhe:hover {
     background-color: #2A5228;

@@ -10,7 +10,6 @@ const goldShimmerStyle: React.CSSProperties = {
   WebkitBackgroundClip: "text",
   WebkitTextFillColor: "transparent",
   backgroundClip: "text",
-  animation: "gold-shimmer 5s linear infinite",
 };
 
 const seasons = [

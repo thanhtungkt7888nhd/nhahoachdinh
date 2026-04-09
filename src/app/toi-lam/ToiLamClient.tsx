@@ -103,9 +103,8 @@ export default function ToiLamClient() {
           <Image src="/images/event-bds-589.jpg" alt="Phạm Thanh Tùng trên sân khấu" fill className="object-cover object-top opacity-30" sizes="100vw" priority />
           <div className="absolute inset-0 bg-gradient-to-r from-[#1C2A1C]/95 via-[#1C2A1C]/70 to-[#1C2A1C]/40" />
         </div>
-        <motion.div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, #C8A84B 0%, transparent 55%)", opacity: 0.07 }}
-          animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} />
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(circle at 20% 50%, #C8A84B 0%, transparent 55%)", opacity: 0.07 }} />
 
         <div className="container-main relative z-10 py-24">
           <motion.p className="gold-shine font-sans font-semibold uppercase tracking-[0.3em] text-sm mb-4"
@@ -535,9 +534,8 @@ export default function ToiLamClient() {
       <section className="relative py-28 md:py-36 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #1C2A1C 0%, #141e14 100%)" }}>
         {/* Subtle radial glow */}
-        <motion.div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(200,168,75,0.07) 0%, transparent 70%)" }}
-          animate={{ opacity: [0.6, 1, 0.6] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} />
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(200,168,75,0.07) 0%, transparent 70%)" }} />
 
         <div className="container-main max-w-5xl relative z-10">
           {/* Header */}
@@ -716,9 +714,8 @@ export default function ToiLamClient() {
           <Image src="/images/event-bds-589.jpg" alt="Phạm Thanh Tùng trên sân khấu" fill className="object-cover object-top opacity-20" sizes="100vw" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(28,42,28,0.7), #1C2A1C)" }} />
         </div>
-        <motion.div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: "radial-gradient(circle at 50% 40%, #C8A84B 0%, transparent 60%)", opacity: 0.08 }}
-          animate={{ scale: [1, 1.15, 1] }} transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }} />
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ backgroundImage: "radial-gradient(circle at 50% 40%, #C8A84B 0%, transparent 60%)", opacity: 0.08 }} />
 
         <div className="container-main relative z-10 max-w-3xl text-center">
           <FadeUp>

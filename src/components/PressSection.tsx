@@ -50,12 +50,7 @@ export default function PressSection() {
                 {/* Read arrow — always at bottom */}
                 <span className="inline-flex items-center gap-1.5 font-sans text-[10px] font-semibold uppercase tracking-widest text-primary/50 group-hover:text-primary transition-colors duration-300 mt-2">
                   Đọc bài
-                  <motion.span
-                    animate={{ x: [0, 3, 0] }}
-                    transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-                  >
-                    →
-                  </motion.span>
+                  <span>→</span>
                 </span>
 
                 {/* Bottom line reveal on hover */}

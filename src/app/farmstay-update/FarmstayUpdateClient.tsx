@@ -213,42 +213,12 @@ export default function FarmstayUpdateClient() {
           font-style: normal;
           font-display: swap;
         }
-        @keyframes fsu-shimmer {
-          0% { background-position: 0% center; }
-          100% { background-position: 300% center; }
-        }
-        @keyframes fsu-pulse {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.7; }
-        }
-        @keyframes fsu-glow {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(230,74,25,0.35), 0 4px 16px rgba(230,74,25,0.2); }
-          50% { box-shadow: 0 0 0 6px rgba(230,74,25,0), 0 4px 24px rgba(230,74,25,0.45); }
-        }
-        @keyframes fsu-logo-glow {
-          0%, 100% {
-            filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45)) brightness(1);
-          }
-          25% {
-            filter: drop-shadow(0 0 22px rgba(27,94,32,1)) drop-shadow(0 0 50px rgba(46,125,50,0.95)) drop-shadow(0 0 90px rgba(76,175,80,0.65)) brightness(1.15);
-          }
-          50% {
-            filter: drop-shadow(0 0 18px rgba(27,94,32,0.98)) drop-shadow(0 0 40px rgba(46,125,50,0.85)) drop-shadow(0 0 75px rgba(76,175,80,0.55)) brightness(1.25);
-          }
-          75% {
-            filter: drop-shadow(0 0 22px rgba(27,94,32,1)) drop-shadow(0 0 50px rgba(46,125,50,0.95)) drop-shadow(0 0 90px rgba(76,175,80,0.65)) brightness(1.15);
-          }
-        }
         .fsu-logo-hero {
-          filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45)) brightness(1);
-          -webkit-filter: drop-shadow(0 0 12px rgba(27,94,32,0.95)) drop-shadow(0 0 28px rgba(46,125,50,0.75)) drop-shadow(0 0 55px rgba(76,175,80,0.45)) brightness(1);
-          animation: fsu-logo-glow 5s linear infinite, fsu-pulse 4s ease-in-out infinite;
-          will-change: filter, opacity;
+          filter: drop-shadow(0 0 8px rgba(27,94,32,0.6));
         }
         .fsu-page-bg {
           background-image: url("/images/pattern-fsu-01.png");
           background-size: cover;
-          background-attachment: fixed;
           background-position: center;
         }
         .fsu-pattern-hero {
@@ -257,20 +227,12 @@ export default function FarmstayUpdateClient() {
           background-position: center;
         }
         .fsu-green-shimmer {
-          background: linear-gradient(90deg,#1B5E20 0%,#388E3C 20%,#66BB6A 40%,#81C784 50%,#66BB6A 60%,#388E3C 80%,#1B5E20 100%);
-          background-size: 300% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: fsu-shimmer 5s linear infinite;
+          color: #66BB6A;
+          -webkit-text-fill-color: #66BB6A;
         }
         .fsu-orange-shimmer {
-          background: linear-gradient(90deg,#BF360C 0%,#D84315 20%,#FF5722 40%,#FF8A65 50%,#FF5722 60%,#D84315 80%,#BF360C 100%);
-          background-size: 300% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: fsu-shimmer 4s linear infinite;
+          color: #FF5722;
+          -webkit-text-fill-color: #FF5722;
         }
         .fsu-card:hover { border-color: rgba(76,175,80,0.4) !important; transform: translateY(-2px); transition: all 0.25s ease; }
         .fsu-speaker-card:hover { border-color: rgba(230,74,25,0.4) !important; transform: translateY(-2px); transition: all 0.25s ease; }
@@ -288,9 +250,8 @@ export default function FarmstayUpdateClient() {
           border: none;
           cursor: pointer;
           text-decoration: none;
-          animation: fsu-glow 2.5s ease-in-out infinite;
         }
-        .fsu-register-btn:hover { opacity: 0.9; }
+        .fsu-register-btn:hover { opacity: 0.85; transform: translateY(-1px); transition: all 0.2s ease; }
         .fsu-year-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -333,7 +294,7 @@ export default function FarmstayUpdateClient() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.6 }}
             className="fsu-green-shimmer"
-            style={{ ...heading, fontFamily: "'FSMagistral', var(--font-alegreya)", fontSize: "clamp(2.2rem,5vw,4rem)", marginBottom: "1rem", animation: "fsu-shimmer 5s linear infinite, fsu-pulse 4s ease-in-out infinite" }}
+            style={{ ...heading, fontFamily: "'FSMagistral', var(--font-alegreya)", fontSize: "clamp(2.2rem,5vw,4rem)", marginBottom: "1rem" }}
           >
             Farmstay Update
           </motion.h1>
