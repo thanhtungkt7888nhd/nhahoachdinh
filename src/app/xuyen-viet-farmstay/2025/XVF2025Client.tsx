@@ -1075,8 +1075,8 @@ export default function XVF2025Client() {
                 <h3 style={{ ...sectionTitle, fontSize: "1.4rem", margin: 0 }}>Liên Hệ Để Tài Trợ</h3>
                 <XMark size={24} />
               </div>
-              <p style={{ color: "rgba(212,200,164,0.7)", fontFamily: "var(--font-nunito)", fontSize: "13px", maxWidth: "500px", margin: "0 auto 2rem", lineHeight: 1.7 }}>
-                Mọi thắc mắc và đăng ký tài trợ vui lòng liên hệ trực tiếp qua trang Liên Hệ hoặc fanpage Defarm.
+              <p style={{ color: "rgba(212,200,164,0.7)", fontFamily: "var(--font-nunito)", fontSize: "13px", maxWidth: "520px", margin: "0 auto 2rem", lineHeight: 1.8 }}>
+                Mọi thắc mắc và đăng ký thành <strong style={{ color: "#EDE0C4" }}>NHÀ TÀI TRỢ</strong> vui lòng liên hệ trực tiếp qua trang Liên Hệ hoặc số điện thoại BTC: <strong style={{ color: "#C49A28" }}>0333 889 873</strong>
               </p>
               <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
                 <XuyenVietBtn href="/lien-he" style={{ background: "#C49A28", color: "#0A1208" }} />
