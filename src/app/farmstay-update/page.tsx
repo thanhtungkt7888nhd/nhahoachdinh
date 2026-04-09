@@ -1,55 +1,23 @@
-import Link from "next/link";
 import type { Metadata } from "next";
+import FarmstayUpdateClient from "./FarmstayUpdateClient";
 
 export const metadata: Metadata = {
-  title: "Farmstay Update | Phạm Thanh Tùng",
+  title: "Farmstay Update | Phạm Thanh Tùng · Nhà Hoạch Định",
+  description:
+    "Farmstay Update — sự kiện thường niên 2 ngày offline về Du lịch Nông nghiệp Việt Nam. Cập nhật tri thức, kết nối giao thương, học hỏi từ chuyên gia hàng đầu. Farmstay Update 2026: 13–15/03/2026 tại Sản Việt Farm, Khánh Hòa.",
+  keywords: [
+    "Farmstay Update", "Farmstay Update 2026", "du lịch nông nghiệp", "sự kiện farmstay",
+    "Phạm Thanh Tùng", "Defarm", "Sản Việt Farm", "offline farmstay toàn quốc",
+  ],
+  alternates: { canonical: "https://nhahoachdinh.com/farmstay-update" },
+  openGraph: {
+    title: "Farmstay Update 2026 — Sự Kiện Du Lịch Nông Nghiệp Lớn Nhất Năm",
+    description: "13–15/03/2026 · Sản Việt Farm · Khánh Hòa. 8 chuyên đề, diễn giả hàng đầu, 2 ngày kết nối giao thương.",
+    url: "https://nhahoachdinh.com/farmstay-update",
+    images: [{ url: "https://nhahoachdinh.com/og-home.jpg", width: 1200, height: 630 }],
+  },
 };
 
 export default function FarmstayUpdatePage() {
-  return (
-    <div
-      style={{
-        marginTop: "72px",
-        background: "#0A1208",
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "4rem 1.5rem",
-        textAlign: "center",
-      }}
-    >
-      <h1
-        style={{
-          fontFamily: "var(--font-alegreya)",
-          color: "#EDE0C4",
-          fontSize: "clamp(2rem,4vw,3rem)",
-          fontWeight: 700,
-          marginBottom: "1rem",
-        }}
-      >
-        Farmstay Update
-      </h1>
-      <p style={{ color: "#D4C8A4", fontFamily: "var(--font-nunito)", fontSize: "14px", marginBottom: "2.5rem" }}>
-        Đang cập nhật · Sắp ra mắt
-      </p>
-      <Link
-        href="/"
-        style={{
-          color: "#C49A28",
-          fontFamily: "var(--font-nunito)",
-          fontSize: "12px",
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          textDecoration: "none",
-          border: "1px solid rgba(196,154,40,0.4)",
-          padding: "10px 24px",
-          borderRadius: "6px",
-        }}
-      >
-        ← Trang Chủ
-      </Link>
-    </div>
-  );
+  return <FarmstayUpdateClient />;
 }
