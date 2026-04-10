@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 
+const APPS_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzylcE8kOeuYklvjO-C1FWnbK4jzeitRuS2LvpwU-uonD3igQJ4dHqWD3PZ1s7MAW3TEg/exec";
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -12,6 +15,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Gửi vào Google Sheets + Gmail qua Apps Script
+    await fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, phone, email, role }),
+    }).catch(() => {});
+
+    // Telegram (nếu đã cài)
     const tgToken = process.env.TELEGRAM_BOT_TOKEN;
     const tgChat = process.env.TELEGRAM_CHAT_ID;
 
