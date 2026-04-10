@@ -42,10 +42,22 @@ const timelineItems = [
 ];
 
 export default function XVF2026Client() {
-  const [form, setForm] = useState({ name: "", phone: "", email: "", role: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "" });
+  const [roles, setRoles] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const roleOptions = [
+    "Chủ farm / farmstay",
+    "Nhà đầu tư nông nghiệp",
+    "Người muốn học & trải nghiệm",
+    "Đối tác / nhà tài trợ",
+    "Khác",
+  ];
+
+  const toggleRole = (r: string) =>
+    setRoles((prev) => prev.includes(r) ? prev.filter((x) => x !== r) : [...prev, r]);
   const formRef = useRef<HTMLDivElement>(null);
   const timelineRef = useRef<HTMLDivElement>(null);
 
@@ -55,8 +67,8 @@ export default function XVF2026Client() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
-    if (!form.name || !form.phone || !form.email || !form.role) {
-      setError("Vui lòng điền đầy đủ thông tin.");
+    if (!form.name || !form.phone || !form.email || roles.length === 0) {
+      setError("Vui lòng điền đầy đủ thông tin và chọn ít nhất một vai trò.");
       return;
     }
     setLoading(true);
@@ -64,7 +76,7 @@ export default function XVF2026Client() {
       const res = await fetch("/api/xvf-register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, role: roles.join(", ") }),
       });
       if (res.ok) {
         setSubmitted(true);
@@ -563,21 +575,55 @@ export default function XVF2026Client() {
                 </div>
 
                 <div>
-                  <label style={{ color: "#EDE0C4", fontFamily: "var(--font-nunito)", fontSize: "12px", letterSpacing: "0.1em", display: "block", marginBottom: "6px" }}>
-                    Bạn là? *
+                  <label style={{ color: "#EDE0C4", fontFamily: "var(--font-nunito)", fontSize: "12px", letterSpacing: "0.1em", display: "block", marginBottom: "10px" }}>
+                    Bạn là? * <span style={{ color: "#A09070", fontWeight: 400 }}>(có thể chọn nhiều)</span>
                   </label>
-                  <select
-                    value={form.role}
-                    onChange={(e) => setForm({ ...form, role: e.target.value })}
-                    style={{ ...inputStyle, appearance: "none" }}
-                  >
-                    <option value="">— Chọn vai trò —</option>
-                    <option value="Chủ farm / farmstay">Chủ farm / farmstay</option>
-                    <option value="Nhà đầu tư nông nghiệp">Nhà đầu tư nông nghiệp</option>
-                    <option value="Người muốn học & trải nghiệm">Người muốn học &amp; trải nghiệm</option>
-                    <option value="Đối tác / nhà tài trợ">Đối tác / nhà tài trợ</option>
-                    <option value="Khác">Khác</option>
-                  </select>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                    {roleOptions.map((r) => {
+                      const checked = roles.includes(r);
+                      return (
+                        <label
+                          key={r}
+                          onClick={() => toggleRole(r)}
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: "10px",
+                            cursor: "pointer",
+                            padding: "10px 14px",
+                            borderRadius: "8px",
+                            border: checked ? "1px solid rgba(196,154,40,0.6)" : "1px solid rgba(196,154,40,0.2)",
+                            background: checked ? "rgba(196,154,40,0.12)" : "rgba(10,18,8,0.6)",
+                            transition: "all 0.15s",
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: "18px",
+                              height: "18px",
+                              borderRadius: "4px",
+                              border: checked ? "2px solid #C49A28" : "2px solid rgba(196,154,40,0.4)",
+                              background: checked ? "#C49A28" : "transparent",
+                              flexShrink: 0,
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              transition: "all 0.15s",
+                            }}
+                          >
+                            {checked && (
+                              <svg width="11" height="9" viewBox="0 0 11 9" fill="none">
+                                <path d="M1 4L4 7L10 1" stroke="#0A1208" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                              </svg>
+                            )}
+                          </div>
+                          <span style={{ color: checked ? "#EDE0C4" : "#A09070", fontFamily: "var(--font-nunito)", fontSize: "13px", transition: "color 0.15s" }}>
+                            {r}
+                          </span>
+                        </label>
+                      );
+                    })}
+                  </div>
                 </div>
 
                 {error && (
