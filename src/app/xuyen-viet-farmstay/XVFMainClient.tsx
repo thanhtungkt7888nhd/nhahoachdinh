@@ -479,13 +479,15 @@ export default function XVFMainClient() {
               { num: "3", label: "Mùa Liên Tiếp" },
               { num: "100+", label: "Farm & Farmstay" },
               { num: "30+", label: "Tỉnh Thành" },
-              { num: "2026", label: "Mùa Tiếp Theo" },
+              { num: "2026", label: "Mùa Tiếp Theo", href: "/xuyen-viet-farmstay/2026" },
             ].map((s, i, arr) => (
               <div
                 key={i}
+                onClick={() => { if (s.href) window.location.href = s.href; }}
                 style={{
                   padding: "1rem",
                   borderRight: i < arr.length - 1 ? "1px solid rgba(196,154,40,0.15)" : "none",
+                  cursor: s.href ? "pointer" : "default",
                 }}
               >
                 <div style={{ ...goldShimmerStyle, fontFamily: "var(--font-alegreya)", fontSize: "2rem", fontWeight: 700, marginBottom: "0.2rem" }}>
