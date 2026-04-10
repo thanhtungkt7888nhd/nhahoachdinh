@@ -668,33 +668,38 @@ export default function VeToiClient() {
               {
                 year: "2021",
                 title: "Mùa Khai Phá",
+                href: "/xuyen-viet-farmstay",
                 stats: [{ label: "Mùa đầu tiên", val: "#01" }, { label: "Khởi nguồn", val: "Cộng đồng" }],
                 desc: "Hành trình đặt nền móng kết nối cộng đồng farmstay toàn quốc lần đầu tiên — từ ý tưởng táo bạo đến hiện thực, mở ra một phong trào mới cho ngành du lịch nông nghiệp.",
               },
               {
                 year: "2023",
                 title: "Mùa Bứt Phá",
+                href: "/xuyen-viet-farmstay/2023",
                 stats: [{ label: "Quãng đường", val: "2.000km" }, { label: "Hành trình", val: "10 ngày" }, { label: "Tỉnh thành", val: "19 tỉnh" }, { label: "Thành viên", val: "90 người" }],
                 desc: "Xuyên suốt 19 tỉnh thành trong 10 ngày, 90 thành viên cùng nhau khám phá và kết nối hệ sinh thái farmstay toàn quốc từ Bắc vào Nam.",
               },
               {
                 year: "2024",
                 title: "Mùa Di Sản",
+                href: "/xuyen-viet-farmstay/2024",
                 stats: [{ label: "Quãng đường", val: "2.000km" }, { label: "Hành trình", val: "15 ngày" }, { label: "Tỉnh thành", val: "15 tỉnh" }, { label: "Thành viên", val: "70 người" }],
                 desc: "15 ngày băng qua 15 tỉnh với điểm nhấn đặc biệt: đấu giá sâm Ngọc Linh — đặc sản quý hiếm Tây Nguyên, tôn vinh di sản văn hóa bản địa vùng cao.",
               },
               {
                 year: "2025",
                 title: "Mùa Tiếp Nối",
+                href: "/xuyen-viet-farmstay/2025",
                 stats: [{ label: "Quãng đường", val: "2.000km+" }, { label: "Hành trình", val: "19 ngày" }, { label: "Trang trại", val: "45–50" }, { label: "7/5–25/5", val: "2025" }],
                 desc: "Ba Vì → Đồng Nai theo Đường Hồ Chí Minh — 19 ngày, 45–50 trang trại & farmstay trải dài từ Bắc xuống Nam. Mùa thứ 4 khép lại với hành trình dài nhất và nhiều điểm đến nhất.",
               },
             ].map((season, i) => (
               <StaggerChild key={i}>
                 <motion.div
-                  className="p-7 border border-earth/10 bg-beige/30 h-full flex flex-col relative overflow-hidden group"
+                  className="p-7 border border-earth/10 bg-beige/30 h-full flex flex-col relative overflow-hidden group cursor-pointer"
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.25 }}
+                  onClick={() => window.location.href = season.href}
                 >
                   <span className="gold-shine-subtle font-serif text-4xl font-bold block mb-1">{season.year}</span>
                   <h3 className="font-serif text-charcoal text-base font-medium mb-4">{season.title}</h3>
