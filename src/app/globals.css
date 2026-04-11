@@ -11,6 +11,12 @@
   font-display: swap;
 }
 
+/* ─── Gold Shimmer Keyframe — dùng chung toàn site ──────────────────────── */
+@keyframes gold-shimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 300% center; }
+}
+
 /* ─── Gold Static (no animation — performance) ────────────────────────────── */
 
 @layer base {
