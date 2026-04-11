@@ -11,6 +11,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/chia-se-kien-thuc`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
     { url: `${BASE}/lien-he`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.5 },
     { url: `${BASE}/sach-farmstay`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/xuyen-viet-farmstay`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/xuyen-viet-farmstay/2023`, lastModified: new Date("2023-12-01"), changeFrequency: "yearly", priority: 0.7 },
+    { url: `${BASE}/xuyen-viet-farmstay/2024`, lastModified: new Date("2024-12-01"), changeFrequency: "yearly", priority: 0.7 },
+    { url: `${BASE}/xuyen-viet-farmstay/2025`, lastModified: new Date("2025-05-25"), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE}/xuyen-viet-farmstay/2026`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
   ];
 
   const articlePages: MetadataRoute.Sitemap = articles.map((article) => {

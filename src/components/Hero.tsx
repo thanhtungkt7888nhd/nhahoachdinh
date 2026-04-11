@@ -29,15 +29,25 @@ export default function Hero() {
     <section
       ref={ref}
       className="relative min-h-screen grid overflow-hidden"
-      style={{ gridTemplateColumns: "1fr 1fr" }}
+      style={{ gridTemplateColumns: "1fr 1fr" } as React.CSSProperties}
     >
+      {/* ── MOBILE background photo (ẩn trên desktop) ───────────────────── */}
+      <div className="absolute inset-0 z-0 md:hidden">
+        <Image
+          src="/images/outdoor-4-waterfall.jpg"
+          alt=""
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0" style={{ background: "rgba(10,18,8,0.78)" }} />
+      </div>
+
       {/* ── LEFT — GAM ĐẬM: deep forest near-black ─────────────────────── */}
       <motion.div
-        className="relative z-10 flex flex-col justify-center px-10 py-32 lg:px-16"
-        style={{
-          background: "linear-gradient(160deg, #0D1A0C 0%, #0A1208 100%)",
-          y: textY,
-        }}
+        className="relative z-10 flex flex-col justify-center px-8 py-32 col-span-2 md:col-span-1 md:px-10 lg:px-16 hero-left-bg"
+        style={{ y: textY }}
       >
         {/* Đường vàng dọc bên trái */}
         <div
@@ -138,8 +148,8 @@ export default function Hero() {
 
       </motion.div>
 
-      {/* ── RIGHT — full-bleed photo với overlay tối ─────────────────────── */}
-      <div className="relative overflow-hidden">
+      {/* ── RIGHT — full-bleed photo với overlay tối (ẩn trên mobile) ───── */}
+      <div className="relative overflow-hidden hidden md:block">
         {/* Overlay tối 35% */}
         <div
           className="absolute inset-0 z-10 pointer-events-none"
