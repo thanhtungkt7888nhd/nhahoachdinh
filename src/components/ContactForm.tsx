@@ -20,9 +20,11 @@ export default function ContactForm() {
   } = useForm<FormData>();
 
   const onSubmit = async (data: FormData) => {
-    // TODO: gắn API endpoint gửi email (Resend, SendGrid, v.v.)
-    console.log("Form submitted:", data);
-    await new Promise((r) => setTimeout(r, 800)); // simulate
+    await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).catch(() => {});
     setSubmitted(true);
     reset();
   };
