@@ -168,6 +168,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         {/* DNS prefetch cho các domain có thể dùng */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* ── Google Analytics 4 — G-3CBBJC09NP ──────────────────────────── */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CBBJC09NP" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-3CBBJC09NP', { page_path: window.location.pathname });
+            `,
+          }}
+        />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
