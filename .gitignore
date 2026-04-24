@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/src/generated/prisma
+
+# SQLite local database (không push lên git)
+prisma/dev.db
+prisma/*.db
+prisma/*.db-journal
+
+# .env.example được giữ lại để tham khảo
+!.env.example
+
