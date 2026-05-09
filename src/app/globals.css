@@ -16,3 +16,7 @@
 * {
   box-sizing: border-box;
 }
+
+/* Bài viết — hover effects */
+.article-card-title-link:hover { color: #D4B050 !important; transition: color 0.2s; }
+.related-link-title:hover { color: #EDE0C4 !important; transition: color 0.2s; }
