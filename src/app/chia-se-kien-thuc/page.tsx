@@ -54,7 +54,7 @@ export default async function ChiaSePage({ searchParams }: Props) {
   const posts = filtered.slice((currentPage - 1) * perPage, currentPage * perPage);
 
   return (
-    <main style={{ background: FOREST, minHeight: "100vh" }}>
+    <main className="article-listing-page" style={{ background: FOREST, minHeight: "100vh" }}>
       {/* === Header === */}
       <section
         style={{

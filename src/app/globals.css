@@ -17,6 +17,13 @@
   box-sizing: border-box;
 }
 
+/* Override body background cho trang bài viết tối */
+body:has(.article-layout),
+body:has(.article-listing-page) {
+  background-color: #0A1208;
+  color: #EDE0C4;
+}
+
 /* Bài viết — hover effects */
 .article-card-title-link:hover { color: #D4B050 !important; transition: color 0.2s; }
 .related-link-title:hover { color: #EDE0C4 !important; transition: color 0.2s; }

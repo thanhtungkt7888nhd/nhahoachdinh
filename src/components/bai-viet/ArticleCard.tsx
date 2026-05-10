@@ -1,6 +1,7 @@
 /**
- * ArticleCard — Card hiển thị bài viết trong trang listing.
- * Layout: ảnh cover → cua badge → tiêu đề → excerpt → meta.
+ * ArticleCard — Card bài viết trong trang listing.
+ * Layout: ảnh 16/9 → cua badge → tiêu đề → excerpt → meta.
+ * Hover: scale ảnh + glow border.
  */
 
 import Link from "next/link";
@@ -11,9 +12,9 @@ interface ArticleCardProps {
   post: Post;
 }
 
-const FOREST = "#0A1208";
-const CREAM  = "#EDE0C4";
-const TERRA  = "#A0522D";
+const CREAM = "#EDE0C4";
+const GOLD  = "#C49A28";
+const TERRA = "#A0522D";
 
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T00:00:00");
@@ -25,72 +26,114 @@ export default function ArticleCard({ post }: ArticleCardProps) {
   const cua  = CUA_CONFIG[post.cua] ?? CUA_CONFIG.di;
 
   return (
-    <article
-      className="group flex flex-col overflow-hidden rounded-lg"
-      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(196,154,40,0.1)" }}
-    >
-      {/* Ảnh cover */}
-      <Link href={href} className="block overflow-hidden" style={{ aspectRatio: "16/9", position: "relative" }}>
-        <Image
-          src={post.cover}
-          alt={post.title}
-          fill
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          style={{ objectFit: "cover", transition: "transform 0.4s ease" }}
-          className="group-hover:scale-105"
-        />
-        {/* Gradient overlay */}
-        <div
-          style={{
+    <>
+      <style>{`
+        .article-card {
+          display: flex; flex-direction: column;
+          overflow: hidden; border-radius: 8px;
+          background: rgba(255,255,255,0.03);
+          border: 1px solid rgba(196,154,40,0.1);
+          transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+        .article-card:hover {
+          border-color: rgba(196,154,40,0.25);
+          transform: translateY(-3px);
+          box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+        }
+        .article-card:hover .card-img {
+          transform: scale(1.05);
+        }
+        .card-img {
+          transition: transform 0.5s ease;
+        }
+        .article-card-title:hover { color: #D4B050 !important; }
+      `}</style>
+
+      <article className="article-card">
+        {/* Ảnh cover */}
+        <Link
+          href={href}
+          style={{ display: "block", position: "relative", aspectRatio: "16/9", overflow: "hidden" }}
+        >
+          <Image
+            src={post.cover}
+            alt={post.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="card-img"
+            style={{ objectFit: "cover" }}
+          />
+          {/* Gradient */}
+          <div style={{
             position: "absolute", inset: 0,
-            background: "linear-gradient(to top, rgba(10,18,8,0.7) 0%, transparent 60%)",
-          }}
-        />
-        {/* Cua badge overlay */}
-        <span
-          className="absolute bottom-3 left-3 font-sans font-bold uppercase"
-          style={{
-            fontSize: "0.6rem", letterSpacing: "0.2em",
+            background: "linear-gradient(to top, rgba(10,18,8,0.75) 0%, transparent 55%)",
+          }} />
+          {/* Cua badge */}
+          <span style={{
+            position: "absolute", bottom: 10, left: 12,
+            fontFamily: "var(--font-sans, sans-serif)",
+            fontSize: "0.55rem", letterSpacing: "0.25em",
+            fontWeight: 700, textTransform: "uppercase",
             color: cua.color, background: cua.bg,
-            padding: "0.2rem 0.6rem", borderRadius: 3,
-            backdropFilter: "blur(4px)",
-          }}
-        >
-          {cua.label}
-        </span>
-      </Link>
+            padding: "0.22rem 0.65rem", borderRadius: 3,
+            border: `1px solid ${cua.color}40`,
+            backdropFilter: "blur(6px)",
+          }}>
+            {cua.label}
+          </span>
+        </Link>
 
-      {/* Nội dung */}
-      <div className="flex flex-col flex-1 p-4">
-        <h2
-          className="font-serif font-normal leading-snug mb-2"
-          style={{ fontSize: "clamp(1rem, 1.8vw, 1.15rem)", color: CREAM }}
-        >
-          <Link
-            href={href}
-            className="article-card-title-link"
-            style={{ color: "inherit" }}
-          >
-            {post.title}
-          </Link>
-        </h2>
+        {/* Nội dung */}
+        <div style={{
+          display: "flex", flexDirection: "column", flex: 1,
+          padding: "1.25rem 1.25rem 1rem",
+        }}>
+          {/* Tiêu đề */}
+          <h2 style={{
+            fontFamily: "var(--font-serif, Georgia, serif)",
+            fontSize: "clamp(0.95rem, 1.5vw, 1.08rem)",
+            fontWeight: 400, lineHeight: 1.45,
+            color: CREAM, marginBottom: "0.65rem",
+          }}>
+            <Link
+              href={href}
+              className="article-card-title"
+              style={{ color: "inherit", textDecoration: "none", transition: "color 0.2s" }}
+            >
+              {post.title}
+            </Link>
+          </h2>
 
-        <p
-          className="font-sans line-clamp-2 mb-3 flex-1"
-          style={{ fontSize: "0.85rem", lineHeight: 1.7, color: "rgba(237,224,196,0.5)" }}
-        >
-          {post.excerpt}
-        </p>
+          {/* Excerpt */}
+          <p style={{
+            fontFamily: "var(--font-sans, sans-serif)",
+            fontSize: "0.82rem", lineHeight: 1.7,
+            color: "rgba(237,224,196,0.45)",
+            marginBottom: "1rem", flex: 1,
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+          }}>
+            {post.excerpt}
+          </p>
 
-        {/* Footer meta */}
-        <div
-          className="flex items-center justify-between font-sans"
-          style={{ fontSize: "0.7rem", color: "rgba(237,224,196,0.35)", letterSpacing: "0.05em" }}
-        >
-          <span>{formatDate(post.date)}</span>
-          <span style={{ color: "rgba(160,82,45,0.6)" }}>{post.readingTime} đọc</span>
+          {/* Footer */}
+          <div style={{
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+            fontFamily: "var(--font-sans, sans-serif)",
+            borderTop: "1px solid rgba(255,255,255,0.05)",
+            paddingTop: "0.75rem",
+          }}>
+            <span style={{ fontSize: "0.68rem", color: "rgba(237,224,196,0.3)", letterSpacing: "0.04em" }}>
+              {formatDate(post.date)}
+            </span>
+            <span style={{ fontSize: "0.68rem", color: "rgba(160,82,45,0.65)", letterSpacing: "0.03em" }}>
+              {post.readingTime} đọc
+            </span>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </>
   );
 }
