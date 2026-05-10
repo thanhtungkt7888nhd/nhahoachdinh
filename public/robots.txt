@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard/
+Disallow: /dang-nhap/
+Disallow: /dang-ky/
+Disallow: /api/
+
+# AI crawlers — allow indexing public content
+User-agent: GPTBot
+Allow: /
+Disallow: /dashboard/
+Disallow: /dang-nhap/
+Disallow: /dang-ky/
+Disallow: /api/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /dashboard/
+Disallow: /dang-nhap/
+Disallow: /dang-ky/
+Disallow: /api/
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /dashboard/
+Disallow: /dang-nhap/
+Disallow: /dang-ky/
+Disallow: /api/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /dashboard/
+Disallow: /dang-nhap/
+Disallow: /dang-ky/
+Disallow: /api/
+
+Sitemap: https://nhahoachdinh.vn/sitemap.xml

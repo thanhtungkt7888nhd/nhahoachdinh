@@ -1,0 +1,36 @@
+# nhahoachdinh.vn — Nhà Hoạch Định
+
+> Nền tảng SaaS hoạch định đầu tư Farmstay và Du lịch sinh thái tại Việt Nam.
+
+## Giới thiệu
+
+nhahoachdinh.vn là nền tảng phần mềm do Phạm Thanh Tùng — Nhà Hoạch Định — xây dựng,
+chuyên phục vụ chủ Farm, kiến trúc sư, và nhà đầu tư muốn phát triển Farmstay,
+Du lịch sinh thái, Du lịch nông nghiệp, và Du lịch thiên nhiên tại Việt Nam.
+
+## Tính năng chính
+
+- **Hoạch Định** (`/hoach-dinh`): Công cụ lập kế hoạch đầu tư Farmstay — nhập thông số
+  diện tích, ngân sách, địa hình, loại hình du lịch; hệ thống tạo kế hoạch chi tiết.
+- **Bảng giá** (`/gia-ca`): Các gói dịch vụ SaaS cho cá nhân và doanh nghiệp.
+- **Dashboard** (`/dashboard`): Quản lý dự án hoạch định (yêu cầu đăng nhập).
+- **Tôi Làm** (`/toi-lam`): Hồ sơ công việc của Phạm Thanh Tùng — nhật ký dự án,
+  xuyên Việt khảo sát Farmstay, bản đồ dự án, mục tiêu.
+- **Nhật ký** (`/toi-lam/nhat-ky`): Bài viết chuyên sâu về phát triển Farmstay và
+  du lịch sinh thái tại Việt Nam.
+- **Tư vấn** (`/toi-lam/tu-van`): Dịch vụ tư vấn trực tiếp từ Nhà Hoạch Định.
+- **Xuyên Việt Farmstay** (`/toi-lam/xuyen-viet-farmstay`): Hành trình khảo sát
+  thực địa các Farmstay trên toàn quốc (2023–2026).
+- **Farmstay Update** (`/toi-lam/farmstay-update`): Cập nhật thị trường Farmstay Việt Nam.
+
+## Đối tượng người dùng
+
+- Chủ Farm muốn chuyển đổi sang Farmstay du lịch
+- Kiến trúc sư thiết kế không gian nông nghiệp-du lịch
+- Nhà đầu tư tìm kiếm cơ hội trong du lịch sinh thái
+- Người làm chính sách nông nghiệp và du lịch
+
+## Liên hệ
+
+- Website: https://nhahoachdinh.vn
+- Tư vấn: https://nhahoachdinh.vn/toi-lam/tu-van
