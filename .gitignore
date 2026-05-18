@@ -50,3 +50,6 @@ prisma/*.db-journal
 # .env.example được giữ lại để tham khảo
 !.env.example
 
+# Claude Code internal
+.claude/
+

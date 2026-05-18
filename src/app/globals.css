@@ -27,3 +27,21 @@ body:has(.article-listing-page) {
 /* Bài viết — hover effects */
 .article-card-title-link:hover { color: #D4B050 !important; transition: color 0.2s; }
 .related-link-title:hover { color: #EDE0C4 !important; transition: color 0.2s; }
+
+/* de-theme: dark-forest */
+/* Dark Editorial Theme: Forest — nhahoachdinh.vn */
+[data-editorial-theme="dark-forest"] {
+  --de-bg:        #0A1208;
+  --de-bg-2:      #0F1A0C;
+  --de-fg:        #EDE0C4;
+  --de-fg-muted:  rgba(237,224,196,0.45);
+  --de-accent:    #C49A28;
+  --de-accent-2:  #E8C84A;
+  --de-warm:      #A0522D;
+  --de-border:    rgba(196,154,40,0.12);
+  --de-font-serif: Georgia, "Times New Roman", serif;
+  --de-font-sans:  var(--font-geist-sans, system-ui, sans-serif);
+}
+
+/* Dark Editorial — body background override */
+body:has([data-editorial-theme]) { background-color: var(--de-bg); color: var(--de-fg); }
